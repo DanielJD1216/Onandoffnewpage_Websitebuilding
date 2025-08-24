@@ -4,7 +4,9 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { FeatureCard } from '@/components/ui/feature-card';
 import { NoticeBox } from '@/components/ui/notice-box';
+import { CollapsibleCard } from '@/components/ui/collapsible-card';
 import { PROGRAMS } from '@/lib/constants';
+import { Home, Target, BookOpen, Star, Megaphone } from 'lucide-react';
 import Link from 'next/link';
 
 const programOverview = {
@@ -20,22 +22,46 @@ const programOverview = {
       </p>
       
       <div className="grid md:grid-cols-3 gap-6">
-        {Object.values(PROGRAMS).map((program, index) => (
-          <Card key={index} className="p-6 border-0 shadow-lg">
-            <div className="text-center mb-4">
-              <span className="text-3xl mb-2 block">{program.iconKr}</span>
-              <h3 className="text-xl font-black text-brand-green mb-4">{program.titleKr}</h3>
-            </div>
-            <ul className="space-y-2">
-              {program.schools.map((school, schoolIndex) => (
-                <li key={schoolIndex} className="flex items-center gap-2 text-gray-700">
-                  <span className="text-brand-green">•</span>
-                  {school}
-                </li>
-              ))}
-            </ul>
-          </Card>
-        ))}
+        {Object.values(PROGRAMS).map((program, index) => {
+          const isPopular = index === 0; // BC is most popular
+          return (
+            <Card key={index} className="group relative p-6 border-0 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 bg-gradient-to-br from-white to-brand-ivory/20 border border-brand-green/10 overflow-hidden">
+              {/* Premium decorative elements */}
+              <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-brand-green/10 to-transparent rounded-full transform translate-x-6 -translate-y-6" />
+              
+              {/* Popular badge */}
+              {isPopular && (
+                <div className="absolute top-3 right-3 bg-gradient-to-r from-brand-gold to-brand-gold/80 text-white text-xs font-black px-3 py-1 rounded-full shadow-sm">
+                  인기
+                </div>
+              )}
+              
+              {/* Icon and title section */}
+              <div className="text-center mb-6 relative">
+                <div className="w-16 h-16 mx-auto bg-gradient-to-br from-brand-green to-brand-green/80 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-2 transition-all duration-300 shadow-lg shadow-brand-green/25">
+                  <span className="text-white text-2xl">{program.iconKr}</span>
+                </div>
+                <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-brand-gold rounded-full group-hover:scale-125 transition-transform duration-300" />
+                <h3 className="text-xl font-black text-brand-green group-hover:text-brand-green/90 transition-colors leading-tight">
+                  {program.titleKr}
+                </h3>
+              </div>
+              
+              {/* Schools list */}
+              <div className="space-y-3">
+                {program.schools.map((school, schoolIndex) => (
+                  <div key={schoolIndex} className="flex items-start gap-3 text-gray-700 group-hover:text-gray-800 transition-colors">
+                    <div className="w-2 h-2 rounded-full bg-brand-green/60 mt-2 flex-shrink-0" />
+                    <span className="font-medium text-sm leading-relaxed">{school}</span>
+                  </div>
+                ))}
+              </div>
+              
+              {/* Korean-style bottom accent line */}
+              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-12 h-0.5 bg-gradient-to-r from-transparent via-brand-green/40 to-transparent group-hover:w-20 group-hover:via-brand-green/70 transition-all duration-300" />
+            </Card>
+          );
+        })}
       </div>
     </div>
   )
@@ -413,8 +439,53 @@ export default function ProgramsPage() {
       {/* Main Content */}
       <section className="py-16 lg:py-24">
         <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto">
-            <Accordion items={accordionItems} className="mb-12" />
+          <div className="max-w-6xl mx-auto space-y-6">
+            <CollapsibleCard
+              title="프로그램 개요"
+              defaultOpen={true}
+              variant="premium"
+              headerIcon={<Target className="w-5 h-5" />}
+            >
+              {programOverview.content}
+            </CollapsibleCard>
+
+            <CollapsibleCard
+              title="프로그램 특징"
+              variant="accent"
+              headerIcon={<Star className="w-5 h-5" />}
+            >
+              {programFeatures.content}
+            </CollapsibleCard>
+
+            <CollapsibleCard
+              title="홈스테이 프로그램"
+              variant="default"
+              headerIcon={<Home className="w-5 h-5" />}
+            >
+              {homestayProgram.content}
+            </CollapsibleCard>
+
+            <CollapsibleCard
+              title="케어 서비스"
+              variant="accent"
+              headerIcon={<BookOpen className="w-5 h-5" />}
+            >
+              {careServices.content}
+            </CollapsibleCard>
+
+            <CollapsibleCard
+              title="입학 절차"
+              variant="default"
+            >
+              {admissionProcess.content}
+            </CollapsibleCard>
+
+            <CollapsibleCard
+              title="비용 안내 (2025-2026)"
+              variant="premium"
+            >
+              {costs.content}
+            </CollapsibleCard>
           </div>
         </div>
       </section>

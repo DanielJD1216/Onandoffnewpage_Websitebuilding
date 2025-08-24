@@ -2,6 +2,7 @@ import { SectionHeading } from '@/components/ui/section-heading';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { NoticeBox } from '@/components/ui/notice-box';
+import { SuccessStoryCard } from '@/components/ui/success-story-card';
 import Link from 'next/link';
 
 const successStories = [
@@ -153,54 +154,13 @@ export default function SuccessStoriesPage() {
             className="mb-12"
           />
           
-          <div className="max-w-6xl mx-auto space-y-8">
+          <div className="max-w-7xl mx-auto space-y-8">
             {successStories.map((story, index) => (
-              <Card key={story.id} className="p-8 border-0 shadow-lg">
-                <div className="flex flex-col lg:flex-row gap-6">
-                  {/* Story Icon & Info */}
-                  <div className="lg:w-1/4">
-                    <div className="text-center mb-4">
-                      <span className="text-4xl mb-2 block">{story.icon}</span>
-                      <div className="text-sm text-gray-600">
-                        <div className="font-black">{story.studentGrade}</div>
-                        <div>{story.destination}</div>
-                        <div>{story.year}</div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  {/* Story Content */}
-                  <div className="lg:w-3/4 space-y-4">
-                    <div className="grid md:grid-cols-3 gap-4">
-                      <div className="bg-red-50 p-4 rounded-lg">
-                        <h3 className="font-black text-red-800 mb-2">😟 도전 상황</h3>
-                        <p className="text-sm text-gray-700">{story.challenge}</p>
-                      </div>
-                      
-                      <div className="bg-blue-50 p-4 rounded-lg">
-                        <h3 className="font-black text-blue-800 mb-2">💡 해결 방안</h3>
-                        <p className="text-sm text-gray-700">{story.solution}</p>
-                      </div>
-                      
-                      <div className="bg-green-50 p-4 rounded-lg">
-                        <h3 className="font-black text-green-800 mb-2">✨ 성과</h3>
-                        <p className="text-sm text-gray-700">{story.result}</p>
-                      </div>
-                    </div>
-                    
-                    {/* Student Quote */}
-                    <div className="bg-brand-ivory/30 p-6 rounded-lg border-l-4 border-brand-green">
-                      <div className="flex items-start gap-4">
-                        <span className="text-2xl text-brand-green flex-shrink-0">"</span>
-                        <div>
-                          <p className="text-gray-700 italic mb-2">{story.quote}</p>
-                          <p className="text-sm font-black text-brand-green">- 익명의 학생</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </Card>
+              <SuccessStoryCard 
+                key={story.id} 
+                story={story} 
+                variant={index % 3 === 0 ? 'premium' : 'default'}
+              />
             ))}
           </div>
         </div>

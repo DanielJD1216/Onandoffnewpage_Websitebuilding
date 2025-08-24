@@ -1,5 +1,6 @@
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { ContactMethodCard } from '@/components/ui/contact-method-card';
 import { COMPANY_INFO } from '@/lib/constants';
 
 interface ContactMethod {
@@ -64,25 +65,18 @@ export function ContactInfo({
     return (
       <div className={`grid md:grid-cols-3 gap-8 ${className}`}>
         {contactMethods.map((option, index) => (
-          <Card key={index} className="p-6 border-0 shadow-lg text-center group hover:shadow-xl transition-shadow">
-            <span className="text-4xl mb-4 block">{option.icon}</span>
-            <h3 className="text-xl font-black text-brand-green mb-2">{option.title}</h3>
-            <p className="text-sm font-medium text-gray-600 mb-3">{option.subtitle}</p>
-            <p className="text-sm text-gray-700 mb-4">{option.description}</p>
-            <p className="font-medium text-brand-green mb-4">{option.contact}</p>
-            <Button 
-              size="sm" 
-              className="bg-brand-green hover:bg-brand-green/90 font-black w-full"
-              asChild
-            >
-              <a 
-                href={option.action} 
-                {...(option.external && { target: "_blank", rel: "noopener noreferrer" })}
-              >
-                {option.buttonText}
-              </a>
-            </Button>
-          </Card>
+          <ContactMethodCard
+            key={index}
+            method={option.method as 'email' | 'kakao' | 'whatsapp'}
+            title={option.title}
+            subtitle={option.subtitle}
+            description={option.description}
+            contact={option.contact}
+            action={option.action}
+            buttonText={option.buttonText}
+            external={option.external}
+            variant={index === 1 ? 'premium' : 'default'} // Make middle card premium
+          />
         ))}
       </div>
     );

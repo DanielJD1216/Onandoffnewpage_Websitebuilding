@@ -3,6 +3,7 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { SectionHeading } from '@/components/ui/section-heading';
 import { NoticeBox } from '@/components/ui/notice-box';
+import { AnnouncementBanner } from '@/components/ui/announcement-banner';
 import { PageHero, PageSection } from '@/components/layout/PageSection';
 import { FeatureGrid } from '@/components/ui/feature-grid';
 import { ContactMethods, OfficeInfo } from '@/components/blocks/ContactInfo';
@@ -23,7 +24,7 @@ export default function ContactPage() {
         {/* Quick Contact Options */}
         <ContactMethods className="mb-12" />
 
-        <NoticeBox
+        <AnnouncementBanner
           title="응답 시간 안내"
           message={COMPANY_INFO.consultation.responseTimeKr}
           variant="info"

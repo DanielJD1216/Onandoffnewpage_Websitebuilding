@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { FeatureCard } from '@/components/ui/feature-card';
 import { SectionHeading } from '@/components/ui/section-heading';
+import { TrustBadges } from '@/components/ui/trust-badges';
 import { COMPANY_INFO, FEATURES, PROGRAMS } from '@/lib/constants';
 import Link from 'next/link';
 
@@ -19,6 +20,7 @@ export default function HomePage({ params }: { params: { locale: string } }) {
             title={COMPANY_INFO.taglineKr}
             subtitle={COMPANY_INFO.subtitleKr}
             level={1}
+            variant="premium"
             className="mb-8"
           />
           
@@ -46,31 +48,52 @@ export default function HomePage({ params }: { params: { locale: string } }) {
         </div>
       </section>
 
+      {/* Trust Badges */}
+      <section className="py-16 bg-white border-t border-gray-100">
+        <div className="container mx-auto px-4">
+          <SectionHeading 
+            title="믿을 수 있는 교육 파트너" 
+            subtitle="캐나다 현지에서 검증된 전문성과 신뢰성"
+            variant="premium"
+            centered={true}
+            className="mb-12"
+          />
+          <TrustBadges className="max-w-6xl mx-auto" />
+        </div>
+      </section>
+
       {/* Key Features */}
       <section className="py-16 lg:py-24">
         <div className="container mx-auto px-4">
-          <SectionHeading title="왜 On & Off New Page인가?" />
+          <SectionHeading 
+            title="왜 On & Off New Page인가?" 
+            variant="premium"
+          />
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <FeatureCard
               icon={FEATURES.local.iconKr}
               title={FEATURES.local.titleKr}
               description={FEATURES.local.descriptionKr}
+              variant="premium"
             />
             <FeatureCard
               icon={FEATURES.homestay.iconKr}
               title={FEATURES.homestay.titleKr}
               description={FEATURES.homestay.descriptionKr}
+              variant="premium"
             />
             <FeatureCard
               icon={FEATURES.support.iconKr}
               title={FEATURES.support.titleKr}
               description={FEATURES.support.descriptionKr}
+              variant="premium"
             />
             <FeatureCard
               icon={FEATURES.visa.iconKr}
               title={FEATURES.visa.titleKr}
               description={FEATURES.visa.descriptionKr}
+              variant="premium"
             />
           </div>
         </div>
@@ -79,9 +102,11 @@ export default function HomePage({ params }: { params: { locale: string } }) {
       {/* Programs Preview */}
       <section className="py-16 lg:py-24 bg-gray-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-black text-center text-brand-green mb-16">
-            주요 프로그램
-          </h2>
+          <SectionHeading 
+            title="주요 프로그램" 
+            subtitle="캐나다 전 지역 맞춤형 교육 솔루션"
+            variant="premium"
+          />
           
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             <Card className="p-6 bg-white border-0 shadow-md hover:shadow-lg transition-shadow">
