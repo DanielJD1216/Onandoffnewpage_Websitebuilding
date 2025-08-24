@@ -1,0 +1,136 @@
+import Link from 'next/link';
+import { COMPANY_INFO } from '@/lib/constants';
+
+const footerNavigation = {
+  services: {
+    title: '서비스',
+    links: [
+      { name: '유학 상담', href: '/ko/consultation' },
+      { name: '프로그램 안내', href: '/ko/programs' },
+      { name: '홈스테이', href: '/ko/programs#homestay' },
+      { name: '비자 지원', href: '/ko/programs#visa' },
+    ],
+  },
+  company: {
+    title: '회사',
+    links: [
+      { name: '회사 소개', href: '/ko/about' },
+      { name: '연락처', href: '/ko/about#contact' },
+      { name: '오시는 길', href: '/ko/about#location' },
+    ],
+  },
+  programs: {
+    title: '주요 프로그램',
+    links: [
+      { name: 'BC주 프로그램', href: '/ko/programs#bc' },
+      { name: '온타리오 프로그램', href: '/ko/programs#ontario' },
+      { name: '알버타 프로그램', href: '/ko/programs#alberta' },
+    ],
+  },
+};
+
+export function Footer() {
+  const currentYear = new Date().getFullYear();
+
+  return (
+    <footer className="bg-gray-900 text-white">
+      <div className="container mx-auto px-4 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+          {/* Company Info */}
+          <div className="lg:col-span-2">
+            <h3 className="text-2xl font-black text-brand-ivory mb-4">
+              {COMPANY_INFO.name}
+            </h3>
+            <p className="text-gray-400 mb-4">
+              {COMPANY_INFO.subtitleKr}
+            </p>
+            <div className="space-y-2 text-sm text-gray-400">
+              <p>📍 {COMPANY_INFO.address}</p>
+              <p>📧 {COMPANY_INFO.email}</p>
+            </div>
+          </div>
+
+          {/* Services */}
+          <div>
+            <h4 className="font-black text-brand-ivory mb-4">
+              {footerNavigation.services.title}
+            </h4>
+            <ul className="space-y-2">
+              {footerNavigation.services.links.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    href={link.href}
+                    className="text-gray-400 hover:text-brand-ivory transition-colors text-sm"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Company */}
+          <div>
+            <h4 className="font-black text-brand-ivory mb-4">
+              {footerNavigation.company.title}
+            </h4>
+            <ul className="space-y-2">
+              {footerNavigation.company.links.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    href={link.href}
+                    className="text-gray-400 hover:text-brand-ivory transition-colors text-sm"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Programs */}
+          <div>
+            <h4 className="font-black text-brand-ivory mb-4">
+              {footerNavigation.programs.title}
+            </h4>
+            <ul className="space-y-2">
+              {footerNavigation.programs.links.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    href={link.href}
+                    className="text-gray-400 hover:text-brand-ivory transition-colors text-sm"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="mt-12 pt-8 border-t border-gray-800">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <p className="text-gray-400 text-sm">
+              © {currentYear} {COMPANY_INFO.name}. All rights reserved.
+            </p>
+            <div className="flex space-x-6 mt-4 md:mt-0">
+              <Link
+                href="/ko/privacy"
+                className="text-gray-400 hover:text-brand-ivory text-sm transition-colors"
+              >
+                개인정보처리방침
+              </Link>
+              <Link
+                href="/ko/terms"
+                className="text-gray-400 hover:text-brand-ivory text-sm transition-colors"
+              >
+                이용약관
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
