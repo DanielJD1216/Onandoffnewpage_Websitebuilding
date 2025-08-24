@@ -1,5 +1,8 @@
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
+import { FeatureCard } from '@/components/ui/feature-card';
+import { SectionHeading } from '@/components/ui/section-heading';
+import { COMPANY_INFO, FEATURES, PROGRAMS } from '@/lib/constants';
 import Link from 'next/link';
 
 export function generateStaticParams() {
@@ -12,12 +15,12 @@ export default function HomePage({ params }: { params: { locale: string } }) {
       {/* Hero Section */}
       <section className="relative bg-gradient-to-b from-brand-ivory to-white py-20 lg:py-32">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-6xl font-black text-brand-green mb-6 leading-tight">
-            캐나다 유학, 꿈을 현실로
-          </h1>
-          <p className="text-xl md:text-2xl font-medium text-gray-700 mb-8 max-w-3xl mx-auto">
-            밴쿠버 현지에서 직접 운영하는 신뢰할 수 있는 교육 컨설팅
-          </p>
+          <SectionHeading 
+            title={COMPANY_INFO.taglineKr}
+            subtitle={COMPANY_INFO.subtitleKr}
+            level={1}
+            className="mb-8"
+          />
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
@@ -46,58 +49,29 @@ export default function HomePage({ params }: { params: { locale: string } }) {
       {/* Key Features */}
       <section className="py-16 lg:py-24">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-black text-center text-brand-green mb-16">
-            왜 On & Off New Page인가?
-          </h2>
+          <SectionHeading title="왜 On & Off New Page인가?" />
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Card className="p-6 text-center border-0 shadow-lg hover:shadow-xl transition-shadow">
-              <div className="w-12 h-12 bg-brand-green rounded-full mx-auto mb-4 flex items-center justify-center">
-                <span className="text-white text-xl">🏢</span>
-              </div>
-              <h3 className="text-lg font-black text-brand-green mb-2">
-                밴쿠버 현지 직접 운영
-              </h3>
-              <p className="text-gray-600 font-medium text-sm">
-                밴쿠버 현지 오피스에서 직접 관리하는 신뢰할 수 있는 서비스
-              </p>
-            </Card>
-
-            <Card className="p-6 text-center border-0 shadow-lg hover:shadow-xl transition-shadow">
-              <div className="w-12 h-12 bg-brand-green rounded-full mx-auto mb-4 flex items-center justify-center">
-                <span className="text-white text-xl">🏠</span>
-              </div>
-              <h3 className="text-lg font-black text-brand-green mb-2">
-                검증된 홈스테이 관리
-              </h3>
-              <p className="text-gray-600 font-medium text-sm">
-                엄선된 홈스테이 가정과 지속적인 품질 관리
-              </p>
-            </Card>
-
-            <Card className="p-6 text-center border-0 shadow-lg hover:shadow-xl transition-shadow">
-              <div className="w-12 h-12 bg-brand-green rounded-full mx-auto mb-4 flex items-center justify-center">
-                <span className="text-white text-xl">🚨</span>
-              </div>
-              <h3 className="text-lg font-black text-brand-green mb-2">
-                24/7 긴급 지원
-              </h3>
-              <p className="text-gray-600 font-medium text-sm">
-                현지에서 24시간 긴급상황 대응 및 학생 케어
-              </p>
-            </Card>
-
-            <Card className="p-6 text-center border-0 shadow-lg hover:shadow-xl transition-shadow">
-              <div className="w-12 h-12 bg-brand-green rounded-full mx-auto mb-4 flex items-center justify-center">
-                <span className="text-white text-xl">📋</span>
-              </div>
-              <h3 className="text-lg font-black text-brand-green mb-2">
-                비자 신청 지원 서비스
-              </h3>
-              <p className="text-gray-600 font-medium text-sm">
-                학생비자부터 가디언십까지 원스톱 지원
-              </p>
-            </Card>
+            <FeatureCard
+              icon={FEATURES.local.iconKr}
+              title={FEATURES.local.titleKr}
+              description={FEATURES.local.descriptionKr}
+            />
+            <FeatureCard
+              icon={FEATURES.homestay.iconKr}
+              title={FEATURES.homestay.titleKr}
+              description={FEATURES.homestay.descriptionKr}
+            />
+            <FeatureCard
+              icon={FEATURES.support.iconKr}
+              title={FEATURES.support.titleKr}
+              description={FEATURES.support.descriptionKr}
+            />
+            <FeatureCard
+              icon={FEATURES.visa.iconKr}
+              title={FEATURES.visa.titleKr}
+              description={FEATURES.visa.descriptionKr}
+            />
           </div>
         </div>
       </section>
@@ -198,12 +172,12 @@ export default function HomePage({ params }: { params: { locale: string } }) {
       {/* Contact CTA */}
       <section className="bg-brand-green py-16 lg:py-20">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-black text-white mb-6">
-            캐나다 유학의 첫 걸음을 함께 하세요
-          </h2>
-          <p className="text-xl text-brand-ivory mb-8 font-medium max-w-2xl mx-auto">
-            무료 상담을 통해 학생에게 최적의 유학 계획을 세워보세요
-          </p>
+          <SectionHeading 
+            title={COMPANY_INFO.consultation.ctaKr}
+            subtitle={COMPANY_INFO.consultation.ctaSubtitleKr}
+            centered={true}
+            className="mb-8 text-white [&_h2]:text-white [&_p]:text-brand-ivory"
+          />
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
@@ -229,7 +203,7 @@ export default function HomePage({ params }: { params: { locale: string } }) {
 
           <div className="mt-12 pt-8 border-t border-brand-green/20">
             <p className="text-brand-ivory font-medium mb-2">밴쿠버 사무실</p>
-            <p className="text-white text-sm">204-1046 Austin Avenue, Coquitlam, British Columbia</p>
+            <p className="text-white text-sm">{COMPANY_INFO.address}</p>
           </div>
         </div>
       </section>

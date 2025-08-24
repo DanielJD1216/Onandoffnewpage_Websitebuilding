@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
+import { GRADE_OPTIONS, CONTACT_METHODS, CONSULTATION_TYPES, REGIONS, COMPANY_INFO } from '@/lib/constants';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -94,10 +95,10 @@ export default function ConsultationForm() {
           <span className="text-white text-2xl">✓</span>
         </div>
         <h3 className="text-xl font-black text-green-700 mb-2">
-          상담 신청이 완료되었습니다. 곧 연락드리겠습니다.
+          {COMPANY_INFO.consultation.completionMessageKr}
         </h3>
         <p className="text-green-600 font-medium">
-          영업일 기준 1-2일 내로 연락드리겠습니다. 감사합니다!
+          {COMPANY_INFO.consultation.responseTimeKr}
         </p>
       </Card>
     );
@@ -199,7 +200,7 @@ export default function ConsultationForm() {
           <Label htmlFor="regionPreference" className="font-black text-brand-green">
             선호 지역
           </Label>
-          <Select onValueChange={(value: any) => setValue('regionPreference', value)}>
+          <Select onValueChange={(value: keyof typeof REGIONS) => setValue('regionPreference', value)}>
             <SelectTrigger>
               <SelectValue placeholder="선호 지역을 선택해주세요 (선택사항)" />
             </SelectTrigger>
@@ -263,7 +264,7 @@ export default function ConsultationForm() {
           <Label htmlFor="preferredContact" className="font-black text-brand-green">
             선호 연락 방법 *
           </Label>
-          <Select onValueChange={(value: any) => setValue('preferredContact', value)}>
+          <Select onValueChange={(value: keyof typeof CONTACT_METHODS) => setValue('preferredContact', value)}>
             <SelectTrigger>
               <SelectValue placeholder="연락 방법을 선택해주세요" />
             </SelectTrigger>
@@ -287,7 +288,7 @@ export default function ConsultationForm() {
           <Label htmlFor="consultationType" className="font-black text-brand-green">
             상담 방식 *
           </Label>
-          <Select onValueChange={(value: any) => setValue('consultationType', value)} defaultValue="online">
+          <Select onValueChange={(value: keyof typeof CONSULTATION_TYPES) => setValue('consultationType', value)} defaultValue="online">
             <SelectTrigger>
               <SelectValue />
             </SelectTrigger>
