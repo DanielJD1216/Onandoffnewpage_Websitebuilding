@@ -1,0 +1,93 @@
+{
+  "common": {
+    "companyName": "On & Off New Page",
+    "tagline": "Your New Beginning in Canadian Education",
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "retry": "Try Again",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "back": "Back"
+  },
+  "nav": {
+    "home": "Home",
+    "programs": "Programs",
+    "about": "About Us",
+    "success": "Success Stories",
+    "consultation": "Book Consultation",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Your Canadian Education Journey Starts Here",
+    "subtitle": "Trusted education consulting directly operated from Vancouver",
+    "cta": {
+      "primary": "Book Free Consultation",
+      "secondary": "View Programs"
+    }
+  },
+  "programs": {
+    "title": "Our Programs",
+    "regions": {
+      "bc": "British Columbia (Vancouver)",
+      "ontario": "Ontario (Toronto)",
+      "alberta": "Alberta",
+      "quebec": "Quebec"
+    },
+    "types": {
+      "public": "Public Schools",
+      "private": "Private Schools"
+    },
+    "levels": {
+      "elementary": "Elementary School",
+      "secondary": "Secondary School"
+    }
+  },
+  "consultation": {
+    "title": "Book Free Consultation",
+    "form": {
+      "studentName": "Student Name",
+      "koreanName": "Korean Name",
+      "englishName": "English Name",
+      "parentName": "Parent Name",
+      "email": "Email",
+      "phone": "Phone Number",
+      "kakaoId": "KakaoTalk ID",
+      "currentGrade": "Current Grade",
+      "targetPeriod": "Target Study Period",
+      "regionPreference": "Preferred Region",
+      "consultationType": "Consultation Type",
+      "online": "Online",
+      "offline": "In-Person",
+      "message": "Additional Questions",
+      "preferredContact": "Preferred Contact Method",
+      "submit": "Submit Consultation Request"
+    },
+    "success": "Your consultation request has been submitted. We'll contact you soon.",
+    "error": "An error occurred while submitting your request. Please try again."
+  },
+  "about": {
+    "title": "About Us",
+    "mission": "Our Mission",
+    "missionText": "On & Off New Page is dedicated to ensuring successful Canadian education experiences for Korean students.",
+    "office": "Vancouver Office",
+    "address": "204-1046 Austin Avenue, Coquitlam, British Columbia",
+    "advantages": {
+      "title": "Why Choose On & Off New Page?",
+      "vancouver": "Directly Operated from Vancouver",
+      "homestay": "Verified Homestay Management",
+      "support": "24/7 Emergency Support",
+      "visa": "Visa Application Support Services"
+    }
+  },
+  "footer": {
+    "quickLinks": "Quick Links",
+    "contact": "Contact",
+    "followUs": "Follow Us",
+    "copyright": "© 2024 On & Off New Page. All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  }
+}

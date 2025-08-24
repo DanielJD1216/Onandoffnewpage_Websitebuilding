@@ -1,0 +1,18 @@
+import createIntlMiddleware from 'next-intl/middleware';
+
+const intlMiddleware = createIntlMiddleware({
+  locales: ['ko', 'en'],
+  defaultLocale: 'ko',
+  localePrefix: 'always',
+});
+
+export function middleware(request: any) {
+  return intlMiddleware(request);
+}
+
+export const config = {
+  matcher: [
+    '/(ko|en)/:path*',
+    '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
+  ],
+};

@@ -1,0 +1,93 @@
+{
+  "common": {
+    "companyName": "On & Off New Page",
+    "tagline": "캐나다 유학의 새로운 시작",
+    "loading": "로딩 중...",
+    "error": "오류가 발생했습니다",
+    "retry": "다시 시도",
+    "cancel": "취소",
+    "confirm": "확인",
+    "save": "저장",
+    "delete": "삭제",
+    "edit": "수정",
+    "back": "뒤로가기"
+  },
+  "nav": {
+    "home": "홈",
+    "programs": "프로그램",
+    "about": "회사소개",
+    "success": "성공사례",
+    "consultation": "상담신청",
+    "contact": "문의하기"
+  },
+  "hero": {
+    "title": "캐나다 유학, 꿈을 현실로",
+    "subtitle": "밴쿠버 현지에서 직접 운영하는 신뢰할 수 있는 교육 컨설팅",
+    "cta": {
+      "primary": "무료 상담 예약",
+      "secondary": "프로그램 안내"
+    }
+  },
+  "programs": {
+    "title": "프로그램 안내",
+    "regions": {
+      "bc": "브리티시 컬럼비아 (밴쿠버)",
+      "ontario": "온타리오 (토론토)",
+      "alberta": "알버타",
+      "quebec": "퀘벡"
+    },
+    "types": {
+      "public": "공립학교",
+      "private": "사립학교"
+    },
+    "levels": {
+      "elementary": "초등학교",
+      "secondary": "중고등학교"
+    }
+  },
+  "consultation": {
+    "title": "무료 상담 신청",
+    "form": {
+      "studentName": "학생 이름",
+      "koreanName": "한글 이름",
+      "englishName": "영문 이름",
+      "parentName": "보호자 이름",
+      "email": "이메일",
+      "phone": "전화번호",
+      "kakaoId": "카카오톡 ID",
+      "currentGrade": "현재 학년",
+      "targetPeriod": "유학 예정 시기",
+      "regionPreference": "선호 지역",
+      "consultationType": "상담 방식",
+      "online": "온라인",
+      "offline": "오프라인",
+      "message": "추가 문의사항",
+      "preferredContact": "선호 연락 방법",
+      "submit": "상담 신청하기"
+    },
+    "success": "상담 신청이 완료되었습니다. 곧 연락드리겠습니다.",
+    "error": "상담 신청 중 오류가 발생했습니다. 다시 시도해주세요."
+  },
+  "about": {
+    "title": "회사 소개",
+    "mission": "우리의 미션",
+    "missionText": "On & Off New Page는 한국 학생들의 성공적인 캐나다 유학을 위해 최선을 다합니다.",
+    "office": "밴쿠버 사무실",
+    "address": "204-1046 Austin Avenue, Coquitlam, British Columbia",
+    "advantages": {
+      "title": "왜 On & Off New Page인가?",
+      "vancouver": "밴쿠버 현지 직접 운영",
+      "homestay": "검증된 홈스테이 관리",
+      "support": "24/7 긴급 지원",
+      "visa": "비자 신청 지원 서비스"
+    }
+  },
+  "footer": {
+    "quickLinks": "빠른 링크",
+    "contact": "연락처",
+    "followUs": "팔로우",
+    "copyright": "© 2024 On & Off New Page. All rights reserved.",
+    "privacy": "개인정보처리방침",
+    "terms": "이용약관"
+  }
+}
