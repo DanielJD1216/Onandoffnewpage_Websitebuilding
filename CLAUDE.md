@@ -180,7 +180,51 @@ This is **On & Off New Page** - a Korean-Canadian study abroad consultancy websi
 - **Avoid**: Large refactors, complex abstractions, or over-engineering
 - **Prefer**: Direct solutions, explicit code, and standard patterns
 
-### 11. Project Completion
+### 11. Form Component Implementation Standards
+
+**Critical: Prevent Dropdown Placeholder Issues**
+
+To prevent the recurring issue where dropdowns show pre-selected values instead of placeholder text:
+
+#### ✅ Required Pattern for All Form Components:
+
+```tsx
+// 1. Zod Schema - NO .default() for form fields
+const schema = z.object({
+  serviceType: z.enum(['independent', 'parent-accompanied']), // No .default()
+});
+
+// 2. React Hook Form - Single source of defaults
+const form = useForm({
+  resolver: zodResolver(schema),
+  defaultValues: {
+    // Only add intentional pre-selections here
+    // serviceType: undefined, // Explicit undefined for placeholders
+  },
+});
+
+// 3. Component - No defaultValue prop
+<Select onValueChange={(value) => form.setValue('serviceType', value)}>
+  <SelectTrigger>
+    <SelectValue placeholder="Please select service type" />
+  </SelectTrigger>
+</Select>
+```
+
+#### Form Implementation Rules:
+- **Single Source of Truth**: Only React Hook Form `defaultValues` should set defaults
+- **Explicit Undefined**: Use `undefined` in defaultValues for placeholder display  
+- **No Schema Defaults**: Never use `.default()` in Zod schemas for form fields
+- **No Component Defaults**: Never use `defaultValue` props on form components
+- **Meaningful Placeholders**: Always provide descriptive placeholder text
+
+#### Required Files to Check:
+- Form component patterns: `docs/component-patterns.md`
+- ESLint validation: Custom rules prevent multiple defaults
+- Testing: `__tests__/components/forms/FormInitialStates.test.tsx`
+- PR checklist: `.github/pull_request_template.md` includes form validation
+
+### 12. Project Completion
 
 - Add a `## Review` section at the end of `todo.md` containing:
     - Summary of all implemented features

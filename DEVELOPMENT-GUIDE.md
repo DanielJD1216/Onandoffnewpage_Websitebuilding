@@ -245,6 +245,117 @@ const batchCheckApplications = async (applications, batchSize = 10) => {
 }
 ```
 
+## 🎯 Component Integration Patterns
+
+### Critical: Form Component Implementation
+
+**Problem:** Dropdown placeholder issues where multiple default values conflict, causing pre-selected values instead of guiding placeholder text.
+
+#### ✅ Correct Integration Pattern
+
+```tsx
+// Step 1: Zod Schema - NO .default() for form fields
+const consultationSchema = z.object({
+  serviceType: z.enum(['independent', 'parent-accompanied']), // Clean enum
+  studentName: z.string().min(1, 'Name is required'),
+  consultationDate: z.date().optional(),
+});
+
+// Step 2: React Hook Form Setup - Single source of defaults
+const form = useForm<ConsultationFormData>({
+  resolver: zodResolver(consultationSchema),
+  defaultValues: {
+    // Only set intentional pre-selections here
+    studentName: '', // Empty string for text inputs
+    // serviceType: undefined, // Explicit undefined for placeholder display
+    // consultationDate: undefined, // Undefined for optional fields
+  },
+});
+
+// Step 3: Component Implementation - No defaultValue props
+<Select onValueChange={(value) => form.setValue('serviceType', value)}>
+  <SelectTrigger>
+    <SelectValue placeholder="Please select service type" />
+  </SelectTrigger>
+  <SelectContent>
+    <SelectItem value="independent">Independent Student</SelectItem>
+    <SelectItem value="parent-accompanied">Parent Accompanied</SelectItem>
+  </SelectContent>
+</Select>
+```
+
+#### ❌ Wrong Pattern (Causes Issues)
+
+```tsx
+// DON'T DO THIS - Triple defaults cause conflicts
+const schema = z.object({
+  serviceType: z.enum(['independent', 'parent-accompanied']).default('independent'), // ❌
+});
+
+const form = useForm({
+  defaultValues: {
+    serviceType: 'independent', // ❌ Conflicts with schema
+  },
+});
+
+<Select defaultValue="independent"> {/* ❌ Third conflict */}
+  <SelectTrigger>
+    <SelectValue placeholder="This won't show!" />
+  </SelectTrigger>
+</Select>
+```
+
+### Component Integration Rules
+
+1. **Single Source of Truth**: Only React Hook Form `defaultValues` should manage defaults
+2. **Explicit Undefined**: Use `undefined` in defaultValues for placeholder display
+3. **No Schema Defaults**: Never use `.default()` in Zod schemas for form fields
+4. **No Component Defaults**: Never use `defaultValue` props on form components
+5. **Meaningful Placeholders**: Always provide descriptive, helpful placeholder text
+
+### Form State Testing Requirements
+
+All form components must pass these tests:
+
+```tsx
+// Required test pattern
+it('should display placeholder text on initial render', () => {
+  render(
+    <FormWrapper defaultValues={{ serviceType: undefined }}>
+      <Select onValueChange={() => {}}>
+        <SelectTrigger>
+          <SelectValue placeholder="Please select service type" />
+        </SelectTrigger>
+      </Select>
+    </FormWrapper>
+  );
+
+  expect(screen.getByText('Please select service type')).toBeInTheDocument();
+  expect(screen.queryByText('Independent Student')).not.toBeInTheDocument();
+});
+```
+
+### ESLint Prevention
+
+Custom rules automatically catch these issues:
+
+```json
+// .eslintrc.json
+{
+  "rules": {
+    "form-validation/no-multiple-form-defaults": "error",
+    "form-validation/prefer-placeholder-over-defaults": "warn"
+  }
+}
+```
+
+### Korean Market Form Considerations
+
+- **Placeholder text** should guide Korean users clearly
+- **Error messages** must be culturally appropriate
+- **Input validation** should handle Korean characters properly
+- **Date/time inputs** must consider KST/PST timezone differences
+
 ## 🔍 Debugging Strategies for Consultancy Apps
 
 ### Systematic Data Flow Tracking
