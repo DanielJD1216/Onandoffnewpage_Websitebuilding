@@ -177,8 +177,8 @@ export async function submitConsultationBooking(data: ConsultationBookingData) {
       const [clientEmailResult, adminEmailResult] = await Promise.allSettled([
         // Client confirmation email with calendar attachment
         resend.emails.send({
-          from: 'On & Off New Page <noreply@onoffnewpage.com>',
-          to: consultationData.email,
+          from: 'On & Off New Page <noreply@onandoff-newpage.com>',
+          to: 'onf.newpage@gmail.com',
           subject: emailData.language === 'ko' 
             ? `상담 예약 확정 - ${emailData.clientName}님` 
             : `Consultation Confirmed - ${emailData.clientName}`,
@@ -194,7 +194,7 @@ export async function submitConsultationBooking(data: ConsultationBookingData) {
         
         // Admin notification email
         resend.emails.send({
-          from: 'On & Off New Page System <system@onoffnewpage.com>',
+          from: 'On & Off New Page System <system@onandoff-newpage.com>',
           to: 'onf.newpage@gmail.com',
           subject: `🔔 New Consultation: ${emailData.clientName} (${service_type})`,
           html: adminEmailHtml,
@@ -204,13 +204,13 @@ export async function submitConsultationBooking(data: ConsultationBookingData) {
 
       // Log email results (don't fail the whole operation if emails fail)
       if (clientEmailResult.status === 'fulfilled') {
-        console.log('✅ Client confirmation email sent:', clientEmailResult.value.data?.id);
+        console.log('✅ Client confirmation email result:', JSON.stringify(clientEmailResult.value, null, 2));
       } else {
         console.error('❌ Failed to send client email:', clientEmailResult.reason);
       }
 
       if (adminEmailResult.status === 'fulfilled') {
-        console.log('✅ Admin notification email sent:', adminEmailResult.value.data?.id);
+        console.log('✅ Admin notification email result:', JSON.stringify(adminEmailResult.value, null, 2));
       } else {
         console.error('❌ Failed to send admin email:', adminEmailResult.reason);
       }

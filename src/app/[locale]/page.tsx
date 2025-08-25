@@ -14,7 +14,7 @@ export default function HomePage({ params }: { params: { locale: string } }) {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-b from-brand-ivory to-white py-20 lg:py-32">
+      <section className="relative bg-white py-20 lg:py-32">
         <div className="container mx-auto px-4 text-center">
           <SectionHeading 
             title={COMPANY_INFO.taglineKr}

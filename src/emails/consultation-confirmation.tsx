@@ -42,12 +42,36 @@ export const ConsultationConfirmationEmail = ({
 }: ConsultationConfirmationEmailProps) => {
   const isKorean = language === 'ko';
   
+  // Format date to Korean format: 2025년 9월 15일
+  const formatDateKorean = (dateStr: string) => {
+    const date = new Date(dateStr);
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+    return `${year}년 ${month}월 ${day}일`;
+  };
+  
+  // Format time to Korean format: 오후 2시
+  const formatTimeKorean = (timeStr: string) => {
+    if (timeStr.includes('오전') || timeStr.includes('오후')) {
+      return timeStr;
+    }
+    // If it's in 24-hour format like "14:00", convert to Korean
+    const [hours, minutes] = timeStr.split(':').map(Number);
+    if (hours >= 12) {
+      const displayHour = hours > 12 ? hours - 12 : hours;
+      return `오후 ${displayHour}시`;
+    } else {
+      return `오전 ${hours}시`;
+    }
+  };
+  
   const translations = {
     ko: {
       preview: '온앤오프 뉴페이지 상담 예약이 확정되었습니다',
       title: '상담 예약 확정 안내',
-      greeting: `안녕하세요 ${clientName}님,`,
-      confirmation: '캐나다 유학 상담 예약이 성공적으로 접수되었습니다.',
+      greeting: `안녕하세요, ${clientName}.`,
+      confirmation: '캐나다 유학 상담 예약이 성공적으로 접수되었습니다.\n아래 상담 상세 정보를 확인해 주세요.',
       consultationDetails: '상담 상세 정보',
       clientLabel: '신청자',
       studentLabel: '학생 이름',
@@ -70,15 +94,15 @@ export const ConsultationConfirmationEmail = ({
         kakao: '카카오톡'
       },
       nextSteps: '다음 단계',
-      step1: '저희 상담원이 24시간 내에 연락드려 구체적인 상담 일정을 조율합니다.',
-      step2: '상담 전 준비하실 서류나 궁금한 사항이 있으시면 미리 정리해 주세요.',
-      step3: '캘린더 일정에 추가하실 수 있도록 첨부 파일을 확인해 주세요.',
-      contact: '문의사항이 있으시면 언제든 연락 주세요',
+      step1: '상담원이 24시간 이내에 연락드려서 구체적인 상담 일정을 조율해 드려요.',
+      step2: '상담 전 준비할 서류나 궁금한 점이 있으시면 미리 정리해 주시면 감사드려요.',
+      step3: '캘린더 일정 추가를 위해 첨부 파일을 확인해 주세요.',
+      contact: '문의사항이 있으시면 언제든 아래 연락처로 연락주시기 바랍니다:',
       vancouverOffice: '밴쿠버 현지 사무소',
-      phone: '전화: +1 (604) 123-4567',
+      phone: '전화: +1 (778) 889-8235',
       email: '이메일: onf.newpage@gmail.com',
       kakaoId: '카카오톡: OnOffNewPage',
-      footer: '온앤오프 뉴페이지와 함께하는 성공적인 캐나다 유학을 응원합니다!',
+      footer: '온앤오프 뉴페이지는 성공적인 캐나다 유학을 응원합니다.',
       regards: '감사합니다.',
       signature: '온앤오프 뉴페이지 팀 드림'
     },
@@ -134,7 +158,7 @@ export const ConsultationConfirmationEmail = ({
           {/* Logo Section */}
           <Section style={logoSection}>
             <Img
-              src={`${baseUrl}/logo.png`}
+              src={`${baseUrl}/logo.svg`}
               width="160"
               height="53"
               alt="On & Off New Page"
@@ -151,49 +175,28 @@ export const ConsultationConfirmationEmail = ({
 
             {/* Consultation Details Box */}
             <Section style={detailsBox}>
-              <Heading as="h2" style={h2}>{t.consultationDetails}</Heading>
+              <Text style={detailsTitle}>**{t.consultationDetails}**</Text>
               
-              <Row style={detailRow}>
-                <Text style={detailLabel}>{t.clientLabel}:</Text>
-                <Text style={detailValue}>{clientName}</Text>
-              </Row>
+              <Text style={detailItem}>- {t.clientLabel}: {clientName}</Text>
               
               {studentName && (
-                <Row style={detailRow}>
-                  <Text style={detailLabel}>{t.studentLabel}:</Text>
-                  <Text style={detailValue}>{studentName}</Text>
-                </Row>
+                <Text style={detailItem}>- {t.studentLabel}: {studentName}</Text>
               )}
               
-              <Row style={detailRow}>
-                <Text style={detailLabel}>{t.consultationTypeLabel}:</Text>
-                <Text style={detailValue}>{t.consultationTypes[consultationType]}</Text>
-              </Row>
+              <Text style={detailItem}>- {t.consultationTypeLabel}: {t.consultationTypes[consultationType]}</Text>
               
-              <Row style={detailRow}>
-                <Text style={detailLabel}>{t.serviceTypeLabel}:</Text>
-                <Text style={detailValue}>{t.serviceTypes[serviceType]}</Text>
-              </Row>
+              <Text style={detailItem}>- {t.serviceTypeLabel}: {t.serviceTypes[serviceType]}</Text>
               
-              <Row style={detailRow}>
-                <Text style={detailLabel}>{t.dateLabel}:</Text>
-                <Text style={detailValue}>{preferredDate}</Text>
-              </Row>
+              <Text style={detailItem}>- {t.dateLabel}: {formatDateKorean(preferredDate)}</Text>
               
-              <Row style={detailRow}>
-                <Text style={detailLabel}>{t.timeLabel}:</Text>
-                <Text style={detailValue}>{preferredTime}</Text>
-              </Row>
+              <Text style={detailItem}>- {t.timeLabel}: {formatTimeKorean(preferredTime)}</Text>
               
-              <Row style={detailRow}>
-                <Text style={detailLabel}>{t.contactLabel}:</Text>
-                <Text style={detailValue}>{t.contactMethods[contactMethod]}</Text>
-              </Row>
+              <Text style={detailItem}>- {t.contactLabel}: {t.contactMethods[contactMethod]}</Text>
             </Section>
 
             {/* Next Steps */}
             <Section style={{ marginTop: '32px' }}>
-              <Heading as="h2" style={h2}>{t.nextSteps}</Heading>
+              <Text style={detailsTitle}>**{t.nextSteps}**</Text>
               <Text style={stepText}>1. {t.step1}</Text>
               <Text style={stepText}>2. {t.step2}</Text>
               <Text style={stepText}>3. {t.step3}</Text>
@@ -350,4 +353,19 @@ const regards = {
   lineHeight: '1.6',
   margin: '24px 0 0',
   textAlign: 'right' as const,
+};
+
+const detailsTitle = {
+  color: '#114B3F',
+  fontSize: '16px',
+  fontWeight: '700',
+  lineHeight: '1.4',
+  margin: '0 0 16px',
+};
+
+const detailItem = {
+  color: '#333333',
+  fontSize: '15px',
+  lineHeight: '1.6',
+  margin: '0 0 8px',
 };

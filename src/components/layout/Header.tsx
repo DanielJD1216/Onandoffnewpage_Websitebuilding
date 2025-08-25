@@ -44,23 +44,20 @@ export function Header() {
   return (
     <header className="bg-[#F4ECDE] shadow-sm sticky top-0 z-50">
       <nav className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link 
             href="/ko" 
-            className="flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-brand-green focus:ring-offset-2 focus:ring-offset-[#F4ECDE] rounded-lg p-1"
+            className="flex items-center focus:outline-none focus:ring-2 focus:ring-brand-green focus:ring-offset-2 focus:ring-offset-[#F4ECDE] rounded-lg p-1 ml-2"
           >
             <Image
-              src="/logo.png"
+              src="/logo.svg"
               alt="On & Off New Page"
-              width={200}
-              height={67}
-              className="h-12 w-auto"
+              width={240}
+              height={80}
+              className="h-16 w-auto"
               priority
             />
-            <span className="text-xl font-black text-brand-green">
-              {COMPANY_INFO.name}
-            </span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -74,7 +71,7 @@ export function Header() {
               >
                 <Link
                   href={item.href}
-                  className={`font-medium transition-colors hover:text-brand-green flex items-center gap-1 focus:outline-none focus:ring-2 focus:ring-brand-green focus:ring-offset-2 focus:ring-offset-[#F4ECDE] rounded px-2 py-1 ${
+                  className={`text-lg font-semibold transition-colors hover:text-brand-green flex items-center gap-1 focus:outline-none focus:ring-2 focus:ring-brand-green focus:ring-offset-2 focus:ring-offset-[#F4ECDE] rounded px-3 py-2 ${
                     isActive(item.href)
                       ? 'text-brand-green border-b-2 border-brand-green'
                       : 'text-gray-700'
@@ -101,8 +98,8 @@ export function Header() {
               </div>
             ))}
             <Button
-              size="sm"
-              className="bg-brand-green hover:bg-brand-green/90 text-white font-black"
+              size="default"
+              className="bg-brand-green hover:bg-brand-green/90 text-white font-black text-lg px-6 py-3"
               asChild
             >
               <Link href="/ko/contact">
@@ -144,7 +141,7 @@ export function Header() {
                   <Link
                     href={item.href}
                     role="menuitem"
-                    className={`font-medium py-2 block transition-colors focus:outline-none focus:ring-2 focus:ring-brand-green focus:ring-offset-2 focus:ring-offset-[#F4ECDE] rounded px-2 ${
+                    className={`text-lg font-semibold py-3 block transition-colors focus:outline-none focus:ring-2 focus:ring-brand-green focus:ring-offset-2 focus:ring-offset-[#F4ECDE] rounded px-3 ${
                       isActive(item.href)
                         ? 'text-brand-green font-black'
                         : 'text-gray-700'

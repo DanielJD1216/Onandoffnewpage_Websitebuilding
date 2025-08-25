@@ -93,7 +93,7 @@ export const AdminConsultationNotification = ({
           {/* Header */}
           <Section style={header}>
             <Img
-              src={`${baseUrl}/logo.png`}
+              src={`${baseUrl}/logo.svg`}
               width="120"
               height="40"
               alt="On & Off New Page"
