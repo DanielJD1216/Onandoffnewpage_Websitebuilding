@@ -92,8 +92,8 @@ export function CollapsibleCard({
           <ChevronDown className={cn('w-5 h-5', iconStyles[variant])} />
         </div>
 
-        {/* Korean-style accent line */}
-        <div className="absolute bottom-0 left-6 right-6 h-0.5 bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+        {/* Korean-style accent line - safely positioned */}
+        <div className="absolute -bottom-1 left-8 right-8 h-0.5 bg-gradient-to-r from-transparent via-white/15 to-transparent" />
       </button>
 
       {/* Content */}
@@ -102,8 +102,8 @@ export function CollapsibleCard({
         isOpen ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'
       )}>
         <div className="p-6 pt-0 relative">
-          {/* Korean-style content accent */}
-          <div className="absolute top-0 left-6 w-12 h-0.5 bg-gradient-to-r from-brand-gold/60 to-transparent mb-4" />
+          {/* Korean-style content accent - safely positioned */}
+          <div className="absolute -top-2 left-8 w-8 h-0.5 bg-gradient-to-r from-brand-gold/40 to-transparent" />
           <div className="mt-4">
             {children}
           </div>

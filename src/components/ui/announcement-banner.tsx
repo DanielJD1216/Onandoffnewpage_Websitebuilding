@@ -139,7 +139,7 @@ export function AnnouncementBanner({
         </div>
 
         {/* Korean-style bottom accent line */}
-        <div className={`absolute bottom-0 left-6 right-6 h-0.5 ${styles.accent} opacity-20`} />
+        <div className={`absolute bottom-2 left-6 right-6 h-0.5 ${styles.accent} opacity-15`} />
       </div>
     </div>
   );

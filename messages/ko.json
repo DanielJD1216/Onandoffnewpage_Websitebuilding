@@ -46,7 +46,12 @@
     }
   },
   "consultation": {
+    "meta": {
+      "title": "무료 상담 예약 | On & Off New Page",
+      "description": "캐나다 유학 전문가와 무료 상담을 예약하세요. 밴쿠버 현지 경험을 바탕으로 맞춤형 교육 계획을 제공합니다."
+    },
     "title": "무료 상담 신청",
+    "bookingTitle": "상담 예약하기",
     "form": {
       "studentName": "학생 이름",
       "koreanName": "한글 이름",
@@ -63,10 +68,22 @@
       "offline": "오프라인",
       "message": "추가 문의사항",
       "preferredContact": "선호 연락 방법",
-      "submit": "상담 신청하기"
+      "preferredDate": "희망 날짜",
+      "preferredTime": "희망 시간",
+      "timezone": "시간대",
+      "urgency": "상담 긴급도",
+      "submit": "상담 신청하기",
+      "submitBooking": "상담 예약하기"
     },
     "success": "상담 신청이 완료되었습니다. 곧 연락드리겠습니다.",
-    "error": "상담 신청 중 오류가 발생했습니다. 다시 시도해주세요."
+    "bookingSuccess": "상담 예약이 완료되었습니다! 예약 확인 이메일을 발송했습니다.",
+    "error": "상담 신청 중 오류가 발생했습니다. 다시 시도해주세요.",
+    "steps": {
+      "student": "학생 정보",
+      "contact": "연락처 정보", 
+      "schedule": "상담 일정",
+      "additional": "추가 정보 및 동의"
+    }
   },
   "about": {
     "title": "회사 소개",

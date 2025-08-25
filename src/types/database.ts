@@ -12,6 +12,11 @@ export type InquiryStatus = 'new' | 'in_progress' | 'resolved' | 'closed';
 export type ContactMethod = 'email' | 'phone' | 'kakao' | 'whatsapp';
 export type ContentStatus = 'draft' | 'published' | 'archived';
 
+// Phase 1 Enhancement Types
+export type ServiceType = 'independent' | 'parent-accompanied';
+export type BudgetRange = 'under-25k' | '25k-35k' | '35k-45k' | 'over-45k' | 'need-breakdown';
+export type SupportService = 'visa-support' | 'guardianship' | 'homestay-matching' | 'medical-insurance' | 'life-setup' | 'academic-monitoring' | 'university-pathway' | 'emergency-support' | 'parent-immigration';
+
 export interface Database {
   public: {
     Tables: {
@@ -183,6 +188,10 @@ export interface Database {
           scheduled_at: string | null;
           completed_at: string | null;
           consent_to_contact: boolean;
+          // Phase 1 Enhancement Fields
+          service_type: ServiceType;
+          support_services: SupportService[];
+          budget_range: BudgetRange | null;
           created_at: string;
           updated_at: string;
         };
@@ -206,6 +215,10 @@ export interface Database {
           scheduled_at?: string | null;
           completed_at?: string | null;
           consent_to_contact?: boolean;
+          // Phase 1 Enhancement Fields
+          service_type?: ServiceType;
+          support_services?: SupportService[];
+          budget_range?: BudgetRange | null;
           created_at?: string;
           updated_at?: string;
         };
@@ -229,6 +242,10 @@ export interface Database {
           scheduled_at?: string | null;
           completed_at?: string | null;
           consent_to_contact?: boolean;
+          // Phase 1 Enhancement Fields
+          service_type?: ServiceType;
+          support_services?: SupportService[];
+          budget_range?: BudgetRange | null;
           created_at?: string;
           updated_at?: string;
         };
@@ -426,6 +443,9 @@ export interface Database {
       inquiry_status_enum: InquiryStatus;
       contact_method_enum: ContactMethod;
       content_status_enum: ContentStatus;
+      service_type_enum: ServiceType;
+      budget_range_enum: BudgetRange;
+      support_service_enum: SupportService;
     };
     CompositeTypes: {
       [_ in never]: never;

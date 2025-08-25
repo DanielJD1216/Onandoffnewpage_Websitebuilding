@@ -30,7 +30,7 @@ export default function HomePage({ params }: { params: { locale: string } }) {
               className="bg-brand-green hover:bg-brand-green/90 text-white px-8 py-4 text-lg font-black"
               asChild
             >
-              <Link href={`/${params.locale}/consultation`}>
+              <Link href={`/${params.locale}/contact`}>
                 무료 상담 예약
               </Link>
             </Button>
@@ -210,7 +210,7 @@ export default function HomePage({ params }: { params: { locale: string } }) {
               className="bg-white text-brand-green hover:bg-brand-ivory px-8 py-4 text-lg font-black"
               asChild
             >
-              <Link href={`/${params.locale}/consultation`}>
+              <Link href={`/${params.locale}/contact`}>
                 지금 상담 신청하기
               </Link>
             </Button>

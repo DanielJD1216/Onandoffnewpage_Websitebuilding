@@ -166,8 +166,8 @@ export function ContactMethodCard({
           </div>
         </div>
 
-        {/* Korean-style bottom accent line */}
-        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-16 h-0.5 bg-gradient-to-r from-transparent via-brand-green/40 to-transparent group-hover:w-24 group-hover:via-brand-green/70 transition-all duration-300" />
+        {/* Korean-style bottom accent line - safely positioned */}
+        <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-12 h-0.5 bg-gradient-to-r from-transparent via-brand-green/15 to-transparent group-hover:w-16 group-hover:via-brand-green/20 transition-all duration-300" />
       </div>
 
       {/* Response time badge */}

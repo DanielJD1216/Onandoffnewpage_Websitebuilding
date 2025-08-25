@@ -37,9 +37,9 @@ export function SectionHeading({
 
   return (
     <div className={`relative ${containerClasses} ${className}`}>
-      {/* Korean-style decorative line for premium variant */}
+      {/* Korean-style decorative line for premium variant - positioned safely above */}
       {variant === 'premium' && centered && (
-        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-gradient-to-r from-transparent via-brand-gold to-transparent mb-4" />
+        <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 w-16 h-0.5 bg-gradient-to-r from-transparent via-brand-gold/40 to-transparent" />
       )}
       
       <HeadingTag className={`${headingSizes[level]} font-black ${headingStyles} leading-tight ${headingMargins[level]} relative`}>
@@ -62,9 +62,9 @@ export function SectionHeading({
             {subtitle}
           </p>
           
-          {/* Korean-style bottom accent line for premium */}
+          {/* Korean-style bottom accent line for premium - safely positioned below */}
           {variant === 'premium' && centered && (
-            <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-24 h-0.5 bg-gradient-to-r from-transparent via-brand-green/40 to-transparent" />
+            <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 w-20 h-0.5 bg-gradient-to-r from-transparent via-brand-green/25 to-transparent" />
           )}
         </div>
       )}

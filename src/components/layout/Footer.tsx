@@ -5,7 +5,7 @@ const footerNavigation = {
   services: {
     title: '서비스',
     links: [
-      { name: '유학 상담', href: '/ko/consultation' },
+      { name: '유학 상담', href: '/ko/contact' },
       { name: '프로그램 안내', href: '/ko/programs' },
       { name: '홈스테이', href: '/ko/programs#homestay' },
       { name: '비자 지원', href: '/ko/programs#visa' },
