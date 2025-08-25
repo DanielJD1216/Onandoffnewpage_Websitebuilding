@@ -4,8 +4,9 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { format, addDays, isWeekend, setHours, setMinutes } from 'date-fns';
+import { format, addDays, isWeekend } from 'date-fns';
 import { ko } from 'date-fns/locale';
+import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -39,7 +40,7 @@ const consultationBookingSchema = z.object({
     'university-pathway',
     'emergency-support',
     'parent-immigration'
-  ])).default([]),
+  ])).optional(),
   
   // Budget Range (NEW)
   budgetRange: z.enum(['under-25k', '25k-35k', '35k-45k', 'over-45k', 'need-breakdown']).optional(),
@@ -90,8 +91,8 @@ const generateAvailableDates = (consultationType: 'online' | 'offline') => {
 };
 
 // Generate available time slots
-const generateTimeSlots = (consultationType: 'online' | 'offline', timezone: 'KST' | 'PST') => {
-  const slots = [];
+const generateTimeSlots = (consultationType: 'online' | 'offline', timezone: 'KST' | 'PST'): Array<{value: string, label: string}> => {
+  const slots: Array<{value: string, label: string}> = [];
   
   if (consultationType === 'online') {
     // Online consultations: flexible hours
@@ -172,7 +173,7 @@ export default function ConsultationBookingForm() {
         consent_to_contact: data.consentToContact,
         // Enhanced Phase 1 fields
         service_type: data.serviceType,
-        support_services: data.supportServices,
+        support_services: data.supportServices || [],
         budget_range: data.budgetRange
       });
 
@@ -219,7 +220,7 @@ export default function ConsultationBookingForm() {
             variant="outline"
             asChild
           >
-            <a href="/ko">홈으로 돌아가기</a>
+            <Link href="/ko">홈으로 돌아가기</Link>
           </Button>
         </div>
       </Card>
@@ -425,7 +426,7 @@ export default function ConsultationBookingForm() {
                       onCheckedChange={(checked) => {
                         const currentServices = watch('supportServices') || [];
                         if (checked) {
-                          setValue('supportServices', [...currentServices, service.value as any]);
+                          setValue('supportServices', [...currentServices, service.value as 'visa-support' | 'guardianship' | 'homestay-matching' | 'medical-insurance' | 'life-setup' | 'academic-monitoring' | 'university-pathway' | 'emergency-support' | 'parent-immigration']);
                         } else {
                           setValue('supportServices', currentServices.filter(s => s !== service.value));
                         }

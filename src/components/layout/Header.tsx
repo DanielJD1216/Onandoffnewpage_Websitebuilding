@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { COMPANY_INFO } from '@/lib/constants';
@@ -27,6 +28,13 @@ export function Header() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const pathname = usePathname();
 
+  // Handle keyboard navigation for mobile menu
+  const handleKeyDown = (event: React.KeyboardEvent) => {
+    if (event.key === 'Escape') {
+      setMobileMenuOpen(false);
+    }
+  };
+
   const isActive = (href: string) => {
     if (href === '/ko' && pathname === '/ko') return true;
     if (href !== '/ko' && pathname.startsWith(href)) return true;
@@ -34,12 +42,23 @@ export function Header() {
   };
 
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-50">
+    <header className="bg-[#F4ECDE] shadow-sm sticky top-0 z-50">
       <nav className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/ko" className="flex items-center">
-            <span className="text-2xl font-black text-brand-green">
+          <Link 
+            href="/ko" 
+            className="flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-brand-green focus:ring-offset-2 focus:ring-offset-[#F4ECDE] rounded-lg p-1"
+          >
+            <Image
+              src="/logo.png"
+              alt="On & Off New Page"
+              width={200}
+              height={67}
+              className="h-12 w-auto"
+              priority
+            />
+            <span className="text-xl font-black text-brand-green">
               {COMPANY_INFO.name}
             </span>
           </Link>
@@ -55,7 +74,7 @@ export function Header() {
               >
                 <Link
                   href={item.href}
-                  className={`font-medium transition-colors hover:text-brand-green flex items-center gap-1 ${
+                  className={`font-medium transition-colors hover:text-brand-green flex items-center gap-1 focus:outline-none focus:ring-2 focus:ring-brand-green focus:ring-offset-2 focus:ring-offset-[#F4ECDE] rounded px-2 py-1 ${
                     isActive(item.href)
                       ? 'text-brand-green border-b-2 border-brand-green'
                       : 'text-gray-700'
@@ -67,12 +86,12 @@ export function Header() {
                 
                 {/* Dropdown Menu */}
                 {item.submenu && activeDropdown === item.name && (
-                  <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border z-50">
+                  <div className="absolute top-full left-0 mt-2 w-64 bg-[#F4ECDE] rounded-lg shadow-lg border z-50">
                     {item.submenu.map((subitem) => (
                       <Link
                         key={subitem.name}
                         href={subitem.href}
-                        className="block px-4 py-3 text-gray-700 hover:text-brand-green hover:bg-gray-50 transition-colors first:rounded-t-lg last:rounded-b-lg"
+                        className="block px-4 py-3 text-gray-700 hover:text-brand-green hover:bg-gray-50 transition-colors first:rounded-t-lg last:rounded-b-lg focus:outline-none focus:ring-2 focus:ring-brand-green focus:ring-inset"
                       >
                         {subitem.name}
                       </Link>
@@ -95,8 +114,11 @@ export function Header() {
           {/* Mobile menu button */}
           <button
             type="button"
-            className="md:hidden p-2 rounded-md text-gray-700 hover:text-brand-green"
+            className="md:hidden p-2 rounded-md text-gray-700 hover:text-brand-green focus:outline-none focus:ring-2 focus:ring-brand-green focus:ring-offset-2 focus:ring-offset-[#F4ECDE]"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-menu"
+            aria-label={mobileMenuOpen ? '메뉴 닫기' : '메뉴 열기'}
           >
             {mobileMenuOpen ? (
               <X className="h-6 w-6" />
@@ -108,13 +130,21 @@ export function Header() {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-200">
+          <div 
+            id="mobile-menu" 
+            className="md:hidden py-4 border-t border-gray-200"
+            role="menu"
+            aria-orientation="vertical"
+            aria-labelledby="mobile-menu-button"
+            onKeyDown={handleKeyDown}
+          >
             <div className="flex flex-col space-y-4">
               {navigation.map((item) => (
                 <div key={item.name}>
                   <Link
                     href={item.href}
-                    className={`font-medium py-2 block transition-colors ${
+                    role="menuitem"
+                    className={`font-medium py-2 block transition-colors focus:outline-none focus:ring-2 focus:ring-brand-green focus:ring-offset-2 focus:ring-offset-[#F4ECDE] rounded px-2 ${
                       isActive(item.href)
                         ? 'text-brand-green font-black'
                         : 'text-gray-700'
@@ -129,7 +159,8 @@ export function Header() {
                         <Link
                           key={subitem.name}
                           href={subitem.href}
-                          className="block py-1 text-sm text-gray-600 hover:text-brand-green"
+                          role="menuitem"
+                          className="block py-1 px-2 text-sm text-gray-600 hover:text-brand-green focus:outline-none focus:ring-2 focus:ring-brand-green focus:ring-offset-2 focus:ring-offset-[#F4ECDE] rounded"
                           onClick={() => setMobileMenuOpen(false)}
                         >
                           • {subitem.name}

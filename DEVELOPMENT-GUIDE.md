@@ -356,6 +356,94 @@ Custom rules automatically catch these issues:
 - **Input validation** should handle Korean characters properly
 - **Date/time inputs** must consider KST/PST timezone differences
 
+## 🎨 CSS Layout & Overflow Prevention
+
+### Critical Issue: Horizontal Overflow
+**Problem:** White gaps/spaces appearing on the right side of pages, causing horizontal scrolling and unprofessional appearance.
+
+#### ✅ Essential Global CSS Pattern
+```css
+/* Always include in globals.css */
+html, body {
+  overflow-x: hidden; /* Prevents horizontal scroll */
+  max-width: 100vw;   /* Ensures content stays in viewport */
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: border-box; /* Predictable sizing for all elements */
+}
+```
+
+#### ✅ Responsive Container Pattern
+```css
+.safe-container {
+  max-width: 1200px;        /* Maximum width for desktop */
+  width: 100%;              /* Responsive width */
+  margin: 0 auto;           /* Center container */
+  padding: 0 1rem;          /* Safe padding */
+  box-sizing: border-box;   /* Include padding in width */
+}
+
+/* Korean mobile-first approach */
+@media (max-width: 768px) {
+  .safe-container {
+    padding: 0 0.5rem; /* Tighter mobile padding */
+  }
+}
+```
+
+#### ❌ Common Layout Mistakes
+```css
+/* DON'T DO THIS - Causes overflow */
+.hero-section {
+  width: 1200px;     /* Fixed width breaks on smaller screens */
+  margin: 0 auto;
+}
+
+.content-box {
+  width: 100%;
+  padding: 20px;     /* Without box-sizing, adds to width */
+}
+```
+
+#### Visual Testing Requirements
+Before pushing any layout changes:
+
+1. **Test Multiple Viewports**:
+   - Mobile: 320px (minimum Korean mobile standard)
+   - Tablet: 768px
+   - Desktop: 1440px+
+
+2. **Check for Overflow**:
+   - No horizontal scrollbars
+   - No white gaps on right edge
+   - Content stays within viewport bounds
+
+3. **Browser Testing**:
+   - Chrome (primary Korean browser)
+   - Safari (iOS Korean users)
+   - Firefox
+
+#### Emergency Overflow Fix
+```css
+/* If overflow appears in production */
+html, body {
+  overflow-x: hidden !important;
+}
+
+* {
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+```
+
+#### Prevention Strategy
+- Always use `max-width` instead of `width` for containers
+- Include `box-sizing: border-box` globally
+- Test responsive behavior during development
+- Use CSS custom properties for consistent spacing
+
 ## 🔍 Debugging Strategies for Consultancy Apps
 
 ### Systematic Data Flow Tracking

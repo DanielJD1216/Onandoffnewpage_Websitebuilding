@@ -5,7 +5,7 @@ import { createClient as createServiceClient } from '@supabase/supabase-js';
 import { InsertConsultation } from '@/types/database';
 import { revalidatePath } from 'next/cache';
 
-interface ConsultationSubmissionData extends Omit<InsertConsultation, 'id' | 'created_at' | 'updated_at' | 'status' | 'consultation_stage' | 'consultant_email' | 'scheduled_at' | 'completed_at'> {}
+type ConsultationSubmissionData = Omit<InsertConsultation, 'id' | 'created_at' | 'updated_at' | 'status' | 'consultation_stage' | 'consultant_email' | 'scheduled_at' | 'completed_at'>;
 
 interface ConsultationBookingData extends ConsultationSubmissionData {
   preferred_date: string;
@@ -13,7 +13,7 @@ interface ConsultationBookingData extends ConsultationSubmissionData {
   timezone: 'KST' | 'PST';
   urgency: 'normal' | 'urgent';
   service_type: 'independent' | 'parent-accompanied';
-  support_services: string[];
+  support_services: ('visa-support' | 'guardianship' | 'homestay-matching' | 'medical-insurance' | 'life-setup' | 'academic-monitoring' | 'university-pathway' | 'emergency-support' | 'parent-immigration')[];
   budget_range?: 'under-25k' | '25k-35k' | '35k-45k' | 'over-45k' | 'need-breakdown';
 }
 

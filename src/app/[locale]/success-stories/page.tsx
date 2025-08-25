@@ -180,7 +180,7 @@ export default function SuccessStoriesPage() {
               <div className="text-white">
                 <div className="text-3xl mb-4">💝</div>
                 <p className="mb-4 italic">
-                  "아이가 혼자 유학을 떠나는 것이 걱정되었지만, 담당자분께서 정기적으로 연락을 주셔서 안심할 수 있었습니다."
+                  &ldquo;아이가 혼자 유학을 떠나는 것이 걱정되었지만, 담당자분께서 정기적으로 연락을 주셔서 안심할 수 있었습니다.&rdquo;
                 </p>
                 <p className="text-sm text-brand-ivory">- 중학생 학부모</p>
               </div>
@@ -190,7 +190,7 @@ export default function SuccessStoriesPage() {
               <div className="text-white">
                 <div className="text-3xl mb-4">🙏</div>
                 <p className="mb-4 italic">
-                  "가족 이민부터 아이 교육까지 모든 것을 도와주셔서 성공적으로 정착할 수 있었습니다. 정말 감사드립니다."
+                  &ldquo;가족 이민부터 아이 교육까지 모든 것을 도와주셔서 성공적으로 정착할 수 있었습니다. 정말 감사드립니다.&rdquo;
                 </p>
                 <p className="text-sm text-brand-ivory">- 초등생 학부모</p>
               </div>
@@ -200,7 +200,7 @@ export default function SuccessStoriesPage() {
               <div className="text-white">
                 <div className="text-3xl mb-4">⭐</div>
                 <p className="mb-4 italic">
-                  "단순히 학교만 보내는 것이 아니라, 아이의 적성과 미래를 고려해서 진로 상담까지 해주시니 든든합니다."
+                  &ldquo;단순히 학교만 보내는 것이 아니라, 아이의 적성과 미래를 고려해서 진로 상담까지 해주시니 든든합니다.&rdquo;
                 </p>
                 <p className="text-sm text-brand-ivory">- 고등학생 학부모</p>
               </div>

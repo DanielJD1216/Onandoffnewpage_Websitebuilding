@@ -9,7 +9,9 @@
     "lint": "next lint",
     "format": "prettier --write .",
     "typecheck": "tsc --noEmit",
-    "setup": "npm install && npx shadcn-ui@latest init -y"
+    "setup": "npm install && npx shadcn-ui@latest init -y",
+    "test:overflow": "node scripts/test-overflow.js",
+    "test:layout": "npm run test:overflow"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.1",

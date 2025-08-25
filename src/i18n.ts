@@ -9,9 +9,10 @@ export type Locale = (typeof locales)[number];
 
 export default getRequestConfig(async ({ locale }) => {
   // Validate that the incoming `locale` parameter is valid
-  if (!locales.includes(locale as any)) notFound();
+  if (!locale || !locales.includes(locale as any)) notFound();
 
   return {
+    locale,
     messages: (await import(`../messages/${locale}.json`)).default,
     timeZone: locale === 'ko' ? 'Asia/Seoul' : 'America/Vancouver',
     now: new Date(),
