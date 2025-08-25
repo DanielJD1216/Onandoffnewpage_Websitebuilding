@@ -8,6 +8,8 @@ import { Resend } from 'resend';
 import { render } from '@react-email/render';
 import { ConsultationConfirmationEmail } from '@/emails/consultation-confirmation';
 import { AdminConsultationNotification } from '@/emails/admin-consultation-notification';
+import { readFileSync } from 'fs';
+import { join } from 'path';
 import { createConsultationCalendarEvent, generateICSFile } from '@/lib/utils/calendar-generator';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -189,6 +191,12 @@ export async function submitConsultationBooking(data: ConsultationBookingData) {
               content: Buffer.from(icsFile, 'utf-8'),
               contentType: 'text/calendar',
             },
+            {
+              filename: 'onofflogo.png',
+              content: readFileSync(join(process.cwd(), 'public', 'onofflogo.png')),
+              contentType: 'image/png',
+              cid: 'logo',
+            },
           ],
         }),
         
@@ -199,6 +207,14 @@ export async function submitConsultationBooking(data: ConsultationBookingData) {
           subject: `🔔 New Consultation: ${emailData.clientName} (${service_type})`,
           html: adminEmailHtml,
           replyTo: consultationData.email, // Allow admin to reply directly to client
+          attachments: [
+            {
+              filename: 'onofflogo.png',
+              content: readFileSync(join(process.cwd(), 'public', 'onofflogo.png')),
+              contentType: 'image/png',
+              cid: 'logo',
+            },
+          ],
         })
       ]);
 
