@@ -19,7 +19,7 @@ const config: Config = {
       colors: {
         // On & Off New Page Brand Colors
         brand: {
-          green: "#114B3F", // Deep Green (Trust, growth, Canada nature)
+          green: "#33251b", // Dark Brown (Sophisticated, premium, trust)
           ivory: "#F4ECDE", // Ivory Background (Clean, premium)
           beige: "#ECEBE3", // Soft Beige (Warmth, approachability)
           gold: "#A48242", // Gold Accent (Premium, success)
@@ -32,7 +32,7 @@ const config: Config = {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "#114B3F", // Brand green as primary
+          DEFAULT: "#33251b", // Brand green as primary
           foreground: "#FFFFFF",
         },
         secondary: {
@@ -45,11 +45,11 @@ const config: Config = {
         },
         muted: {
           DEFAULT: "#ECEBE3", // Brand beige as muted
-          foreground: "#114B3F",
+          foreground: "#33251b",
         },
         accent: {
           DEFAULT: "#F4ECDE", // Brand ivory as accent
-          foreground: "#114B3F",
+          foreground: "#33251b",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
