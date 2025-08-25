@@ -224,7 +224,49 @@ const form = useForm({
 - Testing: `__tests__/components/forms/FormInitialStates.test.tsx`
 - PR checklist: `.github/pull_request_template.md` includes form validation
 
-### 12. Project Completion
+### 12. Email Implementation Standards
+
+**CRITICAL: Email Logo/Attachment Pattern**
+
+To prevent recurring email logo display issues:
+
+#### ✅ Required Pattern for Email Images:
+
+```typescript
+// Base64 SVG embedding with PNG fallback
+let logoBase64 = '';
+try {
+  const logoPath = join(process.cwd(), 'Logo', 'On Off New Page_logo.svg');
+  const logoBuffer = readFileSync(logoPath, 'utf8');
+  logoBase64 = `data:image/svg+xml;base64,${Buffer.from(logoBuffer).toString('base64')}`;
+} catch (logoError) {
+  // Fallback to PNG
+  const pngPath = join(process.cwd(), 'public', 'logo.png');
+  const pngBuffer = readFileSync(pngPath);
+  logoBase64 = `data:image/png;base64,${pngBuffer.toString('base64')}`;
+}
+
+// Replace URLs in email HTML
+const emailHtml = originalHtml
+  .replace(/src="[^"]*logo\.(?:png|svg)"/g, `src="${logoBase64}"`)
+  .replace(/href="[^"]*logo\.(?:png|svg)"/g, `href="${logoBase64}"`)
+  .replace(/url\([^)]*logo\.(?:png|svg)\)/g, `url(${logoBase64})`);
+```
+
+#### ❌ Never Use in Emails:
+- `localhost:3000/logo.png` URLs (email clients can't access)
+- `cid:logo` attachments (unreliable across email clients)  
+- Environment-dependent URLs that break in dev/prod
+
+#### Email Implementation Rules:
+- **Base64 Embedding**: Always embed images directly as data URLs
+- **Multi-Fallback**: SVG primary, PNG fallback, error handling
+- **Test Email Route**: Create `/test-email` page for development testing
+- **Error Isolation**: Email failures shouldn't break core functionality
+
+See `docs/email-implementation-patterns.md` for complete patterns.
+
+### 13. Project Completion
 
 - Add a `## Review` section at the end of `todo.md` containing:
     - Summary of all implemented features

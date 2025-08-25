@@ -147,6 +147,27 @@ export async function submitConsultationBooking(data: ConsultationBookingData) {
       
       const icsFile = generateICSFile(calendarEvent);
 
+      // Read SVG logo and convert to base64 for reliable email embedding
+      let logoBase64 = '';
+      try {
+        const logoPath = join(process.cwd(), 'Logo', 'On Off New Page_logo.svg');
+        const logoBuffer = readFileSync(logoPath, 'utf8');
+        // For SVG, we can use base64 or direct data URL with the SVG content
+        logoBase64 = `data:image/svg+xml;base64,${Buffer.from(logoBuffer).toString('base64')}`;
+        console.log('📸 SVG Logo converted to base64, size:', logoBase64.length, 'characters');
+      } catch (logoError) {
+        console.error('Failed to read SVG logo file:', logoError);
+        // Fallback to PNG if SVG fails
+        try {
+          const pngLogoPath = join(process.cwd(), 'public', 'onofflogo.png');
+          const pngLogoBuffer = readFileSync(pngLogoPath);
+          logoBase64 = `data:image/png;base64,${pngLogoBuffer.toString('base64')}`;
+          console.log('📸 Fallback PNG Logo converted to base64, size:', logoBase64.length, 'characters');
+        } catch (pngError) {
+          console.error('Failed to read PNG logo file as fallback:', pngError);
+        }
+      }
+
       // Prepare email data for both templates
       const emailData = {
         clientName: consultationData.parent_name || consultationData.student_korean_name,
@@ -170,10 +191,37 @@ export async function submitConsultationBooking(data: ConsultationBookingData) {
       };
 
       // Send client confirmation email
-      const clientEmailHtml = await render(ConsultationConfirmationEmail(emailData));
+      const originalClientHtml = await render(ConsultationConfirmationEmail(emailData));
+      const clientEmailHtml = logoBase64 
+        ? originalClientHtml
+            .replace(/src="[^"]*onofflogo\.(?:png|svg)"/g, `src="${logoBase64}"`)
+            .replace(/href="[^"]*onofflogo\.(?:png|svg)"/g, `href="${logoBase64}"`)
+            .replace(/url\([^)]*onofflogo\.(?:png|svg)\)/g, `url(${logoBase64})`)
+        : originalClientHtml;
       
       // Send admin notification email  
-      const adminEmailHtml = await render(AdminConsultationNotification(emailData));
+      const originalAdminHtml = await render(AdminConsultationNotification(emailData));
+      const adminEmailHtml = logoBase64
+        ? originalAdminHtml
+            .replace(/src="[^"]*onofflogo\.(?:png|svg)"/g, `src="${logoBase64}"`)
+            .replace(/href="[^"]*onofflogo\.(?:png|svg)"/g, `href="${logoBase64}"`)
+            .replace(/url\([^)]*onofflogo\.(?:png|svg)\)/g, `url(${logoBase64})`)
+        : originalAdminHtml;
+
+      // Debug logging
+      console.log('🔍 Logo replacement check:');
+      console.log('Original contains onofflogo.png:', originalClientHtml.includes('onofflogo.png'));
+      console.log('Original contains onofflogo.svg:', originalClientHtml.includes('onofflogo.svg'));
+      console.log('Using base64 logo:', logoBase64 ? 'YES' : 'NO');
+      console.log('Logo type:', logoBase64 ? (logoBase64.includes('svg+xml') ? 'SVG' : 'PNG') : 'NONE');
+      console.log('Replaced contains base64:', clientEmailHtml.includes('data:image/'));
+      console.log('Replaced still contains onofflogo files:', clientEmailHtml.includes('onofflogo.'));
+      
+      if (clientEmailHtml.includes('onofflogo.')) {
+        console.log('⚠️ Found remaining onofflogo references:');
+        const matches = clientEmailHtml.match(/[^>\s]*onofflogo\.[^<\s]*/g);
+        matches?.forEach((match, i) => console.log(`   ${i + 1}: ${match}`));
+      }
 
       // Send both emails in parallel
       const [clientEmailResult, adminEmailResult] = await Promise.allSettled([
@@ -191,12 +239,6 @@ export async function submitConsultationBooking(data: ConsultationBookingData) {
               content: Buffer.from(icsFile, 'utf-8'),
               contentType: 'text/calendar',
             },
-            {
-              filename: 'onofflogo.png',
-              content: readFileSync(join(process.cwd(), 'public', 'onofflogo.png')),
-              contentType: 'image/png',
-              cid: 'logo',
-            },
           ],
         }),
         
@@ -207,14 +249,6 @@ export async function submitConsultationBooking(data: ConsultationBookingData) {
           subject: `🔔 New Consultation: ${emailData.clientName} (${service_type})`,
           html: adminEmailHtml,
           replyTo: consultationData.email, // Allow admin to reply directly to client
-          attachments: [
-            {
-              filename: 'onofflogo.png',
-              content: readFileSync(join(process.cwd(), 'public', 'onofflogo.png')),
-              contentType: 'image/png',
-              cid: 'logo',
-            },
-          ],
         })
       ]);
 

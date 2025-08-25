@@ -1,5 +1,44 @@
 # Troubleshooting Guide
 
+## Critical Issue: Email Logos Not Displaying (2025-08-25)
+
+### Problem
+- Email logos show as broken images (question mark icons) in sent emails
+- Logo displays correctly in browser preview but fails in actual email clients
+- Recipients see broken image placeholders instead of company logo
+
+### Root Cause
+- Email clients can't access localhost URLs (`http://localhost:3000/logo.png`)
+- CID attachment references (`cid:logo`) are unreliable across different email clients
+- Email client limitations with external image loading and processing
+
+### Solution Applied
+```typescript
+// Base64 SVG embedding with PNG fallback
+let logoBase64 = '';
+try {
+  const logoPath = join(process.cwd(), 'Logo', 'On Off New Page_logo.svg');
+  const logoBuffer = readFileSync(logoPath, 'utf8');
+  logoBase64 = `data:image/svg+xml;base64,${Buffer.from(logoBuffer).toString('base64')}`;
+} catch (logoError) {
+  // PNG fallback
+  const pngBuffer = readFileSync(join(process.cwd(), 'public', 'logo.png'));
+  logoBase64 = `data:image/png;base64,${pngBuffer.toString('base64')}`;
+}
+
+// Replace URLs in email HTML
+const emailHtml = originalHtml
+  .replace(/src="[^"]*logo\.(?:png|svg)"/g, `src="${logoBase64}"`)
+  .replace(/href="[^"]*logo\.(?:png|svg)"/g, `href="${logoBase64}"`)
+  .replace(/url\([^)]*logo\.(?:png|svg)\)/g, `url(${logoBase64})`);
+```
+
+### Prevention Checklist
+- [ ] ✅ Always use base64 embedding for email images
+- [ ] ❌ Never use localhost URLs in email templates
+- [ ] ❌ Avoid relying on cid: attachments for critical images
+- [ ] 🧪 Test emails in actual email clients (Gmail, Outlook, Apple Mail)
+
 ## Critical Issue: Next.js 15 + next-intl Routing Failures (2025-01-24)
 
 ### Problem

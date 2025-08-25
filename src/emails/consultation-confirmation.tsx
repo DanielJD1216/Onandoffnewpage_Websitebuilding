@@ -158,7 +158,7 @@ export const ConsultationConfirmationEmail = ({
           {/* Logo Section */}
           <Section style={logoSection}>
             <Img
-              src="cid:logo"
+              src={`${baseUrl}/onofflogo.png`}
               width="200"
               height="67"
               alt="On & Off New Page"
@@ -261,7 +261,7 @@ const content = {
 };
 
 const h1 = {
-  color: '#114B3F',
+  color: '#33251b',
   fontSize: '28px',
   fontWeight: '900',
   lineHeight: '1.3',
@@ -332,7 +332,7 @@ const contactInfo = {
   margin: '16px 0',
   padding: '16px',
   backgroundColor: '#F8F9FA',
-  borderLeft: '4px solid #114B3F',
+  borderLeft: '4px solid #33251b',
   borderRadius: '4px',
 };
 
@@ -356,7 +356,7 @@ const regards = {
 };
 
 const detailsTitle = {
-  color: '#114B3F',
+  color: '#33251b',
   fontSize: '16px',
   fontWeight: '700',
   lineHeight: '1.4',

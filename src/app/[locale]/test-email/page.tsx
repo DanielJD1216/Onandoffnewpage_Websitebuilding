@@ -38,7 +38,7 @@ export default function TestEmailPage() {
     timezone: "KST" as const,
     urgency: "normal" as const,
     service_type: "parent-accompanied" as const,
-    support_services: ["homestay-matching", "academic-monitoring"] as const,
+    support_services: ["homestay-matching", "academic-monitoring"] as ("visa-support" | "guardianship" | "homestay-matching" | "medical-insurance" | "life-setup" | "academic-monitoring" | "university-pathway" | "emergency-support" | "parent-immigration")[],
     budget_range: "35k-45k" as const
   };
 
