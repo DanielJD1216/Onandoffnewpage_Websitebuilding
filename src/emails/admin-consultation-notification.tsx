@@ -35,7 +35,7 @@ interface AdminConsultationNotificationProps {
 
 const baseUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
-  : 'http://localhost:3000';
+  : 'https://onandoff-newpage.com';
 
 export const AdminConsultationNotification = ({
   clientName = '홍길동',
@@ -93,9 +93,9 @@ export const AdminConsultationNotification = ({
           {/* Header */}
           <Section style={header}>
             <Img
-              src={`${baseUrl}/logo.svg`}
-              width="120"
-              height="40"
+              src={`${baseUrl}/onofflogo.png`}
+              width="160"
+              height="53"
               alt="On & Off New Page"
               style={logo}
             />

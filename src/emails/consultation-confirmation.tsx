@@ -28,7 +28,7 @@ interface ConsultationConfirmationEmailProps {
 
 const baseUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
-  : 'http://localhost:3000';
+  : 'https://onandoff-newpage.com';
 
 export const ConsultationConfirmationEmail = ({
   clientName = '홍길동',
@@ -158,9 +158,9 @@ export const ConsultationConfirmationEmail = ({
           {/* Logo Section */}
           <Section style={logoSection}>
             <Img
-              src={`${baseUrl}/logo.svg`}
-              width="160"
-              height="53"
+              src={`${baseUrl}/onofflogo.png`}
+              width="200"
+              height="67"
               alt="On & Off New Page"
               style={logo}
             />
