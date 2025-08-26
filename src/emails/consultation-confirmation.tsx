@@ -138,7 +138,7 @@ export const ConsultationConfirmationEmail = ({
       step3: 'Check the attached calendar file to add this appointment to your calendar.',
       contact: 'If you have any questions, please feel free to contact us',
       vancouverOffice: 'Vancouver Local Office',
-      phone: 'Phone: +1 (604) 123-4567',
+      phone: 'Phone: +1 (778) 889-8235',
       email: 'Email: onf.newpage@gmail.com',
       kakaoId: 'KakaoTalk: OnOffNewPage',
       footer: 'We look forward to supporting your successful journey to Canada!',

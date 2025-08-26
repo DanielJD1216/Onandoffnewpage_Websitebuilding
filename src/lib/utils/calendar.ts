@@ -229,7 +229,7 @@ export function generateCalendarEvent(
     `학생: ${studentName}\\n` +
     `상담 방식: ${consultationType === 'online' ? '온라인' : '오프라인'}\\n` +
     `시간대: ${timezone}\\n\\n` +
-    `문의: info@onoffnewpage.com`;
+    `문의: onf.newpage@gmail.com`;
   
   return [
     'BEGIN:VCALENDAR',

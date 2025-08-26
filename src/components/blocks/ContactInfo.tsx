@@ -49,7 +49,7 @@ const contactMethods: ContactMethod[] = [
     title: 'WhatsApp',
     subtitle: 'WhatsApp으로 편리하게',
     description: '해외에서도 편리하게 연락할 수 있습니다.',
-    contact: '+1 (604) 123-4567',
+    contact: '+1 (778) 889-8235',
     action: 'https://wa.me/16041234567',
     buttonText: 'WhatsApp 상담',
     external: true

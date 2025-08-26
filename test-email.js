@@ -11,7 +11,7 @@ const testConsultationData = {
   student_english_name: "Test Kim",
   parent_name: "김부모",
   email: "test@example.com",
-  phone: "+1-604-123-4567",
+  phone: "778-889-8235",
   kakao_id: "test_kakao_id",
   
   // Consultation Details

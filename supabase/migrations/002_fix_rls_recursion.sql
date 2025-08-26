@@ -10,7 +10,7 @@ CREATE POLICY "Admin can manage staff emails" ON staff_emails
   FOR ALL
   USING (
     auth.uid() IS NOT NULL AND 
-    auth.jwt()->>'email' = 'admin@onoffnewpage.com'
+    auth.jwt()->>'email' = 'onf.newpage@gmail.com'
   );
 
 -- Alternatively, we could disable RLS on staff_emails entirely since it's admin-only

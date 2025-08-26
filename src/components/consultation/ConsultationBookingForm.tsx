@@ -214,7 +214,7 @@ export default function ConsultationBookingForm() {
             asChild
             className="bg-brand-green hover:bg-brand-green/90"
           >
-            <a href="mailto:info@onoffnewpage.com">이메일 문의</a>
+            <a href="mailto:onf.newpage@gmail.com">이메일 문의</a>
           </Button>
           <Button 
             variant="outline"
@@ -756,7 +756,7 @@ export default function ConsultationBookingForm() {
           <Card className="p-6 bg-red-50 border-red-200">
             <p className="text-red-700 font-medium text-center">
               상담 예약 중 오류가 발생했습니다. 다시 시도해 주시거나 직접 연락 주세요.<br/>
-              <strong>이메일:</strong> info@onoffnewpage.com
+              <strong>이메일:</strong> onf.newpage@gmail.com
             </p>
           </Card>
         )}

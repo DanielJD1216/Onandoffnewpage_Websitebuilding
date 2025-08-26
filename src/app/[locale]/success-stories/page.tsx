@@ -250,7 +250,7 @@ export default function SuccessStoriesPage() {
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-sm">
                 <div className="flex items-center gap-2">
                   <span className="font-black">이메일:</span>
-                  <span className="text-brand-green">info@onoffnewpage.com</span>
+                  <span className="text-brand-green">onf.newpage@gmail.com</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="font-black">응답 시간:</span>

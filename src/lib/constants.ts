@@ -6,7 +6,8 @@ export const COMPANY_INFO = {
   subtitleKr: '밴쿠버 현지에서 직접 운영하는 신뢰할 수 있는 교육 컨설팅',
   
   address: '204-1046 Austin Avenue, Coquitlam, British Columbia',
-  email: 'info@onoffnewpage.com',
+  email: 'onf.newpage@gmail.com',
+  phone: '778-889-8235',
   
   consultation: {
     responseTimeKr: '영업일 기준 1-2일 내로 연락드리겠습니다. 감사합니다!',

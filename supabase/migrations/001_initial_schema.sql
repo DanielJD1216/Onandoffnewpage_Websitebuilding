@@ -30,7 +30,7 @@ CREATE TABLE staff_emails (
 
 -- Insert initial staff email BEFORE enabling RLS (fixes bootstrap issue)
 INSERT INTO staff_emails (email, role) VALUES 
-('admin@onoffnewpage.com', 'admin');
+('onf.newpage@gmail.com', 'admin');
 
 -- User profiles table
 CREATE TABLE profiles (

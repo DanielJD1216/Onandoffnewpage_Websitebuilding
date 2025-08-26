@@ -59,7 +59,7 @@ export default function ContactPage() {
 
         <AnnouncementBanner
           title="빠른 연락 방법"
-          message="카카오톡 ID: onoffnewpage | 긴급 문의: +1 (604) 123-4567"
+          message="카카오톡 ID: onoffnewpage | 긴급 문의: +1 (778) 889-8235"
           variant="info"
         />
       </PageHero>
@@ -148,14 +148,14 @@ export default function ContactPage() {
                       자세한 문의사항이 있으신 경우
                     </p>
                     <p className="font-medium text-brand-green mb-3">
-                      info@onoffnewpage.com
+                      onf.newpage@gmail.com
                     </p>
                     <Button 
                       asChild 
                       variant="outline" 
                       className="w-full border-brand-green text-brand-green hover:bg-brand-green hover:text-white"
                     >
-                      <a href="mailto:info@onoffnewpage.com">이메일 보내기</a>
+                      <a href="mailto:onf.newpage@gmail.com">이메일 보내기</a>
                     </Button>
                     <p className="text-xs text-gray-500 mt-2">응답: 1-2일</p>
                   </div>
@@ -199,7 +199,7 @@ export default function ContactPage() {
                       해외에서도 편리하게
                     </p>
                     <p className="font-medium text-green-600 mb-3">
-                      +1 (604) 123-4567
+                      +1 (778) 889-8235
                     </p>
                     <Button 
                       asChild 
@@ -263,7 +263,7 @@ export default function ContactPage() {
                     <Phone className="w-5 h-5 text-brand-green mt-0.5" />
                     <div>
                       <p className="font-medium">전화</p>
-                      <p className="text-gray-600">+1 (604) 123-4567</p>
+                      <p className="text-gray-600">+1 (778) 889-8235</p>
                     </div>
                   </div>
                 </div>

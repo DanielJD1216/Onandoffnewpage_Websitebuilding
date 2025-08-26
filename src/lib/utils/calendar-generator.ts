@@ -115,8 +115,8 @@ export function createConsultationCalendarEvent({
     : `Canadian Study Abroad Consultation - ${consultationTypeLabels.en[consultationType]}`;
 
   const description = isKorean
-    ? `온앤오프 뉴페이지와의 캐나다 유학 상담\n\n상담자: ${clientName}\n상담 유형: ${consultationTypeLabels.ko[consultationType]}\n\n준비사항:\n- 학생 성적표 및 졸업증명서\n- 여권 사본\n- 궁금한 사항 목록\n\n연락처: onf.newpage@gmail.com\n전화: +1 (604) 123-4567\n카카오톡: OnOffNewPage`
-    : `Canadian Study Abroad Consultation with On & Off New Page\n\nClient: ${clientName}\nConsultation Type: ${consultationTypeLabels.en[consultationType]}\n\nPlease prepare:\n- Student transcripts and certificates\n- Passport copy\n- List of questions\n\nContact: onf.newpage@gmail.com\nPhone: +1 (604) 123-4567\nKakaoTalk: OnOffNewPage`;
+    ? `온앤오프 뉴페이지와의 캐나다 유학 상담\n\n상담자: ${clientName}\n상담 유형: ${consultationTypeLabels.ko[consultationType]}\n\n준비사항:\n- 학생 성적표 및 졸업증명서\n- 여권 사본\n- 궁금한 사항 목록\n\n연락처: onf.newpage@gmail.com\n전화: +1 (778) 889-8235\n카카오톡: OnOffNewPage`
+    : `Canadian Study Abroad Consultation with On & Off New Page\n\nClient: ${clientName}\nConsultation Type: ${consultationTypeLabels.en[consultationType]}\n\nPlease prepare:\n- Student transcripts and certificates\n- Passport copy\n- List of questions\n\nContact: onf.newpage@gmail.com\nPhone: +1 (778) 889-8235\nKakaoTalk: OnOffNewPage`;
 
   return {
     title,
