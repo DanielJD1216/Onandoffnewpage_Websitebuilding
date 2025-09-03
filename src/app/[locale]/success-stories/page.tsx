@@ -176,7 +176,7 @@ export default function SuccessStoriesPage() {
           />
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <Card className="p-6 bg-white/10 border-0 backdrop-blur-sm">
+            <Card className="p-6 bg-white/10 border-0">
               <div className="text-white">
                 <div className="text-3xl mb-4">💝</div>
                 <p className="mb-4 italic">
@@ -186,7 +186,7 @@ export default function SuccessStoriesPage() {
               </div>
             </Card>
 
-            <Card className="p-6 bg-white/10 border-0 backdrop-blur-sm">
+            <Card className="p-6 bg-white/10 border-0">
               <div className="text-white">
                 <div className="text-3xl mb-4">🙏</div>
                 <p className="mb-4 italic">
@@ -196,7 +196,7 @@ export default function SuccessStoriesPage() {
               </div>
             </Card>
 
-            <Card className="p-6 bg-white/10 border-0 backdrop-blur-sm">
+            <Card className="p-6 bg-white/10 border-0">
               <div className="text-white">
                 <div className="text-3xl mb-4">⭐</div>
                 <p className="mb-4 italic">

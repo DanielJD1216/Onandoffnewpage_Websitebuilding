@@ -75,7 +75,7 @@ export function AnnouncementBanner({
 
   return (
     <div className={cn(
-      'relative rounded-2xl border backdrop-blur-sm shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl',
+      'relative rounded-2xl border shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl',
       `bg-gradient-to-r ${styles.bg} ${styles.border}`,
       className
     )}>

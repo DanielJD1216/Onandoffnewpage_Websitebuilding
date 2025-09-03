@@ -85,7 +85,7 @@ export function ContactInfo({
   if (variant === 'office') {
     return (
       <div className={`grid md:grid-cols-2 gap-8 ${className}`}>
-        <Card className="p-6 bg-white/10 backdrop-blur-sm border-0">
+        <Card className="p-6 bg-white/10 border-0">
           <div className="text-white">
             <h3 className="text-xl font-black mb-4 flex items-center gap-2">
               <span>📍</span>
@@ -98,7 +98,7 @@ export function ContactInfo({
           </div>
         </Card>
 
-        <Card className="p-6 bg-white/10 backdrop-blur-sm border-0">
+        <Card className="p-6 bg-white/10 border-0">
           <div className="text-white">
             <h3 className="text-xl font-black mb-4 flex items-center gap-2">
               <span>🕐</span>

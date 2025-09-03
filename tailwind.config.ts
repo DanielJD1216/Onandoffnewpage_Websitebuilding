@@ -19,9 +19,8 @@ const config: Config = {
       colors: {
         // On & Off New Page Brand Colors
         brand: {
-          green: "#33251b", // Dark Brown (Sophisticated, premium, trust)
+          green: "#114b3f", // Dark Green (Sophisticated, premium, trust)
           ivory: "#F4ECDE", // Ivory Background (Clean, premium)
-          beige: "#ECEBE3", // Soft Beige (Warmth, approachability)
           gold: "#A48242", // Gold Accent (Premium, success)
           black: "#000000", // Black (Text, logo)
         },
@@ -32,7 +31,7 @@ const config: Config = {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "#33251b", // Brand green as primary
+          DEFAULT: "#114b3f", // Brand green as primary
           foreground: "#FFFFFF",
         },
         secondary: {
@@ -44,12 +43,12 @@ const config: Config = {
           foreground: "hsl(var(--destructive-foreground))",
         },
         muted: {
-          DEFAULT: "#ECEBE3", // Brand beige as muted
-          foreground: "#33251b",
+          DEFAULT: "#F4ECDE", // Brand ivory as muted
+          foreground: "#114b3f",
         },
         accent: {
           DEFAULT: "#F4ECDE", // Brand ivory as accent
-          foreground: "#33251b",
+          foreground: "#114b3f",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
@@ -61,13 +60,14 @@ const config: Config = {
         },
       },
       fontFamily: {
-        // Korean fonts
+        // Main brand font
+        'cafe24': ['Cafe24Danjunghae', 'system-ui', 'sans-serif'],
+        // Fallback fonts
         pretendard: ["Pretendard", "system-ui", "sans-serif"],
         noto: ['"Noto Sans KR"', "system-ui", "sans-serif"],
-        // English fonts
         inter: ["Inter", "system-ui", "sans-serif"],
-        // Default sans
-        sans: ["Pretendard", '"Noto Sans KR"', "Inter", "system-ui", "sans-serif"],
+        // Default sans - now uses Cafe24Danjunghae as primary
+        sans: ["Cafe24Danjunghae", "Pretendard", '"Noto Sans KR"', "Inter", "system-ui", "sans-serif"],
       },
       borderRadius: {
         lg: "var(--radius)",

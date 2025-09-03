@@ -119,7 +119,7 @@ export default function AboutPage() {
             </p>
             
             {/* Founding Story */}
-            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-brand-green/10 shadow-lg">
+            <div className="bg-white/80 rounded-2xl p-8 border border-brand-green/10 shadow-lg">
               <h3 className="text-2xl font-black text-brand-green mb-4">창립 스토리</h3>
               <p className="text-gray-700 leading-relaxed">
                 2020년, 코로나19로 인한 어려운 상황에서도 캐나다 유학의 꿈을 포기하지 않는 
@@ -280,8 +280,6 @@ export default function AboutPage() {
                   ))}
                 </div>
                 
-                {/* Korean accent dot */}
-                <div className="absolute bottom-4 right-4 w-2 h-2 bg-brand-gold rounded-full group-hover:scale-125 transition-transform duration-300" />
               </Card>
             ))}
           </div>

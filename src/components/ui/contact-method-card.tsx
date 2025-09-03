@@ -106,8 +106,6 @@ export function ContactMethodCard({
             </div>
           )}
 
-          {/* Korean-style accent dot */}
-          <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-brand-gold rounded-full group-hover:scale-125 transition-transform duration-300" />
         </div>
 
         {/* Content */}

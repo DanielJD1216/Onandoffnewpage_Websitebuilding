@@ -71,7 +71,7 @@ export function CompactTrustBadges({ className = '' }: { className?: string }) {
   return (
     <div className={`flex flex-wrap gap-3 justify-center ${className}`}>
       {trustBadges.slice(0, 3).map((badge, index) => (
-        <div key={index} className="flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-3 py-2 shadow-sm border border-gray-200/50">
+        <div key={index} className="flex items-center gap-2 bg-white/80 rounded-full px-3 py-2 shadow-sm border border-gray-200/50">
           <div className={`w-6 h-6 rounded-full bg-gradient-to-br ${badge.color} flex items-center justify-center flex-shrink-0`}>
             <badge.icon className="w-3 h-3 text-white" />
           </div>

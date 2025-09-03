@@ -18,6 +18,7 @@ const navigation = [
       { name: '부모 동반 유학', href: '/ko/services#parent-accompanied' }
     ]
   },
+  { name: '프로그램', href: '/ko/program' },
   { name: '프로그램 안내', href: '/ko/programs' },
   { name: '성공 사례', href: '/ko/success-stories' },
   { name: '문의하기', href: '/ko/contact' },
@@ -42,26 +43,26 @@ export function Header() {
   };
 
   return (
-    <header className="bg-[#F4ECDE] shadow-sm sticky top-0 z-50">
+    <header className="bg-[#114b3f] shadow-sm sticky top-0 z-50">
       <nav className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link 
             href="/ko" 
-            className="flex items-center focus:outline-none focus:ring-2 focus:ring-brand-green focus:ring-offset-2 focus:ring-offset-[#F4ECDE] rounded-lg p-1 ml-2"
+            className="flex items-center focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#114b3f] rounded-lg p-1 ml-[150px]"
           >
             <Image
               src="/logo.svg"
               alt="On & Off New Page"
-              width={240}
-              height={80}
-              className="h-16 w-auto"
+              width={300}
+              height={100}
+              className="h-14 w-auto -mt-2"
               priority
             />
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-8 -mt-2 mr-[100px]">
             {navigation.map((item) => (
               <div 
                 key={item.name} 
@@ -71,10 +72,10 @@ export function Header() {
               >
                 <Link
                   href={item.href}
-                  className={`text-lg font-semibold transition-colors hover:text-brand-green flex items-center gap-1 focus:outline-none focus:ring-2 focus:ring-brand-green focus:ring-offset-2 focus:ring-offset-[#F4ECDE] rounded px-3 py-2 ${
+                  className={`text-lg font-semibold transition-colors hover:text-white flex items-center gap-1 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#114b3f] rounded px-3 py-2 ${
                     isActive(item.href)
-                      ? 'text-brand-green border-b-2 border-brand-green'
-                      : 'text-gray-700'
+                      ? 'text-white border-b-2 border-white'
+                      : 'text-gray-300'
                   }`}
                 >
                   {item.name}
@@ -83,7 +84,7 @@ export function Header() {
                 
                 {/* Dropdown Menu */}
                 {item.submenu && activeDropdown === item.name && (
-                  <div className="absolute top-full left-0 mt-2 w-64 bg-[#F4ECDE] rounded-lg shadow-lg border z-50">
+                  <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border z-50">
                     {item.submenu.map((subitem) => (
                       <Link
                         key={subitem.name}
@@ -111,7 +112,7 @@ export function Header() {
           {/* Mobile menu button */}
           <button
             type="button"
-            className="md:hidden p-2 rounded-md text-gray-700 hover:text-brand-green focus:outline-none focus:ring-2 focus:ring-brand-green focus:ring-offset-2 focus:ring-offset-[#F4ECDE]"
+            className="md:hidden p-2 rounded-md text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#114b3f]"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-expanded={mobileMenuOpen}
             aria-controls="mobile-menu"
@@ -141,10 +142,10 @@ export function Header() {
                   <Link
                     href={item.href}
                     role="menuitem"
-                    className={`text-lg font-semibold py-3 block transition-colors focus:outline-none focus:ring-2 focus:ring-brand-green focus:ring-offset-2 focus:ring-offset-[#F4ECDE] rounded px-3 ${
+                    className={`text-lg font-semibold py-3 block transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#114b3f] rounded px-3 ${
                       isActive(item.href)
-                        ? 'text-brand-green font-black'
-                        : 'text-gray-700'
+                        ? 'text-white font-black'
+                        : 'text-gray-300'
                     }`}
                     onClick={() => setMobileMenuOpen(false)}
                   >
@@ -157,7 +158,7 @@ export function Header() {
                           key={subitem.name}
                           href={subitem.href}
                           role="menuitem"
-                          className="block py-1 px-2 text-sm text-gray-600 hover:text-brand-green focus:outline-none focus:ring-2 focus:ring-brand-green focus:ring-offset-2 focus:ring-offset-[#F4ECDE] rounded"
+                          className="block py-1 px-2 text-sm text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#114b3f] rounded"
                           onClick={() => setMobileMenuOpen(false)}
                         >
                           • {subitem.name}

@@ -150,7 +150,7 @@ export async function submitConsultationBooking(data: ConsultationBookingData) {
       // Read SVG logo and convert to base64 for reliable email embedding
       let logoBase64 = '';
       try {
-        const logoPath = join(process.cwd(), 'Logo', 'On Off New Page_logo.svg');
+        const logoPath = join(process.cwd(), 'Logo', 'On Off New Page_design_BW2.svg');
         const logoBuffer = readFileSync(logoPath, 'utf8');
         // For SVG, we can use base64 or direct data URL with the SVG content
         logoBase64 = `data:image/svg+xml;base64,${Buffer.from(logoBuffer).toString('base64')}`;

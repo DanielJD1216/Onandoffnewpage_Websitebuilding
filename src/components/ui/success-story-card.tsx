@@ -83,8 +83,6 @@ export function SuccessStoryCard({
                 </div>
               </div>
 
-              {/* Korean accent dot */}
-              <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-brand-gold rounded-full" />
             </div>
           </div>
           

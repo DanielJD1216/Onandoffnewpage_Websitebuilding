@@ -158,7 +158,7 @@ export const ConsultationConfirmationEmail = ({
           {/* Logo Section */}
           <Section style={logoSection}>
             <Img
-              src={`${baseUrl}/onofflogo.png`}
+              src={`${baseUrl}/onofflogo.svg`}
               width="200"
               height="67"
               alt="On & Off New Page"

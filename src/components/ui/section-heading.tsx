@@ -44,10 +44,6 @@ export function SectionHeading({
       
       <HeadingTag className={`${headingSizes[level]} font-black ${headingStyles} leading-tight ${headingMargins[level]} relative`}>
         {title}
-        {/* Korean-style accent dot */}
-        {variant === 'premium' && (
-          <span className="inline-block w-2 h-2 bg-brand-gold rounded-full ml-2 -translate-y-1" />
-        )}
       </HeadingTag>
       
       {subtitle && (
