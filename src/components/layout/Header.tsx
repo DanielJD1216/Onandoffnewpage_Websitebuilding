@@ -49,14 +49,14 @@ export function Header() {
           {/* Logo */}
           <Link 
             href="/ko" 
-            className="flex items-center focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#114b3f] rounded-lg p-1 ml-[150px]"
+            className="flex items-center focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#114b3f] rounded-lg p-1 ml-[150px] md:ml-[150px] ml-0"
           >
             <Image
               src="/logo.svg"
               alt="On & Off New Page"
               width={300}
               height={100}
-              className="h-14 w-auto -mt-2"
+              className="h-12 w-auto mt-1"
               priority
             />
           </Link>

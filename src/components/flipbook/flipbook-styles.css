@@ -1,0 +1,75 @@
+/* Flipbook custom styles */
+.flipbook-container {
+  display: flex !important;
+  perspective: 1000px;
+}
+
+.page {
+  background-color: white;
+  color: black;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page.hard {
+  background-color: #114b3f;
+  color: #F4ECDE;
+}
+
+.page:nth-child(even) {
+  box-shadow: inset -7px 0 20px -7px rgba(0, 0, 0, 0.4);
+}
+
+.page:nth-child(odd) {
+  box-shadow: inset 7px 0 20px -7px rgba(0, 0, 0, 0.4);
+}
+
+/* Book spine effect */
+.book-spine {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to right, 
+    rgba(0, 0, 0, 0.2) 0%, 
+    rgba(255, 255, 255, 0.3) 50%, 
+    rgba(0, 0, 0, 0.2) 100%);
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Animation for page indicator */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out;
+}
+
+/* Swipe indicator animation */
+@keyframes swipe-hint {
+  0%, 100% {
+    transform: translateX(0);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateX(-10px);
+    opacity: 1;
+  }
+}
+
+.animate-swipe-indicator {
+  animation: swipe-hint 2s ease-in-out infinite;
+}

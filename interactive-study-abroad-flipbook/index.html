@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>On & Off New Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      /* Custom font styles to match the branding */
+      body {
+        font-family: 'Poppins', sans-serif;
+      }
+      .font-noto-serif {
+        font-family: 'Noto Serif KR', serif;
+      }
+      .font-poppins {
+        font-family: 'Poppins', sans-serif;
+      }
+      /* Custom animation for the stamp */
+      @keyframes stamp-animation {
+        0% { transform: scale(1.5) rotate(-12deg); opacity: 0; }
+        50% { transform: scale(0.9) rotate(-12deg); opacity: 1; }
+        70% { transform: scale(1.05) rotate(-12deg); }
+        100% { transform: scale(1) rotate(-12deg); }
+      }
+      .stamp-animate {
+        animation: stamp-animation 0.7s ease-out 0.5s forwards;
+        transform: scale(0) rotate(-12deg); /* Initial state for animation */
+      }
+      /* Custom animation for the mobile swipe indicator */
+      @keyframes swipe-indicator-animation {
+        0% { opacity: 0; transform: translateX(10px) scale(0.95); }
+        30% { opacity: 0.8; transform: translateX(0) scale(1); }
+        70% { opacity: 0.8; transform: translateX(0) scale(1); }
+        100% { opacity: 0; transform: translateX(-10px) scale(0.95); }
+      }
+      .animate-swipe-indicator {
+        animation: swipe-indicator-animation 3s ease-in-out 1s forwards;
+      }
+      /* Style for the visual book spine */
+      .book-spine {
+        position: absolute;
+        left: 0;
+        top: 2px;
+        height: calc(100% - 4px);
+        width: 25px;
+        background: linear-gradient(to right, #0a2e26 0%, #114B3F 50%, #0a2e26 100%);
+        border-radius: 8px 0 0 8px;
+        box-shadow: inset 4px 0 8px rgba(0,0,0,0.4), -1px 0 2px rgba(0,0,0,0.2);
+        z-index: 0;
+      }
+      /* Animation for the page number indicator */
+      @keyframes page-indicator-animation {
+        from {
+          opacity: 0;
+          transform: translateY(8px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .animate-page-indicator {
+        display: inline-block; /* Needed for transform to work */
+        animation: page-indicator-animation 0.4s ease-out forwards;
+      }
+
+      /* Realistic Page Curl Affordance on Hover */
+      .page {
+          position: relative;
+      }
+
+      .page.--odd.--visible::after,
+      .page.--even.--visible::after {
+          content: '';
+          position: absolute;
+          width: 50px;
+          height: 50px;
+          transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+          opacity: 0;
+          pointer-events: none;
+          z-index: 99;
+      }
+
+      .page.--odd.--visible::after {
+          bottom: 0;
+          right: 0;
+          background: linear-gradient(315deg, transparent 49%, #e0dfd8 50%, #f1f0ea 70%);
+          box-shadow: -3px -3px 5px rgba(0,0,0,0.1);
+          transform-origin: bottom right;
+          transform: scale(0);
+      }
+
+      .page.--even.--visible::after {
+          bottom: 0;
+          left: 0;
+          background: linear-gradient(225deg, transparent 49%, #e0dfd8 50%, #f1f0ea 70%);
+          box-shadow: 3px -3px 5px rgba(0,0,0,0.1);
+          transform-origin: bottom left;
+          transform: scale(0);
+      }
+
+      .react-pageflip:hover .page.--odd.--visible::after,
+      .react-pageflip:hover .page.--even.--visible::after {
+          opacity: 1;
+          transform: scale(1);
+      }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "react-pageflip": "https://aistudiocdn.com/react-pageflip@^2.0.3"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="bg-[#ECEBE3]">
+    <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>

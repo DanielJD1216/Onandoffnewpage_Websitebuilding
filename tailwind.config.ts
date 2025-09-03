@@ -60,14 +60,16 @@ const config: Config = {
         },
       },
       fontFamily: {
-        // Main brand font
+        // Main brand font - Gowun Batang
+        'batang': ['"Gowun Batang"', 'serif'],
+        // Legacy fonts (keeping for backward compatibility)
         'cafe24': ['Cafe24Danjunghae', 'system-ui', 'sans-serif'],
         // Fallback fonts
         pretendard: ["Pretendard", "system-ui", "sans-serif"],
         noto: ['"Noto Sans KR"', "system-ui", "sans-serif"],
         inter: ["Inter", "system-ui", "sans-serif"],
-        // Default sans - now uses Cafe24Danjunghae as primary
-        sans: ["Cafe24Danjunghae", "Pretendard", '"Noto Sans KR"', "Inter", "system-ui", "sans-serif"],
+        // Default sans - now uses Gowun Batang as primary
+        sans: ['"Gowun Batang"', "Pretendard", '"Noto Sans KR"', "Inter", "system-ui", "sans-serif"],
       },
       borderRadius: {
         lg: "var(--radius)",
