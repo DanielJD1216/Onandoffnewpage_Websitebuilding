@@ -59,7 +59,8 @@
     "postcss": "^8.4.51",
     "prettier": "^3.4.2",
     "tailwindcss": "^3.4.17",
-    "typescript": "^5.7.3"
+    "typescript": "^5.7.3",
+    "vite": "^6.2.0"
   },
   "description": "On & Off New Page - Korean-Canadian study abroad consultancy website specializing in Canadian education for Korean students",
   "main": "next.config.js",
