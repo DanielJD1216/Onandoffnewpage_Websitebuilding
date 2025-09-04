@@ -92,9 +92,18 @@
     box-sizing: border-box;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
     overflow-x: hidden;
+    background: 
+      radial-gradient(ellipse at top left, rgba(17, 75, 63, 0.35), transparent 45%),
+      radial-gradient(ellipse at top right, rgba(244, 236, 222, 0.8), transparent 45%),
+      radial-gradient(ellipse at bottom left, rgba(164, 130, 66, 0.25), transparent 45%),
+      radial-gradient(ellipse at bottom right, rgba(34, 102, 85, 0.3), transparent 45%),
+      radial-gradient(circle at center, rgba(244, 236, 222, 0.5), transparent 65%),
+      linear-gradient(135deg, #f4ecde, #ffffff);
+    background-attachment: fixed;
+    min-height: 100vh;
   }
   html {
     overflow-x: hidden;
