@@ -1,6 +1,7 @@
 'use client';
 
 import dynamic from 'next/dynamic';
+import Link from 'next/link';
 import { SectionHeading } from '@/components/ui/section-heading';
 import '../../../components/flipbook/flipbook-styles.css';
 
@@ -45,18 +46,18 @@ export default function ProgramPage() {
             </p>
             
             <div className="mt-8 flex flex-wrap justify-center gap-4">
-              <a 
+              <Link 
                 href="/ko/contact" 
                 className="bg-brand-green text-brand-ivory font-batang font-black py-3 px-8 rounded-lg shadow-md hover:bg-brand-green/90 hover:-translate-y-1 transition-all duration-300"
               >
                 무료 상담 신청
-              </a>
-              <a 
+              </Link>
+              <Link 
                 href="/ko/programs" 
                 className="bg-white text-brand-green border-2 border-brand-green font-batang font-black py-3 px-8 rounded-lg shadow-md hover:bg-brand-ivory hover:-translate-y-1 transition-all duration-300"
               >
                 상세 프로그램 안내
-              </a>
+              </Link>
             </div>
           </div>
         </div>
