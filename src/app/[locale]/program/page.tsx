@@ -13,7 +13,7 @@ const FlipbookApp = dynamic(
     loading: () => (
       <div className="w-full h-[600px] flex items-center justify-center">
         <div className="text-brand-green font-batang text-xl animate-pulse">
-          프로그램 로딩중...
+          스토리북 로딩중...
         </div>
       </div>
     )
@@ -27,14 +27,18 @@ export default function ProgramPage() {
       <section className="py-16 lg:py-24">
         <div className="container mx-auto px-4">
           <SectionHeading
-            title="프로그램"
-            subtitle="On & Off New Page와 함께하는 캐나다 유학 프로그램을 인터랙티브하게 살펴보세요"
+            title="여정"
+            subtitle="On & Off New Page와 함께하는 캐나다 유학 성공 스토리를 인터랙티브하게 살펴보세요"
             level={1}
           />
           
-          {/* Interactive Flipbook Section */}
+          {/* Interactive Story Flipbook Section */}
           <div className="mt-12 flex justify-center">
             <div className="w-full max-w-6xl">
+              <div className="text-center mb-8">
+                <h2 className="text-3xl font-batang text-brand-green mb-2">유학 성공 여정</h2>
+                <p className="text-brand-gold text-lg">당신의 꿈을 현실로 만드는 5단계 스토리</p>
+              </div>
               <FlipbookApp />
             </div>
           </div>
@@ -42,8 +46,17 @@ export default function ProgramPage() {
           {/* Additional Information Section */}
           <div className="mt-16 max-w-4xl mx-auto text-center">
             <p className="text-gray-600 font-batang">
-              위의 인터랙티브 책을 클릭하거나 스와이프하여 우리의 프로그램을 자세히 알아보세요.
+              위의 인터랙티브 스토리북을 클릭하거나 스와이프하여 유학 성공의 전 과정을 체험해보세요.
             </p>
+            
+            {/* Story Features Description */}
+            <div className="mt-12 bg-white p-6 rounded-lg shadow-md max-w-2xl mx-auto">
+              <h3 className="font-batang text-xl font-bold text-brand-green mb-3 text-center">유학 성공 스토리북</h3>
+              <p className="text-gray-600 leading-relaxed text-center">
+                준비의 장부터 도약의 장까지, 5단계 여정을 스토리텔링과 애니메이션으로 경험해보세요. 
+                각 장마다 다른 효과와 인터랙션으로 유학 성공의 로드맵을 확인할 수 있습니다.
+              </p>
+            </div>
             
             <div className="mt-8 flex flex-wrap justify-center gap-4">
               <Link 

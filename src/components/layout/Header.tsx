@@ -18,7 +18,7 @@ const navigation = [
       { name: '부모 동반 유학', href: '/ko/services#parent-accompanied' }
     ]
   },
-  { name: '프로그램', href: '/ko/program' },
+  { name: '여정', href: '/ko/program' },
   { name: '프로그램 안내', href: '/ko/programs' },
   { name: '성공 사례', href: '/ko/success-stories' },
   { name: '문의하기', href: '/ko/contact' },
