@@ -18,7 +18,7 @@ export const JourneyPage0: React.FC<PageProps> = ({ isActive }) => {
       <JourneyAnimationWrapper isActive={isActive} effect="shimmer" delay={0.8}>
         <div className="text-center max-w-md">
           <blockquote className="text-2xl font-batang text-brand-gold italic leading-relaxed">
-            "천 리 길도 한 걸음부터"
+            &ldquo;천 리 길도 한 걸음부터&rdquo;
           </blockquote>
           <p className="text-lg text-brand-green mt-6 leading-relaxed">
             유학의 꿈을 현실로 만들어가는 첫 번째 단계, 
@@ -210,7 +210,7 @@ export const JourneyPage4: React.FC<PageProps> = ({ isActive }) => {
       <JourneyAnimationWrapper isActive={isActive} effect="typewriter" delay={2}>
         <div className="text-center">
           <h2 className="text-3xl font-batang text-brand-ivory leading-relaxed">
-            "꿈을 현실로, 도전을 성공으로"
+            &ldquo;꿈을 현실로, 도전을 성공으로&rdquo;
           </h2>
           <p className="text-xl text-brand-ivory/90 mt-4">
             지금 시작하세요, 당신의 글로벌 미래를!

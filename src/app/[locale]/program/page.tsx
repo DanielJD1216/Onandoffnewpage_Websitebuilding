@@ -2,7 +2,6 @@
 
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
-import { SectionHeading } from '@/components/ui/section-heading';
 import '../../../components/flipbook/flipbook-styles.css';
 
 // Dynamic import to avoid SSR issues with the flipbook

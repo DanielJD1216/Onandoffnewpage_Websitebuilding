@@ -77,7 +77,7 @@ const Page1 = forwardRef<HTMLDivElement, AnimatedPageProps>(({ isActive }, ref) 
     <JourneyAnimationWrapper isActive={isActive} effect="shimmer" delay={1.2}>
       <div className="text-center">
         <blockquote className="text-xl font-batang text-brand-gold italic leading-relaxed">
-          "새로운 책의 표지를 열 준비 단계"
+          &ldquo;새로운 책의 표지를 열 준비 단계&rdquo;
         </blockquote>
       </div>
     </JourneyAnimationWrapper>
@@ -124,7 +124,7 @@ const Page2 = forwardRef<HTMLDivElement, AnimatedPageProps>(({ isActive }, ref) 
     <JourneyAnimationWrapper isActive={isActive} effect="fade" delay={1.2}>
       <div className="text-center">
         <blockquote className="text-xl font-batang text-brand-gold italic leading-relaxed">
-          "인생의 첫 페이지가 열리는 순간"
+          &ldquo;인생의 첫 페이지가 열리는 순간&rdquo;
         </blockquote>
       </div>
     </JourneyAnimationWrapper>
@@ -298,7 +298,7 @@ const Page5 = forwardRef<HTMLDivElement, AnimatedPageProps>(({ isActive }, ref) 
     <JourneyAnimationWrapper isActive={isActive} effect="typewriter" delay={1.3}>
       <div className="text-center px-4">
         <h2 className="text-lg md:text-xl font-batang text-brand-gold leading-relaxed">
-          "On&Off New Page – We Open Every Chapter of Your Journey"
+          &ldquo;On&Off New Page – We Open Every Chapter of Your Journey&rdquo;
         </h2>
       </div>
     </JourneyAnimationWrapper>

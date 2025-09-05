@@ -2,8 +2,7 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { FeatureCard } from '@/components/ui/feature-card';
 import { SectionHeading } from '@/components/ui/section-heading';
-import { TrustBadges } from '@/components/ui/trust-badges';
-import { COMPANY_INFO, FEATURES, PROGRAMS } from '@/lib/constants';
+import { COMPANY_INFO, FEATURES } from '@/lib/constants';
 import Link from 'next/link';
 
 export function generateStaticParams() {

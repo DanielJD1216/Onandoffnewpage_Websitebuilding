@@ -39,7 +39,7 @@ const journeyPathways = {
           <div className="space-y-4 mb-6">
             <div className="text-center p-4 bg-blue-50 rounded-lg">
               <p className="text-blue-800 font-medium text-sm">
-                "새로운 환경에서 도전하며 성장하는 여정"
+                &ldquo;새로운 환경에서 도전하며 성장하는 여정&rdquo;
               </p>
             </div>
             <div className="space-y-2">
@@ -74,7 +74,7 @@ const journeyPathways = {
           <div className="space-y-4 mb-6">
             <div className="text-center p-4 bg-green-50 rounded-lg">
               <p className="text-green-800 font-medium text-sm">
-                "학문적 우수성과 리더십을 키우는 여정"
+                &ldquo;학문적 우수성과 리더십을 키우는 여정&rdquo;
               </p>
             </div>
             <div className="space-y-2">
@@ -109,7 +109,7 @@ const journeyPathways = {
           <div className="space-y-4 mb-6">
             <div className="text-center p-4 bg-purple-50 rounded-lg">
               <p className="text-purple-800 font-medium text-sm">
-                "나만의 독특한 경험을 만들어가는 여정"
+                &ldquo;나만의 독특한 경험을 만들어가는 여정&rdquo;
               </p>
             </div>
             <div className="space-y-2">
@@ -418,7 +418,7 @@ const dreamInvestment = {
         </div>
         <div className="mt-6 text-center">
           <p className="text-sm text-gray-600 italic">
-            "가격보다는 가치를, 비용보다는 미래를 생각합니다"
+            &ldquo;가격보다는 가치를, 비용보다는 미래를 생각합니다&rdquo;
           </p>
         </div>
       </div>
@@ -491,7 +491,7 @@ const beginJourney = {
         
         <div className="bg-white/70 p-4 rounded-lg max-w-md mx-auto">
           <p className="text-sm text-gray-600 italic">
-            "천 리 길도 한 걸음부터 시작됩니다"
+            &ldquo;천 리 길도 한 걸음부터 시작됩니다&rdquo;
           </p>
         </div>
       </div>

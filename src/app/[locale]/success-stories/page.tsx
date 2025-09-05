@@ -183,8 +183,8 @@ export default function SuccessStoriesPage() {
           <div className="mt-12 text-center">
             <div className="bg-white p-6 rounded-xl shadow-md max-w-2xl mx-auto">
               <p className="text-gray-700 italic leading-relaxed">
-                "모든 통계의 뒤에는 용감하게 새로운 도전을 시작한 학생들과 
-                그들을 믿고 지지해주신 가족들의 이야기가 있습니다."
+                &ldquo;모든 통계의 뒤에는 용감하게 새로운 도전을 시작한 학생들과 
+                그들을 믿고 지지해주신 가족들의 이야기가 있습니다.&rdquo;
               </p>
             </div>
           </div>
@@ -207,7 +207,7 @@ export default function SuccessStoriesPage() {
                 새로운 도전 앞에서의 떨림, 그리고 그 모든 순간들을 함께 한 우리의 여정.
               </p>
               <p className="text-base text-gray-600 italic">
-                "Every great story begins with a single step of courage."
+                &ldquo;Every great story begins with a single step of courage.&rdquo;
               </p>
             </div>
           </div>
@@ -338,8 +338,8 @@ export default function SuccessStoriesPage() {
           <div className="mt-12 text-center">
             <div className="bg-white/25 backdrop-blur-sm p-6 rounded-xl max-w-2xl mx-auto border border-white/40">
               <p className="text-white italic leading-relaxed text-lg font-medium">
-                "부모의 사랑과 걱정을 이해하고, 그 마음을 안심과 기쁨으로 바꿔드리는 것이 
-                우리의 가장 소중한 사명입니다."
+                &ldquo;부모의 사랑과 걱정을 이해하고, 그 마음을 안심과 기쁨으로 바꿔드리는 것이 
+                우리의 가장 소중한 사명입니다.&rdquo;
               </p>
             </div>
           </div>
@@ -361,7 +361,7 @@ export default function SuccessStoriesPage() {
                 작은 용기가 만들어낼 큰 변화를 함께 그려보아요.
               </p>
               <p className="text-lg text-gray-600 italic">
-                "모든 위대한 여정은 한 번의 대화로부터 시작됩니다"
+                &ldquo;모든 위대한 여정은 한 번의 대화로부터 시작됩니다&rdquo;
               </p>
             </div>
             
@@ -429,7 +429,7 @@ export default function SuccessStoriesPage() {
               
               <div className="mt-6 p-4 bg-white/70 rounded-lg">
                 <p className="text-gray-600 italic text-sm">
-                  "첫 문의를 보내시는 그 순간부터, 당신은 이미 꿈에 한 발 더 가까워지고 있습니다"
+                  &ldquo;첫 문의를 보내시는 그 순간부터, 당신은 이미 꿈에 한 발 더 가까워지고 있습니다&rdquo;
                 </p>
               </div>
             </div>

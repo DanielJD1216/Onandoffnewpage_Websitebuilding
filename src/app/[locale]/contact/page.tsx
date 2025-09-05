@@ -7,9 +7,6 @@ import { Button } from '@/components/ui/button';
 import { SectionHeading } from '@/components/ui/section-heading';
 import { AnnouncementBanner } from '@/components/ui/announcement-banner';
 import { PageHero, PageSection } from '@/components/layout/PageSection';
-import { FeatureGrid } from '@/components/ui/feature-grid';
-import { ContactMethods, OfficeInfo } from '@/components/blocks/ContactInfo';
-import { COMPANY_INFO, CONSULTATION_BENEFITS } from '@/lib/constants';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { 
   MessageCircle, 
