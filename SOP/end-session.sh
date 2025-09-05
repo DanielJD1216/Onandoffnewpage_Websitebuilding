@@ -152,6 +152,21 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
 fi
 echo ""
 
+# Auto-fix linting issues
+echo -e "${YELLOW}🔧 Running lint auto-fix...${NC}"
+npm run lint -- --fix 2>/dev/null || echo "Lint auto-fix completed (some issues may remain)"
+echo ""
+
+# Test production build
+echo -e "${YELLOW}🏗️ Testing production build...${NC}"
+if npm run build > /dev/null 2>&1; then
+    echo -e "${GREEN}✅ Production build successful${NC}"
+else
+    echo -e "${RED}❌ Production build failed - check for errors before deploying${NC}"
+    echo "Run 'npm run build' manually to see detailed error messages"
+fi
+echo ""
+
 # Clean up
 echo -e "${YELLOW}🧹 Cleaning up...${NC}"
 
