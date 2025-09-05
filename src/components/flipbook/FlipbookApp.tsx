@@ -154,9 +154,12 @@ const FlipbookApp: React.FC = () => {
     const totalUserPages = 6;
     if (pageIndex === 0) return `표지`;
     if (pageIndex === 1) return `1/${totalUserPages} 페이지`;
-    if (pageIndex === 3) return `2-3/${totalUserPages} 페이지`;
-    if (pageIndex === 5) return `4-5/${totalUserPages} 페이지`;
-    if (pageIndex === 7) return `6/${totalUserPages} 페이지`;
+    if (pageIndex === 2) return `2/${totalUserPages} 페이지`;
+    if (pageIndex === 3) return `3/${totalUserPages} 페이지`;
+    if (pageIndex === 4) return `4/${totalUserPages} 페이지`;
+    if (pageIndex === 5) return `5/${totalUserPages} 페이지`;
+    if (pageIndex === 6) return `6/${totalUserPages} 페이지`;
+    if (pageIndex === 7) return `뒷표지`;
     return ``;
   };
 
@@ -170,31 +173,42 @@ const FlipbookApp: React.FC = () => {
 
   return (
     <div className="w-full flex flex-col items-center justify-center font-batang p-4 relative">
-      {isMobile && showIndicator && <SwipeIndicator />}
+      {showIndicator && <SwipeIndicator />}
       
-      <div className="relative" style={{ width: '90vw', height: '80vh', maxWidth: '1000px', maxHeight: '600px' }}>
+      <div className="relative" style={{ width: '90vw', height: '80vh', maxWidth: '500px', maxHeight: '600px' }}>
         <HTMLFlipBook
-          width={500}
-          height={600}
+          width={300}
+          height={400}
           size="stretch"
-          minWidth={315}
-          maxWidth={1000}
-          minHeight={400}
-          maxHeight={800}
+          minWidth={280}
+          maxWidth={500}
+          minHeight={350}
+          maxHeight={600}
           maxShadowOpacity={0.5}
           showCover={true}
           mobileScrollSupport={true}
           flippingTime={1000}
           onFlip={onPage}
           className="flipbook-container shadow-2xl rounded-lg overflow-hidden"
+          showPageCorners={false}
+          useMouseEvents={true}
+          swipeDistance={50}
+          disableFlipByClick={false}
+          style={{}}
+          startPage={0}
+          startZIndex={0}
+          autoSize={true}
+          clickEventForward={true}
+          usePortrait={true}
+          drawShadow={true}
         >
           <PageCover isActive={currentPage === 0} />
           <Page1 isActive={currentPage === 1} />
-          <Page2 isActive={currentPage === 3} />
+          <Page2 isActive={currentPage === 2} />
           <Page3 isActive={currentPage === 3} />
-          <Page4 isActive={currentPage === 5} />
+          <Page4 isActive={currentPage === 4} />
           <Page5 isActive={currentPage === 5} />
-          <PageEnd isActive={currentPage === 7} />
+          <PageEnd isActive={currentPage === 6} />
           <BackCover isActive={currentPage === 7} />
         </HTMLFlipBook>
       </div>
