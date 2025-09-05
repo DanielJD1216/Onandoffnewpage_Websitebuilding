@@ -62,7 +62,7 @@ export function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8 mr-[100px]">
+          <div className="hidden md:flex items-center space-x-6 mr-[100px]">
             {navigation.map((item) => (
               <div 
                 key={item.name} 
@@ -98,6 +98,38 @@ export function Header() {
                 )}
               </div>
             ))}
+            {/* Social Media Icons */}
+            <div className="flex items-center space-x-3">
+              <a 
+                href="https://pf.kakao.com/_your_kakao_id" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:opacity-80 transition-opacity"
+              >
+                <Image
+                  src="/kakao-icon.svg"
+                  alt="KakaoTalk"
+                  width={40}
+                  height={40}
+                  className="w-10 h-10"
+                />
+              </a>
+              <a 
+                href="https://instagram.com/your_instagram" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:opacity-80 transition-opacity"
+              >
+                <Image
+                  src="/instagram-icon.svg"
+                  alt="Instagram"
+                  width={48}
+                  height={48}
+                  className="w-12 h-12"
+                />
+              </a>
+            </div>
+            
             <Button
               size="default"
               className="bg-brand-gold hover:bg-brand-gold/90 text-white font-black text-lg px-8 py-3 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300 border-2 border-brand-gold hover:border-white"
@@ -168,6 +200,38 @@ export function Header() {
                   )}
                 </div>
               ))}
+              {/* Social Media Icons for Mobile */}
+              <div className="flex items-center justify-center space-x-4 py-4">
+                <a 
+                  href="https://pf.kakao.com/_your_kakao_id" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="hover:opacity-80 transition-opacity"
+                >
+                  <Image
+                    src="/kakao-icon.svg"
+                    alt="KakaoTalk"
+                    width={48}
+                    height={48}
+                    className="w-12 h-12"
+                  />
+                </a>
+                <a 
+                  href="https://instagram.com/your_instagram" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="hover:opacity-80 transition-opacity"
+                >
+                  <Image
+                    src="/instagram-icon.svg"
+                    alt="Instagram"
+                    width={56}
+                    height={56}
+                    className="w-14 h-14"
+                  />
+                </a>
+              </div>
+              
               <Button
                 className="bg-brand-gold hover:bg-brand-gold/90 text-white font-black w-full rounded-full shadow-lg py-4 text-lg border-2 border-brand-gold"
                 asChild

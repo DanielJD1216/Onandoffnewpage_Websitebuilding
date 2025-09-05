@@ -11,7 +11,7 @@ const FlipbookApp = dynamic(
     ssr: false,
     loading: () => (
       <div className="w-full h-[600px] flex items-center justify-center">
-        <div className="text-brand-green font-batang text-xl animate-pulse">
+        <div className="text-brand-green font-dodum text-xl animate-pulse">
           스토리북 로딩중...
         </div>
       </div>
@@ -29,7 +29,7 @@ export default function ProgramPage() {
           <div className="mt-6 flex justify-center">
             <div className="w-full max-w-6xl">
               <div className="text-center mb-8">
-                <h1 className="text-4xl lg:text-5xl font-batang text-brand-green mb-4 font-black">유학 성공 여정</h1>
+                <h1 className="text-4xl lg:text-5xl font-dodum text-brand-green mb-4 font-black">유학 성공 여정</h1>
                 <p className="text-brand-gold text-lg">당신의 꿈을 현실로 만드는 5단계 스토리</p>
               </div>
               <FlipbookApp />
@@ -37,19 +37,19 @@ export default function ProgramPage() {
           </div>
 
           {/* Additional Information Section */}
-          <div className="mt-24 max-w-4xl mx-auto text-center">
+          <div className="mt-24 mb-12 md:mb-8 max-w-4xl mx-auto text-center">
             
             
             <div className="mt-8 flex flex-wrap justify-center gap-4">
               <Link 
                 href="/ko/contact" 
-                className="bg-brand-green text-brand-ivory font-batang font-black py-3 px-8 rounded-lg shadow-md hover:bg-brand-green/90 hover:-translate-y-1 transition-all duration-300"
+                className="bg-brand-green text-brand-ivory font-dodum font-black py-3 px-8 rounded-lg shadow-md hover:bg-brand-green/90 hover:-translate-y-1 transition-all duration-300"
               >
                 무료 상담 신청
               </Link>
               <Link 
                 href="/ko/programs" 
-                className="bg-white text-brand-green border-2 border-brand-green font-batang font-black py-3 px-8 rounded-lg shadow-md hover:bg-brand-ivory hover:-translate-y-1 transition-all duration-300"
+                className="bg-white text-brand-green border-2 border-brand-green font-dodum font-black py-3 px-8 rounded-lg shadow-md hover:bg-brand-ivory hover:-translate-y-1 transition-all duration-300"
               >
                 상세 프로그램 안내
               </Link>

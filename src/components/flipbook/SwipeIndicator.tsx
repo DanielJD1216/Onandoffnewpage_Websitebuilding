@@ -20,7 +20,7 @@ const SwipeIndicator: React.FC = () => {
           d="M13 5l7 7-7 7M5 5l7 7-7 7"
         />
       </svg>
-      <p className="font-batang font-semibold text-xs mt-1">스와이프</p>
+      <p className="font-dodum font-semibold text-xs mt-1">스와이프</p>
     </div>
   );
 };

@@ -60,16 +60,19 @@ const config: Config = {
         },
       },
       fontFamily: {
-        // Main brand font - Gowun Batang
-        'batang': ['"Gowun Batang"', 'serif'],
+        // Main brand font - Gowun Dodum
+        'dodum': ['"Gowun Dodum"', 'sans-serif'],
+        // Alternative fonts
+        'paperlogy': ['"Paperlogy"', 'sans-serif'],
         // Legacy fonts (keeping for backward compatibility)
+        'batang': ['"Gowun Batang"', 'serif'],
         'cafe24': ['Cafe24Danjunghae', 'system-ui', 'sans-serif'],
         // Fallback fonts
         pretendard: ["Pretendard", "system-ui", "sans-serif"],
         noto: ['"Noto Sans KR"', "system-ui", "sans-serif"],
         inter: ["Inter", "system-ui", "sans-serif"],
-        // Default sans - now uses Gowun Batang as primary
-        sans: ['"Gowun Batang"', "Pretendard", '"Noto Sans KR"', "Inter", "system-ui", "sans-serif"],
+        // Default sans - now uses Gowun Dodum as primary
+        sans: ['"Gowun Dodum"', '"Paperlogy"', "Pretendard", '"Noto Sans KR"', "Inter", "system-ui", "sans-serif"],
       },
       borderRadius: {
         lg: "var(--radius)",

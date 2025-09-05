@@ -5,7 +5,7 @@ const Stamp: React.FC = () => {
     <div className="absolute top-4 right-4 rotate-12">
       <div className="relative">
         <div className="w-20 h-20 rounded-full border-4 border-brand-gold flex items-center justify-center">
-          <span className="text-brand-gold font-batang font-black text-xs text-center leading-tight">
+          <span className="text-brand-gold font-dodum font-black text-xs text-center leading-tight">
             무료
             <br />
             상담

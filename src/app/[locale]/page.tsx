@@ -25,18 +25,17 @@ export default function HomePage({ params }: { params: { locale: string } }) {
           
           {/* Main Headline */}
           <div className="text-center">
-            <h1 className="text-4xl lg:text-6xl font-black text-brand-green mb-6 leading-tight font-batang">
+            <h1 className="text-4xl lg:text-6xl font-black text-brand-green mb-6 leading-tight font-dodum">
               자녀의 꿈이 실현되는 곳<br/>
               <span className="text-3xl lg:text-5xl text-gray-700">캐나다 맞춤 유학 설계</span>
             </h1>
             
             <p className="text-xl lg:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
-              밴쿠버 현지에서 직접 관리하는 <span className="font-bold text-brand-green">11-18세 전문</span> 유학 컨설팅<br/>
-              <span className="text-lg">초등학생부터 대학 입학까지, 5년+ 경험으로 안전하게 지원합니다</span>
+              밴쿠버 현지에서 직접 관리하는 <span className="font-bold text-brand-green">11-18세 전문</span> 유학 컨설팅
             </p>
             
             {/* Value Propositions */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-10">
+            <div className="grid grid-cols-2 gap-4 max-w-2xl mx-auto mb-10">
               <div className="bg-white rounded-lg shadow-sm p-4">
                 <div className="text-2xl font-black text-brand-green">100%</div>
                 <div className="text-sm text-gray-600">완전 무료 상담</div>
@@ -44,14 +43,6 @@ export default function HomePage({ params }: { params: { locale: string } }) {
               <div className="bg-white rounded-lg shadow-sm p-4">
                 <div className="text-2xl font-black text-brand-green">24/7</div>
                 <div className="text-sm text-gray-600">긴급 상황 지원</div>
-              </div>
-              <div className="bg-white rounded-lg shadow-sm p-4">
-                <div className="text-2xl font-black text-brand-green">500+</div>
-                <div className="text-sm text-gray-600">성공 사례</div>
-              </div>
-              <div className="bg-white rounded-lg shadow-sm p-4">
-                <div className="text-2xl font-black text-brand-green">98%</div>
-                <div className="text-sm text-gray-600">학부모 만족도</div>
               </div>
             </div>
           </div>
@@ -82,7 +73,7 @@ export default function HomePage({ params }: { params: { locale: string } }) {
           {/* Social Proof */}
           <div className="text-center">
             <p className="text-sm text-gray-500">
-              ⭐⭐⭐⭐⭐ &quot;우리 아이가 안전하게 유학할 수 있어 감사합니다&quot; - 김○○ 학부모님
+              ⭐⭐⭐⭐⭐ &quot;낯선 나라에서도 가족 같은 따뜻함을 느꼈습니다&quot; - 시안 학생
             </p>
           </div>
         </div>

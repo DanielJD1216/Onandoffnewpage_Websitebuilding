@@ -471,7 +471,7 @@ const beginJourney = {
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
           <Link 
             href="/ko/contact"
-            className="bg-brand-green text-brand-ivory font-batang font-black py-4 px-8 rounded-xl shadow-lg hover:bg-brand-green/90 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 text-lg group"
+            className="bg-brand-green text-brand-ivory font-dodum font-black py-4 px-8 rounded-xl shadow-lg hover:bg-brand-green/90 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 text-lg group"
           >
             <span className="flex items-center justify-center gap-2">
               첫 걸음 내딛기
@@ -480,7 +480,7 @@ const beginJourney = {
           </Link>
           <Link 
             href="/ko/success-stories"
-            className="bg-white text-brand-green border-2 border-brand-green font-batang font-black py-4 px-8 rounded-xl shadow-lg hover:bg-brand-ivory hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 text-lg group"
+            className="bg-white text-brand-green border-2 border-brand-green font-dodum font-black py-4 px-8 rounded-xl shadow-lg hover:bg-brand-ivory hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 text-lg group"
           >
             <span className="flex items-center justify-center gap-2">
               선배들의 이야기 보기
