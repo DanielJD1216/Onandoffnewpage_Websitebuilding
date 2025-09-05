@@ -49,20 +49,20 @@ export function Header() {
           {/* Logo */}
           <Link 
             href="/ko" 
-            className="flex items-center focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#114b3f] rounded-lg p-1 ml-[150px] md:ml-[150px] ml-0"
+            className="flex items-center focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#114b3f] rounded-lg p-1 md:ml-[150px]"
           >
             <Image
               src="/logo.svg"
               alt="On & Off New Page"
-              width={300}
-              height={100}
-              className="h-12 w-auto mt-1"
+              width={250}
+              height={83}
+              className="h-10 w-auto mt-1"
               priority
             />
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8 -mt-2 mr-[100px]">
+          <div className="hidden md:flex items-center space-x-8 mr-[100px]">
             {navigation.map((item) => (
               <div 
                 key={item.name} 
@@ -100,7 +100,7 @@ export function Header() {
             ))}
             <Button
               size="default"
-              className="bg-brand-green hover:bg-brand-green/90 text-white font-black text-lg px-6 py-3"
+              className="bg-brand-gold hover:bg-brand-gold/90 text-white font-black text-lg px-8 py-3 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300 border-2 border-brand-gold hover:border-white"
               asChild
             >
               <Link href="/ko/contact">
@@ -169,7 +169,7 @@ export function Header() {
                 </div>
               ))}
               <Button
-                className="bg-brand-green hover:bg-brand-green/90 text-white font-black w-full"
+                className="bg-brand-gold hover:bg-brand-gold/90 text-white font-black w-full rounded-full shadow-lg py-4 text-lg border-2 border-brand-gold"
                 asChild
               >
                 <Link href="/ko/contact" onClick={() => setMobileMenuOpen(false)}>

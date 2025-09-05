@@ -14,7 +14,7 @@ export default function HomePage({ params }: { params: { locale: string } }) {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-b from-white to-brand-ivory/20 py-20 lg:py-32">
+      <section className="relative bg-gradient-to-b from-white via-white to-brand-ivory/20 py-20 lg:py-32" style={{backgroundImage: 'linear-gradient(to bottom, white 35%, #f8f6f0 100%)'}}>
         <div className="container mx-auto px-4">
           {/* Trust Indicator Badge */}
           <div className="flex justify-center mb-6">

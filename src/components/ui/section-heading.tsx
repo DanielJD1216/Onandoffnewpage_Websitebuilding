@@ -52,9 +52,9 @@ export function SectionHeading({
             variant === 'premium' 
               ? 'text-xl md:text-2xl text-gray-600 font-semibold' 
               : variant === 'compact'
-              ? 'text-lg text-gray-700 font-medium'
-              : 'text-xl text-gray-700 font-medium'
-          } max-w-4xl mx-auto leading-relaxed`}>
+              ? 'text-lg font-medium'
+              : 'text-xl font-medium'
+          } max-w-4xl mx-auto leading-relaxed text-inherit`}>
             {subtitle}
           </p>
           

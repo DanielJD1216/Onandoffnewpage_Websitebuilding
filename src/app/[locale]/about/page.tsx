@@ -100,9 +100,9 @@ const officeFeatures = [
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" style={{backgroundImage: 'linear-gradient(to bottom, white 35%, #f8f6f0 100%)'}}>
       {/* Hero Section */}
-      <section className="bg-gradient-to-b from-brand-ivory/30 to-white py-16 lg:py-24">
+      <section className="py-16 lg:py-24" style={{backgroundImage: 'linear-gradient(to bottom, white 35%, #f8f6f0 100%)'}}>
         <div className="container mx-auto px-4">
           <SectionHeading
             title="On & Off New Page 소개"

@@ -8,7 +8,7 @@ interface PageSectionProps {
 }
 
 const sectionVariants = {
-  hero: 'bg-gradient-to-b from-brand-ivory/30 to-white py-16 lg:py-24',
+  hero: 'py-16 lg:py-24',
   default: 'py-16 lg:py-24',
   gray: 'py-16 bg-gray-50',
   cta: 'py-16 bg-brand-green'
@@ -35,12 +35,13 @@ export function PageHero({
   containerClassName = ''
 }: Omit<PageSectionProps, 'variant'>) {
   return (
-    <PageSection 
-      variant="hero" 
-      className={className}
-      containerClassName={containerClassName}
+    <section 
+      className={cn(sectionVariants.hero, className)}
+      style={{backgroundImage: 'linear-gradient(to bottom, white 35%, #f8f6f0 100%)'}}
     >
-      {children}
-    </PageSection>
+      <div className={cn('container mx-auto px-4', containerClassName)}>
+        {children}
+      </div>
+    </section>
   );
 }

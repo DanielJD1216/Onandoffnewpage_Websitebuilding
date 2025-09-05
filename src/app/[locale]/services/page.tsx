@@ -56,7 +56,7 @@ const parentAccompaniedFeatures = [
 
 export default function ServicesPage() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" style={{backgroundImage: 'linear-gradient(to bottom, white 35%, #f8f6f0 100%)'}}>
       {/* Hero Section */}
       <PageHero>
         <SectionHeading
@@ -223,6 +223,160 @@ export default function ServicesPage() {
                 </li>
               </ul>
             </Card>
+          </div>
+        </div>
+      </PageSection>
+
+      {/* Service Pricing Information */}
+      <PageSection>
+        <SectionHeading 
+          title="서비스 안내" 
+          subtitle="기본 유학 준비는 무료, 추가 서비스는 맞춤 상담을 통해 안내드립니다"
+          className="mb-12"
+        />
+        
+        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-16">
+          {/* Free Services */}
+          <Card className="p-8 border-2 border-brand-green/20 bg-brand-green/5">
+            <div className="text-center mb-6">
+              <h3 className="text-2xl font-black text-brand-green mb-2">완전 무료 서비스</h3>
+              <p className="text-brand-green font-bold">✅ 추가 비용 없이 제공되는 핵심 서비스</p>
+            </div>
+            <div className="space-y-3">
+              <div className="flex items-center gap-3">
+                <span className="w-2 h-2 bg-brand-green rounded-full"></span>
+                <span className="font-bold">초기 상담 및 유학 계획 수립</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <span className="w-2 h-2 bg-brand-green rounded-full"></span>
+                <span className="font-bold">학생비자 신청 지원</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <span className="w-2 h-2 bg-brand-green rounded-full"></span>
+                <span className="font-bold">학교 등록 및 입학 지원</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <span className="w-2 h-2 bg-brand-green rounded-full"></span>
+                <span className="font-bold">홈스테이 매칭 서비스</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <span className="w-2 h-2 bg-brand-green rounded-full"></span>
+                <span className="font-bold">기본 현지 적응 안내</span>
+              </div>
+            </div>
+          </Card>
+          
+          {/* Additional Services */}
+          <Card className="p-8 border-2 border-brand-gold/20">
+            <div className="text-center mb-6">
+              <h3 className="text-2xl font-black text-brand-gold mb-2">추가 정착 지원 서비스</h3>
+              <p className="text-gray-600">맞춤형 서비스로 더욱 안전한 정착을 도와드립니다</p>
+            </div>
+            <div className="space-y-3 mb-6">
+              <div className="flex items-center gap-3">
+                <span className="w-2 h-2 bg-brand-gold rounded-full"></span>
+                <span className="font-bold">정착 지원 서비스 (생활 밀착 케어)</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <span className="w-2 h-2 bg-brand-gold rounded-full"></span>
+                <span className="font-bold">학업 튜터링 및 멘토링</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <span className="w-2 h-2 bg-brand-gold rounded-full"></span>
+                <span className="font-bold">부모 동반 정착 컨설팅</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <span className="w-2 h-2 bg-brand-gold rounded-full"></span>
+                <span className="font-bold">특별 케어 서비스</span>
+              </div>
+            </div>
+            
+            <div className="bg-brand-ivory rounded-lg p-4 text-center">
+              <p className="text-sm font-bold text-brand-gold mb-3">상세 서비스 및 비용 문의</p>
+              <div className="flex flex-col gap-2">
+                <div className="flex items-center justify-center gap-2">
+                  <span className="text-sm">📧 이메일:</span>
+                  <a href="mailto:onf.newpage@gmail.com" className="text-brand-green font-bold text-sm hover:underline">
+                    onf.newpage@gmail.com
+                  </a>
+                </div>
+                <div className="flex items-center justify-center gap-2">
+                  <span className="text-sm">💬 카카오톡:</span>
+                  <span className="text-brand-green font-bold text-sm">onoffnewpage</span>
+                </div>
+              </div>
+            </div>
+          </Card>
+        </div>
+      </PageSection>
+
+      {/* Process Flow */}
+      <PageSection variant="gray">
+        <SectionHeading 
+          title="유학 준비부터 정착까지" 
+          subtitle="체계적인 5단계 프로세스로 안전한 유학을 보장합니다"
+          className="mb-12"
+        />
+        
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-5 gap-6">
+            {/* Step 1 */}
+            <Card className="p-6 text-center relative">
+              <div className="w-16 h-16 bg-brand-green/10 rounded-full mx-auto mb-4 flex items-center justify-center">
+                <span className="text-3xl font-black text-brand-green">1</span>
+              </div>
+              <h3 className="font-black text-brand-green mb-3">무료 상담</h3>
+              <p className="text-sm text-gray-600">학생 상황 파악 및 최적 프로그램 제안</p>
+              <div className="text-xs text-brand-green font-bold mt-2">소요시간: 60-90분</div>
+            </Card>
+            
+            {/* Step 2 */}
+            <Card className="p-6 text-center">
+              <div className="w-16 h-16 bg-brand-green/10 rounded-full mx-auto mb-4 flex items-center justify-center">
+                <span className="text-3xl font-black text-brand-green">2</span>
+              </div>
+              <h3 className="font-black text-brand-green mb-3">학교 선정</h3>
+              <p className="text-sm text-gray-600">교육청 정보 제공 및 학교 선택 가이드</p>
+              <div className="text-xs text-brand-green font-bold mt-2">소요시간: 1-2주</div>
+            </Card>
+            
+            {/* Step 3 */}
+            <Card className="p-6 text-center">
+              <div className="w-16 h-16 bg-brand-green/10 rounded-full mx-auto mb-4 flex items-center justify-center">
+                <span className="text-3xl font-black text-brand-green">3</span>
+              </div>
+              <h3 className="font-black text-brand-green mb-3">입학 신청</h3>
+              <p className="text-sm text-gray-600">서류 준비부터 입학 확정까지 전 과정 지원</p>
+              <div className="text-xs text-brand-green font-bold mt-2">소요시간: 2-4주</div>
+            </Card>
+            
+            {/* Step 4 */}
+            <Card className="p-6 text-center">
+              <div className="w-16 h-16 bg-brand-green/10 rounded-full mx-auto mb-4 flex items-center justify-center">
+                <span className="text-3xl font-black text-brand-green">4</span>
+              </div>
+              <h3 className="font-black text-brand-green mb-3">비자 신청</h3>
+              <p className="text-sm text-gray-600">학생비자/가디언십 신청 및 승인 지원</p>
+              <div className="text-xs text-brand-green font-bold mt-2">소요시간: 4-8주</div>
+            </Card>
+            
+            {/* Step 5 */}
+            <Card className="p-6 text-center">
+              <div className="w-16 h-16 bg-brand-green/10 rounded-full mx-auto mb-4 flex items-center justify-center">
+                <span className="text-3xl font-black text-brand-green">5</span>
+              </div>
+              <h3 className="font-black text-brand-green mb-3">현지 정착</h3>
+              <p className="text-sm text-gray-600">공항 픽업부터 학교 생활 적응까지</p>
+              <div className="text-xs text-brand-green font-bold mt-2">지속적 지원</div>
+            </Card>
+          </div>
+          
+          <div className="text-center mt-12">
+            <div className="inline-flex items-center gap-2 bg-white px-6 py-3 rounded-full shadow-lg">
+              <span className="text-brand-green font-black">⭐ 평균 성공률 98%</span>
+              <span className="text-gray-500">|</span>
+              <span className="text-brand-green font-black">🏆 5년 연속 우수 업체</span>
+            </div>
           </div>
         </div>
       </PageSection>

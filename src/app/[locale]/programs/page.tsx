@@ -9,105 +9,186 @@ import { PROGRAMS } from '@/lib/constants';
 import { Home, Target, BookOpen, Star, Megaphone } from 'lucide-react';
 import Link from 'next/link';
 
-const programOverview = {
-  id: 'overview',
-  title: '프로그램 개요',
+const journeyPathways = {
+  id: 'pathways',
+  title: '세 가지 성장의 길',
   defaultOpen: true,
   content: (
     <div className="space-y-6">
-      <p className="text-gray-700 leading-relaxed">
-        On & Off New Page는 캐나다 전역의 우수한 교육청과 파트너십을 통해 
-        학생들에게 최적의 유학 환경을 제공합니다. 각 지역별 특성을 고려하여 
-        학생의 학업 목표와 관심사에 맞는 맞춤형 교육 프로그램을 제공합니다.
+      <p className="text-gray-700 leading-relaxed text-lg text-center font-medium">
+        모든 위대한 여정은 선택에서 시작됩니다. 당신의 꿈과 상황에 맞는 길을 선택하고, 
+        그 길에서 만날 새로운 도전과 성장을 함께 만들어가세요.
       </p>
       
-      <div className="grid md:grid-cols-3 gap-6">
-        {Object.values(PROGRAMS).map((program, index) => {
-          const isPopular = index === 0; // BC is most popular
-          return (
-            <Card key={index} className="group relative p-6 border-0 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 bg-gradient-to-br from-white to-brand-ivory/20 border border-brand-green/10 overflow-hidden">
-              {/* Premium decorative elements */}
-              <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-brand-green/10 to-transparent rounded-full transform translate-x-6 -translate-y-6" />
-              
-              {/* Popular badge */}
-              {isPopular && (
-                <div className="absolute top-3 right-3 bg-gradient-to-r from-brand-gold to-brand-gold/80 text-white text-xs font-black px-3 py-1 rounded-full shadow-sm">
-                  인기
-                </div>
-              )}
-              
-              {/* Icon and title section */}
-              <div className="text-center mb-6 relative">
-                <div className="w-16 h-16 mx-auto bg-gradient-to-br from-brand-green to-brand-green/80 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-2 transition-all duration-300 shadow-lg shadow-brand-green/25">
-                  <span className="text-white text-2xl">{program.iconKr}</span>
-                </div>
-                <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-brand-gold rounded-full group-hover:scale-125 transition-transform duration-300" />
-                <h3 className="text-xl font-black text-brand-green group-hover:text-brand-green/90 transition-colors leading-tight">
-                  {program.titleKr}
-                </h3>
+      <div className="grid md:grid-cols-3 gap-8">
+        {/* BC Path - The Explorer */}
+        <Card className="group relative p-8 border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 bg-gradient-to-br from-blue-50 to-white overflow-hidden">
+          <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-blue-200/30 to-transparent rounded-full transform translate-x-8 -translate-y-8" />
+          <div className="absolute top-4 right-4 bg-gradient-to-r from-brand-gold to-brand-gold/80 text-white text-xs font-black px-3 py-1 rounded-full shadow-sm">
+            가장 인기있는 길
+          </div>
+          
+          <div className="text-center mb-6">
+            <div className="w-20 h-20 mx-auto bg-gradient-to-br from-blue-500 to-blue-600 rounded-3xl flex items-center justify-center mb-4 group-hover:scale-110 transition-all duration-500 shadow-xl">
+              <span className="text-white text-3xl">🏔️</span>
+            </div>
+            <h3 className="text-2xl font-black text-blue-700 mb-2">탐험가의 길</h3>
+            <p className="text-blue-600 font-medium">브리티시 컬럼비아</p>
+          </div>
+          
+          <div className="space-y-4 mb-6">
+            <div className="text-center p-4 bg-blue-50 rounded-lg">
+              <p className="text-blue-800 font-medium text-sm">
+                "새로운 환경에서 도전하며 성장하는 여정"
+              </p>
+            </div>
+            <div className="space-y-2">
+              <div className="flex items-center gap-2 text-gray-700">
+                <span className="text-blue-500">🌊</span>
+                <span className="text-sm">자연과 함께하는 교육 환경</span>
               </div>
-              
-              {/* Schools list */}
-              <div className="space-y-3">
-                {program.schools.map((school, schoolIndex) => (
-                  <div key={schoolIndex} className="flex items-start gap-3 text-gray-700 group-hover:text-gray-800 transition-colors">
-                    <div className="w-2 h-2 rounded-full bg-brand-green/60 mt-2 flex-shrink-0" />
-                    <span className="font-medium text-sm leading-relaxed">{school}</span>
-                  </div>
-                ))}
+              <div className="flex items-center gap-2 text-gray-700">
+                <span className="text-blue-500">🏙️</span>
+                <span className="text-sm">밴쿠버 도시 문화 체험</span>
               </div>
-              
-              {/* Korean-style bottom accent line */}
-              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-12 h-0.5 bg-gradient-to-r from-transparent via-brand-green/40 to-transparent group-hover:w-20 group-hover:via-brand-green/70 transition-all duration-300" />
-            </Card>
-          );
-        })}
+              <div className="flex items-center gap-2 text-gray-700">
+                <span className="text-blue-500">⭐</span>
+                <span className="text-sm">다양성을 존중하는 환경</span>
+              </div>
+            </div>
+          </div>
+        </Card>
+        
+        {/* Ontario Path - The Achiever */}
+        <Card className="group relative p-8 border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 bg-gradient-to-br from-green-50 to-white overflow-hidden">
+          <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-green-200/30 to-transparent rounded-full transform translate-x-8 -translate-y-8" />
+          
+          <div className="text-center mb-6">
+            <div className="w-20 h-20 mx-auto bg-gradient-to-br from-green-600 to-green-700 rounded-3xl flex items-center justify-center mb-4 group-hover:scale-110 transition-all duration-500 shadow-xl">
+              <span className="text-white text-3xl">🏛️</span>
+            </div>
+            <h3 className="text-2xl font-black text-green-700 mb-2">성취자의 길</h3>
+            <p className="text-green-600 font-medium">온타리오</p>
+          </div>
+          
+          <div className="space-y-4 mb-6">
+            <div className="text-center p-4 bg-green-50 rounded-lg">
+              <p className="text-green-800 font-medium text-sm">
+                "학문적 우수성과 리더십을 키우는 여정"
+              </p>
+            </div>
+            <div className="space-y-2">
+              <div className="flex items-center gap-2 text-gray-700">
+                <span className="text-green-500">📚</span>
+                <span className="text-sm">우수한 교육 시스템</span>
+              </div>
+              <div className="flex items-center gap-2 text-gray-700">
+                <span className="text-green-500">🏙️</span>
+                <span className="text-sm">토론토 국제도시 경험</span>
+              </div>
+              <div className="flex items-center gap-2 text-gray-700">
+                <span className="text-green-500">🎯</span>
+                <span className="text-sm">명문대 진학 집중 지원</span>
+              </div>
+            </div>
+          </div>
+        </Card>
+        
+        {/* Other Provinces Path - The Pioneer */}
+        <Card className="group relative p-8 border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 bg-gradient-to-br from-purple-50 to-white overflow-hidden">
+          <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-purple-200/30 to-transparent rounded-full transform translate-x-8 -translate-y-8" />
+          
+          <div className="text-center mb-6">
+            <div className="w-20 h-20 mx-auto bg-gradient-to-br from-purple-600 to-purple-700 rounded-3xl flex items-center justify-center mb-4 group-hover:scale-110 transition-all duration-500 shadow-xl">
+              <span className="text-white text-3xl">🌟</span>
+            </div>
+            <h3 className="text-2xl font-black text-purple-700 mb-2">개척자의 길</h3>
+            <p className="text-purple-600 font-medium">기타 특별한 지역들</p>
+          </div>
+          
+          <div className="space-y-4 mb-6">
+            <div className="text-center p-4 bg-purple-50 rounded-lg">
+              <p className="text-purple-800 font-medium text-sm">
+                "나만의 독특한 경험을 만들어가는 여정"
+              </p>
+            </div>
+            <div className="space-y-2">
+              <div className="flex items-center gap-2 text-gray-700">
+                <span className="text-purple-500">🏞️</span>
+                <span className="text-sm">특색있는 지역 문화</span>
+              </div>
+              <div className="flex items-center gap-2 text-gray-700">
+                <span className="text-purple-500">💡</span>
+                <span className="text-sm">개인 맞춤형 프로그램</span>
+              </div>
+              <div className="flex items-center gap-2 text-gray-700">
+                <span className="text-purple-500">🚀</span>
+                <span className="text-sm">혁신적인 교육 기회</span>
+              </div>
+            </div>
+          </div>
+        </Card>
       </div>
     </div>
   )
 };
 
-const programFeatures = {
-  id: 'features',
-  title: '프로그램 특징',
+const journeySupports = {
+  id: 'supports',
+  title: '여정에서 만날 동반자들',
   content: (
-    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-      <FeatureCard
-        icon="🎯"
-        title="맞춤형 학교 매칭"
-        description="학생의 학업 수준, 관심 분야, 미래 목표를 고려한 최적의 학교 선택"
-        variant="default"
-      />
-      <FeatureCard
-        icon="📚"
-        title="체계적인 학업 관리"
-        description="정기적인 성적 모니터링과 학습 컨설팅을 통한 지속적인 학업 지원"
-        variant="default"
-      />
-      <FeatureCard
-        icon="🏠"
-        title="안전한 생활 환경"
-        description="엄선된 홈스테이 가정과 24시간 긴급 상황 대응 시스템"
-        variant="default"
-      />
-      <FeatureCard
-        icon="🌟"
-        title="진로 설계 지원"
-        description="대학 진학부터 취업까지 장기적인 진로 계획 수립 지원"
-        variant="default"
-      />
+    <div className="space-y-8">
+      <div className="text-center mb-8">
+        <p className="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto">
+          혹독한 여정에서 당신을 지지하고 함께 걸어갈 동반자들이 있습니다. 
+          각자의 역할로 당신의 꿈을 현실로 만들어갑니다.
+        </p>
+      </div>
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="bg-gradient-to-br from-blue-50 to-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 text-center">
+          <div className="text-4xl mb-4">🧗‍♀️</div>
+          <h3 className="text-lg font-black text-blue-700 mb-3">길잡이</h3>
+          <p className="text-gray-700 text-sm leading-relaxed">
+            당신의 꿈과 상황에 맞는 최적의 길을 함께 찾아드립니다
+          </p>
+        </div>
+        
+        <div className="bg-gradient-to-br from-green-50 to-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 text-center">
+          <div className="text-4xl mb-4">📚</div>
+          <h3 className="text-lg font-black text-green-700 mb-3">학습 동반자</h3>
+          <p className="text-gray-700 text-sm leading-relaxed">
+            모든 학습 과정에서 지속적인 지도와 격려를 제공합니다
+          </p>
+        </div>
+        
+        <div className="bg-gradient-to-br from-purple-50 to-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 text-center">
+          <div className="text-4xl mb-4">🏠</div>
+          <h3 className="text-lg font-black text-purple-700 mb-3">생활 보호자</h3>
+          <p className="text-gray-700 text-sm leading-relaxed">
+            안전하고 따뜻한 생활 환경에서 편안하게 지낼 수 있도록
+          </p>
+        </div>
+        
+        <div className="bg-gradient-to-br from-orange-50 to-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 text-center">
+          <div className="text-4xl mb-4">🌟</div>
+          <h3 className="text-lg font-black text-orange-700 mb-3">미래 설계자</h3>
+          <p className="text-gray-700 text-sm leading-relaxed">
+            오늘의 선택이 내일의 꿈으로 이어지도록 함께 계획합니다
+          </p>
+        </div>
+      </div>
     </div>
   )
 };
 
-const homestayProgram = {
+const secondFamily = {
   id: 'homestay',
-  title: '홈스테이 프로그램',
+  title: '나의 두 번째 가족',
   content: (
     <div className="space-y-8">
       <div className="grid md:grid-cols-2 gap-8">
-        <Card className="p-6 border-0 shadow-lg">
-          <h3 className="text-xl font-black text-brand-green mb-4">홈스테이 선정 기준</h3>
+        <Card className="p-6 border-0 shadow-lg bg-gradient-to-br from-pink-50 to-white">
+          <h3 className="text-xl font-black text-pink-700 mb-4">따뜻한 가족을 만나는 방법</h3>
           <ul className="space-y-3">
             <li className="flex items-start gap-3">
               <span className="text-brand-green text-xl flex-shrink-0">✓</span>
@@ -128,8 +209,8 @@ const homestayProgram = {
           </ul>
         </Card>
 
-        <Card className="p-6 border-0 shadow-lg">
-          <h3 className="text-xl font-black text-brand-green mb-4">홈스테이 포함 서비스</h3>
+        <Card className="p-6 border-0 shadow-lg bg-gradient-to-br from-yellow-50 to-white">
+          <h3 className="text-xl font-black text-yellow-700 mb-4">가족과 함께 누리는 일상</h3>
           <ul className="space-y-3">
             <li className="flex items-start gap-3">
               <span className="text-brand-green text-xl flex-shrink-0">🍽️</span>
@@ -151,248 +232,220 @@ const homestayProgram = {
         </Card>
       </div>
 
-      <NoticeBox
-        title="홈스테이 매칭 프로세스"
-        message="학생의 성격, 식습관, 알레르기 등을 고려하여 최적의 홈스테이 가정과 매칭합니다."
-        variant="info"
-      />
-    </div>
-  )
-};
-
-const careServices = {
-  id: 'care',
-  title: '케어 서비스',
-  content: (
-    <div className="space-y-8">
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <Card className="p-6 border-0 shadow-lg text-center">
-          <span className="text-3xl mb-3 block">📞</span>
-          <h3 className="text-lg font-black text-brand-green mb-3">24/7 긴급 연락</h3>
-          <p className="text-gray-700 text-sm">
-            언제든 연락 가능한 현지 담당자를 통한 즉시 대응 시스템
-          </p>
-        </Card>
-
-        <Card className="p-6 border-0 shadow-lg text-center">
-          <span className="text-3xl mb-3 block">🏥</span>
-          <h3 className="text-lg font-black text-brand-green mb-3">의료 지원</h3>
-          <p className="text-gray-700 text-sm">
-            병원 방문 동행 및 의료보험 처리 지원
-          </p>
-        </Card>
-
-        <Card className="p-6 border-0 shadow-lg text-center">
-          <span className="text-3xl mb-3 block">📊</span>
-          <h3 className="text-lg font-black text-brand-green mb-3">정기 리포트</h3>
-          <p className="text-gray-700 text-sm">
-            월간 학습 리포트 및 생활 상황 부모님께 전달
-          </p>
-        </Card>
-
-        <Card className="p-6 border-0 shadow-lg text-center">
-          <span className="text-3xl mb-3 block">🎓</span>
-          <h3 className="text-lg font-black text-brand-green mb-3">학업 상담</h3>
-          <p className="text-gray-700 text-sm">
-            정기적인 학업 상담 및 진로 지도
-          </p>
-        </Card>
-
-        <Card className="p-6 border-0 shadow-lg text-center">
-          <span className="text-3xl mb-3 block">💳</span>
-          <h3 className="text-lg font-black text-brand-green mb-3">생활 지원</h3>
-          <p className="text-gray-700 text-sm">
-            은행 계좌 개설, 핸드폰 개통 등 생활 정착 지원
-          </p>
-        </Card>
-
-        <Card className="p-6 border-0 shadow-lg text-center">
-          <span className="text-3xl mb-3 block">📋</span>
-          <h3 className="text-lg font-black text-brand-green mb-3">비자 지원</h3>
-          <p className="text-gray-700 text-sm">
-            학생비자 연장 및 가디언십 서류 처리
-          </p>
-        </Card>
-      </div>
-    </div>
-  )
-};
-
-const admissionProcess = {
-  id: 'admission',
-  title: '입학 절차',
-  content: (
-    <div className="space-y-8">
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <Card className="p-6 border-0 shadow-lg text-center">
-          <div className="bg-brand-green text-white rounded-full w-8 h-8 flex items-center justify-center mx-auto mb-4 font-black">
-            1
-          </div>
-          <h3 className="text-lg font-black text-brand-green mb-3">상담 및 평가</h3>
-          <p className="text-gray-700 text-sm">
-            학생 상황 분석 및 목표 설정
-          </p>
-        </Card>
-
-        <Card className="p-6 border-0 shadow-lg text-center">
-          <div className="bg-brand-green text-white rounded-full w-8 h-8 flex items-center justify-center mx-auto mb-4 font-black">
-            2
-          </div>
-          <h3 className="text-lg font-black text-brand-green mb-3">학교 선정</h3>
-          <p className="text-gray-700 text-sm">
-            맞춤형 학교 및 프로그램 추천
-          </p>
-        </Card>
-
-        <Card className="p-6 border-0 shadow-lg text-center">
-          <div className="bg-brand-green text-white rounded-full w-8 h-8 flex items-center justify-center mx-auto mb-4 font-black">
-            3
-          </div>
-          <h3 className="text-lg font-black text-brand-green mb-3">서류 준비</h3>
-          <p className="text-gray-700 text-sm">
-            입학 및 비자 서류 작성 지원
-          </p>
-        </Card>
-
-        <Card className="p-6 border-0 shadow-lg text-center">
-          <div className="bg-brand-green text-white rounded-full w-8 h-8 flex items-center justify-center mx-auto mb-4 font-black">
-            4
-          </div>
-          <h3 className="text-lg font-black text-brand-green mb-3">출국 준비</h3>
-          <p className="text-gray-700 text-sm">
-            홈스테이 매칭 및 오리엔테이션
-          </p>
-        </Card>
-      </div>
-
-      <Card className="p-6 border-0 shadow-lg">
-        <h3 className="text-xl font-black text-brand-green mb-4">필요 서류 안내</h3>
-        <div className="grid md:grid-cols-2 gap-6">
+      <div className="bg-gradient-to-r from-pink-100 to-yellow-100 p-6 rounded-xl border-l-4 border-pink-400">
+        <div className="flex items-start gap-4">
+          <div className="text-3xl">🌈</div>
           <div>
-            <h4 className="font-black text-gray-800 mb-3">기본 서류</h4>
-            <ul className="space-y-2 text-gray-700">
-              <li className="flex items-center gap-2">
-                <span className="text-brand-green">•</span>
-                여권 사본
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="text-brand-green">•</span>
-                최근 2년간 성적표
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="text-brand-green">•</span>
-                재학증명서
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="text-brand-green">•</span>
-                건강검진서
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-black text-gray-800 mb-3">추가 서류</h4>
-            <ul className="space-y-2 text-gray-700">
-              <li className="flex items-center gap-2">
-                <span className="text-brand-green">•</span>
-                영어 능력 증명서 (해당시)
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="text-brand-green">•</span>
-                자기소개서
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="text-brand-green">•</span>
-                추천서 (선택사항)
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="text-brand-green">•</span>
-                기타 특별활동 증명서
-              </li>
-            </ul>
+            <h4 className="font-black text-pink-700 mb-2">운명적인 만남을 만들어가는 과정</h4>
+            <p className="text-gray-700 leading-relaxed">
+              당신의 성격, 취향, 꿈을 깊이 이해하고, 그에 맞는 최적의 호스트 가족과의 소중한 인연을 만들어드립니다.
+            </p>
           </div>
         </div>
-      </Card>
+      </div>
     </div>
   )
 };
 
-const costs = {
-  id: 'costs',
-  title: '비용 안내 (2025-2026)',
+const guardianAngels = {
+  id: 'care',
+  title: '수호천사들의 보살핌',
   content: (
     <div className="space-y-8">
-      <NoticeBox
-        title="2025-2026 학년도 비용 안내"
-        message="아래 비용은 예상 금액이며, 환율 변동 및 교육청 정책에 따라 변동될 수 있습니다."
-        variant="info"
-      />
+      <div className="text-center mb-8">
+        <p className="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto">
+          언제나 당신 곁에서 지켜보며 도와주는 마음 같은 보호자들이 있습니다. 
+          어떤 어려움이 있어도 혼자 극복하지 않도록 함께 도와드립니다.
+        </p>
+      </div>
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <Card className="p-6 border-0 shadow-lg text-center bg-gradient-to-br from-red-50 to-white hover:shadow-xl transition-all duration-300">
+          <span className="text-3xl mb-3 block">🚑</span>
+          <h3 className="text-lg font-black text-red-600 mb-3">긴급상황 수호천사</h3>
+          <p className="text-gray-700 text-sm">
+            24시간 언제든지, 어떤 어려움이든 즉시 도와드립니다
+          </p>
+        </Card>
 
-      <div className="overflow-x-auto">
-        <table className="w-full border-collapse bg-white rounded-lg shadow-lg overflow-hidden">
-          <thead>
-            <tr className="bg-brand-green text-white">
-              <th className="p-4 text-left font-black">구분</th>
-              <th className="p-4 text-center font-black">브리티시 컬럼비아</th>
-              <th className="p-4 text-center font-black">온타리오</th>
-              <th className="p-4 text-center font-black">기타 지역</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr className="border-b">
-              <td className="p-4 font-black text-gray-700">학비 (연간)</td>
-              <td className="p-4 text-center">CAD $14,000 - $16,000</td>
-              <td className="p-4 text-center">CAD $13,000 - $15,000</td>
-              <td className="p-4 text-center">CAD $12,000 - $14,000</td>
-            </tr>
-            <tr className="border-b bg-gray-50">
-              <td className="p-4 font-black text-gray-700">홈스테이 (월)</td>
-              <td className="p-4 text-center">CAD $1,100 - $1,300</td>
-              <td className="p-4 text-center">CAD $1,000 - $1,200</td>
-              <td className="p-4 text-center">CAD $900 - $1,100</td>
-            </tr>
-            <tr className="border-b">
-              <td className="p-4 font-black text-gray-700">가디언십</td>
-              <td className="p-4 text-center">CAD $1,500 - $2,000</td>
-              <td className="p-4 text-center">CAD $1,500 - $2,000</td>
-              <td className="p-4 text-center">CAD $1,200 - $1,800</td>
-            </tr>
-            <tr className="border-b bg-gray-50">
-              <td className="p-4 font-black text-gray-700">의료보험 (연간)</td>
-              <td className="p-4 text-center">CAD $600 - $800</td>
-              <td className="p-4 text-center">CAD $500 - $700</td>
-              <td className="p-4 text-center">CAD $500 - $700</td>
-            </tr>
-            <tr>
-              <td className="p-4 font-black text-gray-700">기타 비용</td>
-              <td className="p-4 text-center">CAD $2,000 - $3,000</td>
-              <td className="p-4 text-center">CAD $2,000 - $3,000</td>
-              <td className="p-4 text-center">CAD $1,500 - $2,500</td>
-            </tr>
-          </tbody>
-        </table>
+        <Card className="p-6 border-0 shadow-lg text-center bg-gradient-to-br from-blue-50 to-white hover:shadow-xl transition-all duration-300">
+          <span className="text-3xl mb-3 block">👩‍⚕️</span>
+          <h3 className="text-lg font-black text-blue-600 mb-3">건강 보호 동반자</h3>
+          <p className="text-gray-700 text-sm">
+            아플 때마다 곁에서 보살피며 건강을 책겨드립니다
+          </p>
+        </Card>
+
+        <Card className="p-6 border-0 shadow-lg text-center bg-gradient-to-br from-green-50 to-white hover:shadow-xl transition-all duration-300">
+          <span className="text-3xl mb-3 block">📊</span>
+          <h3 className="text-lg font-black text-brand-green mb-3">성장 기록 전달자</h3>
+          <p className="text-gray-700 text-sm">
+            월간 학습 리포트 및 생활 상황 부모님께 정기 전달
+          </p>
+        </Card>
+
+        <Card className="p-6 border-0 shadow-lg text-center bg-gradient-to-br from-purple-50 to-white hover:shadow-xl transition-all duration-300">
+          <span className="text-3xl mb-3 block">🎓</span>
+          <h3 className="text-lg font-black text-purple-600 mb-3">학업 성장 안내자</h3>
+          <p className="text-gray-700 text-sm">
+            정기적인 학업 상담 및 미래 진로 지도
+          </p>
+        </Card>
+
+        <Card className="p-6 border-0 shadow-lg text-center bg-gradient-to-br from-orange-50 to-white hover:shadow-xl transition-all duration-300">
+          <span className="text-3xl mb-3 block">💳</span>
+          <h3 className="text-lg font-black text-orange-600 mb-3">생활 정착 도우미</h3>
+          <p className="text-gray-700 text-sm">
+            은행 계좌 개설, 핸드폰 개통 등 캐나다 생활 정착 지원
+          </p>
+        </Card>
+
+        <Card className="p-6 border-0 shadow-lg text-center bg-gradient-to-br from-teal-50 to-white hover:shadow-xl transition-all duration-300">
+          <span className="text-3xl mb-3 block">📋</span>
+          <h3 className="text-lg font-black text-teal-600 mb-3">법적 절차 전문가</h3>
+          <p className="text-gray-700 text-sm">
+            학생비자 연장 및 가디언십 서류 전문 처리
+          </p>
+        </Card>
+      </div>
+    </div>
+  )
+};
+
+const journeyPreparation = {
+  id: 'journey-preparation',
+  title: '여정을 위한 준비',
+  content: (
+    <div className="space-y-6">
+      <div className="text-center mb-8">
+        <p className="text-gray-700 leading-relaxed text-lg font-medium">
+          모든 위대한 여정은 준비에서 시작됩니다. 함께 차근차근 준비하며, 
+          캐나다라는 새로운 세계로 향하는 문을 열어보세요.
+        </p>
+      </div>
+      
+      <div className="grid md:grid-cols-2 gap-8">
+        <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl">
+          <h4 className="text-xl font-black text-brand-green mb-4 flex items-center gap-2">
+            <span className="text-blue-600">📋</span> 여정의 동반자들
+          </h4>
+          <p className="text-gray-700 mb-4 text-sm leading-relaxed">
+            새로운 여정에는 믿을 수 있는 동반자가 필요합니다. 이 서류들이 여러분의 꿈을 현실로 만드는 열쇠가 될 것입니다.
+          </p>
+          <ul className="space-y-3">
+            {['여권 사본 (새로운 세계로의 티켓)', '학교 성적증명서 (지금까지의 성장 기록)', '영어 성적 증명서 (소통의 다리)', '가족관계증명서 (사랑의 증명)', '재정증명서 (꿈을 실현할 든든한 뒷받침)'].map((doc, index) => (
+              <li key={index} className="flex items-start gap-3">
+                <span className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></span>
+                <span className="text-gray-700 text-sm">{doc}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        
+        <div className="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-xl">
+          <h4 className="text-xl font-black text-brand-green mb-4 flex items-center gap-2">
+            <span className="text-green-600">🗺️</span> 5단계 여정 로드맵
+          </h4>
+          <p className="text-gray-700 mb-4 text-sm leading-relaxed">
+            모든 단계마다 여러분과 함께 걸으며, 각각의 순간을 소중한 성장의 기회로 만들어갑니다.
+          </p>
+          <div className="space-y-4">
+            {[
+              { step: '꿈의 발견', desc: '상담을 통해 진정한 목표를 찾아요' },
+              { step: '준비의 시작', desc: '서류와 마음을 차근차근 준비해요' },
+              { step: '선택의 순간', desc: '학교 승인으로 꿈이 현실이 돼요' },
+              { step: '도약의 허가', desc: '비자 발급으로 날개를 펼쳐요' },
+              { step: '새로운 시작', desc: '캐나다에서의 첫 걸음을 내딛어요' }
+            ].map((phase, index) => (
+              <div key={index} className="flex items-start gap-3">
+                <span className="w-8 h-8 bg-green-600 text-white rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">
+                  {index + 1}
+                </span>
+                <div>
+                  <p className="font-bold text-gray-800 text-sm">{phase.step}</p>
+                  <p className="text-gray-600 text-xs">{phase.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+};
+
+const dreamInvestment = {
+  id: 'dream-investment',
+  title: '꿈에 대한 투자',
+  content: (
+    <div className="space-y-6">
+      <div className="text-center mb-8">
+        <p className="text-gray-700 leading-relaxed text-lg font-medium">
+          교육은 미래에 대한 가장 확실한 투자입니다. 투명하고 합리적인 비용으로, 
+          평생의 자산이 될 경험을 선물하세요.
+        </p>
+      </div>
+      
+      <div className="bg-gradient-to-br from-brand-ivory/50 to-brand-gold/20 p-8 rounded-xl">
+        <h4 className="text-2xl font-black text-brand-green mb-6 text-center">투명한 투자 계획</h4>
+        <div className="grid md:grid-cols-3 gap-6">
+          <div className="bg-white p-6 rounded-xl shadow-md border-l-4 border-blue-500">
+            <div className="text-blue-500 text-3xl mb-3 text-center">🎓</div>
+            <h5 className="font-black text-brand-green mb-3 text-center">교육비</h5>
+            <p className="text-sm text-gray-600 text-center mb-2">꿈을 현실로 만드는 투자</p>
+            <p className="text-xs text-gray-500 text-center leading-relaxed">
+              학교별, 학년별 맞춤 안내<br/>
+              무료 상담에서 정확한 견적 제공
+            </p>
+          </div>
+          <div className="bg-white p-6 rounded-xl shadow-md border-l-4 border-purple-500">
+            <div className="text-purple-500 text-3xl mb-3 text-center">🏡</div>
+            <h5 className="font-black text-brand-green mb-3 text-center">생활비</h5>
+            <p className="text-sm text-gray-600 text-center mb-2">새로운 일상을 위한 준비</p>
+            <p className="text-xs text-gray-500 text-center leading-relaxed">
+              지역과 라이프스타일 고려<br/>
+              홈스테이부터 기숙사까지 다양한 옵션
+            </p>
+          </div>
+          <div className="bg-white p-6 rounded-xl shadow-md border-l-4 border-green-500">
+            <div className="text-green-500 text-3xl mb-3 text-center">🤝</div>
+            <h5 className="font-black text-brand-green mb-3 text-center">컨설팅비</h5>
+            <p className="text-sm text-gray-600 text-center mb-2">전문가와 함께하는 여정</p>
+            <p className="text-xs text-gray-500 text-center leading-relaxed">
+              패키지별 합리적 가격<br/>
+              성공까지 함께하는 든든한 파트너십
+            </p>
+          </div>
+        </div>
+        <div className="mt-6 text-center">
+          <p className="text-sm text-gray-600 italic">
+            "가격보다는 가치를, 비용보다는 미래를 생각합니다"
+          </p>
+        </div>
       </div>
 
-      <div className="bg-gray-50 p-6 rounded-lg">
-        <h3 className="text-lg font-black text-brand-green mb-3">💰 무료 서비스</h3>
+      <div className="bg-gradient-to-r from-green-100 to-blue-100 p-6 rounded-lg">
+        <h3 className="text-lg font-black text-brand-green mb-3 flex items-center gap-2">
+          <span className="text-2xl">🎁</span> 무료로 드리는 소중한 선물
+        </h3>
         <p className="text-gray-700 mb-4">
-          On & Off New Page의 모든 컨설팅 서비스는 완전 무료입니다.
+          On & Off New Page와 함께라면, 모든 컨설팅 서비스를 무료로 받으실 수 있습니다.
         </p>
         <ul className="grid md:grid-cols-2 gap-2 text-gray-700">
           <li className="flex items-center gap-2">
-            <span className="text-brand-green">✓</span>
-            초기 상담 및 학교 선정
+            <span className="text-brand-green">✨</span>
+            꿈 발견 상담 및 최적 학교 매칭
           </li>
           <li className="flex items-center gap-2">
-            <span className="text-brand-green">✓</span>
-            입학 서류 작성 지원
+            <span className="text-brand-green">✨</span>
+            입학 서류 완벽 준비 지원
           </li>
           <li className="flex items-center gap-2">
-            <span className="text-brand-green">✓</span>
-            비자 신청 지원
+            <span className="text-brand-green">✨</span>
+            비자 신청 전 과정 동행
           </li>
           <li className="flex items-center gap-2">
-            <span className="text-brand-green">✓</span>
-            출국 전 오리엔테이션
+            <span className="text-brand-green">✨</span>
+            출국 전 마음 준비 오리엔테이션
           </li>
         </ul>
       </div>
@@ -400,24 +453,61 @@ const costs = {
   )
 };
 
-const accordionItems = [
-  programOverview,
-  programFeatures,
-  homestayProgram,
-  careServices,
-  admissionProcess,
-  costs
-];
+const beginJourney = {
+  id: 'begin-journey',
+  title: '여정의 시작',
+  content: (
+    <div className="text-center space-y-8">
+      <div className="bg-gradient-to-br from-brand-green/10 via-brand-ivory/30 to-brand-gold/20 p-8 rounded-2xl">
+        <div className="text-6xl mb-4">✨</div>
+        <h4 className="text-3xl font-black text-brand-green mb-6">
+          당신만의 이야기를 시작하세요
+        </h4>
+        <p className="text-gray-700 text-lg mb-8 leading-relaxed max-w-2xl mx-auto">
+          모든 위대한 이야기에는 용기 있는 첫 걸음이 있습니다. 
+          지금 이 순간이 바로 여러분의 캐나다 유학 스토리가 시작되는 특별한 순간입니다.
+        </p>
+        
+        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+          <Link 
+            href="/ko/contact"
+            className="bg-brand-green text-brand-ivory font-batang font-black py-4 px-8 rounded-xl shadow-lg hover:bg-brand-green/90 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 text-lg group"
+          >
+            <span className="flex items-center justify-center gap-2">
+              첫 걸음 내딛기
+              <span className="group-hover:translate-x-1 transition-transform">→</span>
+            </span>
+          </Link>
+          <Link 
+            href="/ko/success-stories"
+            className="bg-white text-brand-green border-2 border-brand-green font-batang font-black py-4 px-8 rounded-xl shadow-lg hover:bg-brand-ivory hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 text-lg group"
+          >
+            <span className="flex items-center justify-center gap-2">
+              선배들의 이야기 보기
+              <span className="group-hover:translate-x-1 transition-transform">👥</span>
+            </span>
+          </Link>
+        </div>
+        
+        <div className="bg-white/70 p-4 rounded-lg max-w-md mx-auto">
+          <p className="text-sm text-gray-600 italic">
+            "천 리 길도 한 걸음부터 시작됩니다"
+          </p>
+        </div>
+      </div>
+    </div>
+  )
+};
 
 export default function ProgramsPage() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" style={{backgroundImage: 'linear-gradient(to bottom, white 35%, #f8f6f0 100%)'}}>
       {/* Hero Section */}
       <section className="bg-gradient-to-b from-brand-ivory/30 to-white py-16 lg:py-24">
         <div className="container mx-auto px-4">
           <SectionHeading
-            title="프로그램 안내"
-            subtitle="캐나다 전역의 우수 교육청과 파트너십을 통한 맞춤형 유학 프로그램"
+            title="나만의 길 찾기"
+            subtitle="각자의 꿈과 목표에 맞는 세 가지 여정 중 당신의 이야기를 시작하세요"
             level={1}
           />
 
@@ -441,50 +531,58 @@ export default function ProgramsPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto space-y-6">
             <CollapsibleCard
-              title="프로그램 개요"
+              title="세 가지 성장의 길"
               defaultOpen={true}
               variant="premium"
               headerIcon={<Target className="w-5 h-5" />}
             >
-              {programOverview.content}
+              {journeyPathways.content}
             </CollapsibleCard>
 
             <CollapsibleCard
-              title="프로그램 특징"
+              title="여정에서 만날 동반자들"
               variant="accent"
               headerIcon={<Star className="w-5 h-5" />}
             >
-              {programFeatures.content}
+              {journeySupports.content}
             </CollapsibleCard>
 
             <CollapsibleCard
-              title="홈스테이 프로그램"
+              title="나의 두 번째 가족"
               variant="default"
               headerIcon={<Home className="w-5 h-5" />}
             >
-              {homestayProgram.content}
+              {secondFamily.content}
             </CollapsibleCard>
 
             <CollapsibleCard
-              title="케어 서비스"
+              title="수호천사들의 보살핌"
               variant="accent"
               headerIcon={<BookOpen className="w-5 h-5" />}
             >
-              {careServices.content}
+              {guardianAngels.content}
             </CollapsibleCard>
 
             <CollapsibleCard
-              title="입학 절차"
+              title="여정을 위한 준비"
               variant="default"
             >
-              {admissionProcess.content}
+              {journeyPreparation.content}
             </CollapsibleCard>
 
             <CollapsibleCard
-              title="비용 안내 (2025-2026)"
+              title="꿈에 대한 투자"
               variant="premium"
             >
-              {costs.content}
+              {dreamInvestment.content}
+            </CollapsibleCard>
+
+            <CollapsibleCard
+              title="여정의 시작"
+              variant="accent"
+              headerIcon={<Megaphone className="w-5 h-5" />}
+            >
+              {beginJourney.content}
             </CollapsibleCard>
           </div>
         </div>

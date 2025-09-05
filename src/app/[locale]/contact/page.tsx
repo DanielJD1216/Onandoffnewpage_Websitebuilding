@@ -27,7 +27,7 @@ export default function ContactPage() {
   const [activeTab, setActiveTab] = useState('consultation');
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" style={{backgroundImage: 'linear-gradient(to bottom, white 35%, #f8f6f0 100%)'}}>
       {/* Hero Section */}
       <PageHero containerClassName="max-w-6xl">
         <SectionHeading 
