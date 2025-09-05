@@ -369,15 +369,15 @@ const FlipbookApp: React.FC = () => {
     <div className="w-full flex flex-col items-center justify-center font-dodum p-4 pb-8 md:pb-4 relative">
       {showIndicator && <SwipeIndicator />}
       
-      <div className="relative mb-6 md:mb-0" style={{ width: '90vw', height: '80vh', maxWidth: '500px', maxHeight: '600px' }}>
+      <div className="relative mb-6 md:mb-0" style={{ width: '90vw', height: '90vh', maxWidth: '500px', maxHeight: '750px' }}>
         <HTMLFlipBook
           width={300}
           height={400}
           size="stretch"
           minWidth={280}
           maxWidth={500}
-          minHeight={400}
-          maxHeight={600}
+          minHeight={500}
+          maxHeight={750}
           maxShadowOpacity={0.5}
           showCover={true}
           mobileScrollSupport={true}
