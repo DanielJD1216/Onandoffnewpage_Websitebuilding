@@ -1,8 +1,6 @@
 'use client';
 
 import React, { useState, useCallback, useEffect, forwardRef } from 'react';
-import dynamic from 'next/dynamic';
-import FlipbookPage from './FlipbookPage';
 import FlipbookCover from './FlipbookCover';
 import SwipeIndicator from './SwipeIndicator';
 import JourneyAnimationWrapper from './JourneyAnimationWrapper';
@@ -11,12 +9,6 @@ import JourneyAnimationWrapper from './JourneyAnimationWrapper';
 interface AnimatedPageProps {
   isActive: boolean;
 }
-
-// Dynamically import HTMLFlipBook to avoid SSR issues
-const HTMLFlipBook = dynamic(
-  () => import('react-pageflip').then((module) => module.default),
-  { ssr: false }
-) as any; // Type casting due to incorrect TypeScript definitions
 
 // Cover Page (표지)
 const PageCover = forwardRef<HTMLDivElement, AnimatedPageProps>(({ isActive }, ref) => (
@@ -321,13 +313,11 @@ BackCover.displayName = 'BackCover';
 
 const FlipbookApp: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
   const [showIndicator, setShowIndicator] = useState(true);
   const [isClient, setIsClient] = useState(false);
   const [isPlaying, setIsPlaying] = useState(true);
-  const flipbookRef = React.useRef<any>(null);
+  const [isFlipping, setIsFlipping] = useState(false);
   const autoPlayIntervalRef = React.useRef<NodeJS.Timeout | null>(null);
-  const flipbookInstanceRef = React.useRef<any>(null);
   const totalPages = 7; // Cover + 5 story pages + Back cover
   const contentPages = 5; // Only the main story pages (excluding covers)
 
@@ -335,18 +325,6 @@ const FlipbookApp: React.FC = () => {
     setIsClient(true);
   }, []);
 
-  useEffect(() => {
-    const checkIsMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
-    checkIsMobile();
-    window.addEventListener('resize', checkIsMobile);
-
-    return () => {
-      window.removeEventListener('resize', checkIsMobile);
-    };
-  }, []);
 
   // Auto-play functionality
   useEffect(() => {
@@ -354,26 +332,11 @@ const FlipbookApp: React.FC = () => {
 
     const startAutoPlay = () => {
       autoPlayIntervalRef.current = setInterval(() => {
-        // Find the flipbook content area and click on the right side
-        const flipbookContainer = document.querySelector('.flipbook-container');
-        if (flipbookContainer) {
-          const rect = flipbookContainer.getBoundingClientRect();
-          const rightSideX = rect.left + rect.width * 0.8; // Click at 80% width (right side)
-          const centerY = rect.top + rect.height * 0.5; // Center Y
-          
-          // Create a more comprehensive click event
-          const clickEvent = new MouseEvent('click', {
-            view: window,
-            bubbles: true,
-            cancelable: true,
-            clientX: rightSideX,
-            clientY: centerY,
-            button: 0,
-            buttons: 1
-          });
-          
-          flipbookContainer.dispatchEvent(clickEvent);
-        }
+        setCurrentPage(prevPage => {
+          const nextPage = prevPage + 1;
+          // Loop back to start after the last page
+          return nextPage >= totalPages ? 0 : nextPage;
+        });
       }, 4000); // 4 second intervals
     };
 
@@ -384,7 +347,7 @@ const FlipbookApp: React.FC = () => {
         clearInterval(autoPlayIntervalRef.current);
       }
     };
-  }, [isClient, isPlaying]);
+  }, [isClient, isPlaying, totalPages]);
 
   // Clear interval when playing stops
   useEffect(() => {
@@ -394,59 +357,52 @@ const FlipbookApp: React.FC = () => {
     }
   }, [isPlaying]);
 
-  // Manual navigation using DOM events
-  const triggerPageChange = useCallback((targetPage: number) => {
-    const flipbookContainer = document.querySelector('.flipbook-container');
-    if (flipbookContainer) {
-      const rect = flipbookContainer.getBoundingClientRect();
-      // Calculate which side to click based on current vs target page
-      const isGoingForward = targetPage > currentPage;
-      const clickX = isGoingForward 
-        ? rect.left + rect.width * 0.8  // Right side for next (80% width)
-        : rect.left + rect.width * 0.2; // Left side for previous (20% width)
-      const centerY = rect.top + rect.height * 0.5;
-      
-      const createClickEvent = () => new MouseEvent('click', {
-        view: window,
-        bubbles: true,
-        cancelable: true,
-        clientX: clickX,
-        clientY: centerY,
-        button: 0,
-        buttons: 1
-      });
-      
-      // Click multiple times if needed to reach target page
-      const clicksNeeded = Math.abs(targetPage - currentPage);
-      for (let i = 0; i < clicksNeeded; i++) {
-        setTimeout(() => flipbookContainer.dispatchEvent(createClickEvent()), i * 700);
+  // Page change with flip animation
+  const changePage = useCallback((targetPage: number) => {
+    if (isFlipping || targetPage === currentPage) return;
+    
+    setIsFlipping(true);
+    
+    // Add a small delay for the flip animation
+    setTimeout(() => {
+      setCurrentPage(targetPage);
+      if (showIndicator) {
+        setShowIndicator(false);
       }
-    }
-  }, [currentPage]);
+      
+      // Reset flip state after animation completes
+      setTimeout(() => {
+        setIsFlipping(false);
+      }, 600); // Match CSS transition duration
+    }, 300); // Half of flip animation
+  }, [currentPage, isFlipping, showIndicator]);
 
-  const onPage = useCallback((e: { data: number }) => {
-    setCurrentPage(e.data);
-    if (showIndicator) {
-      setShowIndicator(false);
-    }
-  }, [showIndicator]);
-
-  // Callback to store flipbook instance
-  const onInit = useCallback((flipbook: any) => {
-    flipbookInstanceRef.current = flipbook;
-  }, []);
-
-  const getPageIndicatorText = (pageIndex: number): string => {
-    const pageNames = [
-      '표지', '준비의 장', '시작의 장', '성장의 장', '진로의 장', '도약의 장', '뒷표지'
-    ];
-    return pageNames[pageIndex] || '';
-  };
 
   // Navigation functions
   const goToPage = useCallback((pageIndex: number) => {
-    triggerPageChange(pageIndex);
-  }, [triggerPageChange]);
+    changePage(pageIndex);
+  }, [changePage]);
+
+  // Handle click navigation
+  const handleBookClick = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const clickX = e.clientX - rect.left;
+    const centerX = rect.width / 2;
+    
+    if (clickX > centerX) {
+      // Clicked right side - go to next page
+      const nextPage = currentPage + 1;
+      if (nextPage < totalPages) {
+        changePage(nextPage);
+      }
+    } else {
+      // Clicked left side - go to previous page
+      const prevPage = currentPage - 1;
+      if (prevPage >= 0) {
+        changePage(prevPage);
+      }
+    }
+  }, [currentPage, totalPages, changePage]);
 
   const togglePlayPause = useCallback(() => {
     setIsPlaying(prev => !prev);
@@ -469,6 +425,21 @@ const FlipbookApp: React.FC = () => {
     );
   }
 
+  // Render the current page
+  const renderCurrentPage = () => {
+    const pages = [
+      <PageCover key="cover" isActive={true} />,
+      <Page1 key="page1" isActive={true} />,
+      <Page2 key="page2" isActive={true} />,
+      <Page3 key="page3" isActive={true} />,
+      <Page4 key="page4" isActive={true} />,
+      <Page5 key="page5" isActive={true} />,
+      <BackCover key="back" isActive={true} />
+    ];
+    
+    return pages[currentPage] || pages[0];
+  };
+
   return (
     <div className="w-full flex flex-col items-center justify-center font-dodum p-4 pb-8 md:pb-4 relative">
       {showIndicator && <SwipeIndicator />}
@@ -476,6 +447,21 @@ const FlipbookApp: React.FC = () => {
       {/* Navigation Bar */}
       <div className="mb-6 w-full max-w-4xl">
         <div className="flex flex-wrap justify-center items-center gap-2 mb-4">
+          {/* Front Cover Button */}
+          <button
+            onClick={() => goToPage(0)}
+            className={`
+              px-4 py-2 rounded-lg font-medium text-sm transition-all duration-300 ease-in-out
+              ${currentPage === 0
+                ? 'bg-brand-green text-white shadow-md transform scale-105' 
+                : 'bg-white text-brand-green border-2 border-brand-green/30 hover:border-brand-green hover:bg-brand-green/10'
+              }
+            `}
+          >
+            시작
+          </button>
+          
+          {/* Content Pages */}
           {Array.from({ length: contentPages }, (_, index) => {
             const actualPageIndex = index + 1; // Pages 1-5 in flipbook
             const contentIndex = getContentPageIndex(currentPage);
@@ -529,42 +515,26 @@ const FlipbookApp: React.FC = () => {
         </div>
       </div>
       
+      {/* Custom Flipbook Container */}
       <div className="relative mb-6 md:mb-0" style={{ width: '90vw', height: '90vh', maxWidth: '500px', maxHeight: '750px' }}>
-        <HTMLFlipBook
-          ref={flipbookRef}
-          width={300}
-          height={400}
-          size="stretch"
-          minWidth={280}
-          maxWidth={500}
-          minHeight={500}
-          maxHeight={750}
-          maxShadowOpacity={0.5}
-          showCover={true}
-          mobileScrollSupport={true}
-          flippingTime={1000}
-          onFlip={onPage}
-          className="flipbook-container shadow-2xl rounded-lg overflow-hidden"
-          showPageCorners={false}
-          useMouseEvents={true}
-          swipeDistance={50}
-          disableFlipByClick={false}
-          style={{}}
-          startPage={0}
-          startZIndex={0}
-          autoSize={true}
-          clickEventForward={true}
-          usePortrait={true}
-          drawShadow={true}
+        <div 
+          className={`
+            flipbook-container relative w-full h-full cursor-pointer
+            shadow-2xl rounded-lg overflow-hidden
+            ${isFlipping ? 'flipping' : ''}
+          `}
+          onClick={handleBookClick}
+          style={{
+            width: '100%',
+            height: '100%',
+            minHeight: '500px',
+            maxHeight: '750px'
+          }}
         >
-          <PageCover isActive={currentPage === 0} />
-          <Page1 isActive={currentPage === 1} />
-          <Page2 isActive={currentPage === 2} />
-          <Page3 isActive={currentPage === 3} />
-          <Page4 isActive={currentPage === 4} />
-          <Page5 isActive={currentPage === 5} />
-          <BackCover isActive={currentPage === 6} />
-        </HTMLFlipBook>
+          <div className="page-container absolute inset-0">
+            {renderCurrentPage()}
+          </div>
+        </div>
       </div>
       
     </div>
