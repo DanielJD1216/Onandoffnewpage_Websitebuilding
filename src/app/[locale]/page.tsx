@@ -2,6 +2,8 @@
 
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
+import { Button } from '@/components/ui/button';
+import { Card } from '@/components/ui/card';
 import '../../components/flipbook/flipbook-styles.css';
 
 // Dynamic import to avoid SSR issues with the flipbook
@@ -55,6 +57,78 @@ export default function HomePage({ params }: { params: { locale: string } }) {
               </Link>
             </div>
           </div>
+
+          {/* Service Type Cards */}
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-16">
+            {/* Independent Service */}
+            <Card className="relative overflow-hidden border-2 border-brand-green/20 hover:border-brand-green transition-all p-8">
+              <div className="absolute top-0 right-0 bg-brand-green text-white px-4 py-1 text-sm font-bold">
+                인기 프로그램
+              </div>
+              <div className="mb-4">
+                <h3 className="text-2xl font-black text-brand-green mb-2">자녀 단독 유학</h3>
+                <p className="text-gray-600">중·고등학생 독립형 프로그램</p>
+              </div>
+              <ul className="space-y-3 mb-6">
+                <li className="flex items-start gap-2">
+                  <span className="text-brand-green mt-1">✓</span>
+                  <span>홈스테이 배정 및 관리</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-brand-green mt-1">✓</span>
+                  <span>가디언십 서비스</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-brand-green mt-1">✓</span>
+                  <span>정기 학업 모니터링</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-brand-green mt-1">✓</span>
+                  <span>24시간 긴급 지원</span>
+                </li>
+              </ul>
+              <Button className="w-full bg-brand-green hover:bg-brand-green/90 text-white" asChild>
+                <Link href={`/${params.locale}/contact?type=independent`}>
+                  자녀 단독 유학 상담
+                </Link>
+              </Button>
+            </Card>
+            
+            {/* Parent-Accompanied Service */}
+            <Card className="relative overflow-hidden border-2 border-brand-gold/20 hover:border-brand-gold transition-all p-8">
+              <div className="absolute top-0 right-0 bg-brand-gold text-white px-4 py-1 text-sm font-bold">
+                프리미엄 케어
+              </div>
+              <div className="mb-4">
+                <h3 className="text-2xl font-black text-brand-gold mb-2">부모 동반 유학</h3>
+                <p className="text-gray-600">초·중등 가족 이민형 프로그램</p>
+              </div>
+              <ul className="space-y-3 mb-6">
+                <li className="flex items-start gap-2">
+                  <span className="text-brand-gold mt-1">✓</span>
+                  <span>부모 비자 신청 지원</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-brand-gold mt-1">✓</span>
+                  <span>주거지 정착 서비스</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-brand-gold mt-1">✓</span>
+                  <span>생활 정착 토탈 케어</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-brand-gold mt-1">✓</span>
+                  <span>부모 영어 교육 연계</span>
+                </li>
+              </ul>
+              <Button className="w-full bg-brand-gold hover:bg-brand-gold/90 text-white" asChild>
+                <Link href={`/${params.locale}/contact?type=parent-accompanied`}>
+                  부모 동반 유학 상담
+                </Link>
+              </Button>
+            </Card>
+          </div>
+          
         </div>
       </section>
     </div>

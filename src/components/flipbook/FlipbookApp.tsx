@@ -324,7 +324,12 @@ const FlipbookApp: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [showIndicator, setShowIndicator] = useState(true);
   const [isClient, setIsClient] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const flipbookRef = React.useRef<any>(null);
+  const autoPlayIntervalRef = React.useRef<NodeJS.Timeout | null>(null);
+  const flipbookInstanceRef = React.useRef<any>(null);
   const totalPages = 7; // Cover + 5 story pages + Back cover
+  const contentPages = 5; // Only the main story pages (excluding covers)
 
   useEffect(() => {
     setIsClient(true);
@@ -343,6 +348,82 @@ const FlipbookApp: React.FC = () => {
     };
   }, []);
 
+  // Auto-play functionality
+  useEffect(() => {
+    if (!isClient || !isPlaying) return;
+
+    const startAutoPlay = () => {
+      autoPlayIntervalRef.current = setInterval(() => {
+        // Find the flipbook content area and click on the right side
+        const flipbookContainer = document.querySelector('.flipbook-container');
+        if (flipbookContainer) {
+          const rect = flipbookContainer.getBoundingClientRect();
+          const rightSideX = rect.left + rect.width * 0.8; // Click at 80% width (right side)
+          const centerY = rect.top + rect.height * 0.5; // Center Y
+          
+          // Create a more comprehensive click event
+          const clickEvent = new MouseEvent('click', {
+            view: window,
+            bubbles: true,
+            cancelable: true,
+            clientX: rightSideX,
+            clientY: centerY,
+            button: 0,
+            buttons: 1
+          });
+          
+          flipbookContainer.dispatchEvent(clickEvent);
+        }
+      }, 4000); // 4 second intervals
+    };
+
+    startAutoPlay();
+
+    return () => {
+      if (autoPlayIntervalRef.current) {
+        clearInterval(autoPlayIntervalRef.current);
+      }
+    };
+  }, [isClient, isPlaying]);
+
+  // Clear interval when playing stops
+  useEffect(() => {
+    if (!isPlaying && autoPlayIntervalRef.current) {
+      clearInterval(autoPlayIntervalRef.current);
+      autoPlayIntervalRef.current = null;
+    }
+  }, [isPlaying]);
+
+  // Manual navigation using DOM events
+  const triggerPageChange = useCallback((targetPage: number) => {
+    const flipbookContainer = document.querySelector('.flipbook-container');
+    if (flipbookContainer) {
+      const rect = flipbookContainer.getBoundingClientRect();
+      // Calculate which side to click based on current vs target page
+      const isGoingForward = targetPage > currentPage;
+      const clickX = isGoingForward 
+        ? rect.left + rect.width * 0.8  // Right side for next (80% width)
+        : rect.left + rect.width * 0.2; // Left side for previous (20% width)
+      const centerY = rect.top + rect.height * 0.5;
+      
+      const createClickEvent = () => new MouseEvent('click', {
+        view: window,
+        bubbles: true,
+        cancelable: true,
+        clientX: clickX,
+        clientY: centerY,
+        button: 0,
+        buttons: 1
+      });
+      
+      // Click multiple times if needed to reach target page
+      const clicksNeeded = Math.abs(targetPage - currentPage);
+      for (let i = 0; i < clicksNeeded; i++) {
+        setTimeout(() => flipbookContainer.dispatchEvent(createClickEvent()), i * 700);
+      }
+    }
+  }, [currentPage]);
+
   const onPage = useCallback((e: { data: number }) => {
     setCurrentPage(e.data);
     if (showIndicator) {
@@ -350,11 +431,34 @@ const FlipbookApp: React.FC = () => {
     }
   }, [showIndicator]);
 
+  // Callback to store flipbook instance
+  const onInit = useCallback((flipbook: any) => {
+    flipbookInstanceRef.current = flipbook;
+  }, []);
+
   const getPageIndicatorText = (pageIndex: number): string => {
     const pageNames = [
       '표지', '준비의 장', '시작의 장', '성장의 장', '진로의 장', '도약의 장', '뒷표지'
     ];
     return pageNames[pageIndex] || '';
+  };
+
+  // Navigation functions
+  const goToPage = useCallback((pageIndex: number) => {
+    triggerPageChange(pageIndex);
+  }, [triggerPageChange]);
+
+  const togglePlayPause = useCallback(() => {
+    setIsPlaying(prev => !prev);
+  }, []);
+
+  // Get the content page index (0-4 for the 5 story pages)
+  const getContentPageIndex = (actualPageIndex: number): number => {
+    // Convert actual flipbook page (0-6) to content page (0-4)
+    // Cover = -1 (not shown), Pages 1-5 = 0-4, Back Cover = 5 (not shown)
+    if (actualPageIndex <= 0) return -1; // Cover
+    if (actualPageIndex >= 6) return 5; // Back Cover
+    return actualPageIndex - 1; // Content pages (1-5 become 0-4)
   };
 
   if (!isClient) {
@@ -369,8 +473,65 @@ const FlipbookApp: React.FC = () => {
     <div className="w-full flex flex-col items-center justify-center font-dodum p-4 pb-8 md:pb-4 relative">
       {showIndicator && <SwipeIndicator />}
       
+      {/* Navigation Bar */}
+      <div className="mb-6 w-full max-w-4xl">
+        <div className="flex flex-wrap justify-center items-center gap-2 mb-4">
+          {Array.from({ length: contentPages }, (_, index) => {
+            const actualPageIndex = index + 1; // Pages 1-5 in flipbook
+            const contentIndex = getContentPageIndex(currentPage);
+            const isActive = contentIndex === index && currentPage >= 1 && currentPage <= 5;
+            
+            return (
+              <button
+                key={index}
+                onClick={() => goToPage(actualPageIndex)}
+                className={`
+                  px-4 py-2 rounded-lg font-medium text-sm transition-all duration-300 ease-in-out
+                  ${isActive 
+                    ? 'bg-brand-green text-white shadow-md transform scale-105' 
+                    : 'bg-white text-brand-green border-2 border-brand-green/30 hover:border-brand-green hover:bg-brand-green/10'
+                  }
+                `}
+              >
+                Page {index}
+              </button>
+            );
+          })}
+        </div>
+        
+        {/* Play/Pause Control */}
+        <div className="flex justify-center">
+          <button
+            onClick={togglePlayPause}
+            className="
+              flex items-center gap-2 px-6 py-2 rounded-lg font-medium text-sm
+              bg-brand-gold text-white hover:bg-brand-gold/90 
+              transition-all duration-300 shadow-md hover:shadow-lg
+            "
+          >
+            {isPlaying ? (
+              <>
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <rect x="6" y="4" width="4" height="16" />
+                  <rect x="14" y="4" width="4" height="16" />
+                </svg>
+                일시정지
+              </>
+            ) : (
+              <>
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <polygon points="5,3 19,12 5,21" />
+                </svg>
+                자동재생
+              </>
+            )}
+          </button>
+        </div>
+      </div>
+      
       <div className="relative mb-6 md:mb-0" style={{ width: '90vw', height: '90vh', maxWidth: '500px', maxHeight: '750px' }}>
         <HTMLFlipBook
+          ref={flipbookRef}
           width={300}
           height={400}
           size="stretch"
