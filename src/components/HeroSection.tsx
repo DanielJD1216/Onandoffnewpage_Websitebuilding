@@ -99,15 +99,15 @@ export default function HeroSection() {
       </div>
       
       <div className="relative container mx-auto px-4 text-center">
-        <div ref={mainContainerRef} className="flex items-center justify-center gap-6 mb-8">
+        <div ref={mainContainerRef} className="flex items-center justify-center gap-6 mb-1">
           {/* Canadian Flag Emoji */}
-          <div className="flex-shrink-0 text-5xl md:text-6xl lg:text-7xl">
+          <div className="flex-shrink-0 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
             🇨🇦
           </div>
           
           <h1 
             ref={mainTextRef}
-            className="text-4xl md:text-6xl lg:text-7xl font-black text-brand-green tracking-wide font-dodum"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-brand-green tracking-wide font-dodum"
             style={{ letterSpacing: '0.15em', wordSpacing: '0.3em' }}
           >
             밴쿠버  유학  파트너스

@@ -93,7 +93,7 @@ export default function HomePage({ params }: { params: { locale: string } }) {
                 </li>
               </ul>
               <Button className="w-full bg-brand-green hover:bg-brand-green/90 text-white" asChild>
-                <Link href={`/${params.locale}/contact?type=independent`}>
+                <Link href={`/${params.locale}/pre-departure/visa-support?type=independent`}>
                   자녀 단독 유학 상담
                 </Link>
               </Button>
@@ -127,7 +127,7 @@ export default function HomePage({ params }: { params: { locale: string } }) {
                 </li>
               </ul>
               <Button className="w-full bg-brand-gold hover:bg-brand-gold/90 text-white" asChild>
-                <Link href={`/${params.locale}/contact?type=parent-accompanied`}>
+                <Link href={`/${params.locale}/pre-departure/visa-support?type=parent-accompanied`}>
                   부모 동반 유학 상담
                 </Link>
               </Button>

@@ -399,7 +399,7 @@
       ]
     },
     "tailwind.config.ts": {
-      "hash": "670e1e40cb79a34909de21d26854b5226de6fd6a47d69ac26da34c77b875d6de",
+      "hash": "f2e9f4933064bf14ac5a280bba7e6ff4bdf53c76c9e2902c8a8fec8064cff6ed",
       "results": []
     },
     "postcss.config.js": {
@@ -1689,11 +1689,11 @@
       "results": []
     },
     "src/components/layout/Header.tsx": {
-      "hash": "befa5cc428362b2767cbd4d172301cae524d65e0672f53c0662c1e7dfae32f9d",
+      "hash": "f33959fcc2aa9f0f10c3db06eeb876b039d2704227517f0742169ecb225d8074",
       "results": []
     },
     "src/components/layout/Footer.tsx": {
-      "hash": "d2abfbe6af6882c13ed49ebf93afa9759e6f3421022277ff94c1ed6f76a4f692",
+      "hash": "13517cece39054f84e4f916f904738569d40eef69587a7af9196c9d938a70043",
       "results": []
     },
     "src/components/layout/CTASection.tsx": {
@@ -1701,11 +1701,11 @@
       "results": []
     },
     "src/components/flipbook/SwipeIndicator.tsx": {
-      "hash": "a261e38107b5a463745f09a2f38fc2e558d4948e13911e178c02f9e22f7cc681",
+      "hash": "9fb7dc0916c5a6453a3807dc97aceb72154cc636258c16eb6c2c7f9299326060",
       "results": []
     },
     "src/components/flipbook/Stamp.tsx": {
-      "hash": "34a9f8884de54793976e78078de2b2d3ed745443a9c871d339760184f2bf100b",
+      "hash": "171255885f16c62d6ef5b4107d8d08fd0e57164735c4ae196ac97d8f8e051d13",
       "results": []
     },
     "src/components/flipbook/JourneyPages.tsx": {
@@ -1729,7 +1729,7 @@
       "results": []
     },
     "src/components/flipbook/FlipbookApp.tsx": {
-      "hash": "bf04d11148674d1c5b0353db26c2dccbaecfe1541d85b8382b9a45162f42fc1e",
+      "hash": "05ce564826ac305b2138577245dd4fa6d269903b444f2ec42dc1de1dc1467e91",
       "results": []
     },
     "src/components/consultation/ConsultationForm.tsx": {
@@ -1803,7 +1803,7 @@
       "results": []
     },
     "src/app/[locale]/page.tsx": {
-      "hash": "8a87493cad9c5b5148b10bfc0bab58dcd4f613dcecaf10f6651e7260dcd23fac",
+      "hash": "8e4eac7e19c9cca43a7ff60aef8d0a85c808d81ae598f46676a4a78cb7d5af87",
       "results": []
     },
     "src/app/[locale]/layout.tsx": {
@@ -2664,11 +2664,11 @@
       "results": []
     },
     "src/app/[locale]/programs/page.tsx": {
-      "hash": "9f56446e974c233e4fe486bc48cbb6b0065ac3a1e782dce83493d2692559cb28",
+      "hash": "ecf4bbbaf9b8bd4af9abf439edcb31dc59ccb966293a539c7ab46c6331073552",
       "results": []
     },
     "src/app/[locale]/program/page.tsx": {
-      "hash": "8caf154093c8e8529ea6793e39e5501eae7c96dfdf38a16ce284008b56acd76c",
+      "hash": "c497e137bc69baa4802a9d6c47a337ff5f4366da8d8309ee93091a4f51aca4a5",
       "results": []
     },
     "src/app/[locale]/contact/page.tsx": {
@@ -54113,6 +54113,18 @@
           ]
         }
       ]
+    },
+    "src/components/HeroSection.tsx": {
+      "hash": "4b5d67460d4e3f3f09797b764357ecd141bd8aed9acb9d638dfb67bb545139e2",
+      "results": []
+    },
+    "src/components/hero/HeroSection.tsx": {
+      "hash": "a1687fef6736b0fab9bddbcdbf5a4185b552d3900192c649057a1c1a88b5471f",
+      "results": []
+    },
+    "src/app/[locale]/page-STB-deleted.tsx": {
+      "hash": "834c9936e4117d4233ad8846799d5b2478509d0c6e2d10eeab827c563c86f789",
+      "results": []
     }
   }
 }

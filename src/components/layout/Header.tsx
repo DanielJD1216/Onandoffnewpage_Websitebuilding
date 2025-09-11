@@ -11,16 +11,62 @@ import { Menu, X, ChevronDown } from 'lucide-react';
 const navigation = [
   { name: '홈', href: '/ko' },
   { 
-    name: '유학 서비스', 
-    href: '/ko/services',
+    name: 'Page 0', 
+    href: '/ko/pre-departure',
+    hoverTitle: '인생의 새로운 페이지 · 출발 전 가이드',
     submenu: [
-      { name: '학생 단독 유학', href: '/ko/services#independent' },
-      { name: '부모 동반 유학', href: '/ko/services#parent-accompanied' }
+      { name: '인생의 새로운 페이지(출발 전 가이드)', href: '/ko/pre-departure' },
+      { name: '지역/학교 선택(무료)', href: '/ko/pre-departure/regions-schools' },
+      { name: '입학 절차 안내(Free)', href: '/ko/pre-departure/admissions-steps' },
+      { name: '학교 등록 대행', href: '/ko/pre-departure/registration-service' },
+      { name: '비자 지원(+$300/인)', href: '/ko/pre-departure/visa-support' }
     ]
   },
-  { name: '여정', href: '/ko/program' },
-  { name: '프로그램 안내', href: '/ko/programs' },
-  { name: '성공 사례', href: '/ko/success-stories' },
+  { 
+    name: 'Page 1', 
+    href: '/ko/arrival',
+    hoverTitle: '전환점 & 도약의 페이지 · 밴쿠버 정착 서비스',
+    submenu: [
+      { name: '공항 픽업', href: '/ko/arrival/airport-pickup' },
+      { name: '학교 OT F/U', href: '/ko/arrival/school-orientation' },
+      { name: '정착 패키지(통신·은행·교통카드)', href: '/ko/arrival/settling-in' },
+      { name: '홈스테이 배정', href: '/ko/arrival/homestay' },
+      { name: '안전·소통 체계', href: '/ko/arrival/safety-comms' }
+    ]
+  },
+  { 
+    name: 'Page 2', 
+    href: '/ko/campus',
+    hoverTitle: '성장의 페이지 · 온앤오프 캠퍼스 관리 프로그램',
+    submenu: [
+      { name: '프로그램 개요', href: '/ko/campus/overview' },
+      { name: '학업관리', href: '/ko/campus/academics' },
+      { name: '생활관리', href: '/ko/campus/life-management' },
+      { name: '부모 소통', href: '/ko/campus/parent-communication' },
+      { name: '멘토링', href: '/ko/campus/mentoring' },
+      { name: '플랜/요금', href: '/ko/campus/plans' }
+    ]
+  },
+  { 
+    name: 'Page 3', 
+    href: '/ko/future',
+    hoverTitle: '진로의 페이지 · 미래 설계',
+    submenu: [
+      { name: '대학/고등 진학 컨설팅', href: '/ko/future/admissions-consulting' },
+      { name: '전공 선택 가이드', href: '/ko/future/major-guide' },
+      { name: '커리어 멘토링 & 포트폴리오', href: '/ko/future/career-portfolio' }
+    ]
+  },
+  { 
+    name: 'Page 4', 
+    href: '/ko/alumni',
+    hoverTitle: '졸업 후 새로운 여정',
+    submenu: [
+      { name: '동문 네트워킹', href: '/ko/alumni/network' },
+      { name: '커뮤니티 활동', href: '/ko/alumni/community' },
+      { name: '연계 지원(코업/취업/이민 파트너 소개)', href: '/ko/alumni/links' }
+    ]
+  },
   { name: '문의하기', href: '/ko/contact' },
 ];
 
@@ -62,7 +108,7 @@ export function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-6 mr-[100px]">
+          <div className="hidden md:flex items-center space-x-4 mr-[100px]">
             {navigation.map((item) => (
               <div 
                 key={item.name} 
@@ -72,7 +118,7 @@ export function Header() {
               >
                 <Link
                   href={item.href}
-                  className={`text-lg font-semibold transition-colors hover:text-white flex items-center gap-1 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#114b3f] rounded px-3 py-2 ${
+                  className={`text-base font-semibold transition-colors hover:text-white flex items-center gap-1 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#114b3f] rounded px-3 py-2 ${
                     isActive(item.href)
                       ? 'text-white border-b-2 border-white'
                       : 'text-gray-300'
@@ -84,16 +130,23 @@ export function Header() {
                 
                 {/* Dropdown Menu */}
                 {item.submenu && activeDropdown === item.name && (
-                  <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border z-50">
+                  <div className="absolute top-full left-0 pt-2 w-80 z-50">
+                    <div className="bg-white rounded-lg shadow-lg border p-4">
+                    {item.hoverTitle && (
+                      <div className="mb-3 pb-2 border-b border-gray-200">
+                        <h4 className="text-sm font-semibold text-brand-green">{item.hoverTitle}</h4>
+                      </div>
+                    )}
                     {item.submenu.map((subitem) => (
                       <Link
                         key={subitem.name}
                         href={subitem.href}
-                        className="block px-4 py-3 text-gray-700 hover:text-brand-green hover:bg-gray-50 transition-colors first:rounded-t-lg last:rounded-b-lg focus:outline-none focus:ring-2 focus:ring-brand-green focus:ring-inset"
+                        className="block px-3 py-2 text-sm text-gray-700 hover:text-brand-green hover:bg-gray-50 transition-colors rounded focus:outline-none focus:ring-2 focus:ring-brand-green focus:ring-inset"
                       >
                         {subitem.name}
                       </Link>
                     ))}
+                    </div>
                   </div>
                 )}
               </div>
