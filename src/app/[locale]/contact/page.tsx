@@ -9,7 +9,6 @@ import { AnnouncementBanner } from '@/components/ui/announcement-banner';
 import { PageHero, PageSection } from '@/components/layout/PageSection';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { 
-  MessageCircle, 
   Calendar, 
   MapPin, 
   Phone, 
@@ -64,16 +63,16 @@ export default function ContactPage() {
       {/* Main Contact Section with Tabs */}
       <PageSection containerClassName="max-w-7xl">
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className="grid w-full grid-cols-3 mb-8">
-            <TabsTrigger value="consultation" className="font-black">
+          <TabsList className="grid w-full grid-cols-3 mb-8 h-12">
+            <TabsTrigger value="consultation" className="font-black flex items-center justify-center px-2 py-2">
               <Calendar className="w-4 h-4 mr-2" />
               상담 예약
             </TabsTrigger>
-            <TabsTrigger value="quick" className="font-black">
-              <MessageCircle className="w-4 h-4 mr-2" />
+            <TabsTrigger value="quick" className="font-black flex items-center justify-center px-2 py-2">
+              <img src="/kakao-icon.svg" alt="KakaoTalk" className="w-5 h-5 mr-2" />
               빠른 문의
             </TabsTrigger>
-            <TabsTrigger value="office" className="font-black">
+            <TabsTrigger value="office" className="font-black flex items-center justify-center px-2 py-2">
               <MapPin className="w-4 h-4 mr-2" />
               오피스 방문
             </TabsTrigger>
@@ -163,7 +162,7 @@ export default function ContactPage() {
               <Card className="p-6 hover:shadow-lg transition-shadow border-yellow-200 bg-yellow-50/50">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-yellow-400/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <MessageCircle className="w-6 h-6 text-yellow-600" />
+                    <img src="/kakao-icon.svg" alt="KakaoTalk" className="w-10 h-10" />
                   </div>
                   <div className="flex-1">
                     <h3 className="font-black text-lg mb-2">카카오톡 상담</h3>
