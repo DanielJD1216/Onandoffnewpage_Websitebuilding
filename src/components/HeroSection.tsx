@@ -60,16 +60,11 @@ export default function HeroSection() {
       </div>
       
       <div className="relative container mx-auto px-4 text-center">
-        <div ref={mainContainerRef} className="flex items-center justify-center gap-6 mb-1">
-          {/* Canadian Flag Emoji */}
-          <div className="flex-shrink-0 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
-            🇨🇦
-          </div>
-          
+        <div ref={mainContainerRef} className="mb-3">
           <h1 
             ref={mainTextRef}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-brand-green tracking-wide font-dodum"
-            style={{ letterSpacing: '0.15em', wordSpacing: '0.3em' }}
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black text-brand-green tracking-wide font-dodum"
+            style={{ letterSpacing: '0.08em', wordSpacing: '0.12em' }}
           >
             밴쿠버  유학  파트너스
           </h1>
@@ -77,7 +72,7 @@ export default function HeroSection() {
         
         <p 
           ref={subTextRef}
-          className="text-lg md:text-xl lg:text-2xl text-brand-gold font-medium tracking-wide font-dodum mb-6"
+          className="text-[8px] md:text-xl lg:text-2xl text-brand-gold font-medium tracking-wide font-dodum mb-6 whitespace-nowrap"
         >
           Your complete study abroad solution in Vancouver
         </p>

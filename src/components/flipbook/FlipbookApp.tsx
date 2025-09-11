@@ -126,7 +126,7 @@ Page2.displayName = 'Page2';
 
 // Page 2: 성장의 장 (학업 + 문화체험)
 const Page3 = forwardRef<HTMLDivElement, AnimatedPageProps>(({ isActive }, ref) => (
-  <div ref={ref} className="h-full w-full bg-gradient-to-br from-brand-ivory to-white p-8">
+  <div ref={ref} className="h-full w-full bg-gradient-to-br from-brand-ivory to-white p-6">
     <JourneyAnimationWrapper isActive={isActive} effect="fade" delay={0.1}>
       <p className="text-center text-brand-green text-sm font-medium mb-2">Page 2</p>
     </JourneyAnimationWrapper>
@@ -175,16 +175,6 @@ const Page3 = forwardRef<HTMLDivElement, AnimatedPageProps>(({ isActive }, ref) 
       </div>
     </JourneyAnimationWrapper>
 
-    <JourneyAnimationWrapper isActive={isActive} effect="bounce" delay={1.5}>
-      <div className="bg-red-50 border-l-4 border-red-400 p-3 rounded">
-        <div className="flex items-center">
-          <div className="text-red-400 text-lg mr-2 animate-pulse">⚠️</div>
-          <p className="text-red-700 font-medium text-sm">
-            일부 특별 체험은 추가 비용 발생 가능
-          </p>
-        </div>
-      </div>
-    </JourneyAnimationWrapper>
   </div>
 ));
 Page3.displayName = 'Page3';
@@ -446,12 +436,12 @@ const FlipbookApp: React.FC = () => {
       
       {/* Navigation Bar */}
       <div className="mb-6 w-full max-w-4xl">
-        <div className="flex flex-wrap justify-center items-center gap-2 mb-4">
+        <div className="flex justify-center items-center gap-0.5 sm:gap-2 mb-4 mx-4">
           {/* Front Cover Button */}
           <button
             onClick={() => goToPage(0)}
             className={`
-              px-4 py-2 rounded-lg font-medium text-sm transition-all duration-300 ease-in-out
+              px-1 sm:px-4 py-1 sm:py-2 rounded sm:rounded-lg font-medium text-[9px] sm:text-sm transition-all duration-300 ease-in-out flex-shrink-0
               ${currentPage === 0
                 ? 'bg-brand-green text-white shadow-md transform scale-105' 
                 : 'bg-white text-brand-green border-2 border-brand-green/30 hover:border-brand-green hover:bg-brand-green/10'
@@ -472,7 +462,7 @@ const FlipbookApp: React.FC = () => {
                 key={index}
                 onClick={() => goToPage(actualPageIndex)}
                 className={`
-                  px-4 py-2 rounded-lg font-medium text-sm transition-all duration-300 ease-in-out
+                  px-1 sm:px-4 py-1 sm:py-2 rounded sm:rounded-lg font-medium text-[9px] sm:text-sm transition-all duration-300 ease-in-out flex-shrink-0
                   ${isActive 
                     ? 'bg-brand-green text-white shadow-md transform scale-105' 
                     : 'bg-white text-brand-green border-2 border-brand-green/30 hover:border-brand-green hover:bg-brand-green/10'
