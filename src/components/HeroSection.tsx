@@ -11,33 +11,7 @@ export default function HeroSection() {
   useEffect(() => {
     if (!mainTextRef.current || !subTextRef.current || !mainContainerRef.current) return;
 
-    // Split text into spans for character-by-character animation
-    const splitText = (element: HTMLElement) => {
-      const text = element.textContent || '';
-      // Split by words and add spacing between them
-      const words = text.split(/\s+/);
-      element.innerHTML = words
-        .map((word, wordIndex) => {
-          const wordSpans = word
-            .split('')
-            .map(char => `<span style="display: inline-block; opacity: 0; transform: translateY(30px) rotateX(-90deg);">${char}</span>`)
-            .join('');
-          
-          // Add spacing after each word except the last one
-          const spacing = wordIndex < words.length - 1 
-            ? `<span style="display: inline-block; width: 0.6em;">&nbsp;</span>` 
-            : '';
-          
-          return wordSpans + spacing;
-        })
-        .join('');
-      return element.querySelectorAll('span');
-    };
-
-    // Split main text into characters
-    const mainChars = splitText(mainTextRef.current);
-    
-    // Set initial state for main container (flag + title) and sub text
+    // Simple fade-in animation without text splitting
     gsap.set(mainContainerRef.current, {
       opacity: 0,
       y: 30,
@@ -61,19 +35,6 @@ export default function HeroSection() {
       duration: 0.6,
       ease: "power2.out"
     });
-
-    // Then animate main text characters with stagger
-    tl.to(mainChars, {
-      opacity: 1,
-      y: 0,
-      rotateX: 0,
-      duration: 0.8,
-      stagger: {
-        amount: 0.8,
-        from: "start"
-      },
-      ease: "back.out(1.2)"
-    }, "-=0.3");
 
     // Finally animate sub text
     tl.to(subTextRef.current, {
@@ -101,13 +62,13 @@ export default function HeroSection() {
       <div className="relative container mx-auto px-4 text-center">
         <div ref={mainContainerRef} className="flex items-center justify-center gap-6 mb-1">
           {/* Canadian Flag Emoji */}
-          <div className="flex-shrink-0 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
+          <div className="flex-shrink-0 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
             🇨🇦
           </div>
           
           <h1 
             ref={mainTextRef}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-brand-green tracking-wide font-dodum"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-brand-green tracking-wide font-dodum"
             style={{ letterSpacing: '0.15em', wordSpacing: '0.3em' }}
           >
             밴쿠버  유학  파트너스
