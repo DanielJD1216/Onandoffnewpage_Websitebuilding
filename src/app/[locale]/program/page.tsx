@@ -26,10 +26,9 @@ export default function ProgramPage() {
       <section className="py-8 lg:py-12">
         <div className="container mx-auto px-4">
           {/* Interactive Story Flipbook Section */}
-          <div className="mt-6 flex justify-center">
+          <div className="mt-2 flex justify-center">
             <div className="w-full max-w-6xl">
-              <div className="text-center mb-8">
-                <h1 className="text-4xl lg:text-5xl font-dodum text-brand-green mb-4 font-black">유학 성공 여정</h1>
+              <div className="text-center mb-4">
                 <p className="text-brand-gold text-lg">당신의 꿈을 현실로 만드는 5단계 스토리</p>
               </div>
               <FlipbookApp />
