@@ -17,8 +17,8 @@ const navigation = [
     submenu: [
       { name: '인생의 새로운 페이지(출발 전 가이드)', href: '/ko/pre-departure' },
       { name: '지역/학교 선택(무료)', href: '/ko/pre-departure/regions-schools' },
-      { name: '입학 절차 안내(Free)', href: '/ko/pre-departure/admissions-steps' },
-      { name: '학교 등록 대행', href: '/ko/pre-departure/registration-service' },
+      { name: '입학 절차 안내(무료)', href: '/ko/pre-departure/admissions-steps' },
+      { name: '학교 등록 대행(무료)', href: '/ko/pre-departure/registration-service' },
       { name: '비자 지원(+$300/인)', href: '/ko/pre-departure/visa-support' }
     ]
   },
@@ -137,15 +137,24 @@ export function Header() {
                         <h4 className="text-sm font-semibold text-brand-green">{item.hoverTitle}</h4>
                       </div>
                     )}
-                    {item.submenu.map((subitem) => (
-                      <Link
-                        key={subitem.name}
-                        href={subitem.href}
-                        className="block px-3 py-2 text-sm text-gray-700 hover:text-brand-green hover:bg-gray-50 transition-colors rounded focus:outline-none focus:ring-2 focus:ring-brand-green focus:ring-inset"
-                      >
-                        {subitem.name}
-                      </Link>
-                    ))}
+                    {item.submenu.map((subitem, index) => {
+                      const isFree = subitem.name.includes('(무료)') || subitem.name.includes('(Free)');
+                      const colors = ['bg-emerald-50 border-l-4 border-emerald-400 text-emerald-800', 'bg-blue-50 border-l-4 border-blue-400 text-blue-800', 'bg-purple-50 border-l-4 border-purple-400 text-purple-800'];
+                      
+                      return (
+                        <Link
+                          key={subitem.name}
+                          href={subitem.href}
+                          className={`block px-3 py-2 text-sm transition-colors rounded focus:outline-none focus:ring-2 focus:ring-brand-green focus:ring-inset ${
+                            isFree && index < 3 
+                              ? `${colors[index]} hover:bg-opacity-80 font-semibold` 
+                              : 'text-gray-700 hover:text-brand-green hover:bg-gray-50'
+                          }`}
+                        >
+                          {subitem.name}
+                        </Link>
+                      );
+                    })}
                     </div>
                   </div>
                 )}
