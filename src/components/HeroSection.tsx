@@ -121,7 +121,7 @@ export default function HeroSection() {
             animationState.korean1Visible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-95'
           }`}>
             <span className="text-emerald-800">상담과 학교 등록</span> — <span 
-              ref={el => el && (bracketRefs.current[0] = el)}
+              ref={el => { if (el) bracketRefs.current[0] = el; }}
               className="bg-emerald-500 text-white font-black px-3 py-1 rounded-full text-sm md:text-base shadow-md transition-all duration-300 hover:bg-emerald-600"
             >
               전액 무료
@@ -131,7 +131,7 @@ export default function HeroSection() {
             animationState.korean2Visible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-95'
           }`}>
             <span className="text-amber-800">밴쿠버 도착 순간부터</span> — <span 
-              ref={el => el && (bracketRefs.current[1] = el)}
+              ref={el => { if (el) bracketRefs.current[1] = el; }}
               className="bg-amber-500 text-white font-black px-3 py-1 rounded-full text-sm md:text-base shadow-md transition-all duration-300 hover:bg-amber-600"
             >
               정착 지원
@@ -141,7 +141,7 @@ export default function HeroSection() {
             animationState.korean3Visible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-95'
           }`}>
             <span className="text-indigo-800">온·오프 캠퍼스</span> — <span 
-              ref={el => el && (bracketRefs.current[2] = el)}
+              ref={el => { if (el) bracketRefs.current[2] = el; }}
               className="bg-indigo-500 text-white font-black px-3 py-1 rounded-full text-sm md:text-base shadow-md transition-all duration-300 hover:bg-indigo-600"
             >
               학업 풀케어
