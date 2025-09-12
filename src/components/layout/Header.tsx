@@ -15,11 +15,11 @@ const navigation = [
     href: '/ko/pre-departure',
     hoverTitle: '인생의 새로운 페이지 · 출발 전 가이드',
     submenu: [
-      { name: '인생의 새로운 페이지(출발 전 가이드)', href: '/ko/pre-departure' },
+      { name: '인생의 새로운 페이지 (출발 전 가이드)', href: '/ko/pre-departure' },
       { name: '지역/학교 선택(무료)', href: '/ko/pre-departure/regions-schools' },
       { name: '입학 절차 안내(무료)', href: '/ko/pre-departure/admissions-steps' },
       { name: '학교 등록 대행(무료)', href: '/ko/pre-departure/registration-service' },
-      { name: '비자 지원(+$300/인)', href: '/ko/pre-departure/visa-support' }
+      { name: '비자 지원 (+$300/인)', href: '/ko/pre-departure/visa-support' }
     ]
   },
   { 
@@ -29,7 +29,7 @@ const navigation = [
     submenu: [
       { name: '공항 픽업', href: '/ko/arrival/airport-pickup' },
       { name: '학교 OT F/U', href: '/ko/arrival/school-orientation' },
-      { name: '정착 패키지(통신·은행·교통카드)', href: '/ko/arrival/settling-in' },
+      { name: '정착 패키지 (통신·은행·교통카드)', href: '/ko/arrival/settling-in' },
       { name: '홈스테이 배정', href: '/ko/arrival/homestay' },
       { name: '안전·소통 체계', href: '/ko/arrival/safety-comms' }
     ]
@@ -64,7 +64,7 @@ const navigation = [
     submenu: [
       { name: '동문 네트워킹', href: '/ko/alumni/network' },
       { name: '커뮤니티 활동', href: '/ko/alumni/community' },
-      { name: '연계 지원(코업/취업/이민 파트너 소개)', href: '/ko/alumni/links' }
+      { name: '연계 지원 (코업/취업/이민 파트너 소개)', href: '/ko/alumni/links' }
     ]
   },
   { name: '문의하기', href: '/ko/contact' },
@@ -138,18 +138,28 @@ export function Header() {
                       </div>
                     )}
                     {item.submenu.map((subitem, index) => {
-                      const isFree = subitem.name.includes('(무료)') || subitem.name.includes('(Free)');
-                      const colors = ['bg-emerald-50 border-l-4 border-emerald-400 text-emerald-800', 'bg-blue-50 border-l-4 border-blue-400 text-blue-800', 'bg-purple-50 border-l-4 border-purple-400 text-purple-800'];
+                      const isFree = subitem.name.includes('(무료)');
+                      const colors = ['text-green-600', 'text-green-600', 'text-green-600', 'text-green-600'];
+                      
+                      if (isFree && index <= 3) {
+                        // Split the text to style only the (무료) part
+                        const parts = subitem.name.split('(무료)');
+                        return (
+                          <Link
+                            key={subitem.name}
+                            href={subitem.href}
+                            className="block px-3 py-2 text-sm text-gray-700 hover:text-brand-green hover:bg-gray-50 transition-colors rounded focus:outline-none focus:ring-2 focus:ring-brand-green focus:ring-inset"
+                          >
+                            {parts[0]}<span className={`${colors[index]} font-black text-base`}> (무료)</span>{parts[1] || ''}
+                          </Link>
+                        );
+                      }
                       
                       return (
                         <Link
                           key={subitem.name}
                           href={subitem.href}
-                          className={`block px-3 py-2 text-sm transition-colors rounded focus:outline-none focus:ring-2 focus:ring-brand-green focus:ring-inset ${
-                            isFree && index < 3 
-                              ? `${colors[index]} hover:bg-opacity-80 font-semibold` 
-                              : 'text-gray-700 hover:text-brand-green hover:bg-gray-50'
-                          }`}
+                          className="block px-3 py-2 text-sm text-gray-700 hover:text-brand-green hover:bg-gray-50 transition-colors rounded focus:outline-none focus:ring-2 focus:ring-brand-green focus:ring-inset"
                         >
                           {subitem.name}
                         </Link>
