@@ -91,8 +91,13 @@ export default function HeroSection() {
         >
           <h1 
             ref={mainTextRef}
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black text-brand-green tracking-wide font-dodum"
-            style={{ letterSpacing: '0.08em', wordSpacing: '0.12em' }}
+            className="font-black text-brand-green tracking-wide font-dodum"
+            style={{ 
+              fontSize: '48px',
+              lineHeight: '48px',
+              letterSpacing: '0.08em', 
+              wordSpacing: '0.12em' 
+            }}
           >
             밴쿠버  유학  파트너스
           </h1>

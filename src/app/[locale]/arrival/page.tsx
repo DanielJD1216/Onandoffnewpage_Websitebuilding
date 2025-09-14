@@ -189,6 +189,230 @@ export default function ArrivalPage({ params }: { params: { locale: string } }) 
         </div>
       </section>
 
+      {/* Settlement Services Table */}
+      <section className="py-16 bg-white/50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-black text-brand-green mb-4">밴쿠버 정착 서비스 타임라인</h2>
+              <p className="text-xl text-brand-gold mb-4">도착부터 성공적인 정착까지 단계별 지원</p>
+              <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 max-w-4xl mx-auto">
+                <p className="text-sm text-amber-800">
+                  <strong>⚠️ 중요 안내:</strong> 공휴일, 주말, 또는 은행/정부기관 휴무일의 경우, 일정은 다음 영업일에 진행됩니다. 모든 필수 업무가 효율적으로 완료될 수 있도록 서비스 일정이 그에 맞춰 조정될 수 있습니다.
+                </p>
+              </div>
+            </div>
+            
+            {/* Common Services */}
+            <div className="mb-16">
+              <h3 className="text-2xl font-bold text-brand-green mb-8">공통 (단독 / 부모동반)</h3>
+              <div className="overflow-x-auto">
+                <table className="w-full border-collapse bg-white shadow-lg rounded-lg overflow-hidden table-fixed min-w-[1400px]">
+                  <thead>
+                    <tr className="bg-brand-green text-white">
+                      <th className="border border-gray-300 px-3 py-3 text-left font-bold w-24">단계</th>
+                      <th className="border border-gray-300 px-3 py-3 text-left font-bold w-48">서비스</th>
+                      <th className="border border-gray-300 px-3 py-3 text-left font-bold">상세 내용</th>
+                      <th className="border border-gray-300 px-3 py-3 text-left font-bold w-32">대상</th>
+                      <th className="border border-gray-300 px-3 py-3 text-left font-bold w-40">준비물</th>
+                      <th className="border border-gray-300 px-3 py-3 text-left font-bold w-24">예상 소요</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr className="hover:bg-gray-50">
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words font-semibold text-brand-green">Day 0</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words font-medium">공항 픽업 & 숙소 입주 지원</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">YVR 픽업 후 사전 확정된 홈스테이/렌트 이동, 체크인, 하우스룰 및 계약 조건 확인</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">단독 / 부모동반</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">여권, 비자서류</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">2–3h</td>
+                    </tr>
+                    <tr className="hover:bg-gray-50 bg-gray-25">
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words font-semibold text-brand-green">Day 0</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words font-medium">입국 서류 검수</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">스터디 퍼밋 조건(근로시간, Co-op 여부 등) 확인, 오류 시 즉시 대응 안내</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">단독 / 부모동반</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">스터디 퍼밋, LOA</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">20–40m</td>
+                    </tr>
+                    <tr className="hover:bg-gray-50">
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words font-semibold text-brand-green">Day 1</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words font-medium">통신/데이터 개통</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">eSIM/USIM 개통, 요금제 추천, 한국 번호 보관 설정</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">단독 / 부모동반</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">여권</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">1–2h</td>
+                    </tr>
+                    <tr className="hover:bg-gray-50 bg-gray-25">
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words font-semibold text-brand-green">Day 1</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words font-medium">교통카드 & 대중교통 안내</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">Compass 카드 구매·충전, SkyTrain/버스/SeaBus 노선 및 환승 규칙 안내</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">단독 / 부모동반</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">결제수단</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">1–2h</td>
+                    </tr>
+                    <tr className="hover:bg-gray-50">
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words font-semibold text-brand-green">Day 1–3</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words font-medium">은행 계좌 개설</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">은행 동행, 데빗카드 발급, 온라인 뱅킹·자동이체 세팅</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">단독 / 부모동반</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">여권, 주소증빙</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">1–2h</td>
+                    </tr>
+                    <tr className="hover:bg-gray-50 bg-gray-25">
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words font-semibold text-brand-green">Day 1–3</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words font-medium">SIN 발급</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">Service Canada 방문 또는 온라인 신청 지원</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">단독 / 부모동반</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">여권, 스터디 퍼밋</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">30–90m</td>
+                    </tr>
+                    <tr className="hover:bg-gray-50">
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words font-semibold text-brand-green">Week 1</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words font-medium">MSP 신청</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">온라인 신청, 대기기간(3개월) 안내, 단기 보험 권장</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">단독 / 부모동반</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">여권, 스터디 퍼밋, 주소</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">30–60m</td>
+                    </tr>
+                    <tr className="hover:bg-gray-50 bg-gray-25">
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words font-semibold text-brand-green">Week 1</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words font-medium">BC Services Card / BCID 발급</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">ICBC 방문 동행, 신분증 발급 및 디지털 ID 앱 세팅</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">단독(12세+)/부모</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">여권, 주소증빙</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">1–2h</td>
+                    </tr>
+                    <tr className="hover:bg-gray-50">
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words font-semibold text-brand-green">Week 1</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words font-medium">생활 오리엔테이션</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">911/811 사용법, Walk-in 클리닉·응급실·약국 안내, 안전·사기 주의 교육</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">단독 / 부모동반</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">-</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">1–1.5h</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            {/* Minor Independent Study */}
+            <div className="mb-16">
+              <h3 className="text-2xl font-bold text-brand-gold mb-8">미성년 단독 유학</h3>
+              <div className="overflow-x-auto">
+                <table className="w-full border-collapse bg-white shadow-lg rounded-lg overflow-hidden table-fixed min-w-[1400px]">
+                  <thead>
+                    <tr className="bg-brand-gold text-white">
+                      <th className="border border-gray-300 px-3 py-3 text-left font-bold w-24">단계</th>
+                      <th className="border border-gray-300 px-3 py-3 text-left font-bold w-48">서비스</th>
+                      <th className="border border-gray-300 px-3 py-3 text-left font-bold">상세 내용</th>
+                      <th className="border border-gray-300 px-3 py-3 text-left font-bold w-32">대상</th>
+                      <th className="border border-gray-300 px-3 py-3 text-left font-bold w-40">준비물</th>
+                      <th className="border border-gray-300 px-3 py-3 text-left font-bold w-24">예상 소요</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr className="hover:bg-gray-50">
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words font-semibold text-brand-gold">Day 0–1</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words font-medium">홈스테이 오리엔테이션</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">사전 배정된 홈스테이 입주 확인, 생활 규칙·알러지·통학 루트 점검</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">미성년</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">-</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">1–2h</td>
+                    </tr>
+                    <tr className="hover:bg-gray-50 bg-gray-25">
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words font-semibold text-brand-gold">Day 1–3</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words font-medium">Custodian 체크</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">지정된 현지 보호자와 첫 미팅, 비상 연락망 점검</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">미성년</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">여권, 연락처</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">1–2h</td>
+                    </tr>
+                    <tr className="hover:bg-gray-50">
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words font-semibold text-brand-gold">Week 1</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words font-medium">학교 오리엔테이션</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">사전 배정된 학교 등록 최종 확인, 수업 시간표 안내, 규칙 설명, 교재 준비</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">미성년</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">등록 서류(신분, 예방접종, 성적표 등)</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">1–3h</td>
+                    </tr>
+                    <tr className="hover:bg-gray-50 bg-gray-25">
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words font-semibold text-brand-gold">월별</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words font-medium">생활·학사 모니터링</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">출결·성적 리포트 확인, 문제 발생 시 학교·홈스테이 중재</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">미성년</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">-</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">월 1회</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            {/* Parent Accompanied Study */}
+            <div className="mb-8">
+              <h3 className="text-2xl font-bold text-brand-green mb-8">부모 동반 유학</h3>
+              <div className="overflow-x-auto">
+                <table className="w-full border-collapse bg-white shadow-lg rounded-lg overflow-hidden table-fixed min-w-[1400px]">
+                  <thead>
+                    <tr className="bg-brand-green text-white">
+                      <th className="border border-gray-300 px-3 py-3 text-left font-bold w-24">단계</th>
+                      <th className="border border-gray-300 px-3 py-3 text-left font-bold w-48">서비스</th>
+                      <th className="border border-gray-300 px-3 py-3 text-left font-bold">상세 내용</th>
+                      <th className="border border-gray-300 px-3 py-3 text-left font-bold w-32">대상</th>
+                      <th className="border border-gray-300 px-3 py-3 text-left font-bold w-40">준비물</th>
+                      <th className="border border-gray-300 px-3 py-3 text-left font-bold w-24">예상 소요</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr className="hover:bg-gray-50">
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words font-semibold text-brand-green">Day 0–1</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words font-medium">렌트 입주 지원</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">사전 계약된 집 체크인, 계약 조건 확인, 집 상태 점검</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">부모동반</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">임대계약서</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">1–2h</td>
+                    </tr>
+                    <tr className="hover:bg-gray-50 bg-gray-25">
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words font-semibold text-brand-green">Week 1</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words font-medium">유틸리티 개설</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">BC Hydro(전기), FortisBC(가스), 인터넷 계정 개설 및 설치 예약</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">부모동반</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">주소, 여권</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">30–90m</td>
+                    </tr>
+                    <tr className="hover:bg-gray-50">
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words font-semibold text-brand-green">Week 1</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words font-medium">자녀 학교 등록 확인</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">사전 배정된 학교에 최종 등록 서류 제출, 입학일 확정</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">부모동반</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">여권, 출생증명, 예방접종 기록</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">1–2h</td>
+                    </tr>
+                    <tr className="hover:bg-gray-50 bg-gray-25">
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words font-semibold text-brand-green">Week 2–3</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words font-medium">차량 및 운전 지원</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">한국 면허 → BC 면허 교환(90일 이내), 차량 구입 지원, 보험 브로커 연결</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">부모동반</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">여권, 한국 면허</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">1–2h</td>
+                    </tr>
+                    <tr className="hover:bg-gray-50">
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words font-semibold text-brand-green">Week 2–4</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words font-medium">커뮤니티 정착 지원</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">도서관 카드, 커뮤니티 센터 회원 등록, 방과후 프로그램 안내</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">부모동반</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">주소, 신분증</td>
+                      <td className="border border-gray-300 px-3 py-3 align-top break-words">1–2h</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Service Types */}
       <section className="py-16">
         <div className="container mx-auto px-4">
