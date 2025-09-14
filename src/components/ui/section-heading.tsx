@@ -18,8 +18,8 @@ export function SectionHeading({
   const HeadingTag = `h${level}` as keyof JSX.IntrinsicElements;
   
   const headingSizes = {
-    1: variant === 'premium' ? 'text-5xl md:text-7xl' : 'text-4xl md:text-6xl',
-    2: variant === 'premium' ? 'text-4xl md:text-5xl' : variant === 'compact' ? 'text-2xl md:text-3xl' : 'text-3xl md:text-4xl', 
+    1: 'text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl',
+    2: variant === 'premium' ? 'text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl' : variant === 'compact' ? 'text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl' : 'text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl', 
     3: variant === 'compact' ? 'text-base md:text-lg' : 'text-lg'
   };
 

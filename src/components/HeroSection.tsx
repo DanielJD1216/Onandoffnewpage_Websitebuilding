@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
 
 export default function HeroSection() {
   const mainTextRef = useRef<HTMLHeadingElement>(null);
@@ -117,36 +118,42 @@ export default function HeroSection() {
               : 'opacity-0 translate-y-5'
           }`}
         >
-          <div className={`text-sm md:text-lg lg:text-xl text-gray-800 font-semibold font-dodum tracking-wide transition-all duration-700 ease-out bg-gradient-to-r from-emerald-50/80 to-green-50/80 p-4 rounded-lg border-l-4 border-emerald-500 shadow-sm hover:shadow-lg ${
-            animationState.korean1Visible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-95'
-          }`}>
-            <span className="text-emerald-800">상담과 학교 등록</span> — <span 
-              ref={el => { if (el) bracketRefs.current[0] = el; }}
-              className="bg-emerald-500 text-white font-black px-3 py-1 rounded-full text-sm md:text-base shadow-md transition-all duration-300 hover:bg-emerald-600"
-            >
-              전액 무료
-            </span>
-          </div>
-          <div className={`text-sm md:text-lg lg:text-xl text-gray-800 font-semibold font-dodum tracking-wide transition-all duration-700 ease-out bg-gradient-to-r from-amber-50/80 to-yellow-50/80 p-4 rounded-lg border-l-4 border-amber-500 shadow-sm hover:shadow-lg ${
-            animationState.korean2Visible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-95'
-          }`}>
-            <span className="text-amber-800">밴쿠버 도착 순간부터</span> — <span 
-              ref={el => { if (el) bracketRefs.current[1] = el; }}
-              className="bg-amber-500 text-white font-black px-3 py-1 rounded-full text-sm md:text-base shadow-md transition-all duration-300 hover:bg-amber-600"
-            >
-              정착 지원
-            </span>
-          </div>
-          <div className={`text-sm md:text-lg lg:text-xl text-gray-800 font-semibold font-dodum tracking-wide transition-all duration-700 ease-out bg-gradient-to-r from-indigo-50/80 to-blue-50/80 p-4 rounded-lg border-l-4 border-indigo-500 shadow-sm hover:shadow-lg ${
-            animationState.korean3Visible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-95'
-          }`}>
-            <span className="text-indigo-800">온·오프 캠퍼스</span> — <span 
-              ref={el => { if (el) bracketRefs.current[2] = el; }}
-              className="bg-indigo-500 text-white font-black px-3 py-1 rounded-full text-sm md:text-base shadow-md transition-all duration-300 hover:bg-indigo-600"
-            >
-              학업 풀케어
-            </span>
-          </div>
+          <Link href="/ko/pre-departure/consultation-process" className="block">
+            <div className={`text-sm md:text-lg lg:text-xl text-gray-800 font-semibold font-dodum tracking-wide transition-all duration-700 ease-out bg-gradient-to-r from-emerald-50/80 to-green-50/80 p-4 rounded-lg border-l-4 border-emerald-500 shadow-sm hover:shadow-lg cursor-pointer transform hover:scale-[1.02] hover:bg-gradient-to-r hover:from-emerald-100/90 hover:to-green-100/90 ${
+              animationState.korean1Visible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-95'
+            }`}>
+              <span className="text-emerald-800">상담과 학교 등록</span> — <span 
+                ref={el => { if (el) bracketRefs.current[0] = el; }}
+                className="bg-emerald-500 text-white font-black px-3 py-1 rounded-full text-sm md:text-base shadow-md transition-all duration-300 hover:bg-emerald-600"
+              >
+                전액 무료
+              </span>
+            </div>
+          </Link>
+          <Link href="/ko/arrival" className="block">
+            <div className={`text-sm md:text-lg lg:text-xl text-gray-800 font-semibold font-dodum tracking-wide transition-all duration-700 ease-out bg-gradient-to-r from-amber-50/80 to-yellow-50/80 p-4 rounded-lg border-l-4 border-amber-500 shadow-sm hover:shadow-lg cursor-pointer transform hover:scale-[1.02] hover:bg-gradient-to-r hover:from-amber-100/90 hover:to-yellow-100/90 ${
+              animationState.korean2Visible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-95'
+            }`}>
+              <span className="text-amber-800">밴쿠버 도착 순간부터</span> — <span 
+                ref={el => { if (el) bracketRefs.current[1] = el; }}
+                className="bg-amber-500 text-white font-black px-3 py-1 rounded-full text-sm md:text-base shadow-md transition-all duration-300 hover:bg-amber-600"
+              >
+                정착 지원
+              </span>
+            </div>
+          </Link>
+          <Link href="/ko/campus" className="block">
+            <div className={`text-sm md:text-lg lg:text-xl text-gray-800 font-semibold font-dodum tracking-wide transition-all duration-700 ease-out bg-gradient-to-r from-indigo-50/80 to-blue-50/80 p-4 rounded-lg border-l-4 border-indigo-500 shadow-sm hover:shadow-lg cursor-pointer transform hover:scale-[1.02] hover:bg-gradient-to-r hover:from-indigo-100/90 hover:to-blue-100/90 ${
+              animationState.korean3Visible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-95'
+            }`}>
+              <span className="text-indigo-800">온·오프 캠퍼스</span> — <span 
+                ref={el => { if (el) bracketRefs.current[2] = el; }}
+                className="bg-indigo-500 text-white font-black px-3 py-1 rounded-full text-sm md:text-base shadow-md transition-all duration-300 hover:bg-indigo-600"
+              >
+                학업 풀케어
+              </span>
+            </div>
+          </Link>
         </div>
         
         {/* Decorative line */}

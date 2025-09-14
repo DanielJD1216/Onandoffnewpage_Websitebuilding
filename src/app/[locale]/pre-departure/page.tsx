@@ -17,7 +17,7 @@ export default function PreDeparturePage({ params }: { params: { locale: string 
         </div>
         
         <div className="relative container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-brand-green mb-6 font-dodum">
+          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-brand-green mb-6 font-dodum">
             캐나다 유학, 준비부터 등록까지 한 번에
           </h1>
           <p className="text-xl md:text-2xl text-brand-gold mb-8 font-dodum">
@@ -40,7 +40,7 @@ export default function PreDeparturePage({ params }: { params: { locale: string 
               className="border-2 border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-white font-black text-lg px-8 py-4"
               asChild
             >
-              <Link href="https://pf.kakao.com/_your_kakao_id" target="_blank">
+              <Link href="http://pf.kakao.com/_xigxbxmn/" target="_blank">
                 <MessageCircle className="mr-2 h-5 w-5" />
                 카톡으로 빠른 문의
               </Link>

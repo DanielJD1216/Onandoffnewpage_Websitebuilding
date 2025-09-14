@@ -3,10 +3,10 @@ import Image from 'next/image';
 import { COMPANY_INFO } from '@/lib/constants';
 
 const footerPages = [
-  { title: 'Page 0 인생의 새로운 페이지 · 출발 전 가이드', href: '/ko/pre-departure' },
-  { title: 'Page 1 전환점 & 도약의 페이지 · 밴쿠버 정착 서비스', href: '/ko/arrival' },
-  { title: 'Page 2 성장의 페이지 · 온앤오프 캠퍼스 관리 프로그램', href: '/ko/campus' },
-  { title: 'Page 3 진로의 페이지 · 미래 설계', href: '/ko/future' },
+  { title: 'Page 0 출발 전 가이드', href: '/ko/pre-departure' },
+  { title: 'Page 1 밴쿠버 정착 서비스', href: '/ko/arrival' },
+  { title: 'Page 2 온앤오프 캠퍼스 관리 프로그램', href: '/ko/campus' },
+  { title: 'Page 3 미래 설계', href: '/ko/future' },
   { title: 'Page 4 졸업 후 새로운 여정', href: '/ko/alumni' },
 ];
 
@@ -16,26 +16,43 @@ export function Footer() {
   return (
     <footer className="bg-[#114b3f] text-gray-300">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12">
           {/* Company Info */}
           <div className="lg:col-span-1">
-            <h3 className="text-2xl font-black text-white mb-4">
-              {COMPANY_INFO.name}
-            </h3>
-            <p className="text-gray-300 mb-4">
+            <Image
+              src="/logo.svg"
+              alt="On & Off New Page"
+              width={250}
+              height={83}
+              className="h-16 w-auto mb-4"
+              priority
+            />
+            <p className="text-gray-300 mb-6 text-base">
               밴쿠버 전문 유학원
             </p>
-            <div className="space-y-2 text-sm text-gray-300">
-              <p>📍 {COMPANY_INFO.address}</p>
-              <p>📧 {COMPANY_INFO.email}</p>
-              <p>📞 +1 (604) 123-4567</p>
-              <p>🕒 월-금 9:00-18:00 (PST)</p>
+            <div className="space-y-3 text-sm text-gray-300 leading-relaxed">
+              <p className="flex items-start gap-2">
+                <span>📍</span>
+                <span>{COMPANY_INFO.address}</span>
+              </p>
+              <p className="flex items-center gap-2">
+                <span>📧</span>
+                <span>{COMPANY_INFO.email}</span>
+              </p>
+              <p className="flex items-center gap-2">
+                <span>📞</span>
+                <span>+1 (778) 889-8235</span>
+              </p>
+              <p className="flex items-center gap-2">
+                <span>🕒</span>
+                <span>월-금 9:00-18:00 (PST)</span>
+              </p>
             </div>
             
             {/* Social Media Icons */}
-            <div className="flex items-center space-x-4 mt-4">
+            <div className="flex items-center gap-4 mt-6">
               <a 
-                href="https://pf.kakao.com/_your_kakao_id" 
+                href="http://pf.kakao.com/_xigxbxmn/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="hover:opacity-80 transition-opacity"
@@ -67,64 +84,77 @@ export function Footer() {
 
           {/* Quick Links */}
           <div className="lg:col-span-1">
-            <h4 className="font-black text-white mb-4 text-lg">빠른 링크</h4>
-            <ul className="space-y-2">
+            <h4 className="font-black text-white mb-6 text-lg">빠른 링크</h4>
+            <ul className="space-y-4">
               <li>
-                <Link href="/ko/contact" className="text-gray-300 hover:text-white transition-colors text-sm">
+                <Link 
+                  href="/ko/contact" 
+                  className="text-gray-300 hover:text-white transition-colors duration-200 text-sm block py-1 leading-relaxed hover:translate-x-1 transform transition-transform"
+                >
                   무료 상담 신청
                 </Link>
               </li>
               <li>
-                <Link href="/ko/programs" className="text-gray-300 hover:text-white transition-colors text-sm">
+                <Link 
+                  href="/ko/programs" 
+                  className="text-gray-300 hover:text-white transition-colors duration-200 text-sm block py-1 leading-relaxed hover:translate-x-1 transform transition-transform"
+                >
                   프로그램 안내
                 </Link>
               </li>
               <li>
-                <Link href="/ko/about" className="text-gray-300 hover:text-white transition-colors text-sm">
+                <Link 
+                  href="/ko/about" 
+                  className="text-gray-300 hover:text-white transition-colors duration-200 text-sm block py-1 leading-relaxed hover:translate-x-1 transform transition-transform"
+                >
                   회사 소개
                 </Link>
               </li>
               <li>
-                <Link href="/ko/success-stories" className="text-gray-300 hover:text-white transition-colors text-sm">
+                <Link 
+                  href="/ko/success-stories" 
+                  className="text-gray-300 hover:text-white transition-colors duration-200 text-sm block py-1 leading-relaxed hover:translate-x-1 transform transition-transform"
+                >
                   성공 사례
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Business Details */}
-          <div className="lg:col-span-1">
-            <h4 className="font-black text-white mb-4 text-lg">사업자 정보</h4>
-            <div className="space-y-2 text-sm text-gray-300">
-              <p>대표: 이승연 (Cindy)</p>
-              <p>
-                <a 
-                  href="https://maps.google.com/?q=204-1046+Austin+Avenue+Coquitlam+BC" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-brand-gold hover:text-white transition-colors"
-                >
-                  📍 지도에서 보기
-                </a>
-              </p>
-            </div>
-          </div>
-
           {/* Page Navigation */}
-          <div className="lg:col-span-2">
-            <h4 className="font-black text-white mb-4 text-lg">서비스 페이지</h4>
-            <ul className="space-y-3">
+          <div className="lg:col-span-1">
+            <h4 className="font-black text-white mb-6 text-lg">서비스 페이지</h4>
+            <ul className="space-y-4">
               {footerPages.map((page) => (
                 <li key={page.title}>
                   <Link
                     href={page.href}
-                    className="text-gray-300 hover:text-white transition-colors text-sm leading-relaxed block"
+                    className="text-gray-300 hover:text-white transition-colors duration-200 text-sm leading-relaxed block py-1 hover:translate-x-1 transform transition-transform whitespace-nowrap"
                   >
                     {page.title}
                   </Link>
                 </li>
               ))}
             </ul>
+          </div>
+
+          {/* Business Details */}
+          <div className="lg:col-span-1">
+            <h4 className="font-black text-white mb-6 text-lg">사업자 정보</h4>
+            <div className="space-y-4 text-sm text-gray-300 leading-relaxed">
+              <p className="py-1">대표: 이승연 (Cindy)</p>
+              <p className="py-1">
+                <a 
+                  href="https://maps.google.com/?q=204-1046+Austin+Avenue+Coquitlam+BC" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-brand-gold hover:text-white transition-colors duration-200 flex items-center gap-2 hover:translate-x-1 transform transition-transform"
+                >
+                  <span>📍</span>
+                  <span>지도에서 보기</span>
+                </a>
+              </p>
+            </div>
           </div>
         </div>
 

@@ -20,7 +20,7 @@ export default function SettlingInPage({ params }: { params: { locale: string } 
 
       <section className="py-16">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-black text-brand-green mb-4 font-dodum">
+          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-brand-green mb-4 font-dodum">
             정착 패키지
           </h1>
           <p className="text-xl text-brand-gold mb-8 font-dodum max-w-3xl mx-auto">

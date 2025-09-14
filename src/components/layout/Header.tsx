@@ -16,6 +16,7 @@ const navigation = [
     hoverTitle: '인생의 새로운 페이지 · 출발 전 가이드',
     submenu: [
       { name: '인생의 새로운 페이지 (출발 전 가이드)', href: '/ko/pre-departure' },
+      { name: '상담 절차 안내', href: '/ko/pre-departure/consultation-process' },
       { name: '지역/학교 선택 (무료)', href: '/ko/pre-departure/regions-schools' },
       { name: '입학 절차 안내 (무료)', href: '/ko/pre-departure/admissions-steps' },
       { name: '학교 등록 대행 (무료)', href: '/ko/pre-departure/registration-service' },
@@ -139,9 +140,8 @@ export function Header() {
                     )}
                     {item.submenu.map((subitem, index) => {
                       const isFree = subitem.name.includes('(무료)');
-                      const colors = ['text-green-600', 'text-green-600', 'text-green-600', 'text-green-600'];
                       
-                      if (isFree && index <= 3) {
+                      if (isFree) {
                         // Split the text to style only the (무료) part
                         const parts = subitem.name.split('(무료)');
                         return (
@@ -150,7 +150,7 @@ export function Header() {
                             href={subitem.href}
                             className="block px-3 py-2 text-sm text-gray-700 hover:text-brand-green hover:bg-gray-50 transition-colors rounded focus:outline-none focus:ring-2 focus:ring-brand-green focus:ring-inset"
                           >
-                            {parts[0]}<span className={`${colors[index]} font-black text-base`}> (무료)</span>{parts[1] || ''}
+                            {parts[0]}<span className="text-green-600 font-black text-base"> (무료)</span>{parts[1] || ''}
                           </Link>
                         );
                       }
@@ -173,7 +173,7 @@ export function Header() {
             {/* Social Media Icons */}
             <div className="flex items-center space-x-3">
               <a 
-                href="https://pf.kakao.com/_your_kakao_id" 
+                href="http://pf.kakao.com/_xigxbxmn/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="hover:opacity-80 transition-opacity"
@@ -275,7 +275,7 @@ export function Header() {
               {/* Social Media Icons for Mobile */}
               <div className="flex items-center justify-center space-x-4 py-4">
                 <a 
-                  href="https://pf.kakao.com/_your_kakao_id" 
+                  href="http://pf.kakao.com/_xigxbxmn/" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="hover:opacity-80 transition-opacity"

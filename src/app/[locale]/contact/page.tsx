@@ -176,7 +176,7 @@ export default function ContactPage() {
                       asChild 
                       className="w-full bg-yellow-400 hover:bg-yellow-500 text-black"
                     >
-                      <a href="https://open.kakao.com/o/your-kakao-link">카카오톡 상담</a>
+                      <a href="http://pf.kakao.com/_xigxbxmn/">카카오톡 상담</a>
                     </Button>
                     <p className="text-xs text-gray-500 mt-2">응답: 즉시</p>
                   </div>
@@ -201,7 +201,7 @@ export default function ContactPage() {
                       asChild 
                       className="w-full bg-green-500 hover:bg-green-600 text-white"
                     >
-                      <a href="https://wa.me/16041234567">WhatsApp 상담</a>
+                      <a href="https://wa.me/17788898235">WhatsApp 상담</a>
                     </Button>
                     <p className="text-xs text-gray-500 mt-2">응답: 빠른</p>
                   </div>

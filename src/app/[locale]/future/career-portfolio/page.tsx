@@ -34,7 +34,7 @@ export default function FutureCareerPortfolioPage({ params }: { params: { locale
         </div>
         
         <div className="relative container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-brand-green mb-6 font-dodum">
+          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-brand-green mb-6 font-dodum">
             커리어 멘토링 & 포트폴리오
           </h1>
           <p className="text-xl md:text-2xl text-brand-gold mb-8 font-dodum">

@@ -11,7 +11,7 @@ export default function AlumniPage({ params }: { params: { locale: string } }) {
     <div className="min-h-screen bg-gradient-to-br from-brand-ivory via-white to-brand-ivory/50">
       <section className="relative overflow-hidden py-16 lg:py-24">
         <div className="relative container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-brand-green mb-6 font-dodum">
+          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-brand-green mb-6 font-dodum">
             동문 네트워킹과 진로 연계
           </h1>
           <p className="text-xl md:text-2xl text-brand-gold mb-8 font-dodum">
