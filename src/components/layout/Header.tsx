@@ -16,9 +16,9 @@ const navigation = [
     hoverTitle: '인생의 새로운 페이지 · 출발 전 가이드',
     submenu: [
       { name: '인생의 새로운 페이지 (출발 전 가이드)', href: '/ko/pre-departure' },
-      { name: '지역/학교 선택(무료)', href: '/ko/pre-departure/regions-schools' },
-      { name: '입학 절차 안내(무료)', href: '/ko/pre-departure/admissions-steps' },
-      { name: '학교 등록 대행(무료)', href: '/ko/pre-departure/registration-service' },
+      { name: '지역/학교 선택 (무료)', href: '/ko/pre-departure/regions-schools' },
+      { name: '입학 절차 안내 (무료)', href: '/ko/pre-departure/admissions-steps' },
+      { name: '학교 등록 대행 (무료)', href: '/ko/pre-departure/registration-service' },
       { name: '비자 지원 (+$300/인)', href: '/ko/pre-departure/visa-support' }
     ]
   },

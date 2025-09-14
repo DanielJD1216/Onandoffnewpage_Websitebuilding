@@ -2,33 +2,13 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { COMPANY_INFO } from '@/lib/constants';
 
-const footerNavigation = {
-  services: {
-    title: '서비스',
-    links: [
-      { name: '유학 상담', href: '/ko/contact' },
-      { name: '프로그램 안내', href: '/ko/programs' },
-      { name: '홈스테이', href: '/ko/programs#homestay' },
-      { name: '비자 지원', href: '/ko/programs#visa' },
-    ],
-  },
-  company: {
-    title: '회사',
-    links: [
-      { name: '회사 소개', href: '/ko/about' },
-      { name: '연락처', href: '/ko/about#contact' },
-      { name: '오시는 길', href: '/ko/about#location' },
-    ],
-  },
-  programs: {
-    title: '주요 프로그램',
-    links: [
-      { name: 'BC주 프로그램', href: '/ko/programs#bc' },
-      { name: '온타리오 프로그램', href: '/ko/programs#ontario' },
-      { name: '알버타 프로그램', href: '/ko/programs#alberta' },
-    ],
-  },
-};
+const footerPages = [
+  { title: 'Page 0 인생의 새로운 페이지 · 출발 전 가이드', href: '/ko/pre-departure' },
+  { title: 'Page 1 전환점 & 도약의 페이지 · 밴쿠버 정착 서비스', href: '/ko/arrival' },
+  { title: 'Page 2 성장의 페이지 · 온앤오프 캠퍼스 관리 프로그램', href: '/ko/campus' },
+  { title: 'Page 3 진로의 페이지 · 미래 설계', href: '/ko/future' },
+  { title: 'Page 4 졸업 후 새로운 여정', href: '/ko/alumni' },
+];
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -38,16 +18,18 @@ export function Footer() {
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Company Info */}
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-1">
             <h3 className="text-2xl font-black text-white mb-4">
               {COMPANY_INFO.name}
             </h3>
             <p className="text-gray-300 mb-4">
-              {COMPANY_INFO.subtitleKr}
+              밴쿠버 전문 유학원
             </p>
             <div className="space-y-2 text-sm text-gray-300">
               <p>📍 {COMPANY_INFO.address}</p>
               <p>📧 {COMPANY_INFO.email}</p>
+              <p>📞 +1 (604) 123-4567</p>
+              <p>🕒 월-금 9:00-18:00 (PST)</p>
             </div>
             
             {/* Social Media Icons */}
@@ -83,57 +65,62 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Services */}
-          <div>
-            <h4 className="font-black text-white mb-4">
-              {footerNavigation.services.title}
-            </h4>
+          {/* Quick Links */}
+          <div className="lg:col-span-1">
+            <h4 className="font-black text-white mb-4 text-lg">빠른 링크</h4>
             <ul className="space-y-2">
-              {footerNavigation.services.links.map((link) => (
-                <li key={link.name}>
-                  <Link
-                    href={link.href}
-                    className="text-gray-300 hover:text-white transition-colors text-sm"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
+              <li>
+                <Link href="/ko/contact" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  무료 상담 신청
+                </Link>
+              </li>
+              <li>
+                <Link href="/ko/programs" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  프로그램 안내
+                </Link>
+              </li>
+              <li>
+                <Link href="/ko/about" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  회사 소개
+                </Link>
+              </li>
+              <li>
+                <Link href="/ko/success-stories" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  성공 사례
+                </Link>
+              </li>
             </ul>
           </div>
 
-          {/* Company */}
-          <div>
-            <h4 className="font-black text-white mb-4">
-              {footerNavigation.company.title}
-            </h4>
-            <ul className="space-y-2">
-              {footerNavigation.company.links.map((link) => (
-                <li key={link.name}>
-                  <Link
-                    href={link.href}
-                    className="text-gray-300 hover:text-white transition-colors text-sm"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+          {/* Business Details */}
+          <div className="lg:col-span-1">
+            <h4 className="font-black text-white mb-4 text-lg">사업자 정보</h4>
+            <div className="space-y-2 text-sm text-gray-300">
+              <p>대표: 이승연 (Cindy)</p>
+              <p>
+                <a 
+                  href="https://maps.google.com/?q=204-1046+Austin+Avenue+Coquitlam+BC" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-brand-gold hover:text-white transition-colors"
+                >
+                  📍 지도에서 보기
+                </a>
+              </p>
+            </div>
           </div>
 
-          {/* Programs */}
-          <div>
-            <h4 className="font-black text-white mb-4">
-              {footerNavigation.programs.title}
-            </h4>
-            <ul className="space-y-2">
-              {footerNavigation.programs.links.map((link) => (
-                <li key={link.name}>
+          {/* Page Navigation */}
+          <div className="lg:col-span-2">
+            <h4 className="font-black text-white mb-4 text-lg">서비스 페이지</h4>
+            <ul className="space-y-3">
+              {footerPages.map((page) => (
+                <li key={page.title}>
                   <Link
-                    href={link.href}
-                    className="text-gray-300 hover:text-white transition-colors text-sm"
+                    href={page.href}
+                    className="text-gray-300 hover:text-white transition-colors text-sm leading-relaxed block"
                   >
-                    {link.name}
+                    {page.title}
                   </Link>
                 </li>
               ))}
