@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import HeroSection from '@/components/HeroSection';
+import { GraduationCap, Heart, FileText, Users, Clock, DollarSign } from 'lucide-react';
 import '../../components/flipbook/flipbook-styles.css';
 
 // Dynamic import to avoid SSR issues with the flipbook
@@ -42,23 +43,146 @@ export default function HomePage({ params }: { params: { locale: string } }) {
             </div>
           </div>
 
-          {/* Additional Information Section */}
-          <div className="mt-24 mb-12 md:mb-8 flex justify-center">
-            <div className="w-full max-w-6xl text-center">
-              <div className="flex flex-wrap justify-center gap-4">
-              <Link 
-                href={`/${params.locale}/contact`}
-                className="bg-brand-green text-brand-ivory font-dodum font-black py-3 px-8 rounded-lg shadow-md hover:bg-brand-green/90 hover:-translate-y-1 transition-all duration-300"
-              >
-                무료 상담 신청
-              </Link>
-              <Link 
-                href={`/${params.locale}/programs`}
-                className="bg-white text-brand-green border-2 border-brand-green font-dodum font-black py-3 px-8 rounded-lg shadow-md hover:bg-brand-ivory hover:-translate-y-1 transition-all duration-300"
-              >
-                상세 프로그램 안내
-              </Link>
+          {/* Service Selection Guide */}
+          <div className="mt-24 mb-16">
+            <div className="w-full max-w-6xl mx-auto">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl font-black text-brand-green mb-4">나에게 맞는 서비스는?</h2>
+                <p className="text-xl text-brand-gold">학생 상황에 맞는 최적의 서비스를 찾아보세요</p>
               </div>
+
+              <div className="grid lg:grid-cols-3 gap-8 mb-12">
+                {/* Pre-Departure Services */}
+                <Card className="p-6 border-2 border-blue-200 hover:border-blue-400 transition-all">
+                  <div className="text-center mb-4">
+                    <div className="bg-blue-100 p-3 rounded-full w-16 h-16 mx-auto flex items-center justify-center mb-4">
+                      <FileText className="h-8 w-8 text-blue-600" />
+                    </div>
+                    <h3 className="text-xl font-black text-blue-600 mb-2">출발 전 준비</h3>
+                    <p className="text-gray-600 text-sm">아직 유학 결정 전이거나 준비 단계</p>
+                  </div>
+                  
+                  <div className="space-y-2 mb-6">
+                    <div className="flex items-center text-sm">
+                      <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                      <span>학교 선택 가이드 (무료)</span>
+                    </div>
+                    <div className="flex items-center text-sm">
+                      <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                      <span>입학 절차 안내 (무료)</span>
+                    </div>
+                    <div className="flex items-center text-sm">
+                      <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                      <span>등록 대행 (무료)</span>
+                    </div>
+                    <div className="flex items-center text-sm">
+                      <div className="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
+                      <span>비자 지원 ($300/인)</span>
+                    </div>
+                  </div>
+                  
+                  <Button className="w-full bg-blue-600 hover:bg-blue-700" asChild>
+                    <Link href={`/${params.locale}/pre-departure`}>
+                      출발 준비 시작하기
+                    </Link>
+                  </Button>
+                </Card>
+
+                {/* Arrival Services */}
+                <Card className="p-6 border-2 border-green-200 hover:border-green-400 transition-all">
+                  <div className="text-center mb-4">
+                    <div className="bg-green-100 p-3 rounded-full w-16 h-16 mx-auto flex items-center justify-center mb-4">
+                      <Heart className="h-8 w-8 text-green-600" />
+                    </div>
+                    <h3 className="text-xl font-black text-green-600 mb-2">도착 & 정착</h3>
+                    <p className="text-gray-600 text-sm">곧 출발하거나 이미 캐나다 도착</p>
+                  </div>
+                  
+                  <div className="space-y-2 mb-6">
+                    <div className="flex items-center text-sm">
+                      <div className="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
+                      <span>공항 픽업 (유료)</span>
+                    </div>
+                    <div className="flex items-center text-sm">
+                      <div className="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
+                      <span>정착 서비스 가이드 (유료)</span>
+                    </div>
+                    <div className="flex items-center text-sm">
+                      <div className="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
+                      <span>홈스테이 배정 (유료)</span>
+                    </div>
+                    <div className="flex items-center text-sm">
+                      <div className="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
+                      <span>24/7 긴급 지원 (유료)</span>
+                    </div>
+                  </div>
+                  
+                  <Button className="w-full bg-green-600 hover:bg-green-700" asChild>
+                    <Link href={`/${params.locale}/arrival`}>
+                      정착 서비스 보기
+                    </Link>
+                  </Button>
+                </Card>
+
+                {/* Campus Management */}
+                <Card className="p-6 border-2 border-purple-200 hover:border-purple-400 transition-all">
+                  <div className="text-center mb-4">
+                    <div className="bg-purple-100 p-3 rounded-full w-16 h-16 mx-auto flex items-center justify-center mb-4">
+                      <GraduationCap className="h-8 w-8 text-purple-600" />
+                    </div>
+                    <h3 className="text-xl font-black text-purple-600 mb-2">학업 관리</h3>
+                    <p className="text-gray-600 text-sm">이미 학교 다니고 있지만 관리 필요</p>
+                  </div>
+                  
+                  <div className="space-y-2 mb-6">
+                    <div className="flex items-center text-sm">
+                      <div className="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
+                      <span>Basic: $299/월</span>
+                    </div>
+                    <div className="flex items-center text-sm">
+                      <div className="w-2 h-2 bg-yellow-500 rounded-full mr-2"></div>
+                      <span>Standard: $499/월 (인기)</span>
+                    </div>
+                    <div className="flex items-center text-sm">
+                      <div className="w-2 h-2 bg-purple-500 rounded-full mr-2"></div>
+                      <span>Premium: $799/월</span>
+                    </div>
+                    <div className="flex items-center text-sm">
+                      <div className="w-2 h-2 bg-gray-400 rounded-full mr-2"></div>
+                      <span>1개월 체험 가능</span>
+                    </div>
+                  </div>
+                  
+                  <Button className="w-full bg-purple-600 hover:bg-purple-700" asChild>
+                    <Link href={`/${params.locale}/campus`}>
+                      관리 프로그램 보기
+                    </Link>
+                  </Button>
+                </Card>
+              </div>
+
+              {/* Quick Decision Helper */}
+              <Card className="p-8 bg-gradient-to-r from-brand-green/5 to-brand-gold/5 border-2 border-brand-green/20">
+                <div className="text-center">
+                  <h3 className="text-2xl font-black text-brand-green mb-4">어떤 서비스가 필요한지 모르겠나요?</h3>
+                  <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+                    학생의 현재 상황과 계획에 맞는 서비스를 추천해드립니다. 
+                    무료 상담으로 정확한 가이드를 받아보세요.
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                    <Button size="lg" className="bg-brand-green hover:bg-brand-green/90" asChild>
+                      <Link href={`/${params.locale}/contact`}>
+                        무료 상담 신청
+                      </Link>
+                    </Button>
+                    <Button size="lg" variant="outline" className="border-2 border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-white" asChild>
+                      <Link href={`/${params.locale}/pricing`}>
+                        가격 정보 보기
+                      </Link>
+                    </Button>
+                  </div>
+                </div>
+              </Card>
             </div>
           </div>
 

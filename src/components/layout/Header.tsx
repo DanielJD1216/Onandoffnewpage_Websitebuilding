@@ -29,10 +29,7 @@ const navigation = [
     hoverTitle: '전환점 & 도약의 페이지 · 밴쿠버 정착 서비스',
     submenu: [
       { name: '공항 픽업', href: '/ko/arrival/airport-pickup' },
-      { name: '학교 OT F/U', href: '/ko/arrival/school-orientation' },
-      { name: '정착 패키지 (통신·은행·교통카드)', href: '/ko/arrival/settling-in' },
       { name: '홈스테이 배정', href: '/ko/arrival/homestay' },
-      { name: '안전·소통 체계', href: '/ko/arrival/safety-comms' }
     ]
   },
   { 
@@ -68,7 +65,14 @@ const navigation = [
       { name: '연계 지원 (코업/취업/이민 파트너 소개)', href: '/ko/alumni/links' }
     ]
   },
-  { name: '문의하기', href: '/ko/contact' },
+  { 
+    name: '문의하기', 
+    href: '/ko/contact',
+    submenu: [
+      { name: '무료 상담 신청', href: '/ko/contact' },
+      { name: '가격 안내', href: '/ko/pricing' }
+    ]
+  },
 ];
 
 export function Header() {

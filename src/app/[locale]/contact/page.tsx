@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import ConsultationBookingForm from '@/components/consultation/ConsultationBookingForm';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -16,7 +17,8 @@ import {
   Clock,
   Shield,
   Users,
-  Globe
+  Globe,
+  ArrowRight
 } from 'lucide-react';
 
 export default function ContactPage() {
@@ -291,29 +293,22 @@ export default function ContactPage() {
         </Tabs>
       </PageSection>
 
-      {/* Consultation Process */}
+      {/* Consultation Process Link */}
       <PageSection variant="gray">
-        <SectionHeading 
-          title="상담 진행 과정"
-          subtitle="상담 신청부터 유학 시작까지의 전체 과정"
-          className="mb-12"
-        />
-        
-        <div className="grid md:grid-cols-5 gap-4">
-          {[
-            { step: '01', title: '무료 상담 신청', time: '5분 소요', desc: '온라인 양식 작성 또는 전화/카카오톡으로 상담 신청' },
-            { step: '02', title: '개별 상담 진행', time: '60-90분', desc: '학생 상황 파악, 목표 설정, 최적 교육 경로 제안' },
-            { step: '03', title: '맞춤 계획 수립', time: '1주일', desc: '학교 선정, 입학 준비, 비자 신청, 홈스테이 안내' },
-            { step: '04', title: '입학 진행 지원', time: '2-4개월', desc: '서류 준비, 입학 신청, 비자 신청 전 과정 지원' },
-            { step: '05', title: '현지 정착 지원', time: '지속적', desc: '공항 픽업, 홈스테이 배치, 학교 오리엔테이션 지원' },
-          ].map((item, index) => (
-            <Card key={index} className="p-4 text-center hover:shadow-lg transition-shadow">
-              <div className="text-3xl font-black text-brand-green/20 mb-2">{item.step}</div>
-              <h3 className="font-black text-sm mb-1">{item.title}</h3>
-              <p className="text-xs text-brand-green mb-2">{item.time}</p>
-              <p className="text-xs text-gray-600">{item.desc}</p>
-            </Card>
-          ))}
+        <div className="max-w-2xl mx-auto text-center">
+          <Card className="p-8 border-2 border-brand-green/20 hover:border-brand-green transition-all hover:shadow-lg">
+            <h2 className="text-2xl font-black text-brand-green mb-4">상담 진행 과정</h2>
+            <p className="text-gray-600 mb-6">상담 신청부터 유학 시작까지의 전체 과정을 자세히 확인해보세요</p>
+            <Button 
+              className="bg-brand-green hover:bg-brand-green/90 text-white font-black"
+              asChild
+            >
+              <Link href="/ko/pre-departure/consultation-process">
+                상담 과정 자세히 보기
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+          </Card>
         </div>
       </PageSection>
 

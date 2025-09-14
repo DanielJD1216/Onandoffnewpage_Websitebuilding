@@ -57,6 +57,7 @@
     "@typescript-eslint/parser": "^8.21.0",
     "eslint": "^8.57.1",
     "eslint-config-next": "15.1.6",
+    "playwright": "^1.55.0",
     "postcss": "^8.4.51",
     "prettier": "^3.4.2",
     "shadcn": "^3.2.1",
