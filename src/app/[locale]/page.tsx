@@ -147,10 +147,6 @@ export default function HomePage({ params }: { params: { locale: string } }) {
                       <div className="w-2 h-2 bg-purple-500 rounded-full mr-2"></div>
                       <span>Premium: $799/월</span>
                     </div>
-                    <div className="flex items-center text-sm">
-                      <div className="w-2 h-2 bg-gray-400 rounded-full mr-2"></div>
-                      <span>1개월 체험 가능</span>
-                    </div>
                   </div>
                   
                   <Button className="w-full bg-purple-600 hover:bg-purple-700" asChild>

@@ -227,14 +227,17 @@ export default function ContactPage() {
                 오피스 방문 상담
               </h2>
               <p className="text-gray-600 max-w-2xl mx-auto">
-                밴쿠버 현지에서 직접 운영하는 신뢰할 수 있는 서비스
+                한국과 캐나다 현지에서 직접 운영하는 신뢰할 수 있는 서비스
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8">
-              {/* Office Information */}
-              <Card className="p-6">
-                <h3 className="font-black text-lg mb-4">오피스 정보</h3>
+            <div className="grid lg:grid-cols-2 gap-8">
+              {/* Vancouver Office */}
+              <Card className="p-6 border-2 border-blue-200">
+                <div className="flex items-center gap-2 mb-4">
+                  <Globe className="w-5 h-5 text-blue-600" />
+                  <h3 className="font-black text-lg text-blue-600">밴쿠버 오피스 (본사)</h3>
+                </div>
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">
                     <MapPin className="w-5 h-5 text-brand-green mt-0.5" />
@@ -249,7 +252,7 @@ export default function ContactPage() {
                   <div className="flex items-start gap-3">
                     <Clock className="w-5 h-5 text-brand-green mt-0.5" />
                     <div>
-                      <p className="font-medium">영업 시간</p>
+                      <p className="font-medium">영업 시간 (PST)</p>
                       <p className="text-gray-600">
                         평일: 오전 9시 - 오후 6시<br />
                         토요일: 오전 10시 - 오후 3시<br />
@@ -264,16 +267,63 @@ export default function ContactPage() {
                       <p className="text-gray-600">+1 (778) 889-8235</p>
                     </div>
                   </div>
+                  <div className="flex items-start gap-3">
+                    <Mail className="w-5 h-5 text-brand-green mt-0.5" />
+                    <div>
+                      <p className="font-medium">이메일</p>
+                      <p className="text-gray-600">onf.newpage@gmail.com</p>
+                    </div>
+                  </div>
                 </div>
               </Card>
 
-              {/* Map Placeholder */}
-              <Card className="p-6 bg-gray-100">
-                <div className="h-full min-h-[300px] flex items-center justify-center text-gray-500">
-                  <div className="text-center">
-                    <MapPin className="w-12 h-12 mx-auto mb-3 text-gray-400" />
-                    <p className="font-medium">지도 영역</p>
-                    <p className="text-sm mt-2">Google Maps 연동 예정</p>
+              {/* Korean Office */}
+              <Card className="p-6 border-2 border-red-200">
+                <div className="flex items-center gap-2 mb-4">
+                  <MapPin className="w-5 h-5 text-red-600" />
+                  <h3 className="font-black text-lg text-red-600">한국 사무소</h3>
+                </div>
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <MapPin className="w-5 h-5 text-brand-green mt-0.5" />
+                    <div>
+                      <p className="font-medium">주소</p>
+                      <p className="text-gray-600">
+                        대구광역시 수성구 수성로69길 65,<br />
+                        상가7동 301호(수성동1가)
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Users className="w-5 h-5 text-brand-green mt-0.5" />
+                    <div>
+                      <p className="font-medium">담당자</p>
+                      <p className="text-gray-600">
+                        박주향 (한국사무소 사무장)<br />
+                        <span className="text-sm text-brand-green font-medium">상담 전문</span>
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Phone className="w-5 h-5 text-brand-green mt-0.5" />
+                    <div>
+                      <p className="font-medium">전화</p>
+                      <p className="text-gray-600">
+                        010-4517-1770<br />
+                        <span className="text-sm text-gray-500">(+82 10-4517-1770)</span>
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Clock className="w-5 h-5 text-brand-green mt-0.5" />
+                    <div>
+                      <p className="font-medium">상담 시간 (KST)</p>
+                      <p className="text-gray-600">
+                        평일: 오전 9시 - 오후 6시<br />
+                        토요일: 오전 10시 - 오후 2시<br />
+                        일요일: 휴무
+                      </p>
+                    </div>
                   </div>
                 </div>
               </Card>
@@ -281,13 +331,27 @@ export default function ContactPage() {
 
             {/* Visit Guidelines */}
             <Card className="p-6 bg-amber-50 border-amber-200">
-              <h4 className="font-black text-amber-700 mb-2">방문 상담 안내</h4>
-              <ul className="text-amber-600 text-sm space-y-1">
-                <li>• 방문 상담은 사전 예약을 권장합니다</li>
-                <li>• 주차 공간이 제공됩니다</li>
-                <li>• 대중교통: Coquitlam Central Station에서 도보 10분</li>
-                <li>• 코로나19 방역 수칙을 준수합니다</li>
-              </ul>
+              <h4 className="font-black text-amber-700 mb-3">방문 상담 안내</h4>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <h5 className="font-bold text-amber-700 mb-2">밴쿠버 오피스</h5>
+                  <ul className="text-amber-600 text-sm space-y-1">
+                    <li>• 방문 상담은 사전 예약을 권장합니다</li>
+                    <li>• 주차 공간이 제공됩니다</li>
+                    <li>• 대중교통: Coquitlam Central Station에서 도보 10분</li>
+                    <li>• 코로나19 방역 수칙을 준수합니다</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5 className="font-bold text-amber-700 mb-2">한국 사무소</h5>
+                  <ul className="text-amber-600 text-sm space-y-1">
+                    <li>• 반드시 사전 예약 후 방문해주세요</li>
+                    <li>• 박주향 사무장과 1:1 상담 가능</li>
+                    <li>• 대중교통: 대구 지하철 2호선 수성구청역 인근</li>
+                    <li>• 초기 상담 및 유학 준비 전문</li>
+                  </ul>
+                </div>
+              </div>
             </Card>
           </TabsContent>
         </Tabs>

@@ -85,31 +85,40 @@ export function ContactInfo({
   if (variant === 'office') {
     return (
       <div className={`grid md:grid-cols-2 gap-8 ${className}`}>
+        {/* Vancouver Office */}
         <Card className="p-6 bg-white/10 border-0">
           <div className="text-white">
             <h3 className="text-xl font-black mb-4 flex items-center gap-2">
               <span>📍</span>
-              오피스 주소
+              밴쿠버 오피스 (본사)
             </h3>
-            <p className="text-brand-ivory mb-4">{COMPANY_INFO.address}</p>
+            <div className="text-brand-ivory space-y-2 mb-4">
+              <p>{COMPANY_INFO.address}</p>
+              <p>{COMPANY_INFO.email}</p>
+              <p>+1 (778) 889-8235</p>
+            </div>
             <p className="text-sm text-brand-ivory">
               * 방문 상담은 사전 예약 필수입니다
             </p>
           </div>
         </Card>
 
+        {/* Korean Office */}
         <Card className="p-6 bg-white/10 border-0">
           <div className="text-white">
             <h3 className="text-xl font-black mb-4 flex items-center gap-2">
-              <span>🕐</span>
-              운영 시간
+              <span>📍</span>
+              한국 사무소
             </h3>
-            <div className="text-brand-ivory space-y-2">
-              <p>월 - 금: 오전 9시 - 오후 6시 (PST)</p>
-              <p>토요일: 오전 10시 - 오후 4시 (PST)</p>
-              <p>일요일 및 공휴일: 휴무</p>
-              <p className="text-sm mt-4">* 긴급상황 시 24시간 연락 가능</p>
+            <div className="text-brand-ivory space-y-2 mb-4">
+              <p>{COMPANY_INFO.koreaOffice.address}</p>
+              <p>{COMPANY_INFO.koreaOffice.manager} ({COMPANY_INFO.koreaOffice.managerTitle})</p>
+              <p>{COMPANY_INFO.koreaOffice.phoneFormatted}</p>
+              <p className="text-sm">{COMPANY_INFO.koreaOffice.description}</p>
             </div>
+            <p className="text-sm text-brand-ivory">
+              * 상담 전용 - 사전 연락 후 방문
+            </p>
           </div>
         </Card>
       </div>

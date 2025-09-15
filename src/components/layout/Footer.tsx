@@ -18,7 +18,7 @@ export function Footer() {
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12">
           {/* Company Info */}
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-2">
             <Image
               src="/logo.svg"
               alt="On & Off New Page"
@@ -30,23 +30,51 @@ export function Footer() {
             <p className="text-gray-300 mb-6 text-base">
               밴쿠버 전문 유학원
             </p>
-            <div className="space-y-3 text-sm text-gray-300 leading-relaxed">
-              <p className="flex items-start gap-2">
-                <span>📍</span>
-                <span>{COMPANY_INFO.address}</span>
-              </p>
-              <p className="flex items-center gap-2">
-                <span>📧</span>
-                <span>{COMPANY_INFO.email}</span>
-              </p>
-              <p className="flex items-center gap-2">
-                <span>📞</span>
-                <span>+1 (778) 889-8235</span>
-              </p>
-              <p className="flex items-center gap-2">
-                <span>🕒</span>
-                <span>월-금 9:00-18:00 (PST)</span>
-              </p>
+            
+            {/* Vancouver Office */}
+            <div className="mb-6">
+              <h4 className="font-black text-white mb-3 text-sm">밴쿠버 오피스 (본사)</h4>
+              <div className="space-y-2 text-sm text-gray-300 leading-relaxed">
+                <p className="flex items-start gap-2">
+                  <span>📍</span>
+                  <span>{COMPANY_INFO.address}</span>
+                </p>
+                <p className="flex items-center gap-2">
+                  <span>📧</span>
+                  <span>{COMPANY_INFO.email}</span>
+                </p>
+                <p className="flex items-center gap-2">
+                  <span>📞</span>
+                  <span>+1 (778) 889-8235</span>
+                </p>
+                <p className="flex items-center gap-2">
+                  <span>🕒</span>
+                  <span>월-금 9:00-18:00 (PST)</span>
+                </p>
+              </div>
+            </div>
+
+            {/* Korean Office */}
+            <div className="mb-6">
+              <h4 className="font-black text-white mb-3 text-sm">한국 사무소</h4>
+              <div className="space-y-2 text-sm text-gray-300 leading-relaxed">
+                <p className="flex items-start gap-2">
+                  <span>📍</span>
+                  <span>{COMPANY_INFO.koreaOffice.address}</span>
+                </p>
+                <p className="flex items-center gap-2">
+                  <span>👤</span>
+                  <span>{COMPANY_INFO.koreaOffice.manager} ({COMPANY_INFO.koreaOffice.managerTitle})</span>
+                </p>
+                <p className="flex items-center gap-2">
+                  <span>📞</span>
+                  <span>{COMPANY_INFO.koreaOffice.phoneFormatted}</span>
+                </p>
+                <p className="flex items-center gap-2">
+                  <span>💬</span>
+                  <span>{COMPANY_INFO.koreaOffice.description}</span>
+                </p>
+              </div>
             </div>
             
             {/* Social Media Icons */}
@@ -96,26 +124,18 @@ export function Footer() {
               </li>
               <li>
                 <Link 
-                  href="/ko/programs" 
+                  href="/ko/pricing" 
                   className="text-gray-300 hover:text-white transition-colors duration-200 text-sm block py-1 leading-relaxed hover:translate-x-1 transform transition-transform"
                 >
-                  프로그램 안내
+                  요금 안내
                 </Link>
               </li>
               <li>
                 <Link 
-                  href="/ko/about" 
+                  href="/ko/pre-departure/consultation-process" 
                   className="text-gray-300 hover:text-white transition-colors duration-200 text-sm block py-1 leading-relaxed hover:translate-x-1 transform transition-transform"
                 >
-                  회사 소개
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  href="/ko/success-stories" 
-                  className="text-gray-300 hover:text-white transition-colors duration-200 text-sm block py-1 leading-relaxed hover:translate-x-1 transform transition-transform"
-                >
-                  성공 사례
+                  상담 진행 과정
                 </Link>
               </li>
             </ul>

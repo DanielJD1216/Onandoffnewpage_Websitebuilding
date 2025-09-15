@@ -206,7 +206,7 @@ export default function CampusPlansPage({ params }: { params: { locale: string }
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-black text-brand-green mb-6">지금 시작하세요</h2>
           <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-            1개월 체험을 통해 서비스를 직접 경험해보세요. 
+            전문 상담을 통해 최적의 관리 플랜을 찾아보세요. 
             언제든 플랜 변경이 가능합니다.
           </p>
           
@@ -217,7 +217,7 @@ export default function CampusPlansPage({ params }: { params: { locale: string }
               asChild
             >
               <Link href={`/${params.locale}/contact`}>
-                1개월 체험 문의
+                상담 문의
               </Link>
             </Button>
             

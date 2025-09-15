@@ -5,9 +5,20 @@ export const COMPANY_INFO = {
   taglineKr: '캐나다 유학, 꿈을 현실로',
   subtitleKr: '밴쿠버 현지에서 직접 운영하는 신뢰할 수 있는 교육 컨설팅',
   
+  // Vancouver Office (Primary)
   address: '204-1046 Austin Avenue, Coquitlam, British Columbia',
   email: 'onf.newpage@gmail.com',
   phone: '778-889-8235',
+  
+  // Korean Office
+  koreaOffice: {
+    address: '대구광역시 수성구 수성로69길 65, 상가7동 301호(수성동1가)',
+    manager: '박주향',
+    managerTitle: '한국사무소 사무장',
+    phone: '010-4517-1770',
+    phoneFormatted: '+82 10-4517-1770',
+    description: '상담 전문'
+  },
   
   consultation: {
     responseTimeKr: '영업일 기준 1-2일 내로 연락드리겠습니다. 감사합니다!',

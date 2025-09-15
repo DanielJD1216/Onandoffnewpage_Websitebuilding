@@ -123,7 +123,7 @@ export default function CampusPage({ params }: { params: { locale: string } }) {
           >
             <Link href={`/${params.locale}/contact`}>
               <Phone className="mr-2 h-5 w-5" />
-              1개월 체험 문의
+              상담 문의
             </Link>
           </Button>
         </div>
@@ -265,7 +265,7 @@ export default function CampusPage({ params }: { params: { locale: string } }) {
           <h2 className="text-3xl font-black text-brand-green mb-6">지금 시작하세요</h2>
           <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
             체계적인 관리 시스템으로 자녀의 유학 생활을 안전하게 지원합니다. 
-            1개월 체험을 통해 서비스를 직접 경험해보세요.
+            전문 상담을 통해 최적의 관리 플랜을 찾아보세요.
           </p>
           
           <Button 
@@ -274,7 +274,7 @@ export default function CampusPage({ params }: { params: { locale: string } }) {
             asChild
           >
             <Link href={`/${params.locale}/contact`}>
-              1개월 체험 문의
+              상담 문의
             </Link>
           </Button>
         </div>
