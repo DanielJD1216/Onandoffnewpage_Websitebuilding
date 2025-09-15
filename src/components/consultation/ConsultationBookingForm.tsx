@@ -380,22 +380,6 @@ export default function ConsultationBookingForm() {
               </div>
             </div>
 
-            <div>
-              <Label htmlFor="regionPreference" className="font-bold text-brand-green">
-                선호 지역 (선택사항)
-              </Label>
-              <Select onValueChange={(value: 'BC' | 'Ontario' | 'Alberta' | 'Quebec') => setValue('regionPreference', value)}>
-                <SelectTrigger>
-                  <SelectValue placeholder="관심 있는 지역을 선택해주세요" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="BC">브리티시 컬럼비아 (밴쿠버, 버나비)</SelectItem>
-                  <SelectItem value="Ontario">온타리오 (토론토 지역)</SelectItem>
-                  <SelectItem value="Alberta">알버타 (캘거리, 에드몬턴)</SelectItem>
-                  <SelectItem value="Quebec">퀘벡 (몬트리올)</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
           </div>
         )}
 
