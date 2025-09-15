@@ -245,7 +245,7 @@ export default function PricingPage({ params }: { params: { locale: string } }) 
               className="border-2 border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-white font-black"
               asChild
             >
-              <Link href="http://pf.kakao.com/_xigxbxmn/" target="_blank">
+              <Link href="http://pf.kakao.com/_xigxbxmn/chat/" target="_blank">
                 <MessageCircle className="mr-2 h-5 w-5" />
                 카톡으로 빠른 문의
               </Link>

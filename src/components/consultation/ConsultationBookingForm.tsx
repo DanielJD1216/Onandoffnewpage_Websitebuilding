@@ -14,7 +14,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Card } from '@/components/ui/card';
 import { Checkbox } from '@/components/ui/checkbox';
-import { Calendar, Clock, MapPin, Users, Phone, Mail, MessageCircle } from 'lucide-react';
+import { Calendar, Clock, MapPin, Users, Phone, Mail, MessageCircle, X } from 'lucide-react';
 import { submitConsultationBooking } from '@/lib/actions/consultation';
 
 const consultationBookingSchema = z.object({
@@ -764,7 +764,7 @@ export default function ConsultationBookingForm() {
                   <p className="mt-3">
                     <strong>직접 문의:</strong> 
                     <a href="mailto:onf.newpage@gmail.com" className="underline ml-1">onf.newpage@gmail.com</a> | 
-                    <a href="http://pf.kakao.com/_xigxbxmn/" target="_blank" rel="noopener noreferrer" className="underline ml-1">카카오톡 상담</a>
+                    <a href="http://pf.kakao.com/_xigxbxmn/chat/" target="_blank" rel="noopener noreferrer" className="underline ml-1">카카오톡 상담</a>
                   </p>
                 </div>
               </div>

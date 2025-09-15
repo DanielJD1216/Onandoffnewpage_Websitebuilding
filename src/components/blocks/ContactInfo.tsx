@@ -38,8 +38,8 @@ const contactMethods: ContactMethod[] = [
     title: 'KakaoTalk',
     subtitle: '카카오톡으로 빠른 상담',
     description: '실시간으로 빠른 답변을 받아보세요.',
-    contact: 'ID: onoffnewpage',
-    action: 'https://open.kakao.com/o/your-kakao-link',
+    contact: 'ID: newpageonf',
+    action: 'http://pf.kakao.com/_xigxbxmn/chat',
     buttonText: '카카오톡 상담',
     external: true
   },

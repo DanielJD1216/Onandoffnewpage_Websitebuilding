@@ -177,7 +177,7 @@ export function Header() {
             {/* Social Media Icons */}
             <div className="flex items-center space-x-3">
               <a 
-                href="http://pf.kakao.com/_xigxbxmn/" 
+                href="http://pf.kakao.com/_xigxbxmn/chat/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="hover:opacity-80 transition-opacity"
@@ -279,7 +279,7 @@ export function Header() {
               {/* Social Media Icons for Mobile */}
               <div className="flex items-center justify-center space-x-4 py-4">
                 <a 
-                  href="http://pf.kakao.com/_xigxbxmn/" 
+                  href="http://pf.kakao.com/_xigxbxmn/chat/" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="hover:opacity-80 transition-opacity"

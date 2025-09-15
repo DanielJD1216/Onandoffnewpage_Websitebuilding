@@ -76,7 +76,7 @@ export default function HeroSection() {
     <section className="relative overflow-hidden bg-gradient-to-br from-brand-ivory via-white to-brand-ivory/50 py-16 lg:py-24">
       {/* Background Image */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30"
         style={{
           backgroundImage: 'url(/1.png)'
         }}
@@ -98,10 +98,8 @@ export default function HeroSection() {
         >
           <h1 
             ref={mainTextRef}
-            className="font-black text-brand-green tracking-wide font-dodum"
+            className="font-black text-brand-green tracking-tight md:tracking-wide font-dodum text-2xl md:text-4xl lg:text-5xl"
             style={{ 
-              fontSize: '48px',
-              lineHeight: '48px',
               letterSpacing: '0.08em', 
               wordSpacing: '0.12em' 
             }}
@@ -112,7 +110,7 @@ export default function HeroSection() {
         
         <p 
           ref={subTextRef}
-          className={`text-[8px] md:text-xl lg:text-2xl text-brand-gold font-medium tracking-wide font-dodum mb-6 whitespace-nowrap transition-all duration-700 ease-out ${
+          className={`text-sm md:text-xl lg:text-2xl text-brand-gold font-bold tracking-wide font-dodum mb-6 whitespace-nowrap transition-all duration-700 ease-out ${
             animationState.subLoaded 
               ? 'opacity-100 translate-y-0 scale-100' 
               : 'opacity-0 translate-y-5 scale-95'

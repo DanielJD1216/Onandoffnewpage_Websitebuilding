@@ -60,7 +60,7 @@ export default function ContactPage() {
 
         <AnnouncementBanner
           title="빠른 연락 방법"
-          message="카카오톡 ID: onoffnewpage | 긴급 문의: +1 (778) 889-8235"
+          message="카카오톡 ID: newpageonf | 긴급 문의: +1 (778) 889-8235"
           variant="info"
         />
       </PageHero>
@@ -175,13 +175,13 @@ export default function ContactPage() {
                       빠른 실시간 상담
                     </p>
                     <p className="font-medium text-yellow-600 mb-3">
-                      ID: onoffnewpage
+                      ID: newpageonf
                     </p>
                     <Button 
                       asChild 
                       className="w-full bg-yellow-400 hover:bg-yellow-500 text-black"
                     >
-                      <a href="http://pf.kakao.com/_xigxbxmn/">카카오톡 상담</a>
+                      <a href="http://pf.kakao.com/_xigxbxmn/chat/">카카오톡 상담</a>
                     </Button>
                     <p className="text-xs text-gray-500 mt-2">응답: 즉시</p>
                   </div>

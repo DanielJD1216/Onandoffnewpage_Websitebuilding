@@ -241,7 +241,7 @@ export function generateCalendarEvent(
     `SUMMARY:${eventTitle}`,
     `DESCRIPTION:${eventDescription}`,
     `LOCATION:${eventLocation}`,
-    `UID:consultation-${Date.now()}@onoffnewpage.com`,
+    `UID:consultation-${Date.now()}@newpageonf.com`,
     'STATUS:CONFIRMED',
     'END:VEVENT',
     'END:VCALENDAR'

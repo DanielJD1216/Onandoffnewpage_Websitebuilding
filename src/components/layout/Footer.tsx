@@ -80,7 +80,7 @@ export function Footer() {
             {/* Social Media Icons */}
             <div className="flex items-center gap-4 mt-6">
               <a 
-                href="http://pf.kakao.com/_xigxbxmn/" 
+                href="http://pf.kakao.com/_xigxbxmn/chat/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="hover:opacity-80 transition-opacity"
