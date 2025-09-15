@@ -233,7 +233,15 @@ export default function ConsultationBookingForm() {
   return (
     <div className="space-y-8">
       {/* Progress Indicator */}
-      <div className="flex items-center justify-center space-x-4 mb-8">
+      <div className="flex items-center justify-center space-x-4 mb-8" role="progressbar" aria-valuenow={currentStep} aria-valuemin={1} aria-valuemax={4} aria-label={`상담 예약 단계 ${currentStep}/4`}>
+        <div className="sr-only" aria-live="polite" aria-atomic="true">
+          현재 단계: {currentStep}단계 중 {
+            currentStep === 1 ? '서비스 유형 및 학생 정보' :
+            currentStep === 2 ? '필요 서비스 및 연락처 정보' :
+            currentStep === 3 ? '상담 일정' :
+            '추가 정보 및 동의'
+          }
+        </div>
         {[1, 2, 3, 4].map((step) => (
           <div key={step} className="flex items-center">
             <div className={`
@@ -242,14 +250,14 @@ export default function ConsultationBookingForm() {
                 ? 'bg-brand-green text-white' 
                 : 'bg-gray-200 text-gray-500'
               }
-            `}>
+            `} aria-label={`단계 ${step} ${currentStep >= step ? '완료됨' : '미완료'}`}>
               {step}
             </div>
             {step < 4 && (
               <div className={`
                 w-16 h-1 mx-2
                 ${currentStep > step ? 'bg-brand-green' : 'bg-gray-200'}
-              `} />
+              `} aria-hidden="true" />
             )}
           </div>
         ))}
@@ -753,11 +761,30 @@ export default function ConsultationBookingForm() {
 
         {/* Error Message */}
         {submitStatus === 'error' && (
-          <Card className="p-6 bg-red-50 border-red-200">
-            <p className="text-red-700 font-medium text-center">
-              상담 예약 중 오류가 발생했습니다. 다시 시도해 주시거나 직접 연락 주세요.<br/>
-              <strong>이메일:</strong> onf.newpage@gmail.com
-            </p>
+          <Card className="p-6 bg-red-50 border-red-200" role="alert" aria-live="assertive">
+            <div className="flex items-start gap-3">
+              <div className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                <X className="w-4 h-4 text-white" />
+              </div>
+              <div>
+                <p className="text-red-700 font-medium mb-2">
+                  상담 예약 중 오류가 발생했습니다.
+                </p>
+                <div className="text-red-600 text-sm space-y-2">
+                  <p><strong>해결 방법:</strong></p>
+                  <ul className="list-disc list-inside space-y-1 ml-4">
+                    <li>잠시 후 다시 시도해 주세요</li>
+                    <li>필수 항목이 모두 입력되었는지 확인해 주세요</li>
+                    <li>문제가 지속되면 직접 연락 주세요</li>
+                  </ul>
+                  <p className="mt-3">
+                    <strong>직접 문의:</strong> 
+                    <a href="mailto:onf.newpage@gmail.com" className="underline ml-1">onf.newpage@gmail.com</a> | 
+                    <a href="http://pf.kakao.com/_xigxbxmn/" target="_blank" rel="noopener noreferrer" className="underline ml-1">카카오톡 상담</a>
+                  </p>
+                </div>
+              </div>
+            </div>
           </Card>
         )}
       </form>

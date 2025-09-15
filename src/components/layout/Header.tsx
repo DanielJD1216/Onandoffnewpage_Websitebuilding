@@ -220,7 +220,7 @@ export function Header() {
           {/* Mobile menu button */}
           <button
             type="button"
-            className="md:hidden p-2 rounded-md text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#114b3f]"
+            className="md:hidden p-3 rounded-md text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#114b3f] min-h-[44px] min-w-[44px] flex items-center justify-center"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-expanded={mobileMenuOpen}
             aria-controls="mobile-menu"
@@ -250,7 +250,7 @@ export function Header() {
                   <Link
                     href={item.href}
                     role="menuitem"
-                    className={`text-lg font-semibold py-3 block transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#114b3f] rounded px-3 ${
+                    className={`text-lg font-semibold py-4 px-4 block transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#114b3f] rounded min-h-[44px] flex items-center ${
                       isActive(item.href)
                         ? 'text-white font-black'
                         : 'text-gray-300'
@@ -266,7 +266,7 @@ export function Header() {
                           key={subitem.name}
                           href={subitem.href}
                           role="menuitem"
-                          className="block py-1 px-2 text-sm text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#114b3f] rounded"
+                          className="block py-3 px-4 text-sm text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#114b3f] rounded min-h-[44px] flex items-center"
                           onClick={() => setMobileMenuOpen(false)}
                         >
                           • {subitem.name}

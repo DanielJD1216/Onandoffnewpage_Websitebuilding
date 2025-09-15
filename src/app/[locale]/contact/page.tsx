@@ -18,11 +18,14 @@ import {
   Shield,
   Users,
   Globe,
-  ArrowRight
+  ArrowRight,
+  ChevronDown,
+  ChevronUp
 } from 'lucide-react';
 
 export default function ContactPage() {
   const [activeTab, setActiveTab] = useState('consultation');
+  const [openFAQIndex, setOpenFAQIndex] = useState<number | null>(null);
 
   return (
     <div className="min-h-screen" style={{backgroundImage: 'linear-gradient(to bottom, white 35%, #f8f6f0 100%)'}}>
@@ -384,7 +387,7 @@ export default function ContactPage() {
           className="mb-12"
         />
 
-        <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        <div className="max-w-3xl mx-auto space-y-4">
           {[
             {
               q: '상담 비용이 정말 무료인가요?',
@@ -410,12 +413,38 @@ export default function ContactPage() {
               q: '어떤 서류를 준비해야 하나요?',
               a: '초기 상담 시에는 특별한 서류가 필요하지 않습니다. 상담 후 필요한 서류를 안내해 드립니다.'
             }
-          ].map((item, index) => (
-            <Card key={index} className="p-6">
-              <h3 className="font-black text-brand-green mb-2">Q. {item.q}</h3>
-              <p className="text-gray-600 text-sm">A. {item.a}</p>
-            </Card>
-          ))}
+          ].map((item, index) => {
+            const isOpen = openFAQIndex === index;
+            return (
+              <Card key={index} className="border-2 border-gray-200 hover:border-brand-green transition-colors">
+                <button
+                  onClick={() => setOpenFAQIndex(isOpen ? null : index)}
+                  className="w-full p-6 text-left focus:outline-none focus:ring-2 focus:ring-brand-green focus:ring-inset rounded-lg"
+                  aria-expanded={isOpen}
+                  aria-controls={`faq-answer-${index}`}
+                >
+                  <div className="flex items-center justify-between">
+                    <h3 className="font-black text-brand-green text-lg pr-4">Q. {item.q}</h3>
+                    {isOpen ? (
+                      <ChevronUp className="h-5 w-5 text-brand-green flex-shrink-0" aria-hidden="true" />
+                    ) : (
+                      <ChevronDown className="h-5 w-5 text-brand-green flex-shrink-0" aria-hidden="true" />
+                    )}
+                  </div>
+                </button>
+                {isOpen && (
+                  <div 
+                    id={`faq-answer-${index}`}
+                    className="px-6 pb-6 pt-2"
+                    role="region"
+                    aria-labelledby={`faq-question-${index}`}
+                  >
+                    <p className="text-gray-600 text-base leading-relaxed">A. {item.a}</p>
+                  </div>
+                )}
+              </Card>
+            );
+          })}
         </div>
       </PageSection>
     </div>
