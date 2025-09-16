@@ -1,7 +1,7 @@
 # PROJECT CONTEXT - On & Off New Page Study Abroad Platform
-**Last Updated:** September 16, 2025 (Lint Fixes + KakaoTalk Contact Updates)
-**Version:** 3.5 (LINT FIXES & CONTACT IMPROVEMENTS)
-**Status:** ✅ PRODUCTION DEPLOYED - Fixed lint errors and updated KakaoTalk contact details
+**Last Updated:** September 16, 2025 (UX Enhancement & Mobile-Optimized CTA)
+**Version:** 3.6 (UX ENHANCEMENT & MOBILE OPTIMIZATION)
+**Status:** ✅ PRODUCTION DEPLOYED - Enhanced UX with distinctive consultation links and mobile-optimized sticky CTA
 
 > **CRITICAL FOR CLAUDE CODE**: This is the master context file. Always read this first when resuming work on this project. It contains the current state, pending tasks, and critical information needed to continue development.
 
@@ -530,42 +530,59 @@ ps aux | grep next  # Find Next.js processes
 
 ## 📝 Recent Session Updates
 
-### September 16, 2025 Session - Lint Fixes & Contact Updates (Version 3.5)
+### September 16, 2025 Session - UX Enhancement & Mobile-Optimized CTA (Version 3.6)
 
 **Session Summary:**
-- **COMPLETED:** Fixed critical lint error preventing successful builds
-- **COMPLETED:** Updated all KakaoTalk contact information across the platform
-- **COMPLETED:** Enhanced responsive typography in hero section
-- **COMPLETED:** Successfully ran npm lint --fix and npm build
+- **COMPLETED:** Implemented distinctive consultation process link section on pre-departure page
+- **COMPLETED:** Updated Korean phone number from 010-3333-1523 to 010-4517-1770 across entire website
+- **COMPLETED:** Created reusable KoreanPhoneDisplay component for consistent phone number display
+- **COMPLETED:** Implemented premium sticky CTA with expandable contact options and mobile optimization
+- **COMPLETED:** Added mobile-responsive design with bounce animation for "100% 무료" badge
+- **COMPLETED:** Ensured full mobile compatibility across all new components
 
-**Technical Changes:**
-1. **Lint Error Fixes**
-   - Fixed missing X icon import in ConsultationBookingForm.tsx:751
-   - Resolved 'X' is not defined error that was breaking builds
+**Major Technical Implementations:**
+1. **Pre-departure Page Enhancement**
+   - Added distinctive consultation process link section above CTA button
+   - Enhanced with gradient card design and mobile responsiveness
+   - Text properly matches destination: "상담절차 안내 확인하기"
 
-2. **KakaoTalk Contact Updates**
-   - Updated KakaoTalk ID from 'onoffnewpage' to 'newpageonf' across all pages
-   - Enhanced KakaoTalk URLs with '/chat' suffix for direct chat access
-   - Updated contact information in: Header, Footer, Contact page, Pricing page, ContactInfo block, calendar utils
+2. **Phone Number Standardization**
+   - Updated Korean phone number from 010-3333-1523 to 010-4517-1770 across all pages
+   - Created KoreanPhoneDisplay component with responsive sizing options
+   - Added phone display below/beside all major CTA buttons for consistency
 
-3. **UI Improvements**
-   - Improved hero section responsive typography (better mobile experience)
-   - Reduced background opacity from 40% to 30% for better text readability
-   - Enhanced font weight from medium to bold for subtitle text
+3. **Sticky CTA Implementation**
+   - Created premium sticky CTA component positioned at top-20 on right side
+   - Features expandable contact options (Korean phone, Vancouver office, KakaoTalk, online booking)
+   - Added slow bounce animation to "100% 무료" badge for attention
+   - Enhanced with gradients, sparkles, and premium styling for professional appearance
+
+4. **Mobile Optimization**
+   - All new components fully optimized for mobile devices using sm: breakpoints
+   - Touch targets meet 44px minimum accessibility standards
+   - Responsive text sizing and spacing across all screen sizes
+   - Consultation process link scales appropriately for mobile screens
+
+**Components Created:**
+- `src/components/ui/korean-phone-display.tsx` - Reusable phone number display with sizing variants
+- `src/components/ui/sticky-cta.tsx` - Premium sticky CTA with expandable contact options
+
+**Files Modified:** 10 files (pre-departure page, contact page, layout, pricing page, home page, consultation process page)
 
 **Build Status:** ✅ PASSING
 - npm lint --fix: Successful (warnings only, no errors)
-- npm build: Successful (all pages generated, optimized production build)
+- npm build: Successful (all pages generated, 87.3kB shared, pages ~106-110kB)
+- Production build optimized and ready for deployment
 
 **Git Status:** ✅ COMMITTED & PUSHED
-- Commit: 23dd831 "Fix lint error and update KakaoTalk contact details"
+- Commit: a85bcd1 "Implement distinctive consultation link and mobile-optimized sticky CTA"
 - All changes successfully deployed to production
 
-**Files Modified:** 12 files
-- ConsultationBookingForm.tsx (lint fix)
-- Contact page, Pricing page, Header, Footer (KakaoTalk updates)
-- HeroSection.tsx (typography improvements)
-- Calendar utilities (contact info updates)
+**UX Impact:**
+- Enhanced user flow with prominent consultation process link
+- Consistent phone number display builds trust across platform
+- Sticky CTA improves conversion potential with multiple contact methods
+- Mobile-first design ensures optimal experience for 80% Korean mobile users
 
 ---
 
