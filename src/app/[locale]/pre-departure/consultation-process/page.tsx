@@ -316,7 +316,7 @@ export default function ConsultationProcessPage({ params }: { params: { locale: 
                 className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-black text-lg px-8 py-4"
                 asChild
               >
-                <Link href="tel:010-3333-1523">
+                <Link href="tel:010-4517-1770">
                   <Phone className="mr-2 h-5 w-5" />
                   전화 상담 (한국)
                 </Link>
@@ -325,7 +325,7 @@ export default function ConsultationProcessPage({ params }: { params: { locale: 
             
             <div className="mt-6 text-center">
               <p className="text-gray-600 text-sm">
-                📞 한국 상담 전화번호: <a href="tel:010-3333-1523" className="font-semibold text-blue-600 hover:underline">010-3333-1523</a>
+                📞 한국 상담 전화번호: <a href="tel:010-4517-1770" className="font-semibold text-blue-600 hover:underline">010-4517-1770</a>
               </p>
             </div>
 

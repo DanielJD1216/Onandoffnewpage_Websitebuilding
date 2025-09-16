@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
+import { StickyCTA } from '@/components/ui/sticky-cta';
 import '../globals.css';
 
 export const metadata: Metadata = {
@@ -22,6 +23,7 @@ export default function LocaleLayout({
         {children}
       </main>
       <Footer />
+      <StickyCTA />
     </div>
   );
 }

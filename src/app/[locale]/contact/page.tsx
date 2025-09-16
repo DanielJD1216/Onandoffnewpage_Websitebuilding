@@ -6,6 +6,7 @@ import ConsultationBookingForm from '@/components/consultation/ConsultationBooki
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { SectionHeading } from '@/components/ui/section-heading';
+import { KoreanPhoneDisplay } from '@/components/ui/korean-phone-display';
 import { AnnouncementBanner } from '@/components/ui/announcement-banner';
 import { PageHero, PageSection } from '@/components/layout/PageSection';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -90,9 +91,10 @@ export default function ContactPage() {
                 무료 상담 예약
               </h2>
               <p className="text-gray-600 max-w-2xl mx-auto">
-                학생의 상황과 목표에 맞는 최적의 교육 경로를 제안해 드립니다. 
+                학생의 상황과 목표에 맞는 최적의 교육 경로를 제안해 드립니다.
                 상담부터 입학까지 모든 과정이 완전 무료입니다.
               </p>
+              <KoreanPhoneDisplay className="mt-4" />
             </div>
 
             {/* Consultation Benefits */}

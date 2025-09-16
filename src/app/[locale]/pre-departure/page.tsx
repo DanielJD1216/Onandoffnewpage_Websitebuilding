@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
+import { KoreanPhoneDisplay } from '@/components/ui/korean-phone-display';
 import { Download, CheckCircle, ArrowRight, Phone, MessageCircle } from 'lucide-react';
 
 export default function PreDeparturePage({ params }: { params: { locale: string } }) {
@@ -23,8 +24,33 @@ export default function PreDeparturePage({ params }: { params: { locale: string 
           <p className="text-xl md:text-2xl text-brand-gold mb-8 font-dodum">
             지역·학교 선택, 입학 절차, 비자까지 단계별로 안내드립니다.
           </p>
-          <Button 
-            size="lg" 
+
+          {/* Consultation Process Link - Distinctive Section */}
+          <div className="mb-8">
+            <div className="bg-gradient-to-r from-emerald-50/80 to-green-50/80 border-2 border-emerald-200 rounded-xl p-4 sm:p-6 max-w-xs sm:max-w-md mx-auto shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
+              <Link
+                href={`/${params.locale}/pre-departure/consultation-process`}
+                className="block text-center group"
+              >
+                <div className="flex items-center justify-center mb-2">
+                  <span className="text-xl sm:text-2xl mr-2">💡</span>
+                  <span className="text-base sm:text-lg font-black text-emerald-700 group-hover:text-emerald-800 transition-colors">
+                    상담절차 안내 확인하기
+                  </span>
+                </div>
+                <p className="text-emerald-600 text-xs sm:text-sm font-medium group-hover:text-emerald-700 transition-colors">
+                  상담 전에 미리 확인해보세요
+                </p>
+                <div className="mt-3 inline-flex items-center text-emerald-600 group-hover:text-emerald-700 transition-colors">
+                  <span className="text-xs sm:text-sm font-semibold">자세히 보기</span>
+                  <ArrowRight className="ml-1 h-3 w-3 sm:h-4 sm:w-4 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </Link>
+            </div>
+          </div>
+
+          <Button
+            size="lg"
             className="bg-brand-green hover:bg-brand-green/90 text-white font-black text-lg px-8 py-4"
             asChild
           >
@@ -33,6 +59,7 @@ export default function PreDeparturePage({ params }: { params: { locale: string 
               무료 1:1 상담 신청
             </Link>
           </Button>
+          <KoreanPhoneDisplay className="mt-4" />
         </div>
       </section>
 
@@ -181,8 +208,8 @@ export default function PreDeparturePage({ params }: { params: { locale: string 
 
           {/* CTA Section */}
           <div className="mt-16 text-center">
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               className="bg-brand-green hover:bg-brand-green/90 text-white font-black"
               asChild
             >
@@ -191,6 +218,7 @@ export default function PreDeparturePage({ params }: { params: { locale: string 
                 무료 상담 예약
               </Link>
             </Button>
+            <KoreanPhoneDisplay className="mt-4" />
           </div>
         </div>
       </section>

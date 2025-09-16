@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
+import { KoreanPhoneDisplay } from '@/components/ui/korean-phone-display';
 import { Check, X, Phone, MessageCircle, Star, DollarSign } from 'lucide-react';
 
 export default function PricingPage({ params }: { params: { locale: string } }) {
@@ -228,8 +229,8 @@ export default function PricingPage({ params }: { params: { locale: string } }) 
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               className="bg-brand-green hover:bg-brand-green/90 text-white font-black"
               asChild
             >
@@ -238,9 +239,9 @@ export default function PricingPage({ params }: { params: { locale: string } }) 
                 무료 상담 신청
               </Link>
             </Button>
-            
-            <Button 
-              size="lg" 
+
+            <Button
+              size="lg"
               variant="outline"
               className="border-2 border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-white font-black"
               asChild
@@ -251,6 +252,7 @@ export default function PricingPage({ params }: { params: { locale: string } }) 
               </Link>
             </Button>
           </div>
+          <KoreanPhoneDisplay className="mt-6" />
         </div>
       </section>
     </div>

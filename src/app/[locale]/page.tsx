@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import HeroSection from '@/components/HeroSection';
+import { KoreanPhoneDisplay } from '@/components/ui/korean-phone-display';
 import { GraduationCap, Heart, FileText, Users, Clock, DollarSign } from 'lucide-react';
 import '../../components/flipbook/flipbook-styles.css';
 
@@ -177,6 +178,7 @@ export default function HomePage({ params }: { params: { locale: string } }) {
                       </Link>
                     </Button>
                   </div>
+                  <KoreanPhoneDisplay className="mt-4" />
                 </div>
               </Card>
             </div>
@@ -217,6 +219,7 @@ export default function HomePage({ params }: { params: { locale: string } }) {
                   자녀 단독 유학 상담
                 </Link>
               </Button>
+              <KoreanPhoneDisplay className="mt-3" size="sm" />
               </Card>
             
               {/* Parent-Accompanied Service */}
@@ -251,6 +254,7 @@ export default function HomePage({ params }: { params: { locale: string } }) {
                   부모 동반 유학 상담
                 </Link>
               </Button>
+              <KoreanPhoneDisplay className="mt-3" size="sm" />
               </Card>
             </div>
           </div>
