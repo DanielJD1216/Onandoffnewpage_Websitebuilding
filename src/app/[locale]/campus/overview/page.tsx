@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { ArrowLeft, Phone, BookOpen, Users, Calendar, Star } from 'lucide-react';
@@ -56,11 +57,25 @@ export default function CampusOverviewPage({ params }: { params: { locale: strin
       {/* Main Content */}
       <section className="py-16">
         <div className="container mx-auto px-4">
+          {/* Campus Photo Section */}
+          <div className="max-w-5xl mx-auto mb-16">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+              <Image
+                src="/images/onandoffcampus.png"
+                alt="온앤오프 뉴페이지 캠퍼스 랭귀지 직영 홈스테이"
+                width={1200}
+                height={800}
+                className="w-full h-auto object-cover"
+                priority
+              />
+            </div>
+          </div>
+
           {/* Program Introduction */}
           <div className="max-w-4xl mx-auto text-center mb-16">
             <h2 className="text-3xl font-black text-brand-green mb-6">체계적인 학생 관리 시스템</h2>
             <p className="text-lg text-gray-600 mb-8">
-              캐나다 유학 중인 초·중·고 학생들을 위한 전문적인 가디언 서비스입니다. 
+              캐나다 유학 중인 초·중·고 학생들을 위한 전문적인 가디언 서비스입니다.
               학업부터 생활까지, 부모님의 마음으로 세심하게 관리합니다.
             </p>
             
