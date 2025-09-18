@@ -17,14 +17,14 @@
     "programs": "프로그램",
     "about": "회사소개",
     "success": "성공사례",
-    "consultation": "상담신청",
+    "consultation": "상담문의",
     "contact": "문의하기"
   },
   "hero": {
     "title": "캐나다 유학, 꿈을 현실로",
     "subtitle": "밴쿠버 현지에서 직접 운영하는 신뢰할 수 있는 교육 컨설팅",
     "cta": {
-      "primary": "무료 상담 예약",
+      "primary": "무료 상담 문의",
       "secondary": "프로그램 안내"
     }
   },

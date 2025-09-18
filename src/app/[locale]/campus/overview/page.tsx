@@ -49,7 +49,7 @@ export default function CampusOverviewPage({ params }: { params: { locale: strin
             >
               <Link href={`/${params.locale}/contact`}>
                 <Phone className="mr-2 h-5 w-5" />
-                상담 예약
+                상담 문의
               </Link>
             </Button>
             <p className="text-brand-green font-bold">
@@ -292,7 +292,7 @@ export default function CampusOverviewPage({ params }: { params: { locale: strin
                 asChild
               >
                 <Link href={`/${params.locale}/contact`}>
-                  상담 예약하기
+                  상담 문의하기
                 </Link>
               </Button>
 

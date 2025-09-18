@@ -69,7 +69,7 @@ const navigation = [
     name: '문의하기', 
     href: '/ko/contact',
     submenu: [
-      { name: '무료 상담 신청', href: '/ko/contact' },
+      { name: '무료 상담 문의', href: '/ko/contact' },
       { name: '가격 안내', href: '/ko/pricing' }
     ]
   },
@@ -212,7 +212,7 @@ export function Header() {
               asChild
             >
               <Link href="/ko/contact">
-                무료 상담
+                무료 상담 문의
               </Link>
             </Button>
           </div>
@@ -313,7 +313,7 @@ export function Header() {
                 asChild
               >
                 <Link href="/ko/contact" onClick={() => setMobileMenuOpen(false)}>
-                  무료 상담 신청하기
+                  무료 상담 문의하기
                 </Link>
               </Button>
             </div>

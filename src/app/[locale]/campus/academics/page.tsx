@@ -184,7 +184,7 @@ export default function CampusAcademicsPage({ params }: { params: { locale: stri
                 asChild
               >
                 <Link href={`/${params.locale}/contact`}>
-                  상담 예약하기
+                  상담 문의하기
                 </Link>
               </Button>
 

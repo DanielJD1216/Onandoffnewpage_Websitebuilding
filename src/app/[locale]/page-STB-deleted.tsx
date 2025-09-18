@@ -55,7 +55,7 @@ export default function HomePage({ params }: { params: { locale: string } }) {
               asChild
             >
               <Link href={`/${params.locale}/contact`}>
-                지금 무료 상담 예약 →
+                지금 무료 상담 문의 →
               </Link>
             </Button>
             <Button 

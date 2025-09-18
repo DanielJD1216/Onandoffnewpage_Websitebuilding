@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Phone, MessageCircle, Calendar, X, Sparkles } from 'lucide-react';
+import { Phone, MessageCircle, X, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export function StickyCTA() {
@@ -45,7 +45,7 @@ export function StickyCTA() {
                 </div>
                 <div className="text-left">
                   <div className="font-black text-base sm:text-lg leading-tight">무료 상담</div>
-                  <div className="text-xs opacity-90 font-medium hidden sm:block">지금 신청하세요</div>
+                  <div className="text-xs opacity-90 font-medium hidden sm:block">지금 문의하세요</div>
                 </div>
               </div>
             </Button>
@@ -72,7 +72,7 @@ export function StickyCTA() {
               <div>
                 <h3 className="font-black text-brand-green text-lg sm:text-xl flex items-center">
                   <Sparkles className="h-4 w-4 sm:h-5 sm:w-5 text-yellow-500 mr-2" />
-                  무료 상담 신청
+                  무료 상담 문의
                 </h3>
                 <p className="text-xs text-gray-600 mt-1">📞 즉시 연결 가능</p>
               </div>
@@ -130,19 +130,6 @@ export function StickyCTA() {
                 </Button>
               </Link>
 
-              <Link href="/ko/contact">
-                <Button className="w-full bg-gradient-to-r from-brand-green to-emerald-600 hover:from-emerald-600 hover:to-brand-green text-white justify-start p-3 sm:p-4 rounded-lg sm:rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]">
-                  <div className="flex items-center space-x-2 sm:space-x-3">
-                    <div className="bg-white/20 p-1.5 sm:p-2 rounded-lg">
-                      <Calendar className="h-4 w-4 sm:h-5 sm:w-5" />
-                    </div>
-                    <div className="text-left">
-                      <div className="font-bold text-sm sm:text-base">📅 온라인 예약</div>
-                      <div className="text-xs opacity-90">편리한 시간 선택</div>
-                    </div>
-                  </div>
-                </Button>
-              </Link>
             </div>
 
             {/* Premium Footer */}

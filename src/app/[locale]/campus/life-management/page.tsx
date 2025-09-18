@@ -48,7 +48,7 @@ export default function CampusLifeManagementPage({ params }: { params: { locale:
             >
               <Link href={`/${params.locale}/contact`}>
                 <Phone className="mr-2 h-5 w-5" />
-                상담 예약하기
+                상담 문의하기
               </Link>
             </Button>
             <p className="text-brand-green font-bold">

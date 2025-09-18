@@ -1,7 +1,7 @@
 # PROJECT CONTEXT - On & Off New Page Study Abroad Platform
-**Last Updated:** September 16, 2025 (UX Enhancement & Mobile-Optimized CTA)
-**Version:** 3.6 (UX ENHANCEMENT & MOBILE OPTIMIZATION)
-**Status:** ✅ PRODUCTION DEPLOYED - Enhanced UX with distinctive consultation links and mobile-optimized sticky CTA
+**Last Updated:** September 18, 2025 (Campus Page Enhancement & Pricing Alignment)
+**Version:** 3.7 (CAMPUS CONTENT ENHANCEMENT & PRICING CONSISTENCY)
+**Status:** ✅ PRODUCTION DEPLOYED - Enhanced campus content with detailed specifications and aligned pricing structure
 
 > **CRITICAL FOR CLAUDE CODE**: This is the master context file. Always read this first when resuming work on this project. It contains the current state, pending tasks, and critical information needed to continue development.
 
@@ -529,6 +529,61 @@ ps aux | grep next  # Find Next.js processes
 ---
 
 ## 📝 Recent Session Updates
+
+### September 18, 2025 Session - Campus Page Enhancement & Pricing Alignment (Version 3.7)
+
+**Session Summary:**
+- **COMPLETED:** Enhanced main campus page with detailed content specifications
+- **COMPLETED:** Updated Korean phone number (010-4517-1770) across entire website
+- **COMPLETED:** Aligned pricing structure between campus and plans pages
+- **COMPLETED:** Implemented enhanced content methodology consistent with campus subpages
+- **COMPLETED:** Added "coming soon" overlay for future page while preserving content
+
+**Major Technical Implementations:**
+1. **Campus Page Content Enhancement**
+   - Added comprehensive program methodology section with academic/lifestyle management details
+   - Implemented monthly operating schedule table showing service frequency and deliverables
+   - Added service quality guarantees with response time commitments and satisfaction metrics
+   - Enhanced communication system overview with four-tier approach
+
+2. **Pricing Structure Alignment**
+   - Updated campus page pricing to match plans page structure exactly
+   - 저학년 토탈 OSC: $650 (주 2회), $850 (주 3회), $1,200 (주 5회)
+   - Added 고학년 과목 튜터링: $50/session (1인당 / 4인 그룹 / 2시간 30분)
+   - Updated section headings and descriptions for consistency
+
+3. **Phone Number Standardization**
+   - Updated Korean phone number from old number to 010-4517-1770 across all pages
+   - Enhanced KoreanPhoneDisplay component with proper color styling (rgb(29, 78, 216))
+   - Applied consistent phone number display to all CTA sections
+
+4. **Content Structure Improvements**
+   - Main campus page now matches enhanced content depth of subpages (academics, mentoring, etc.)
+   - Added detailed operational specifications, quality metrics, and guarantee policies
+   - Implemented consistent content methodology across all campus-related pages
+
+**Components Created/Enhanced:**
+- Enhanced `src/app/[locale]/campus/page.tsx` with detailed specifications and aligned pricing
+- Updated `src/components/ui/korean-phone-display.tsx` with proper color styling
+- Applied enhanced content to future page with overlay architecture
+
+**Files Modified:** 15 files (campus pages, arrival pages, future pages, phone display component)
+
+**Build Status:** ✅ PASSING
+- npm run lint: Successful (warnings only, no errors)
+- npm run build: Successful (all 29 pages generated, 87.3kB shared, campus page ~110kB total)
+- Production build optimized and ready for deployment
+
+**Git Status:** ✅ COMMITTED & PUSHED
+- Commit: 8b01228 "Update campus page with enhanced content and align pricing with plans page"
+- All changes successfully deployed to production
+- 1,465 insertions, 707 deletions across 15 files
+
+**Content Impact:**
+- Campus page now provides comprehensive detail about program methodology and operational specifications
+- Pricing consistency eliminates confusion between main campus page and dedicated plans page
+- Enhanced trust-building through detailed quality guarantees and response time commitments
+- Consistent Korean phone number builds professional credibility across platform
 
 ### September 16, 2025 Session - UX Enhancement & Mobile-Optimized CTA (Version 3.6)
 

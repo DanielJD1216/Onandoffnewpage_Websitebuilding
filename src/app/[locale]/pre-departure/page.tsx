@@ -56,7 +56,7 @@ export default function PreDeparturePage({ params }: { params: { locale: string 
           >
             <Link href={`/${params.locale}/contact`}>
               <Phone className="mr-2 h-5 w-5" />
-              무료 1:1 상담 신청
+              무료 1:1 상담 문의
             </Link>
           </Button>
           <KoreanPhoneDisplay className="mt-4" />
@@ -215,7 +215,7 @@ export default function PreDeparturePage({ params }: { params: { locale: string 
             >
               <Link href={`/${params.locale}/contact`}>
                 <Phone className="mr-2 h-5 w-5" />
-                무료 상담 예약
+                무료 상담 문의
               </Link>
             </Button>
             <KoreanPhoneDisplay className="mt-4" />

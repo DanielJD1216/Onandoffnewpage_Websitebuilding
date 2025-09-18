@@ -169,7 +169,7 @@ export default function HomePage({ params }: { params: { locale: string } }) {
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <Button size="lg" className="bg-brand-green hover:bg-brand-green/90" asChild>
                       <Link href={`/${params.locale}/contact`}>
-                        무료 상담 신청
+                        무료 상담 문의
                       </Link>
                     </Button>
                     <Button size="lg" variant="outline" className="border-2 border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-white" asChild>
@@ -215,8 +215,8 @@ export default function HomePage({ params }: { params: { locale: string } }) {
                 </li>
               </ul>
               <Button className="w-full bg-brand-green hover:bg-brand-green/90 text-white" asChild>
-                <Link href={`/${params.locale}/pre-departure/visa-support?type=independent`}>
-                  자녀 단독 유학 상담
+                <Link href={`/${params.locale}/contact`}>
+                  자녀 단독 유학 문의
                 </Link>
               </Button>
               <KoreanPhoneDisplay className="mt-3" size="sm" />
@@ -250,8 +250,8 @@ export default function HomePage({ params }: { params: { locale: string } }) {
                 </li>
               </ul>
               <Button className="w-full bg-brand-gold hover:bg-brand-gold/90 text-white" asChild>
-                <Link href={`/${params.locale}/pre-departure/visa-support?type=parent-accompanied`}>
-                  부모 동반 유학 상담
+                <Link href={`/${params.locale}/contact`}>
+                  부모 동반 유학 문의
                 </Link>
               </Button>
               <KoreanPhoneDisplay className="mt-3" size="sm" />

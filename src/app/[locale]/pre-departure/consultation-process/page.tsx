@@ -27,14 +27,14 @@ export default function ConsultationProcessPage({ params }: { params: { locale: 
       step: 1,
       title: '초기 상담 신청',
       duration: '5-10분',
-      description: '온라인 양식 작성 또는 카카오톡/전화로 간편 신청',
+      description: '카카오톡, 전화, 또는 이메일로 간편 신청',
       details: [
-        '기본 정보 입력 (학생 정보, 학부모 연락처)',
-        '관심 지역 및 학교 유형 선택',
-        '예상 출국 시기 및 예산 범위',
-        '특별 요구사항 또는 궁금한 점'
+        '카카오톡/전화/이메일을 통한 간편 연락',
+        '기본 정보 문의 (학생 정보, 학부모 연락처)',
+        '관심 지역 및 학교 유형 상담',
+        '예상 출국 시기 및 예산 범위 논의'
       ],
-      icon: <FileText className="w-6 h-6" />,
+      icon: <MessageCircle className="w-6 h-6" />,
       color: 'bg-blue-500',
       textColor: 'text-blue-600'
     },
@@ -264,8 +264,8 @@ export default function ConsultationProcessPage({ params }: { params: { locale: 
                 a: '초기 상담 시에는 특별한 서류가 필요하지 않습니다. 학생의 현재 성적표나 관심 학교가 있다면 도움이 될 수 있습니다.'
               },
               {
-                q: '상담 예약은 어떻게 하나요?',
-                a: '홈페이지 상담 신청 양식, 카카오톡, 또는 전화로 예약하실 수 있습니다. 보통 1-2일 내에 일정 조율이 가능합니다.'
+                q: '상담 문의는 어떻게 하나요?',
+                a: '카카오톡, 전화, 또는 이메일로 직접 연락주시면 문의하실 수 있습니다. 보통 1-2일 내에 일정 조율이 가능합니다.'
               }
             ].map((item, index) => (
               <Card key={index} className="p-6">
@@ -294,7 +294,7 @@ export default function ConsultationProcessPage({ params }: { params: { locale: 
               >
                 <Link href={`/${params.locale}/contact`}>
                   <Calendar className="mr-2 h-5 w-5" />
-                  무료 상담 예약하기
+                  무료 상담 문의하기
                 </Link>
               </Button>
               
@@ -306,7 +306,7 @@ export default function ConsultationProcessPage({ params }: { params: { locale: 
               >
                 <Link href="http://pf.kakao.com/_xigxbxmn/chat/" target="_blank">
                   <MessageCircle className="mr-2 h-5 w-5" />
-                  카카오톡 상담 바로 신청하기
+                  카카오톡 상담 바로 문의하기
                 </Link>
               </Button>
               

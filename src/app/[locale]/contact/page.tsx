@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import ConsultationBookingForm from '@/components/consultation/ConsultationBookingForm';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { SectionHeading } from '@/components/ui/section-heading';
@@ -10,10 +9,9 @@ import { KoreanPhoneDisplay } from '@/components/ui/korean-phone-display';
 import { AnnouncementBanner } from '@/components/ui/announcement-banner';
 import { PageHero, PageSection } from '@/components/layout/PageSection';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { 
-  Calendar, 
-  MapPin, 
-  Phone, 
+import {
+  MapPin,
+  Phone,
   Mail,
   Clock,
   Shield,
@@ -25,7 +23,7 @@ import {
 } from 'lucide-react';
 
 export default function ContactPage() {
-  const [activeTab, setActiveTab] = useState('consultation');
+  const [activeTab, setActiveTab] = useState('quick');
   const [openFAQIndex, setOpenFAQIndex] = useState<number | null>(null);
 
   return (
@@ -69,11 +67,7 @@ export default function ContactPage() {
       {/* Main Contact Section with Tabs */}
       <PageSection containerClassName="max-w-7xl">
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className="grid w-full grid-cols-3 mb-8 h-12">
-            <TabsTrigger value="consultation" className="font-black flex items-center justify-center px-2 py-2">
-              <Calendar className="w-4 h-4 mr-2" />
-              상담 예약
-            </TabsTrigger>
+          <TabsList className="grid w-full grid-cols-2 mb-8 h-12">
             <TabsTrigger value="quick" className="font-black flex items-center justify-center px-2 py-2">
               <img src="/kakao-icon.svg" alt="KakaoTalk" className="w-5 h-5 mr-2" />
               빠른 문의
@@ -84,21 +78,19 @@ export default function ContactPage() {
             </TabsTrigger>
           </TabsList>
 
-          {/* Consultation Booking Tab */}
-          <TabsContent value="consultation" className="space-y-8">
-            <div className="text-center mb-8">
-              <h2 className="text-2xl font-black text-brand-green mb-3">
-                무료 상담 예약
-              </h2>
-              <p className="text-gray-600 max-w-2xl mx-auto">
-                학생의 상황과 목표에 맞는 최적의 교육 경로를 제안해 드립니다.
-                상담부터 입학까지 모든 과정이 완전 무료입니다.
-              </p>
-              <KoreanPhoneDisplay className="mt-4" />
-            </div>
+          {/* Direct Contact Introduction */}
+          <div className="text-center mb-8">
+            <h2 className="text-2xl font-black text-brand-green mb-3">
+              무료 상담 안내
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              학생의 상황과 목표에 맞는 최적의 교육 경로를 제안해 드립니다.
+              상담부터 입학까지 모든 과정이 완전 무료입니다.
+            </p>
+            <KoreanPhoneDisplay className="mt-4" />
 
             {/* Consultation Benefits */}
-            <div className="grid md:grid-cols-4 gap-4 mb-8">
+            <div className="grid md:grid-cols-4 gap-4 mt-8">
               <Card className="p-4 text-center hover:shadow-lg transition-shadow">
                 <Shield className="w-8 h-8 text-brand-green mx-auto mb-2" />
                 <h4 className="font-black text-sm mb-1">완전 무료</h4>
@@ -120,21 +112,16 @@ export default function ContactPage() {
                 <p className="text-xs text-gray-600">언제든 연락 가능</p>
               </Card>
             </div>
-
-            {/* Consultation Booking Form */}
-            <Card className="p-6 md:p-8 shadow-lg border-0">
-              <ConsultationBookingForm />
-            </Card>
-          </TabsContent>
+          </div>
 
           {/* Quick Contact Tab */}
           <TabsContent value="quick" className="space-y-8">
             <div className="text-center mb-8">
               <h2 className="text-2xl font-black text-brand-green mb-3">
-                빠른 문의 방법
+                상담 연락 방법
               </h2>
               <p className="text-gray-600 max-w-2xl mx-auto">
-                간단한 질문이나 빠른 답변이 필요한 경우 아래 방법으로 연락주세요
+                상담 신청이나 문의사항이 있으신 경우 아래 방법으로 연락주세요
               </p>
             </div>
 
@@ -148,17 +135,17 @@ export default function ContactPage() {
                   <div className="flex-1">
                     <h3 className="font-black text-lg mb-2">이메일 상담</h3>
                     <p className="text-sm text-gray-600 mb-3">
-                      자세한 문의사항이 있으신 경우
+                      상담 신청 및 자세한 문의사항
                     </p>
                     <p className="font-medium text-brand-green mb-3">
                       onf.newpage@gmail.com
                     </p>
-                    <Button 
-                      asChild 
-                      variant="outline" 
+                    <Button
+                      asChild
+                      variant="outline"
                       className="w-full border-brand-green text-brand-green hover:bg-brand-green hover:text-white"
                     >
-                      <a href="mailto:onf.newpage@gmail.com">이메일 보내기</a>
+                      <a href="mailto:onf.newpage@gmail.com?subject=무료 상담 신청&body=안녕하세요. 무료 상담을 신청하고 싶습니다.%0D%0A%0D%0A학생 정보:%0D%0A- 이름:%0D%0A- 나이:%0D%0A- 현재 학년:%0D%0A- 희망 지역:%0D%0A%0D%0A문의사항:%0D%0A">상담 신청하기</a>
                     </Button>
                     <p className="text-xs text-gray-500 mt-2">응답: 1-2일</p>
                   </div>
@@ -174,16 +161,16 @@ export default function ContactPage() {
                   <div className="flex-1">
                     <h3 className="font-black text-lg mb-2">카카오톡 상담</h3>
                     <p className="text-sm text-gray-600 mb-3">
-                      빠른 실시간 상담
+                      빠른 실시간 상담 신청
                     </p>
                     <p className="font-medium text-yellow-600 mb-3">
                       ID: newpageonf
                     </p>
-                    <Button 
-                      asChild 
+                    <Button
+                      asChild
                       className="w-full bg-yellow-400 hover:bg-yellow-500 text-black"
                     >
-                      <a href="http://pf.kakao.com/_xigxbxmn/chat/">카카오톡 상담</a>
+                      <a href="http://pf.kakao.com/_xigxbxmn/chat/">카카오톡 상담 신청</a>
                     </Button>
                     <p className="text-xs text-gray-500 mt-2">응답: 즉시</p>
                   </div>
@@ -199,16 +186,16 @@ export default function ContactPage() {
                   <div className="flex-1">
                     <h3 className="font-black text-lg mb-2">WhatsApp 상담</h3>
                     <p className="text-sm text-gray-600 mb-3">
-                      해외에서도 편리하게
+                      해외에서도 편리한 상담 신청
                     </p>
                     <p className="font-medium text-green-600 mb-3">
                       +1 (778) 889-8235
                     </p>
-                    <Button 
-                      asChild 
+                    <Button
+                      asChild
                       className="w-full bg-green-500 hover:bg-green-600 text-white"
                     >
-                      <a href="https://wa.me/17788898235">WhatsApp 상담</a>
+                      <a href="https://wa.me/17788898235?text=안녕하세요.%20무료%20상담을%20신청하고%20싶습니다.">WhatsApp 상담 신청</a>
                     </Button>
                     <p className="text-xs text-gray-500 mt-2">응답: 빠른</p>
                   </div>
