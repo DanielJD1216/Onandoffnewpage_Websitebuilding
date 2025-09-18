@@ -29,7 +29,8 @@ export function KoreanPhoneDisplay({
         📞 한국 상담 전화번호: {' '}
         <Link
           href="tel:010-4517-1770"
-          className="font-semibold text-blue-600 hover:text-blue-700 hover:underline transition-colors"
+          className="font-semibold hover:underline transition-colors"
+          style={{ color: 'rgb(29, 78, 216)' }}
         >
           010-4517-1770
         </Link>

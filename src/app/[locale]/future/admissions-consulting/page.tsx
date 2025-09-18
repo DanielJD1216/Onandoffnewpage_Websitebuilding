@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
+import { KoreanPhoneDisplay } from '@/components/ui/korean-phone-display';
 import { ArrowLeft, Phone, GraduationCap, Target, FileText, CheckCircle } from 'lucide-react';
 
 export default function FutureAdmissionsConsultingPage({ params }: { params: { locale: string } }) {
@@ -40,16 +41,19 @@ export default function FutureAdmissionsConsultingPage({ params }: { params: { l
           <p className="text-xl md:text-2xl text-brand-gold mb-8 font-dodum">
             타깃 설정부터 합격까지 전략적 접근
           </p>
-          <Button 
-            size="lg" 
-            className="bg-brand-green hover:bg-brand-green/90 text-white font-black text-lg px-8 py-4"
-            asChild
-          >
-            <Link href={`/${params.locale}/contact`}>
-              <Phone className="mr-2 h-5 w-5" />
-              진학 컨설팅 문의
-            </Link>
-          </Button>
+          <div className="flex flex-col items-center gap-4">
+            <Button
+              size="lg"
+              className="bg-brand-green hover:bg-brand-green/90 text-white font-black text-lg px-8 py-4"
+              asChild
+            >
+              <Link href={`/${params.locale}/contact`}>
+                <Phone className="mr-2 h-5 w-5" />
+                진학 컨설팅 문의
+              </Link>
+            </Button>
+            <KoreanPhoneDisplay />
+          </div>
         </div>
       </section>
 
@@ -192,15 +196,18 @@ export default function FutureAdmissionsConsultingPage({ params }: { params: { l
             현실로 만들어보세요.
           </p>
           
-          <Button 
-            size="lg" 
-            className="bg-brand-green hover:bg-brand-green/90 text-white font-black"
-            asChild
-          >
-            <Link href={`/${params.locale}/contact`}>
-              진학 컨설팅 상담 신청
-            </Link>
-          </Button>
+          <div className="flex flex-col items-center gap-4">
+            <Button
+              size="lg"
+              className="bg-brand-green hover:bg-brand-green/90 text-white font-black"
+              asChild
+            >
+              <Link href={`/${params.locale}/contact`}>
+                진학 컨설팅 상담 신청
+              </Link>
+            </Button>
+            <KoreanPhoneDisplay />
+          </div>
         </div>
       </section>
     </div>

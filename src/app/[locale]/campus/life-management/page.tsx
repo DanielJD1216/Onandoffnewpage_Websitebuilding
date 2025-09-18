@@ -35,34 +35,94 @@ export default function CampusLifeManagementPage({ params }: { params: { locale:
         
         <div className="relative container mx-auto px-4 text-center">
           <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-brand-green mb-6 font-dodum">
-            생활 관리 서비스
+            생활관리
           </h1>
           <p className="text-xl md:text-2xl text-brand-gold mb-8 font-dodum">
-            건강부터 일상까지 토탈 생활 케어
+            입실(5′) → 준비(5′) → 세션1(40′) → 브레이크(10′) → 세션2(50′) → 리뷰(10′) → 정리(10′) → 퇴실(5′)
           </p>
-          <Button 
-            size="lg" 
-            className="bg-brand-green hover:bg-brand-green/90 text-white font-black text-lg px-8 py-4"
-            asChild
-          >
-            <Link href={`/${params.locale}/contact`}>
-              <Phone className="mr-2 h-5 w-5" />
-              생활 관리 문의
-            </Link>
-          </Button>
+          <div className="flex flex-col items-center gap-4">
+            <Button
+              size="lg"
+              className="bg-brand-green hover:bg-brand-green/90 text-white font-black text-lg px-8 py-4"
+              asChild
+            >
+              <Link href={`/${params.locale}/contact`}>
+                <Phone className="mr-2 h-5 w-5" />
+                상담 예약하기
+              </Link>
+            </Button>
+            <p className="text-brand-green font-bold">
+              📞 한국 상담 전화번호: 010-4517-1770
+            </p>
+          </div>
         </div>
       </section>
 
       {/* Main Content */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          {/* Service Overview */}
-          <div className="max-w-4xl mx-auto text-center mb-16">
-            <h2 className="text-3xl font-black text-brand-green mb-6">전인적 생활 관리</h2>
-            <p className="text-lg text-gray-600 mb-8">
-              학생의 건강한 신체와 정신, 올바른 생활 습관 형성을 위해 
-              부모님의 마음으로 세심하게 관리합니다.
-            </p>
+          {/* Daily Schedule */}
+          <div className="max-w-6xl mx-auto mb-16">
+            <h2 className="text-3xl font-black text-brand-green mb-8 text-center">일일 시간표 (고정 템플릿)</h2>
+
+            <Card className="p-8 bg-white/80 border-2 border-brand-green/20">
+              <div className="overflow-x-auto">
+                <table className="w-full border-collapse">
+                  <thead>
+                    <tr className="border-b-2 border-brand-green/20">
+                      <th className="text-left py-4 px-6 font-black text-brand-green">시간</th>
+                      <th className="text-left py-4 px-6 font-black text-brand-green">활동</th>
+                      <th className="text-left py-4 px-6 font-black text-brand-green">목적/방법</th>
+                      <th className="text-left py-4 px-6 font-black text-brand-green">산출물</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr className="border-b border-gray-200">
+                      <td className="py-4 px-6 font-bold text-brand-gold">입실 5′</td>
+                      <td className="py-4 px-6">체크인</td>
+                      <td className="py-4 px-6 text-gray-600">출결/컨디션(G/Y/R)</td>
+                      <td className="py-4 px-6 text-gray-600">출결 로그</td>
+                    </tr>
+                    <tr className="border-b border-gray-200">
+                      <td className="py-4 px-6 font-bold text-brand-gold">5′</td>
+                      <td className="py-4 px-6">준비/정리</td>
+                      <td className="py-4 px-6 text-gray-600">가방·교재·물 준비</td>
+                      <td className="py-4 px-6 text-gray-600">—</td>
+                    </tr>
+                    <tr className="border-b border-gray-200">
+                      <td className="py-4 px-6 font-bold text-brand-gold">40′</td>
+                      <td className="py-4 px-6"><strong>세션1: 리딩 버디</strong></td>
+                      <td className="py-4 px-6 text-gray-600">수준별 리딩, SR카드, 어휘 스티커</td>
+                      <td className="py-4 px-6 text-gray-600">리딩 로그</td>
+                    </tr>
+                    <tr className="border-b border-gray-200">
+                      <td className="py-4 px-6 font-bold text-brand-gold">10′</td>
+                      <td className="py-4 px-6">브레이크/간식</td>
+                      <td className="py-4 px-6 text-gray-600">휴식/위생</td>
+                      <td className="py-4 px-6 text-gray-600">간식 체크</td>
+                    </tr>
+                    <tr className="border-b border-gray-200">
+                      <td className="py-4 px-6 font-bold text-brand-gold">50′</td>
+                      <td className="py-4 px-6"><strong>세션2: 과목 학습</strong>(수학/영어 교대)</td>
+                      <td className="py-4 px-6 text-gray-600">CPA/스파이럴/모델쓰기</td>
+                      <td className="py-4 px-6 text-gray-600">미니퀴즈/워크시트</td>
+                    </tr>
+                    <tr className="border-b border-gray-200">
+                      <td className="py-4 px-6 font-bold text-brand-gold">10′</td>
+                      <td className="py-4 px-6">리뷰/과제 안내</td>
+                      <td className="py-4 px-6 text-gray-600">오늘 학습 3줄·내일 목표</td>
+                      <td className="py-4 px-6 text-gray-600">학습저널</td>
+                    </tr>
+                    <tr>
+                      <td className="py-4 px-6 font-bold text-brand-gold">10′</td>
+                      <td className="py-4 px-6">정리/퇴실</td>
+                      <td className="py-4 px-6 text-gray-600">공간정리·보호자 인계</td>
+                      <td className="py-4 px-6 text-gray-600">귀가 체크</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </Card>
           </div>
 
           {/* Key Services */}
@@ -169,15 +229,20 @@ export default function CampusLifeManagementPage({ params }: { params: { locale:
             성장할 수 있도록 지원합니다.
           </p>
           
-          <Button 
-            size="lg" 
-            className="bg-brand-green hover:bg-brand-green/90 text-white font-black"
-            asChild
-          >
-            <Link href={`/${params.locale}/contact`}>
-              생활 관리 상담 신청
-            </Link>
-          </Button>
+          <div className="flex flex-col items-center gap-4">
+            <Button
+              size="lg"
+              className="bg-brand-green hover:bg-brand-green/90 text-white font-black"
+              asChild
+            >
+              <Link href={`/${params.locale}/contact`}>
+                생활 관리 상담 신청
+              </Link>
+            </Button>
+            <p className="text-brand-green font-bold">
+              📞 한국 상담 전화번호: 010-4517-1770
+            </p>
+          </div>
         </div>
       </section>
     </div>

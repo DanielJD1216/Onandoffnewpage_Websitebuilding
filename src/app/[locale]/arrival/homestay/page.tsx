@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import { KoreanPhoneDisplay } from '@/components/ui/korean-phone-display';
 import { ArrowLeft, Phone } from 'lucide-react';
 
 export default function HomestayPage({ params }: { params: { locale: string } }) {
@@ -26,16 +27,19 @@ export default function HomestayPage({ params }: { params: { locale: string } })
           <p className="text-xl text-brand-gold mb-8 font-dodum max-w-3xl mx-auto">
             On&Off 인증 홈스테이와 직영 토탈케어 시스템
           </p>
-          <Button 
-            size="lg" 
-            className="bg-brand-green hover:bg-brand-green/90 text-white font-black"
-            asChild
-          >
-            <Link href={`/${params.locale}/contact`}>
-              <Phone className="mr-2 h-5 w-5" />
-              홈스테이 상담 신청하기
-            </Link>
-          </Button>
+          <div className="flex flex-col items-center gap-4">
+            <Button
+              size="lg"
+              className="bg-brand-green hover:bg-brand-green/90 text-white font-black"
+              asChild
+            >
+              <Link href={`/${params.locale}/contact`}>
+                <Phone className="mr-2 h-5 w-5" />
+                홈스테이 상담 신청하기
+              </Link>
+            </Button>
+            <KoreanPhoneDisplay />
+          </div>
         </div>
       </section>
     </div>

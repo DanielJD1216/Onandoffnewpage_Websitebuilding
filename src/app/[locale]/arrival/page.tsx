@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
+import { KoreanPhoneDisplay } from '@/components/ui/korean-phone-display';
 import { Plane, Phone, ArrowRight } from 'lucide-react';
 
 export default function ArrivalPage({ params }: { params: { locale: string } }) {
@@ -39,16 +40,19 @@ export default function ArrivalPage({ params }: { params: { locale: string } }) 
             밴쿠버 도착 첫날부터 학교 적응까지, 모든 과정을 함께합니다
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              size="lg" 
-              className="bg-brand-green hover:bg-brand-green/90 text-white font-black text-lg px-8 py-4"
-              asChild
-            >
-              <Link href={`/${params.locale}/contact`}>
-                <Phone className="mr-2 h-5 w-5" />
-                정착 서비스 상담 신청
-              </Link>
-            </Button>
+            <div className="flex flex-col items-center gap-4">
+              <Button
+                size="lg"
+                className="bg-brand-green hover:bg-brand-green/90 text-white font-black text-lg px-8 py-4"
+                asChild
+              >
+                <Link href={`/${params.locale}/contact`}>
+                  <Phone className="mr-2 h-5 w-5" />
+                  정착 서비스 상담 신청
+                </Link>
+              </Button>
+              <KoreanPhoneDisplay />
+            </div>
           </div>
         </div>
       </section>
@@ -388,27 +392,30 @@ export default function ArrivalPage({ params }: { params: { locale: string } }) 
             개인별 맞춤 정착 플랜을 상담받아보세요.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              size="lg" 
-              className="bg-brand-green hover:bg-brand-green/90 text-white font-black"
-              asChild
-            >
-              <Link href={`/${params.locale}/contact`}>
-                정착 서비스 견적 요청
-              </Link>
-            </Button>
-            
-            <Button 
-              size="lg" 
-              variant="outline"
-              className="border-2 border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-white font-black"
-              asChild
-            >
-              <Link href={`/${params.locale}/arrival/homestay`}>
-                홈스테이 리스트 받아보기
-              </Link>
-            </Button>
+          <div className="flex flex-col gap-6 items-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button
+                size="lg"
+                className="bg-brand-green hover:bg-brand-green/90 text-white font-black"
+                asChild
+              >
+                <Link href={`/${params.locale}/contact`}>
+                  정착 서비스 견적 요청
+                </Link>
+              </Button>
+
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-2 border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-white font-black"
+                asChild
+              >
+                <Link href={`/${params.locale}/arrival/homestay`}>
+                  홈스테이 리스트 받아보기
+                </Link>
+              </Button>
+            </div>
+            <KoreanPhoneDisplay />
           </div>
         </div>
       </section>

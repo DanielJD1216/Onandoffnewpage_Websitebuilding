@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
+import { KoreanPhoneDisplay } from '@/components/ui/korean-phone-display';
 import { Plane, Clock, FileText, ArrowLeft, Phone, CheckCircle } from 'lucide-react';
 
 export default function AirportPickupPage({ params }: { params: { locale: string } }) {
@@ -187,16 +188,19 @@ export default function AirportPickupPage({ params }: { params: { locale: string
                 <p>항공편 지연 시에도 추가 요금 없이 대기해드립니다</p>
               </div>
               
-              <Button 
-                size="lg" 
-                className="bg-brand-green hover:bg-brand-green/90 text-white font-black"
-                asChild
-              >
-                <Link href={`/${params.locale}/contact`}>
-                  <Phone className="mr-2 h-5 w-5" />
-                  픽업 서비스 예약하기
-                </Link>
-              </Button>
+              <div className="flex flex-col items-center gap-4">
+                <Button
+                  size="lg"
+                  className="bg-brand-green hover:bg-brand-green/90 text-white font-black"
+                  asChild
+                >
+                  <Link href={`/${params.locale}/contact`}>
+                    <Phone className="mr-2 h-5 w-5" />
+                    픽업 서비스 예약하기
+                  </Link>
+                </Button>
+                <KoreanPhoneDisplay />
+              </div>
             </div>
           </Card>
         </div>

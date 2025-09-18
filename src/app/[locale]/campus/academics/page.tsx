@@ -35,21 +35,26 @@ export default function CampusAcademicsPage({ params }: { params: { locale: stri
         
         <div className="relative container mx-auto px-4 text-center">
           <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-brand-green mb-6 font-dodum">
-            학업 관리 서비스
+            학업관리
           </h1>
           <p className="text-xl md:text-2xl text-brand-gold mb-8 font-dodum">
-            출결부터 성적까지 체계적인 학습 지원
+            영어·수학·과학 핵심 역량을 1:4 소그룹으로 향상
           </p>
-          <Button 
-            size="lg" 
-            className="bg-brand-green hover:bg-brand-green/90 text-white font-black text-lg px-8 py-4"
-            asChild
-          >
-            <Link href={`/${params.locale}/contact`}>
-              <Phone className="mr-2 h-5 w-5" />
-              학업 관리 문의
-            </Link>
-          </Button>
+          <div className="flex flex-col items-center gap-4">
+            <Button
+              size="lg"
+              className="bg-brand-green hover:bg-brand-green/90 text-white font-black text-lg px-8 py-4"
+              asChild
+            >
+              <Link href={`/${params.locale}/contact`}>
+                <Phone className="mr-2 h-5 w-5" />
+                학업 관리 문의
+              </Link>
+            </Button>
+            <p className="text-brand-green font-bold">
+              📞 한국 상담 전화번호: 010-4517-1770
+            </p>
+          </div>
         </div>
       </section>
 
@@ -58,103 +63,141 @@ export default function CampusAcademicsPage({ params }: { params: { locale: stri
         <div className="container mx-auto px-4">
           {/* Service Overview */}
           <div className="max-w-4xl mx-auto text-center mb-16">
-            <h2 className="text-3xl font-black text-brand-green mb-6">전문적인 학업 관리</h2>
+            <h2 className="text-3xl font-black text-brand-green mb-6">목표</h2>
             <p className="text-lg text-gray-600 mb-8">
-              학생의 학업 성취도를 체계적으로 모니터링하고, 개별 맞춤형 학습 계획을 수립하여 
-              최적의 학업 성과를 이끌어냅니다.
+              영어(리딩/라이팅)·수학·과학의 핵심 역량을 <strong>개인화 ILP</strong>로 빠르게 끌어올립니다.
             </p>
           </div>
 
-          {/* Key Services */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-            {[
-              {
-                icon: BarChart3,
-                title: "실시간 성적 모니터링",
-                description: "온라인 포털을 통한 실시간 성적 확인 및 분석"
-              },
-              {
-                icon: Calendar,
-                title: "출결 관리",
-                description: "매일 출결 상황 확인 및 지각·결석 시 즉시 알림"
-              },
-              {
-                icon: GraduationCap,
-                title: "과제 관리",
-                description: "과제 마감일 알림 및 제출 상황 체크"
-              },
-              {
-                icon: Users2,
-                title: "튜터 연계",
-                description: "필요시 전문 튜터 매칭 및 학원 추천"
-              }
-            ].map((service, index) => {
-              const IconComponent = service.icon;
-              return (
-                <Card key={index} className="p-6 text-center bg-white/80 border-2 border-brand-green/20 hover:border-brand-green transition-all">
-                  <IconComponent className="h-12 w-12 text-brand-green mx-auto mb-4" />
-                  <h3 className="text-lg font-black text-brand-green mb-3">{service.title}</h3>
-                  <p className="text-sm text-gray-600">{service.description}</p>
-                </Card>
-              );
-            })}
+          {/* Provided Items */}
+          <div className="max-w-4xl mx-auto mb-16">
+            <h2 className="text-3xl font-black text-brand-green mb-8 text-center">제공 항목</h2>
+
+            <div className="grid md:grid-cols-3 gap-6">
+              <Card className="p-6 bg-white/80 border-2 border-brand-green/20">
+                <GraduationCap className="h-12 w-12 text-brand-green mx-auto mb-4" />
+                <h3 className="text-xl font-black text-brand-green mb-3 text-center">ILP 수립</h3>
+                <p className="text-gray-600 text-center"><strong>ILP(개별 학습계획)</strong> 수립 · 마스터리 보드로 진행 가시화</p>
+              </Card>
+
+              <Card className="p-6 bg-white/80 border-2 border-brand-gold/20">
+                <BarChart3 className="h-12 w-12 text-brand-gold mx-auto mb-4" />
+                <h3 className="text-xl font-black text-brand-gold mb-3 text-center">형성평가</h3>
+                <p className="text-gray-600 text-center"><strong>형성평가(매회 5~10분)</strong> + <strong>총괄평가(4·8·12주 차)</strong></p>
+              </Card>
+
+              <Card className="p-6 bg-white/80 border-2 border-brand-green/20">
+                <Calendar className="h-12 w-12 text-brand-green mx-auto mb-4" />
+                <h3 className="text-xl font-black text-brand-green mb-3 text-center">리포트</h3>
+                <p className="text-gray-600 text-center">주간 과제 피드백 + 누적 그래프 리포트</p>
+              </Card>
+            </div>
           </div>
 
-          {/* Detailed Services */}
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-black text-brand-green mb-8 text-center">세부 서비스 내용</h2>
-            
-            <div className="space-y-8">
-              {[
-                {
-                  title: "학업 성취도 분석",
-                  features: [
-                    "주간/월간 성적 트렌드 분석",
-                    "과목별 강점/약점 파악",
-                    "개선 방안 제시 및 실행 계획 수립",
-                    "부모님께 정기 리포트 제공"
-                  ]
-                },
-                {
-                  title: "학습 계획 수립",
-                  features: [
-                    "개별 학습 스타일 분석",
-                    "목표 설정 및 단계별 계획 수립",
-                    "시험 대비 전략 및 일정 관리",
-                    "진도 점검 및 계획 수정"
-                  ]
-                },
-                {
-                  title: "학교 소통 관리",
-                  features: [
-                    "담임교사와의 정기적 소통",
-                    "학교 행사 및 중요 공지 전달",
-                    "학부모 면담 일정 조율 및 참석",
-                    "문제 상황 발생 시 즉시 대응"
-                  ]
-                },
-                {
-                  title: "추가 학습 지원",
-                  features: [
-                    "믿을 만한 튜터/학원 추천",
-                    "보충 학습 프로그램 선별",
-                    "학습 자료 및 도구 추천",
-                    "학습 환경 최적화 조언"
-                  ]
-                }
-              ].map((section, index) => (
-                <Card key={index} className="p-8 border-2 border-brand-green/20">
-                  <h3 className="text-2xl font-black text-brand-green mb-6">{section.title}</h3>
-                  <div className="grid md:grid-cols-2 gap-4">
-                    {section.features.map((feature, idx) => (
-                      <div key={idx} className="flex items-start">
-                        <div className="w-2 h-2 bg-brand-gold rounded-full mr-3 mt-2"></div>
-                        <span className="text-gray-700">{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-                </Card>
-              ))}
+          {/* Weekly Schedule */}
+          <div className="max-w-6xl mx-auto mb-16">
+            <h2 className="text-3xl font-black text-brand-green mb-8 text-center">주간 샘플 시간표 (고정 템플릿)</h2>
+
+            <Card className="p-8 bg-white/80 border-2 border-brand-green/20">
+              <div className="overflow-x-auto">
+                <table className="w-full border-collapse">
+                  <thead>
+                    <tr className="border-b-2 border-brand-green/20">
+                      <th className="text-left py-4 px-6 font-black text-brand-green">시간</th>
+                      <th className="text-left py-4 px-6 font-black text-brand-green">활동</th>
+                      <th className="text-left py-4 px-6 font-black text-brand-green">목적</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr className="border-b border-gray-200">
+                      <td className="py-4 px-6 font-bold text-brand-gold">40′</td>
+                      <td className="py-4 px-6">세션1 (리딩/개념)</td>
+                      <td className="py-4 px-6 text-gray-600">리딩 전략·핵심 개념</td>
+                    </tr>
+                    <tr className="border-b border-gray-200">
+                      <td className="py-4 px-6 font-bold text-brand-gold">10′</td>
+                      <td className="py-4 px-6">브레이크</td>
+                      <td className="py-4 px-6 text-gray-600">휴식·위생</td>
+                    </tr>
+                    <tr className="border-b border-gray-200">
+                      <td className="py-4 px-6 font-bold text-brand-gold">50′</td>
+                      <td className="py-4 px-6">세션2 (연습/응용)</td>
+                      <td className="py-4 px-6 text-gray-600">문제해결·서술 강화</td>
+                    </tr>
+                    <tr className="border-b border-gray-200">
+                      <td className="py-4 px-6 font-bold text-brand-gold">10′</td>
+                      <td className="py-4 px-6">형성평가</td>
+                      <td className="py-4 px-6 text-gray-600">핵심 스킬 퀵 체크</td>
+                    </tr>
+                    <tr>
+                      <td className="py-4 px-6 font-bold text-brand-gold">10′</td>
+                      <td className="py-4 px-6">리뷰/과제</td>
+                      <td className="py-4 px-6 text-gray-600">목표·과제 안내</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </Card>
+          </div>
+
+          {/* Subject Focus */}
+          <div className="max-w-6xl mx-auto mb-16">
+            <h2 className="text-3xl font-black text-brand-green mb-8 text-center">과목 포커스</h2>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              <Card className="p-8 border-2 border-brand-green/20">
+                <h3 className="text-2xl font-black text-brand-green mb-6">영어</h3>
+                <ul className="space-y-3 text-gray-600">
+                  <li>• 요약·추론·주제</li>
+                  <li>• RACE 구조 글쓰기</li>
+                  <li>• 피어 피드백</li>
+                </ul>
+              </Card>
+
+              <Card className="p-8 border-2 border-brand-gold/20">
+                <h3 className="text-2xl font-black text-brand-gold mb-6">수학</h3>
+                <ul className="space-y-3 text-gray-600">
+                  <li>• 스파이럴 복습</li>
+                  <li>• CPA(콘크리트→픽토리얼→추상)</li>
+                  <li>• 오류분석</li>
+                </ul>
+              </Card>
+
+              <Card className="p-8 border-2 border-brand-green/20">
+                <h3 className="text-2xl font-black text-brand-green mb-6">과학</h3>
+                <ul className="space-y-3 text-gray-600">
+                  <li>• 개념→탐구→데이터 해석</li>
+                  <li>• CER 보고서</li>
+                </ul>
+              </Card>
+            </div>
+          </div>
+
+          {/* Next Steps */}
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl font-black text-brand-green mb-8">다음 단계</h2>
+
+            <div className="grid md:grid-cols-2 gap-6">
+              <Button
+                size="lg"
+                className="bg-brand-green hover:bg-brand-green/90 text-white font-black h-auto p-6"
+                asChild
+              >
+                <Link href={`/${params.locale}/contact`}>
+                  상담 예약하기
+                </Link>
+              </Button>
+
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-white font-black h-auto p-6"
+                asChild
+              >
+                <Link href={`/${params.locale}/contact`}>
+                  리포트 샘플 보기
+                </Link>
+              </Button>
             </div>
           </div>
         </div>
@@ -169,15 +212,20 @@ export default function CampusAcademicsPage({ params }: { params: { locale: stri
             성공적인 캐나다 교육 과정을 완주할 수 있도록 지원합니다.
           </p>
           
-          <Button 
-            size="lg" 
-            className="bg-brand-green hover:bg-brand-green/90 text-white font-black"
-            asChild
-          >
-            <Link href={`/${params.locale}/contact`}>
-              학업 관리 상담 신청
-            </Link>
-          </Button>
+          <div className="flex flex-col items-center gap-4">
+            <Button
+              size="lg"
+              className="bg-brand-green hover:bg-brand-green/90 text-white font-black"
+              asChild
+            >
+              <Link href={`/${params.locale}/contact`}>
+                학업 관리 상담 신청
+              </Link>
+            </Button>
+            <p className="text-brand-green font-bold">
+              📞 한국 상담 전화번호: 010-4517-1770
+            </p>
+          </div>
         </div>
       </section>
     </div>

@@ -4,59 +4,9 @@ import React from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import { ArrowLeft, Phone, Check, Star, Download } from 'lucide-react';
+import { ArrowLeft, Phone, Check, Star, Clock, Users, Download } from 'lucide-react';
 
 export default function CampusPlansPage({ params }: { params: { locale: string } }) {
-  const plans = [
-    {
-      name: 'Basic',
-      price: '$299',
-      period: '월',
-      description: '기본적인 관리 서비스',
-      features: [
-        '월간 PDF 리포트 제공',
-        '주 1회 카카오톡 소통',
-        '기본 학업 모니터링',
-        '생활 상황 점검',
-        '이메일 지원',
-        '긴급 상황 대응'
-      ],
-      popular: false,
-      color: 'brand-green'
-    },
-    {
-      name: 'Standard',
-      price: '$499',
-      period: '월',
-      description: '표준 관리 + 추가 지원',
-      features: [
-        'Basic 모든 서비스 포함',
-        '학교/홈스테이 직접 소통',
-        '분기별 화상/전화 상담',
-        '튜터 및 학원 연계 지원',
-        '병원 동행 서비스 (월 1회)',
-        '학부모 요청사항 우선 처리'
-      ],
-      popular: true,
-      color: 'brand-gold'
-    },
-    {
-      name: 'Premium',
-      price: '$799',
-      period: '월',
-      description: '토탈 케어 시스템',
-      features: [
-        'Standard 모든 서비스 포함',
-        '월 1회 화상 미팅 (30분)',
-        '병원/기관 동행 무제한',
-        '개별 맞춤 시험 대비 플랜',
-        '24시간 긴급 연락망',
-        '전담 매니저 배정'
-      ],
-      popular: false,
-      color: 'brand-green'
-    }
-  ];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-brand-ivory via-white to-brand-ivory/50">
@@ -72,7 +22,7 @@ export default function CampusPlansPage({ params }: { params: { locale: string }
               캠퍼스 관리
             </Link>
             <span className="text-gray-400">/</span>
-            <span className="text-brand-gold font-medium">요금 플랜</span>
+            <span className="text-brand-gold font-medium">플랜·요금</span>
           </div>
         </div>
       </nav>
@@ -86,77 +36,251 @@ export default function CampusPlansPage({ params }: { params: { locale: string }
         
         <div className="relative container mx-auto px-4 text-center">
           <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-brand-green mb-6 font-dodum">
-            캠퍼스 관리 요금 플랜
+            플랜·요금
           </h1>
           <p className="text-xl md:text-2xl text-brand-gold mb-8 font-dodum">
-            학생별 맞춤형 관리 서비스 선택
+            개인과외 대비 40~60% 비용 절감, 결과 보증형 운영
           </p>
-          <Button 
-            size="lg" 
-            className="bg-brand-green hover:bg-brand-green/90 text-white font-black text-lg px-8 py-4"
-            asChild
-          >
-            <Link href={`/${params.locale}/contact`}>
-              <Phone className="mr-2 h-5 w-5" />
-              플랜 상담 문의
-            </Link>
-          </Button>
+          <div className="flex flex-col items-center gap-4">
+            <Button
+              size="lg"
+              className="bg-brand-green hover:bg-brand-green/90 text-white font-black text-lg px-8 py-4"
+              asChild
+            >
+              <Link href={`/${params.locale}/contact`}>
+                <Phone className="mr-2 h-5 w-5" />
+                상담 예약하기
+              </Link>
+            </Button>
+            <p className="text-brand-green font-bold">
+              📞 한국 상담 전화번호: 010-4517-1770
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* Plans Comparison */}
+      {/* Pricing Plans */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-black text-brand-green mb-4">관리 플랜 비교</h2>
-            <p className="text-xl text-brand-gold max-w-3xl mx-auto">
-              학생의 상황과 필요에 따라 최적의 플랜을 선택하세요
-            </p>
-          </div>
+          {/* 저학년 토탈 OSC */}
+          <div className="max-w-6xl mx-auto mb-16">
+            <h2 className="text-3xl font-black text-brand-green mb-8 text-center">저학년 토탈 OSC (Out-of-School Care)</h2>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
-            {plans.map((plan, index) => (
-              <Card 
-                key={index} 
-                className={`p-8 ${plan.popular ? 'border-2 border-brand-gold bg-brand-gold/5 scale-105 shadow-xl' : 'border-2 border-brand-green/20'} relative transition-all hover:shadow-lg`}
-              >
-                {plan.popular && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <div className="bg-brand-gold text-white px-4 py-2 rounded-full text-sm font-black flex items-center">
-                      <Star className="w-4 h-4 mr-1" />
-                      인기 플랜
-                    </div>
-                  </div>
-                )}
-                
-                <div className="text-center mb-8">
-                  <h3 className="text-2xl font-black text-brand-green mb-3">{plan.name}</h3>
-                  <div className="flex items-center justify-center mb-3">
-                    <span className="text-4xl font-black text-brand-gold">{plan.price}</span>
-                    <span className="text-gray-600 ml-2">/{plan.period}</span>
-                  </div>
-                  <p className="text-gray-600">{plan.description}</p>
+            <div className="grid md:grid-cols-3 gap-8">
+              <Card className="p-8 bg-white/80 border-2 border-brand-green/20 relative">
+                <div className="text-center mb-6">
+                  <Users className="h-12 w-12 text-brand-green mx-auto mb-4" />
+                  <h3 className="text-2xl font-black text-brand-green mb-2">주 2회</h3>
+                  <div className="text-4xl font-black text-brand-gold mb-2">$650</div>
+                  <p className="text-gray-600">월 8회 세션</p>
                 </div>
-                
-                <div className="space-y-4 mb-8">
-                  {plan.features.map((feature, idx) => (
-                    <div key={idx} className="flex items-start">
-                      <Check className="w-5 h-5 text-brand-green mr-3 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-700">{feature}</span>
-                    </div>
-                  ))}
-                </div>
-                
-                <Button 
-                  className={`w-full ${plan.popular ? 'bg-brand-gold hover:bg-brand-gold/90' : 'bg-brand-green hover:bg-brand-green/90'} font-black`}
-                  asChild
-                >
-                  <Link href={`/${params.locale}/contact`}>
-                    {plan.name} 플랜 선택
-                  </Link>
+
+                <ul className="space-y-3 mb-8">
+                  <li className="flex items-start">
+                    <Check className="w-5 h-5 text-brand-green mr-2 mt-0.5" />
+                    <span className="text-gray-700">1회 2시간 30분</span>
+                  </li>
+                  <li className="flex items-start">
+                    <Check className="w-5 h-5 text-brand-green mr-2 mt-0.5" />
+                    <span className="text-gray-700">1:4 소그룹 기본</span>
+                  </li>
+                  <li className="flex items-start">
+                    <Check className="w-5 h-5 text-brand-green mr-2 mt-0.5" />
+                    <span className="text-gray-700">간식 포함</span>
+                  </li>
+                  <li className="flex items-start">
+                    <Check className="w-5 h-5 text-brand-green mr-2 mt-0.5" />
+                    <span className="text-gray-700">영·수·과 통합</span>
+                  </li>
+                  <li className="flex items-start">
+                    <Check className="w-5 h-5 text-brand-green mr-2 mt-0.5" />
+                    <span className="text-gray-700">주간 리포트</span>
+                  </li>
+                </ul>
+
+                <Button className="w-full bg-brand-green hover:bg-brand-green/90" asChild>
+                  <Link href={`/${params.locale}/contact`}>선택하기</Link>
                 </Button>
               </Card>
-            ))}
+
+              <Card className="p-8 bg-white/80 border-2 border-brand-gold/30 relative">
+                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                  <div className="bg-brand-gold text-white px-4 py-2 rounded-full text-sm font-bold">
+                    인기
+                  </div>
+                </div>
+
+                <div className="text-center mb-6">
+                  <Star className="h-12 w-12 text-brand-gold mx-auto mb-4" />
+                  <h3 className="text-2xl font-black text-brand-gold mb-2">주 3회</h3>
+                  <div className="text-4xl font-black text-brand-gold mb-2">$850</div>
+                  <p className="text-gray-600">월 12회 세션</p>
+                </div>
+
+                <ul className="space-y-3 mb-8">
+                  <li className="flex items-start">
+                    <Check className="w-5 h-5 text-brand-gold mr-2 mt-0.5" />
+                    <span className="text-gray-700">1회 2시간 30분</span>
+                  </li>
+                  <li className="flex items-start">
+                    <Check className="w-5 h-5 text-brand-gold mr-2 mt-0.5" />
+                    <span className="text-gray-700">1:4 소그룹 기본</span>
+                  </li>
+                  <li className="flex items-start">
+                    <Check className="w-5 h-5 text-brand-gold mr-2 mt-0.5" />
+                    <span className="text-gray-700">간식 포함</span>
+                  </li>
+                  <li className="flex items-start">
+                    <Check className="w-5 h-5 text-brand-gold mr-2 mt-0.5" />
+                    <span className="text-gray-700">영·수·과 통합</span>
+                  </li>
+                  <li className="flex items-start">
+                    <Check className="w-5 h-5 text-brand-gold mr-2 mt-0.5" />
+                    <span className="text-gray-700">주간 리포트</span>
+                  </li>
+                  <li className="flex items-start">
+                    <Check className="w-5 h-5 text-brand-gold mr-2 mt-0.5" />
+                    <span className="text-gray-700"><strong>우선 배치</strong></span>
+                  </li>
+                </ul>
+
+                <Button className="w-full bg-brand-gold hover:bg-brand-gold/90" asChild>
+                  <Link href={`/${params.locale}/contact`}>선택하기</Link>
+                </Button>
+              </Card>
+
+              <Card className="p-8 bg-white/80 border-2 border-brand-green/20 relative">
+                <div className="text-center mb-6">
+                  <Clock className="h-12 w-12 text-brand-green mx-auto mb-4" />
+                  <h3 className="text-2xl font-black text-brand-green mb-2">주 5회</h3>
+                  <div className="text-4xl font-black text-brand-gold mb-2">$1,200</div>
+                  <p className="text-gray-600">월 20회 세션</p>
+                </div>
+
+                <ul className="space-y-3 mb-8">
+                  <li className="flex items-start">
+                    <Check className="w-5 h-5 text-brand-green mr-2 mt-0.5" />
+                    <span className="text-gray-700">1회 2시간 30분</span>
+                  </li>
+                  <li className="flex items-start">
+                    <Check className="w-5 h-5 text-brand-green mr-2 mt-0.5" />
+                    <span className="text-gray-700">1:4 소그룹 기본</span>
+                  </li>
+                  <li className="flex items-start">
+                    <Check className="w-5 h-5 text-brand-green mr-2 mt-0.5" />
+                    <span className="text-gray-700">간식 포함</span>
+                  </li>
+                  <li className="flex items-start">
+                    <Check className="w-5 h-5 text-brand-green mr-2 mt-0.5" />
+                    <span className="text-gray-700">영·수·과 통합</span>
+                  </li>
+                  <li className="flex items-start">
+                    <Check className="w-5 h-5 text-brand-green mr-2 mt-0.5" />
+                    <span className="text-gray-700">주간 리포트</span>
+                  </li>
+                  <li className="flex items-start">
+                    <Check className="w-5 h-5 text-brand-green mr-2 mt-0.5" />
+                    <span className="text-gray-700"><strong>전일제 케어</strong></span>
+                  </li>
+                </ul>
+
+                <Button className="w-full bg-brand-green hover:bg-brand-green/90" asChild>
+                  <Link href={`/${params.locale}/contact`}>선택하기</Link>
+                </Button>
+              </Card>
+            </div>
+          </div>
+
+          {/* 고학년 과목 튜터링 */}
+          <div className="max-w-4xl mx-auto mb-16">
+            <h2 className="text-3xl font-black text-brand-green mb-8 text-center">고학년 과목 튜터링</h2>
+
+            <Card className="p-8 bg-white/80 border-2 border-brand-green/20">
+              <div className="text-center mb-8">
+                <h3 className="text-2xl font-black text-brand-green mb-4">1회당 요금</h3>
+                <div className="text-6xl font-black text-brand-gold mb-4">$50</div>
+                <p className="text-lg text-gray-600">1인당 / 4인 그룹 기준 / 2시간 30분</p>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-8 text-center md:text-left">
+                <div className="mx-auto md:mx-0">
+                  <h4 className="text-xl font-black text-brand-green mb-4">포함 사항</h4>
+                  <ul className="space-y-3 text-left">
+                    <li className="flex items-start">
+                      <Check className="w-5 h-5 text-brand-green mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-700">개별 ILP 수립</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="w-5 h-5 text-brand-green mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-700">마스터리 보드</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="w-5 h-5 text-brand-green mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-700">형성/총괄 평가</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="w-5 h-5 text-brand-green mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-700">주간 과제 피드백</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="mx-auto md:mx-0">
+                  <h4 className="text-xl font-black text-brand-green mb-4">과목 선택</h4>
+                  <ul className="space-y-3 text-left">
+                    <li className="flex items-start">
+                      <Check className="w-5 h-5 text-brand-green mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-700">영어 (리딩/라이팅)</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="w-5 h-5 text-brand-green mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-700">수학</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="w-5 h-5 text-brand-green mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-700">과학 (물리·화학·생물)</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="w-5 h-5 text-brand-green mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-700">1~2개 과목 집중 가능</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="text-center mt-8">
+                <Button size="lg" className="bg-brand-green hover:bg-brand-green/90" asChild>
+                  <Link href={`/${params.locale}/contact`}>상담 신청하기</Link>
+                </Button>
+              </div>
+            </Card>
+          </div>
+
+          {/* 보장 정책 */}
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-black text-brand-green mb-8 text-center">보장 정책</h2>
+
+            <div className="grid md:grid-cols-2 gap-6">
+              <Card className="p-6 bg-brand-green/5 border-2 border-brand-green/20">
+                <h3 className="text-lg font-black text-brand-green mb-3">성과 보증</h3>
+                <p className="text-gray-700">4주 내 핵심 지표 1개 이상 개선 미달 시 <strong>무료 보강 2회(소그룹 60′)</strong> 제공</p>
+              </Card>
+
+              <Card className="p-6 bg-brand-gold/5 border-2 border-brand-gold/20">
+                <h3 className="text-lg font-black text-brand-gold mb-3">결석 보강</h3>
+                <p className="text-gray-700">24시간 전 통보 시 <strong>14일 내 보강</strong> (텀당 1회 무료)</p>
+              </Card>
+
+              <Card className="p-6 bg-brand-green/5 border-2 border-brand-green/20">
+                <h3 className="text-lg font-black text-brand-green mb-3">공휴일 이월</h3>
+                <p className="text-gray-700">공휴일 수업은 자동 이월, 일정 조정 가능</p>
+              </Card>
+
+              <Card className="p-6 bg-brand-gold/5 border-2 border-brand-gold/20">
+                <h3 className="text-lg font-black text-brand-gold mb-3">투명 고지</h3>
+                <p className="text-gray-700">교재/시험료 실비, 환불·이월 규정 사전 안내</p>
+              </Card>
+            </div>
           </div>
         </div>
       </section>

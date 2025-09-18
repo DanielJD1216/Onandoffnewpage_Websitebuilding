@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
+import { KoreanPhoneDisplay } from '@/components/ui/korean-phone-display';
 import { ArrowLeft, Phone, BookOpen, TrendingUp, Users, Lightbulb } from 'lucide-react';
 
 export default function FutureMajorGuidePage({ params }: { params: { locale: string } }) {
@@ -40,16 +41,19 @@ export default function FutureMajorGuidePage({ params }: { params: { locale: str
           <p className="text-xl md:text-2xl text-brand-gold mb-8 font-dodum">
             적성 분석부터 취업 전망까지
           </p>
-          <Button 
-            size="lg" 
-            className="bg-brand-green hover:bg-brand-green/90 text-white font-black text-lg px-8 py-4"
-            asChild
-          >
-            <Link href={`/${params.locale}/contact`}>
-              <Phone className="mr-2 h-5 w-5" />
-              전공 상담 문의
-            </Link>
-          </Button>
+          <div className="flex flex-col items-center gap-4">
+            <Button
+              size="lg"
+              className="bg-brand-green hover:bg-brand-green/90 text-white font-black text-lg px-8 py-4"
+              asChild
+            >
+              <Link href={`/${params.locale}/contact`}>
+                <Phone className="mr-2 h-5 w-5" />
+                전공 상담 문의
+              </Link>
+            </Button>
+            <KoreanPhoneDisplay />
+          </div>
         </div>
       </section>
 
@@ -219,15 +223,18 @@ export default function FutureMajorGuidePage({ params }: { params: { locale: str
             현명하게 하실 수 있도록 도와드립니다.
           </p>
           
-          <Button 
-            size="lg" 
-            className="bg-brand-green hover:bg-brand-green/90 text-white font-black"
-            asChild
-          >
-            <Link href={`/${params.locale}/contact`}>
-              전공 상담 신청
-            </Link>
-          </Button>
+          <div className="flex flex-col items-center gap-4">
+            <Button
+              size="lg"
+              className="bg-brand-green hover:bg-brand-green/90 text-white font-black"
+              asChild
+            >
+              <Link href={`/${params.locale}/contact`}>
+                전공 상담 신청
+              </Link>
+            </Button>
+            <KoreanPhoneDisplay />
+          </div>
         </div>
       </section>
     </div>
