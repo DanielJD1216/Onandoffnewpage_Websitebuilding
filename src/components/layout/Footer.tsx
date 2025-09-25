@@ -93,9 +93,9 @@ export function Footer() {
                   className="w-11 h-11"
                 />
               </a>
-              <a 
-                href="https://instagram.com/your_instagram" 
-                target="_blank" 
+              <a
+                href="https://www.instagram.com/onnoff.newpage/?utm_source=ig_web_button_share_sheet"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="hover:opacity-80 transition-opacity"
               >

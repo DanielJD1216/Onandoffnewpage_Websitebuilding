@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
@@ -78,7 +78,18 @@ const navigation = [
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
+
+  // Handle scroll effect
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   // Handle keyboard navigation for mobile menu
   const handleKeyDown = (event: React.KeyboardEvent) => {
@@ -94,7 +105,9 @@ export function Header() {
   };
 
   return (
-    <header className="bg-[#114b3f] shadow-sm sticky top-0 z-50">
+    <header className={`bg-[#114b3f] fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      isScrolled ? 'shadow-lg' : 'shadow-sm'
+    }`}>
       <nav className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -191,7 +204,7 @@ export function Header() {
                 />
               </a>
               <a 
-                href="https://instagram.com/your_instagram" 
+                href="https://www.instagram.com/onnoff.newpage/?utm_source=ig_web_button_share_sheet" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="hover:opacity-80 transition-opacity"
@@ -293,7 +306,7 @@ export function Header() {
                   />
                 </a>
                 <a 
-                  href="https://instagram.com/your_instagram" 
+                  href="https://www.instagram.com/onnoff.newpage/?utm_source=ig_web_button_share_sheet" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="hover:opacity-80 transition-opacity"

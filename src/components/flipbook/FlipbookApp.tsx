@@ -327,7 +327,7 @@ const FlipbookApp: React.FC = () => {
           // Loop back to start after the last page
           return nextPage >= totalPages ? 0 : nextPage;
         });
-      }, 4000); // 4 second intervals
+      }, 8000); // 8 second intervals for better readability
     };
 
     startAutoPlay();

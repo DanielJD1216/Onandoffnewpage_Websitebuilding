@@ -61,53 +61,55 @@ export default function RegionsSchoolsPage({ params }: { params: { locale: strin
     {
       name: 'Walnut Grove Secondary',
       district: '랭리',
-      program: 'IB, AP, 과학 특성화',
-      specialty: '수학/과학 강점 + 국제학생 지원 우수',
+      program: 'AP (Advanced Placement)',
+      specialty: 'AP 강점 (수학, 과학, 영어 등) + 다양한 과목',
       rating: '★★★★★',
       isLangley: true,
-      highlights: ['최신 과학 실험실', '우수한 IB 프로그램', '국제학생 적응 프로그램']
+      highlights: ['광범위한 AP 과목 (과학 포함)', '최신 과학 실험실', '교육청 국제학생 지원']
     },
     {
       name: 'R.E. Mountain Secondary',
       district: '랭리',
-      program: 'Langley Fine Arts, IB',
-      specialty: '예술 분야 특화 + 창의성 교육',
+      program: 'IB (International Baccalaureate)',
+      specialty: 'IB 디플로마 + 예술 및 과외활동 강점',
       rating: '★★★★★',
       isLangley: true,
-      highlights: ['예술 전문 시설', '개별 멘토링', '창의적 사고 프로그램']
+      highlights: ['IB World School (풀 디플로마)', 'Pre-IB 준비 과정 (9-10학년)', '시각 및 공연 예술 기회']
     },
     {
       name: 'Brookswood Secondary',
       district: '랭리',
-      program: 'AP, Career Programs',
-      specialty: '진로 집중 교육 + 실무 경험',
+      program: 'AP, French Immersion',
+      specialty: '다양한 선택 과목 + 실습 중심',
       rating: '★★★★☆',
       isLangley: true,
-      highlights: ['실무 중심 교육', '대학 연계 프로그램', '소규모 클래스']
+      highlights: ['AP 시험 기회', 'French Immersion 프로그램', '특별 선택과목 (연극, 영화, 자동차 정비 등)']
     },
     {
       name: 'Lord Tweedsmuir Secondary',
       district: '서리',
-      program: 'AP, Career Programs',
-      specialty: '예술/기술 우수',
+      specialty: '대규모 종합 학교 + 운동/과외활동 강점',
       rating: '★★★★☆',
-      isLangley: false
+      isLangley: false,
+      highlights: ['강력한 운동 프로그램', '다양한 선택 과목']
     },
     {
       name: 'Pinetree Secondary',
       district: '코퀴틀람',
       program: 'IB, French Immersion',
-      specialty: '언어/인문학 강점',
+      specialty: 'IB 디플로마 + French Immersion 중심',
       rating: '★★★★★',
-      isLangley: false
+      isLangley: false,
+      highlights: ['IB 디플로마 프로그램', 'French Immersion', '균형잡힌 학업 및 과외활동']
     },
     {
       name: 'Robert Bateman Secondary',
       district: '아보츠포드',
-      program: 'AP, Arts',
-      specialty: '개별 맞춤형 교육',
+      program: 'AP, Arts, Athletics',
+      specialty: '개인 맞춤 학습 + 다양한 선택과목',
       rating: '★★★★☆',
-      isLangley: false
+      isLangley: false,
+      highlights: ['AP 옵션 제공', '강력한 예술 및 운동 프로그램', '유연한 개인 맞춤 학습 경로']
     }
   ];
 
@@ -309,10 +311,12 @@ export default function RegionsSchoolsPage({ params }: { params: { locale: strin
                     </span>
                   </div>
                   
-                  <div className="flex items-center">
-                    <Users className="h-4 w-4 mr-2 text-gray-500" />
-                    <span className="text-gray-600">{school.program}</span>
-                  </div>
+                  {school.program && (
+                    <div className="flex items-center">
+                      <Users className="h-4 w-4 mr-2 text-gray-500" />
+                      <span className="text-gray-600">{school.program}</span>
+                    </div>
+                  )}
                   
                   <div className="flex items-center">
                     <Award className="h-4 w-4 mr-2 text-gray-500" />

@@ -51,12 +51,6 @@ export function StickyCTA() {
             </Button>
           </div>
 
-          {/* Decorative dots */}
-          <div className="absolute -left-2 top-1/2 transform -translate-y-1/2">
-            <div className="w-2 h-2 bg-emerald-400 rounded-full opacity-60"></div>
-            <div className="w-1.5 h-1.5 bg-emerald-300 rounded-full mt-1 opacity-40"></div>
-            <div className="w-1 h-1 bg-emerald-200 rounded-full mt-1 opacity-20"></div>
-          </div>
         </div>
       )}
 
