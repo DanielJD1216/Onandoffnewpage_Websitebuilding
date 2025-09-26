@@ -15,12 +15,12 @@ const navigation = [
     href: '/ko/pre-departure',
     hoverTitle: '인생의 새로운 페이지 · 출발 전 가이드',
     submenu: [
-      { name: '인생의 새로운 페이지 (출발 전 가이드)', href: '/ko/pre-departure' },
-      { name: '상담 절차 안내', href: '/ko/pre-departure/consultation-process' },
-      { name: '지역/학교 선택 (무료)', href: '/ko/pre-departure/regions-schools' },
-      { name: '입학 절차 안내 (무료)', href: '/ko/pre-departure/admissions-steps' },
-      { name: '학교 등록 대행 (무료)', href: '/ko/pre-departure/registration-service' },
-      { name: '비자 지원 (+$300/인)', href: '/ko/pre-departure/visa-support' }
+      { name: '인생의 새로운 페이지 (출발 전 가이드)', href: '/ko/pre-departure#overview' },
+      { name: '상담 절차 안내', href: '/ko/pre-departure#consultation' },
+      { name: '지역/학교 선택 (무료)', href: '/ko/pre-departure#regions' },
+      { name: '입학 절차 안내 (무료)', href: '/ko/pre-departure#admissions' },
+      { name: '학교 등록 대행 (무료)', href: '/ko/pre-departure#registration' },
+      { name: '비자 지원 (+$300/인)', href: '/ko/pre-departure#visa' }
     ]
   },
   {
@@ -46,9 +46,10 @@ const navigation = [
     href: '/ko/future',
     hoverTitle: '진로의 페이지 · 미래 설계',
     submenu: [
-      { name: '대학/고등 진학 컨설팅', href: '/ko/future/admissions-consulting' },
-      { name: '전공 선택 가이드', href: '/ko/future/major-guide' },
-      { name: '커리어 멘토링 & 포트폴리오', href: '/ko/future/career-portfolio' }
+      { name: '진로 설계 개요', href: '/ko/future#overview' },
+      { name: '대학/고등 진학 컨설팅', href: '/ko/future#admissions' },
+      { name: '전공 선택 가이드', href: '/ko/future#majors' },
+      { name: '커리어 멘토링 & 포트폴리오', href: '/ko/future#portfolio' }
     ]
   },
   { 
@@ -56,9 +57,10 @@ const navigation = [
     href: '/ko/alumni',
     hoverTitle: '졸업 후 새로운 여정',
     submenu: [
-      { name: '동문 네트워킹', href: '/ko/alumni/network' },
-      { name: '커뮤니티 활동', href: '/ko/alumni/community' },
-      { name: '연계 지원 (코업/취업/이민 파트너 소개)', href: '/ko/alumni/links' }
+      { name: '동문 네트워크 개요', href: '/ko/alumni#overview' },
+      { name: '동문 네트워킹', href: '/ko/alumni#network' },
+      { name: '커뮤니티 활동', href: '/ko/alumni#community' },
+      { name: '연계 지원 (코업/취업/이민 파트너 소개)', href: '/ko/alumni#links' }
     ]
   },
   { 
