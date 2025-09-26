@@ -75,7 +75,7 @@ export function ContactMethodCard({
 
   return (
     <Card className={cn(
-      'border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 text-center group overflow-hidden relative',
+      'border-0 shadow-lg active:shadow-2xl transition-all duration-500 active:-translate-y-2 md:hover:shadow-2xl md:hover:-translate-y-2 text-center group overflow-hidden relative',
       cardStyles[variant],
       className
     )}>
@@ -91,7 +91,7 @@ export function ContactMethodCard({
         {/* Icon Section */}
         <div className="relative mb-6">
           <div className={cn(
-            'w-20 h-20 mx-auto rounded-2xl flex items-center justify-center shadow-lg shadow-brand-green/25 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300',
+            'w-20 h-20 mx-auto rounded-2xl flex items-center justify-center shadow-lg shadow-brand-green/25 group-active:scale-110 group-active:rotate-3 md:group-hover:scale-110 md:group-hover:rotate-3 transition-all duration-300',
             variant === 'premium' 
               ? `bg-gradient-to-br ${colors.gradient}` 
               : 'bg-gradient-to-br from-brand-green to-brand-green/80'
@@ -112,7 +112,7 @@ export function ContactMethodCard({
         <div className="space-y-4">
           {/* Title */}
           <div>
-            <h3 className="text-2xl font-black text-brand-green mb-2 group-hover:text-brand-green/90 transition-colors">
+            <h3 className="text-2xl font-black text-brand-green mb-2 group-active:text-brand-green/90 md:group-hover:text-brand-green/90 transition-colors">
               {title}
             </h3>
             <p className="text-sm font-semibold text-gray-600 mb-3">
@@ -145,10 +145,10 @@ export function ContactMethodCard({
             <Button 
               size="lg"
               className={cn(
-                'w-full font-black text-white shadow-lg transition-all duration-300 group-hover:shadow-xl',
+                'w-full font-black text-white shadow-lg transition-all duration-300 group-active:shadow-xl md:group-hover:shadow-xl',
                 variant === 'premium'
-                  ? `bg-gradient-to-r ${colors.gradient} hover:scale-105`
-                  : 'bg-brand-green hover:bg-brand-green/90 hover:scale-105'
+                  ? `bg-gradient-to-r ${colors.gradient} active:scale-105 md:hover:scale-105`
+                  : 'bg-brand-green active:bg-brand-green/90 active:scale-105 md:hover:bg-brand-green/90 md:hover:scale-105'
               )}
               asChild
             >
@@ -165,7 +165,7 @@ export function ContactMethodCard({
         </div>
 
         {/* Korean-style bottom accent line - safely positioned */}
-        <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-12 h-0.5 bg-gradient-to-r from-transparent via-brand-green/15 to-transparent group-hover:w-16 group-hover:via-brand-green/20 transition-all duration-300" />
+        <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-12 h-0.5 bg-gradient-to-r from-transparent via-brand-green/15 to-transparent group-active:w-16 group-active:via-brand-green/20 md:group-hover:w-16 md:group-hover:via-brand-green/20 transition-all duration-300" />
       </div>
 
       {/* Response time badge */}

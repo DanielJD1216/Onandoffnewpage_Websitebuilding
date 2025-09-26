@@ -23,14 +23,10 @@ const navigation = [
       { name: '비자 지원 (+$300/인)', href: '/ko/pre-departure/visa-support' }
     ]
   },
-  { 
-    name: 'Page 1', 
+  {
+    name: 'Page 1',
     href: '/ko/arrival',
-    hoverTitle: '전환점 & 도약의 페이지 · 밴쿠버 정착 서비스',
-    submenu: [
-      { name: '공항 픽업', href: '/ko/arrival/airport-pickup' },
-      { name: '홈스테이 배정', href: '/ko/arrival/homestay' },
-    ]
+    hoverTitle: '전환점 & 도약의 페이지 · 밴쿠버 정착 서비스'
   },
   { 
     name: 'Page 2', 
