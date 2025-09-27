@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { FeatureCard } from '@/components/ui/feature-card';
@@ -9,18 +10,12 @@ import {
   Users,
   Heart,
   Briefcase,
-  BookOpen,
   GraduationCap,
   Building2,
   Globe,
-  Target,
   CheckCircle,
-  Award,
-  MessageCircle,
   Calendar,
   Handshake,
-  MapPin,
-  Coffee,
   Lightbulb,
   TrendingUp
 } from 'lucide-react';
@@ -136,8 +131,8 @@ export default function AlumniPage({ params: _params }: { params: { locale: stri
                       <h3 className="text-xl font-black text-brand-green mb-2">김○○ 학생</h3>
                       <p className="text-gray-600 mb-3">UBC 경영학과 진학 → 글로벌 컨설팅 회사 취업</p>
                       <p className="text-sm text-gray-700">
-                        "On & Off의 체계적인 관리 덕분에 캐나다 생활에 빠르게 적응할 수 있었고,
-                        동문 네트워크를 통해 소중한 멘토를 만날 수 있었습니다."
+                        &ldquo;On & Off의 체계적인 관리 덕분에 캐나다 생활에 빠르게 적응할 수 있었고,
+                        동문 네트워크를 통해 소중한 멘토를 만날 수 있었습니다.&rdquo;
                       </p>
                     </div>
                   </div>
@@ -151,8 +146,8 @@ export default function AlumniPage({ params: _params }: { params: { locale: stri
                       <h3 className="text-xl font-black text-brand-green mb-2">박○○ 학생</h3>
                       <p className="text-gray-600 mb-3">BCIT 컴퓨터 공학 → 테크 스타트업 창업</p>
                       <p className="text-sm text-gray-700">
-                        "동문 네트워크에서 만난 선배들의 조언과 지원으로 캐나다에서 성공적으로
-                        스타트업을 창업할 수 있었습니다."
+                        &ldquo;동문 네트워크에서 만난 선배들의 조언과 지원으로 캐나다에서 성공적으로
+                        스타트업을 창업할 수 있었습니다.&rdquo;
                       </p>
                     </div>
                   </div>
@@ -548,7 +543,7 @@ export default function AlumniPage({ params: _params }: { params: { locale: stri
                   className="bg-brand-green hover:bg-brand-green/90 text-white font-black px-8 py-4 rounded-full shadow-lg"
                   asChild
                 >
-                  <a href="/ko/contact">무료 상담 신청</a>
+                  <Link href="/ko/contact">무료 상담 신청</Link>
                 </Button>
                 <Button
                   size="lg"

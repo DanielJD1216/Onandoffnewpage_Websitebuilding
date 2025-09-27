@@ -54,7 +54,7 @@ export default function HomePage({ params }: { params: { locale: string } }) {
 
               <div className="grid lg:grid-cols-3 gap-8 mb-12">
                 {/* Pre-Departure Services */}
-                <Card className="p-6 border-2 border-blue-200 hover:border-blue-400 transition-all">
+                <Card className="p-6 border-2 border-blue-200 active:border-blue-400 md:hover:border-blue-400 transition-all">
                   <div className="text-center mb-4">
                     <div className="bg-blue-100 p-3 rounded-full w-16 h-16 mx-auto flex items-center justify-center mb-4">
                       <FileText className="h-8 w-8 text-blue-600" />
@@ -82,7 +82,7 @@ export default function HomePage({ params }: { params: { locale: string } }) {
                     </div>
                   </div>
                   
-                  <Button className="w-full bg-blue-600 hover:bg-blue-700" asChild>
+                  <Button className="w-full bg-blue-600 active:bg-blue-700 md:hover:bg-blue-700" asChild>
                     <Link href={`/${params.locale}/pre-departure`}>
                       출발 준비 시작하기
                     </Link>
@@ -90,7 +90,7 @@ export default function HomePage({ params }: { params: { locale: string } }) {
                 </Card>
 
                 {/* Arrival Services */}
-                <Card className="p-6 border-2 border-green-200 hover:border-green-400 transition-all">
+                <Card className="p-6 border-2 border-green-200 active:border-green-400 md:hover:border-green-400 transition-all">
                   <div className="text-center mb-4">
                     <div className="bg-green-100 p-3 rounded-full w-16 h-16 mx-auto flex items-center justify-center mb-4">
                       <Heart className="h-8 w-8 text-green-600" />
@@ -118,7 +118,7 @@ export default function HomePage({ params }: { params: { locale: string } }) {
                     </div>
                   </div>
                   
-                  <Button className="w-full bg-green-600 hover:bg-green-700" asChild>
+                  <Button className="w-full bg-green-600 active:bg-green-700 md:hover:bg-green-700" asChild>
                     <Link href={`/${params.locale}/arrival`}>
                       정착 서비스 보기
                     </Link>
@@ -126,7 +126,7 @@ export default function HomePage({ params }: { params: { locale: string } }) {
                 </Card>
 
                 {/* Campus Management */}
-                <Card className="p-6 border-2 border-purple-200 hover:border-purple-400 transition-all">
+                <Card className="p-6 border-2 border-purple-200 active:border-purple-400 md:hover:border-purple-400 transition-all">
                   <div className="text-center mb-4">
                     <div className="bg-purple-100 p-3 rounded-full w-16 h-16 mx-auto flex items-center justify-center mb-4">
                       <GraduationCap className="h-8 w-8 text-purple-600" />
@@ -150,7 +150,7 @@ export default function HomePage({ params }: { params: { locale: string } }) {
                     </div>
                   </div>
                   
-                  <Button className="w-full bg-purple-600 hover:bg-purple-700" asChild>
+                  <Button className="w-full bg-purple-600 active:bg-purple-700 md:hover:bg-purple-700" asChild>
                     <Link href={`/${params.locale}/campus`}>
                       관리 프로그램 보기
                     </Link>
@@ -167,12 +167,12 @@ export default function HomePage({ params }: { params: { locale: string } }) {
                     무료 상담으로 정확한 가이드를 받아보세요.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <Button size="lg" className="bg-brand-green hover:bg-brand-green/90" asChild>
+                    <Button size="lg" className="bg-brand-green active:bg-brand-green/90 md:hover:bg-brand-green/90" asChild>
                       <Link href={`/${params.locale}/contact`}>
                         무료 상담 문의
                       </Link>
                     </Button>
-                    <Button size="lg" variant="outline" className="border-2 border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-white" asChild>
+                    <Button size="lg" variant="outline" className="border-2 border-brand-gold text-brand-gold active:bg-brand-gold active:text-white md:hover:bg-brand-gold md:hover:text-white" asChild>
                       <Link href={`/${params.locale}/pricing`}>
                         가격 정보 보기
                       </Link>
@@ -188,7 +188,7 @@ export default function HomePage({ params }: { params: { locale: string } }) {
           <div className="flex justify-center mb-16">
             <div className="grid md:grid-cols-2 gap-8 w-full max-w-5xl">
               {/* Independent Service */}
-              <Card className="relative overflow-hidden border-2 border-brand-green/20 hover:border-brand-green transition-all p-8">
+              <Card className="relative overflow-hidden border-2 border-brand-green/20 active:border-brand-green md:hover:border-brand-green transition-all p-8">
               <div className="absolute top-0 right-0 bg-brand-green text-white px-4 py-1 text-sm font-bold">
                 인기 프로그램
               </div>
@@ -214,7 +214,7 @@ export default function HomePage({ params }: { params: { locale: string } }) {
                   <span>24시간 긴급 지원</span>
                 </li>
               </ul>
-              <Button className="w-full bg-brand-green hover:bg-brand-green/90 text-white" asChild>
+              <Button className="w-full bg-brand-green active:bg-brand-green/90 md:hover:bg-brand-green/90 text-white" asChild>
                 <Link href={`/${params.locale}/contact`}>
                   자녀 단독 유학 문의
                 </Link>
@@ -223,7 +223,7 @@ export default function HomePage({ params }: { params: { locale: string } }) {
               </Card>
             
               {/* Parent-Accompanied Service */}
-              <Card className="relative overflow-hidden border-2 border-brand-gold/20 hover:border-brand-gold transition-all p-8">
+              <Card className="relative overflow-hidden border-2 border-brand-gold/20 active:border-brand-gold md:hover:border-brand-gold transition-all p-8">
               <div className="absolute top-0 right-0 bg-brand-gold text-white px-4 py-1 text-sm font-bold">
                 프리미엄 케어
               </div>
@@ -249,7 +249,7 @@ export default function HomePage({ params }: { params: { locale: string } }) {
                   <span>부모 영어 교육 연계</span>
                 </li>
               </ul>
-              <Button className="w-full bg-brand-gold hover:bg-brand-gold/90 text-white" asChild>
+              <Button className="w-full bg-brand-gold active:bg-brand-gold/90 md:hover:bg-brand-gold/90 text-white" asChild>
                 <Link href={`/${params.locale}/contact`}>
                   부모 동반 유학 문의
                 </Link>

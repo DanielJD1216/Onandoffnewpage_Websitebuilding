@@ -132,7 +132,7 @@ export default function PricingPage({ params }: { params: { locale: string } }) 
 
           <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {paidServices.map((service, index) => (
-              <Card key={index} className={`p-6 relative ${service.popular ? 'border-2 border-brand-gold bg-brand-gold/5 scale-105' : 'border-2 border-brand-green/20'} transition-all hover:scale-105`}>
+              <Card key={index} className={`p-6 relative ${service.popular ? 'border-2 border-brand-gold bg-brand-gold/5 scale-105' : 'border-2 border-brand-green/20'} transition-all active:scale-105 md:hover:scale-105`}>
                 {service.popular && (
                   <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
                     <span className="bg-brand-gold text-white px-4 py-1 rounded-full text-sm font-bold flex items-center">
@@ -162,7 +162,7 @@ export default function PricingPage({ params }: { params: { locale: string } }) 
                 </div>
                 
                 <Button 
-                  className={`w-full ${service.popular ? 'bg-brand-gold hover:bg-brand-gold/90' : 'bg-brand-green hover:bg-brand-green/90'} font-bold`}
+                  className={`w-full ${service.popular ? 'bg-brand-gold active:bg-brand-gold/90 md:hover:bg-brand-gold/90' : 'bg-brand-green active:bg-brand-green/90 md:hover:bg-brand-green/90'} font-bold`}
                   asChild
                 >
                   <Link href={`/${params.locale}/contact`}>
@@ -231,7 +231,7 @@ export default function PricingPage({ params }: { params: { locale: string } }) 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               size="lg"
-              className="bg-brand-green hover:bg-brand-green/90 text-white font-black"
+              className="bg-brand-green active:bg-brand-green/90 md:hover:bg-brand-green/90 text-white font-black"
               asChild
             >
               <Link href={`/${params.locale}/contact`}>
@@ -243,7 +243,7 @@ export default function PricingPage({ params }: { params: { locale: string } }) 
             <Button
               size="lg"
               variant="outline"
-              className="border-2 border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-white font-black"
+              className="border-2 border-brand-gold text-brand-gold active:bg-brand-gold active:text-white md:hover:bg-brand-gold md:hover:text-white font-black"
               asChild
             >
               <Link href="http://pf.kakao.com/_xigxbxmn/chat/" target="_blank">

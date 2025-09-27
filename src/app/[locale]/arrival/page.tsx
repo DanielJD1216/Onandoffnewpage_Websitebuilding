@@ -76,7 +76,7 @@ export default function ArrivalPage({ params }: { params: { locale: string } }) 
             <div className="flex flex-col items-center gap-4">
               <Button
                 size="lg"
-                className="bg-brand-green hover:bg-brand-green/90 text-white font-black text-lg px-8 py-4"
+                className="bg-brand-green active:bg-brand-green/90 md:hover:bg-brand-green/90 text-white font-black text-lg px-8 py-4"
                 asChild
               >
                 <Link href={`/${params.locale}/contact`}>
@@ -104,7 +104,7 @@ export default function ArrivalPage({ params }: { params: { locale: string } }) 
                     "px-4 md:px-6 py-3 rounded-full font-bold transition-all duration-300 flex items-center gap-2",
                     activeTab === tab.id
                       ? "bg-brand-green text-white shadow-lg transform scale-105"
-                      : "bg-white text-brand-green border-2 border-brand-green/30 hover:border-brand-green hover:bg-brand-green/10"
+                      : "bg-white text-brand-green border-2 border-brand-green/30 active:border-brand-green active:bg-brand-green/10 md:hover:border-brand-green md:hover:bg-brand-green/10"
                   )}
                 >
                   <IconComponent className="h-4 w-4 md:h-5 md:w-5" />
@@ -149,7 +149,7 @@ export default function ArrivalPage({ params }: { params: { locale: string } }) 
                       </tr>
                     </thead>
                     <tbody>
-                      <tr className="hover:bg-gray-50">
+                      <tr className="md:hover:bg-gray-50">
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base font-semibold text-brand-green">Day 0</td>
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base font-medium">공항 픽업 & 숙소 입주 지원</td>
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base">YVR 픽업 후 사전 확정된 홈스테이/렌트 이동, 체크인, 하우스룰 및 계약 조건 확인</td>
@@ -157,7 +157,7 @@ export default function ArrivalPage({ params }: { params: { locale: string } }) 
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base">여권, 비자서류</td>
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base">2–3h</td>
                       </tr>
-                      <tr className="hover:bg-gray-50 bg-gray-25">
+                      <tr className="md:hover:bg-gray-50 bg-gray-25">
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base font-semibold text-brand-green">Day 0</td>
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base font-medium">입국 서류 검수</td>
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base">스터디 퍼밋 조건(근로시간, Co-op 여부 등) 확인, 오류 시 즉시 대응 안내</td>
@@ -165,7 +165,7 @@ export default function ArrivalPage({ params }: { params: { locale: string } }) 
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base">스터디 퍼밋, LOA</td>
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base">20–40m</td>
                       </tr>
-                      <tr className="hover:bg-gray-50">
+                      <tr className="md:hover:bg-gray-50">
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base font-semibold text-brand-green">Day 1</td>
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base font-medium">통신/데이터 개통</td>
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base">eSIM/USIM 개통, 요금제 추천, 한국 번호 보관 설정</td>
@@ -173,7 +173,7 @@ export default function ArrivalPage({ params }: { params: { locale: string } }) 
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base">여권</td>
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base">1–2h</td>
                       </tr>
-                      <tr className="hover:bg-gray-50 bg-gray-25">
+                      <tr className="md:hover:bg-gray-50 bg-gray-25">
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base font-semibold text-brand-green">Day 1</td>
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base font-medium">교통카드 & 대중교통 안내</td>
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base">Compass 카드 구매·충전, SkyTrain/버스/SeaBus 노선 및 환승 규칙 안내</td>
@@ -181,7 +181,7 @@ export default function ArrivalPage({ params }: { params: { locale: string } }) 
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base">여권</td>
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base">30–45m</td>
                       </tr>
-                      <tr className="hover:bg-gray-50">
+                      <tr className="md:hover:bg-gray-50">
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base font-semibold text-brand-green">Day 2–3</td>
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base font-medium">캐나다 은행 계좌 개설</td>
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base">TD, RBC, BMO 등 주요 은행 계좌 개설, 직불카드 발급 신청, 온라인 뱅킹 설정</td>
@@ -189,7 +189,7 @@ export default function ArrivalPage({ params }: { params: { locale: string } }) 
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base">여권, 스터디퍼밋, LOA, 주소증명</td>
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base">1–2h</td>
                       </tr>
-                      <tr className="hover:bg-gray-50 bg-gray-25">
+                      <tr className="md:hover:bg-gray-50 bg-gray-25">
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base font-semibold text-brand-green">Day 3–5</td>
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base font-medium">SIN 번호 신청</td>
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base">Service Canada 방문하여 Social Insurance Number 신청 (근로 필수)</td>
@@ -197,7 +197,7 @@ export default function ArrivalPage({ params }: { params: { locale: string } }) 
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base">여권, 스터디퍼밋</td>
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base">30–60m</td>
                       </tr>
-                      <tr className="hover:bg-gray-50">
+                      <tr className="md:hover:bg-gray-50">
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base font-semibold text-brand-green">Day 5–7</td>
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base font-medium">첫 학교 등교 지원</td>
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base">첫 등교 동행 (선택), 교무실 방문, 사물함·ID 카드 발급, 수업 일정 확인</td>
@@ -205,7 +205,7 @@ export default function ArrivalPage({ params }: { params: { locale: string } }) 
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base">여권, LOA</td>
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base">2–3h</td>
                       </tr>
-                      <tr className="hover:bg-gray-50 bg-gray-25">
+                      <tr className="md:hover:bg-gray-50 bg-gray-25">
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base font-semibold text-brand-green">Day 7–10</td>
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base font-medium">필수 생활용품 구매 동행</td>
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base">Superstore, Costco 등에서 생필품, 학용품, 의류 구매 가이드</td>
@@ -213,7 +213,7 @@ export default function ArrivalPage({ params }: { params: { locale: string } }) 
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base">직불카드</td>
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base">2–4h</td>
                       </tr>
-                      <tr className="hover:bg-gray-50">
+                      <tr className="md:hover:bg-gray-50">
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base font-semibold text-brand-green">Week 1</td>
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base font-medium">정착 점검 & F/U 미팅</td>
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base">생활 적응 상황 점검, 추가 필요 서비스 확인, 향후 케어 플랜 수립</td>
@@ -242,7 +242,7 @@ export default function ArrivalPage({ params }: { params: { locale: string } }) 
                       </tr>
                     </thead>
                     <tbody>
-                      <tr className="hover:bg-gray-50">
+                      <tr className="md:hover:bg-gray-50">
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base font-semibold text-brand-gold">Day 3–5</td>
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base font-medium">가디언 서류 준비 & 공증</td>
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base">Custodianship Declaration 작성, 공증인 방문하여 가디언 서류 공증</td>
@@ -250,7 +250,7 @@ export default function ArrivalPage({ params }: { params: { locale: string } }) 
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base">여권, 가디언 동의서, ID</td>
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base">1–2h</td>
                       </tr>
-                      <tr className="hover:bg-gray-50 bg-gray-25">
+                      <tr className="md:hover:bg-gray-50 bg-gray-25">
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base font-semibold text-brand-gold">Day 5–7</td>
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base font-medium">MSP (의료보험) 신청</td>
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base">BC 의료보험(MSP) 신청서 작성 및 제출, CareCard 신청 (3개월 대기기간)</td>
@@ -258,7 +258,7 @@ export default function ArrivalPage({ params }: { params: { locale: string } }) 
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base">여권, 스터디퍼밋, 주소증명, 가디언서류</td>
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base">45–60m</td>
                       </tr>
-                      <tr className="hover:bg-gray-50">
+                      <tr className="md:hover:bg-gray-50">
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base font-semibold text-brand-gold">Week 1</td>
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base font-medium">응급상황 대응 체계 구축</td>
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base">24시간 비상연락망, 병원·클리닉 정보 제공, 응급상황 매뉴얼 전달</td>
@@ -266,7 +266,7 @@ export default function ArrivalPage({ params }: { params: { locale: string } }) 
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base">없음</td>
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base">30–45m</td>
                       </tr>
-                      <tr className="hover:bg-gray-50 bg-gray-25">
+                      <tr className="md:hover:bg-gray-50 bg-gray-25">
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base font-semibold text-brand-gold">Week 2</td>
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base font-medium">정기 케어 일정 수립</td>
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base">주 1-2회 정기 체크인 일정 확정, 학습·생활 모니터링 시스템 가동</td>
@@ -295,7 +295,7 @@ export default function ArrivalPage({ params }: { params: { locale: string } }) 
                       </tr>
                     </thead>
                     <tbody>
-                      <tr className="hover:bg-gray-50">
+                      <tr className="md:hover:bg-gray-50">
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base font-semibold text-brand-green">Day 3–5</td>
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base font-medium">부모 관광비자 연장 신청</td>
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base">IRCC 온라인 포털을 통한 관광비자 연장 신청 (최대 6개월)</td>
@@ -303,7 +303,7 @@ export default function ArrivalPage({ params }: { params: { locale: string } }) 
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base">부모 여권, 입국도장, 재정증명</td>
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base">1–2h</td>
                       </tr>
-                      <tr className="hover:bg-gray-50 bg-gray-25">
+                      <tr className="md:hover:bg-gray-50 bg-gray-25">
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base font-semibold text-brand-green">Day 5–7</td>
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base font-medium">자녀 학교 등록 지원</td>
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base">교무실 방문, 입학서류 제출, 과목 선택 상담, 교복·학용품 구매 안내</td>
@@ -311,7 +311,7 @@ export default function ArrivalPage({ params }: { params: { locale: string } }) 
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base">자녀 여권, LOA, 예방접종기록</td>
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base">2–3h</td>
                       </tr>
-                      <tr className="hover:bg-gray-50">
+                      <tr className="md:hover:bg-gray-50">
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base font-semibold text-brand-green">Week 1</td>
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base font-medium">렌트 하우스 계약 지원</td>
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base">MLS 매물 검색, 하우스 투어 동행, 리스 계약서 검토, 유틸리티 연결</td>
@@ -319,7 +319,7 @@ export default function ArrivalPage({ params }: { params: { locale: string } }) 
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base">여권, 은행잔고증명, 소득증명</td>
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base">4–8h</td>
                       </tr>
-                      <tr className="hover:bg-gray-50 bg-gray-25">
+                      <tr className="md:hover:bg-gray-50 bg-gray-25">
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base font-semibold text-brand-green">Week 1–2</td>
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base font-medium">차량 구매/리스 지원</td>
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base">중고차 딜러 소개, 차량 검사 동행, 보험 가입, BC 운전면허 취득 안내</td>
@@ -327,7 +327,7 @@ export default function ArrivalPage({ params }: { params: { locale: string } }) 
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base">한국 면허증, 여권, 은행계좌</td>
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base">3–6h</td>
                       </tr>
-                      <tr className="hover:bg-gray-50">
+                      <tr className="md:hover:bg-gray-50">
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base font-semibold text-brand-green">Week 2</td>
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base font-medium">가족 정착 완료 점검</td>
                         <td className="border border-gray-300 px-2 py-2 sm:px-3 sm:py-3 align-top break-words text-sm sm:text-base">전체 정착 과정 점검, 추가 필요 서비스 확인, 장기 거주 계획 상담</td>
@@ -544,7 +544,7 @@ export default function ArrivalPage({ params }: { params: { locale: string } }) 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 size="lg"
-                className="bg-brand-green hover:bg-brand-green/90 text-white font-black"
+                className="bg-brand-green active:bg-brand-green/90 md:hover:bg-brand-green/90 text-white font-black"
                 asChild
               >
                 <Link href={`/${params.locale}/contact`}>
@@ -555,7 +555,7 @@ export default function ArrivalPage({ params }: { params: { locale: string } }) 
               <Button
                 size="lg"
                 variant="outline"
-                className="border-2 border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-white font-black"
+                className="border-2 border-brand-gold text-brand-gold active:bg-brand-gold active:text-white md:hover:bg-brand-gold md:hover:text-white font-black"
                 asChild
               >
                 <Link href={`/${params.locale}/contact`}>

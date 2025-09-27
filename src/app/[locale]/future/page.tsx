@@ -16,7 +16,6 @@ import {
   TrendingUp,
   Users,
   Lightbulb,
-  Portfolio,
   Award,
   Calendar
 } from 'lucide-react';
@@ -50,7 +49,7 @@ export default function FuturePage({ params }: { params: { locale: string } }) {
           <div className="flex flex-col items-center gap-4">
             <Button
               size="lg"
-              className="bg-brand-green hover:bg-brand-green/90 text-white font-black text-lg px-8 py-4"
+              className="bg-brand-green active:bg-brand-green/90 md:hover:bg-brand-green/90 text-white font-black text-lg px-8 py-4"
               asChild
             >
               <Link href={`/${params.locale}/contact`}>
@@ -77,7 +76,7 @@ export default function FuturePage({ params }: { params: { locale: string } }) {
                   className={`px-4 md:px-6 py-3 rounded-full font-bold transition-all duration-300 flex items-center gap-2 ${
                     isActive
                       ? 'bg-brand-green text-white shadow-lg transform scale-105'
-                      : 'bg-white text-brand-green border-2 border-brand-green/30 hover:border-brand-green hover:bg-brand-green/10'
+                      : 'bg-white text-brand-green border-2 border-brand-green/30 active:border-brand-green active:bg-brand-green/10 md:hover:border-brand-green md:hover:bg-brand-green/10'
                   }`}
                 >
                   <IconComponent className="h-4 w-4 md:h-5 md:w-5" />
@@ -105,7 +104,7 @@ export default function FuturePage({ params }: { params: { locale: string } }) {
                 </div>
 
                 <div className="grid lg:grid-cols-3 gap-8">
-                  <Card className="p-8 border-2 border-brand-green/20 hover:border-brand-green transition-all">
+                  <Card className="p-8 border-2 border-brand-green/20 active:border-brand-green md:hover:border-brand-green transition-all">
                     <GraduationCap className="h-12 w-12 text-brand-green mb-4" />
                     <h3 className="text-2xl font-black text-brand-green mb-4">대학/고등 진학 컨설팅</h3>
                     <p className="text-gray-600 mb-6">타깃 설정부터 원서 전략까지</p>
@@ -117,7 +116,7 @@ export default function FuturePage({ params }: { params: { locale: string } }) {
                     </ul>
                   </Card>
 
-                  <Card className="p-8 border-2 border-brand-gold/20 hover:border-brand-gold transition-all">
+                  <Card className="p-8 border-2 border-brand-gold/20 active:border-brand-gold md:hover:border-brand-gold transition-all">
                     <BookOpen className="h-12 w-12 text-brand-gold mb-4" />
                     <h3 className="text-2xl font-black text-brand-gold mb-4">전공 선택 가이드</h3>
                     <p className="text-gray-600 mb-6">적성 분석부터 취업 전망까지</p>
@@ -129,7 +128,7 @@ export default function FuturePage({ params }: { params: { locale: string } }) {
                     </ul>
                   </Card>
 
-                  <Card className="p-8 border-2 border-brand-green/20 hover:border-brand-green transition-all">
+                  <Card className="p-8 border-2 border-brand-green/20 active:border-brand-green md:hover:border-brand-green transition-all">
                     <Briefcase className="h-12 w-12 text-brand-green mb-4" />
                     <h3 className="text-2xl font-black text-brand-green mb-4">커리어 멘토링 & 포트폴리오</h3>
                     <p className="text-gray-600 mb-6">학기별 점검과 활동 추천</p>
@@ -208,7 +207,7 @@ export default function FuturePage({ params }: { params: { locale: string } }) {
                   ].map((service, index) => {
                     const IconComponent = service.icon;
                     return (
-                      <Card key={index} className="p-6 text-center bg-white/80 border-2 border-brand-green/20 hover:border-brand-green transition-all">
+                      <Card key={index} className="p-6 text-center bg-white/80 border-2 border-brand-green/20 active:border-brand-green md:hover:border-brand-green transition-all">
                         <IconComponent className="h-12 w-12 text-brand-green mx-auto mb-4" />
                         <h4 className="text-lg font-black text-brand-green mb-3">{service.title}</h4>
                         <p className="text-sm text-gray-600">{service.description}</p>
@@ -322,7 +321,7 @@ export default function FuturePage({ params }: { params: { locale: string } }) {
                   ].map((service, index) => {
                     const IconComponent = service.icon;
                     return (
-                      <Card key={index} className="p-6 text-center bg-white/80 border-2 border-brand-green/20 hover:border-brand-green transition-all">
+                      <Card key={index} className="p-6 text-center bg-white/80 border-2 border-brand-green/20 active:border-brand-green md:hover:border-brand-green transition-all">
                         <IconComponent className="h-12 w-12 text-brand-green mx-auto mb-4" />
                         <h4 className="text-lg font-black text-brand-green mb-3">{service.title}</h4>
                         <p className="text-sm text-gray-600">{service.description}</p>
@@ -362,7 +361,7 @@ export default function FuturePage({ params }: { params: { locale: string } }) {
                         majors: ["그래픽디자인", "영화제작", "음악", "미술", "건축학"]
                       }
                     ].map((field, index) => (
-                      <Card key={index} className="p-6 hover:shadow-lg transition-shadow border-2 border-brand-green/20">
+                      <Card key={index} className="p-6 active:shadow-lg md:hover:shadow-lg transition-shadow border-2 border-brand-green/20">
                         <h4 className="text-xl font-black text-brand-green mb-4">{field.category}</h4>
                         <div className="space-y-2">
                           {field.majors.map((major, idx) => (
@@ -396,7 +395,7 @@ export default function FuturePage({ params }: { params: { locale: string } }) {
                       <h3 className="text-2xl font-black text-brand-green mb-6">포트폴리오 체계적 관리</h3>
                       <div className="space-y-4">
                         <div className="flex items-start">
-                          <Portfolio className="w-6 h-6 text-brand-gold mr-3 mt-1" />
+                          <Briefcase className="w-6 h-6 text-brand-gold mr-3 mt-1" />
                           <div>
                             <span className="font-bold text-gray-800">학업 성취 기록</span>
                             <p className="text-gray-600 text-sm">성적 관리, 수상 경력, 학술 프로젝트 정리</p>
@@ -511,7 +510,7 @@ export default function FuturePage({ params }: { params: { locale: string } }) {
           <div className="flex flex-col items-center gap-4">
             <Button
               size="lg"
-              className="bg-brand-green hover:bg-brand-green/90 text-white font-black"
+              className="bg-brand-green active:bg-brand-green/90 md:hover:bg-brand-green/90 text-white font-black"
               asChild
             >
               <Link href={`/${params.locale}/contact`}>
