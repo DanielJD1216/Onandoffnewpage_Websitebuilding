@@ -1,6 +1,5 @@
-import { redirect } from 'next/navigation';
+import SimpleLandingPage from '@/components/SimpleLandingPage';
 
 export default function Home() {
-  // Redirect to Korean locale by default (as per business requirements)
-  redirect('/ko');
+  return <SimpleLandingPage />;
 }
