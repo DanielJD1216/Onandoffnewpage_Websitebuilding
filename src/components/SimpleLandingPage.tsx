@@ -37,8 +37,8 @@ export default function SimpleLandingPage() {
     {
       icon: Star,
       title: '한 명, 한 명이 우리의 브랜드',
-      subtitle: '대량 송출이 아닌 개별 맞춤 관리',
-      description: '각 학생의 성공이 곧 우리의 성공입니다',
+      subtitle: '모두에게 똑같이가 아닌, 그 학생답게',
+      description: '작은 차이가 큰 성과를 만듭니다',
       color: 'from-amber-500/10 to-amber-600/5',
       iconColor: 'text-amber-600',
       borderColor: 'border-amber-200'
@@ -74,9 +74,22 @@ export default function SimpleLandingPage() {
             소수 정예, 깊이 있는 관리
           </p>
 
-          <p className="text-lg text-gray-600 animate-fade-in-delay-2">
+          <p className="text-lg text-gray-600 animate-fade-in-delay-2 mb-8">
             내 아이에게 꼭 맞는 맞춤 유학
           </p>
+
+          <div className="animate-fade-in-delay-2">
+            <Button
+              size="lg"
+              className="bg-brand-green hover:bg-brand-green/90 text-white font-black text-lg px-10 py-6 rounded-full shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300"
+              asChild
+            >
+              <Link href="/ko">
+                <span className="mr-2">온앤오프 뉴페이지 바로가기</span>
+                <ArrowRight className="w-5 h-5" />
+              </Link>
+            </Button>
+          </div>
         </div>
       </section>
 
@@ -127,30 +140,6 @@ export default function SimpleLandingPage() {
                 </Card>
               );
             })}
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="py-16 bg-gradient-to-r from-brand-green to-brand-green/90">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="text-3xl md:text-4xl font-black text-white mb-2">100%</div>
-              <div className="text-brand-ivory text-sm md:text-base">학부모 만족도</div>
-            </div>
-            <div>
-              <div className="text-3xl md:text-4xl font-black text-white mb-2">24/7</div>
-              <div className="text-brand-ivory text-sm md:text-base">현지 긴급 지원</div>
-            </div>
-            <div>
-              <div className="text-3xl md:text-4xl font-black text-white mb-2">1:1</div>
-              <div className="text-brand-ivory text-sm md:text-base">맞춤 관리</div>
-            </div>
-            <div>
-              <div className="text-3xl md:text-4xl font-black text-white mb-2">365</div>
-              <div className="text-brand-ivory text-sm md:text-base">일 함께합니다</div>
-            </div>
           </div>
         </div>
       </section>

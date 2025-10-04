@@ -37,25 +37,6 @@ export default function ContactPage() {
           className="mb-8"
         />
 
-        {/* Key Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-          <Card className="p-4 text-center bg-white/80">
-            <div className="text-3xl font-black text-brand-green">100+</div>
-            <div className="text-sm text-gray-600 font-medium">성공 배치</div>
-          </Card>
-          <Card className="p-4 text-center bg-white/80">
-            <div className="text-3xl font-black text-brand-green">100%</div>
-            <div className="text-sm text-gray-600 font-medium">무료 상담</div>
-          </Card>
-          <Card className="p-4 text-center bg-white/80">
-            <div className="text-3xl font-black text-brand-green">24/7</div>
-            <div className="text-sm text-gray-600 font-medium">긴급 지원</div>
-          </Card>
-          <Card className="p-4 text-center bg-white/80">
-            <div className="text-3xl font-black text-brand-green">5+</div>
-            <div className="text-sm text-gray-600 font-medium">년 경험</div>
-          </Card>
-        </div>
 
         <AnnouncementBanner
           title="빠른 연락 방법"
