@@ -1,86 +1,178 @@
-# Study Abroad Consultancy Platform Project
+# On & Off Study Abroad Consultancy Website
 
-> A comprehensive Next.js platform for study abroad consultancies with multi-language support, student management, and automated design review workflows.
+> A modern, bilingual (Korean/English) website for On & Off study abroad consultancy, specializing in Canadian education for Korean students.
 
-## 📋 Project Documentation
+## 🌟 Overview
 
-### Core Platform
-- 🏗️ **[Consultancy Platform Guide](./README-CONSULTANCY-PLATFORM.md)** - Complete platform architecture, features, and implementation details
-- ⚙️ **[Setup Instructions](./SETUP.md)** - Step-by-step setup guide with database configuration and service integration
-- 🎛️ **[Claude Configuration](./CLAUDE.md)** - Claude Code project settings and memory integration
+This website provides comprehensive information about study abroad programs, school listings, settlement services, and consultation booking for students looking to study in Canada.
 
-### Development Workflows
-- 🎨 **[Design Review Workflow](./Design%20Review/DESIGN-REVIEW-WORKFLOW.md)** - Automated design review system with Playwright integration
-- 🧪 **[Testing Framework](./tests/)** - Unit and E2E testing setup (if exists)
-- 📊 **[Analytics Setup](./analytics/)** - Performance and business metrics tracking (if exists)
+### Key Features
+
+- **Bilingual Support**: Full Korean (ko) and English (en) language support with Next.js internationalization
+- **Interactive School Database**: Browse and filter Canadian schools with detailed information
+- **Consultation Booking**: Integrated booking system with Stripe payment processing
+- **Settlement Services**: Information about accommodation, banking, and settlement support
+- **Responsive Design**: Mobile-first design that works seamlessly across all devices
+- **Contact Forms**: Multiple contact forms with email integration via Resend
+- **Admin Dashboard**: Manage bookings, consultations, and content (requires authentication)
+
+## 📋 Documentation for Developers
+
+### Getting Started
+- ⚙️ **[SETUP.md](./SETUP.md)** - Complete installation and setup instructions
+- 🚀 **[DEPLOYMENT.md](./DEPLOYMENT.md)** - How to deploy to production (Vercel, Netlify, etc.)
+- 🔧 **[MAINTENANCE.md](./MAINTENANCE.md)** - Common tasks for updating content, images, and forms
+- 🐛 **[TROUBLESHOOTING.md](./TROUBLESHOOTING.md)** - Common issues and solutions
+
+### Advanced Documentation
+- 🏗️ **[PROJECT-CONTEXT.md](./PROJECT-CONTEXT.md)** - Full project architecture and technical details
+- 📖 **[DEVELOPMENT-GUIDE.md](./DEVELOPMENT-GUIDE.md)** - Development best practices
+- 🎯 **[PRD.md](./PRD.md)** - Product requirements and specifications
+- 🎛️ **[CLAUDE.md](./CLAUDE.md)** - Claude Code project settings
 
 ## 🚀 Quick Start
 
-1. **Review Platform Guide**: Start with [README-CONSULTANCY-PLATFORM.md](./README-CONSULTANCY-PLATFORM.md)
-2. **Follow Setup**: Complete [SETUP.md](./SETUP.md) instructions
-3. **Configure Design Reviews**: Implement [Design Review Workflow](./Design%20Review/DESIGN-REVIEW-WORKFLOW.md)
-4. **Initialize Project**: Run your `/init` command once ready
+```bash
+# 1. Install dependencies
+npm install
 
-## 🛠️ Tech Stack Overview
+# 2. Set up environment variables
+cp .env.local.example .env.local
+# Edit .env.local with your actual credentials
 
-- **Framework**: Next.js 15 with App Router
+# 3. Run development server
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) to view the site.
+
+## 🛠️ Tech Stack
+
+- **Framework**: Next.js 14 with App Router
+- **Language**: TypeScript
 - **Database**: Supabase (PostgreSQL)
-- **CMS**: Sanity.io
-- **UI**: shadcn/ui + Tailwind CSS
-- **Internationalization**: next-intl (EN, KO, ZH, JA)
+- **UI Components**: shadcn/ui + Radix UI
+- **Styling**: Tailwind CSS
+- **Animations**: Framer Motion + GSAP
+- **Internationalization**: next-intl (Korean/English)
 - **Payments**: Stripe
-- **Communication**: SendBird + Zoom integration
+- **Email**: Resend
+- **Forms**: React Hook Form + Zod validation
 
 ## 📁 Project Structure
 
 ```
 MAIN/
-├── README.md                           # This index file
-├── README-CONSULTANCY-PLATFORM.md     # Main platform documentation
-├── SETUP.md                            # Setup instructions
-├── CLAUDE.md                           # Claude Code configuration
-├── Design Review/                      # Automated design review system
-│   ├── DESIGN-REVIEW-WORKFLOW.md      # Design review workflow guide
-│   ├── design-principles-example.md    # Design principles template
-│   ├── design-review-agent.md         # Agent configuration
-│   └── ... (other design review files)
-└── src/                                # Source code
-    ├── app/                            # Next.js App Router
-    ├── components/                     # React components
-    └── lib/                            # Utilities and configurations
+├── src/
+│   ├── app/                    # Next.js App Router pages
+│   │   ├── [locale]/          # Internationalized routes (ko/en)
+│   │   │   ├── about/         # About page
+│   │   │   ├── booking/       # Consultation booking
+│   │   │   ├── contact/       # Contact page
+│   │   │   ├── dashboard/     # Admin dashboard
+│   │   │   ├── process/       # Process information
+│   │   │   ├── schools/       # School listings
+│   │   │   ├── services/      # Services pages
+│   │   │   └── page.tsx       # Homepage
+│   │   └── api/               # API routes (contact forms, webhooks)
+│   ├── components/            # React components
+│   │   ├── ui/               # shadcn/ui base components
+│   │   └── ...               # Custom components (Hero, SchoolCard, etc.)
+│   ├── lib/                  # Utility functions and configs
+│   │   ├── supabase/         # Supabase client setup
+│   │   ├── stripe/           # Stripe integration
+│   │   └── utils.ts          # Helper functions
+│   ├── types/                # TypeScript type definitions
+│   └── i18n.ts               # Internationalization config
+├── public/                   # Static assets
+│   ├── images/               # Images and graphics
+│   ├── fonts/                # Custom fonts
+│   └── icons/                # Icons and logos
+├── messages/                 # Translation files
+│   ├── en.json              # English translations
+│   └── ko.json              # Korean translations
+├── supabase/                # Supabase schemas and migrations
+├── docs/                    # Additional documentation
+├── .env.local.example       # Environment variables template
+├── package.json             # Dependencies and scripts
+├── next.config.js          # Next.js configuration
+├── tailwind.config.ts      # Tailwind CSS configuration
+└── tsconfig.json           # TypeScript configuration
 ```
 
-## 🎯 Business Features
+## 📜 Available Scripts
 
-### For Study Abroad Consultancies
-- **Multi-language Support** - Serve international students in their preferred language
-- **Student Portal** - Application tracking, document management, consultation scheduling
-- **CMS Integration** - University/program database with dynamic content management
-- **Communication Tools** - Chat, video consultations, automated workflows
-- **Payment Processing** - Consultation fees, service packages, invoice management
-- **GDPR Compliance** - Data protection and privacy controls for international operations
+```bash
+npm run dev          # Start development server (http://localhost:3000)
+npm run build        # Build for production
+npm run start        # Start production server
+npm run lint         # Run ESLint to check code quality
+npm run format       # Format code with Prettier
+npm run typecheck    # Type check with TypeScript
+```
 
-### For Developers
-- **Automated Design Reviews** - Playwright-powered UI/UX validation
-- **Type Safety** - Full TypeScript implementation with Zod validation
-- **Testing Suite** - Jest unit tests + Playwright E2E testing
-- **CI/CD Ready** - GitHub Actions workflows and pre-commit hooks
-- **Performance Optimized** - SSR/SSG, image optimization, and caching strategies
+## 📝 Environment Variables
 
-## 🔒 Security & Compliance
+The following environment variables are required (see `.env.local.example`):
 
-- **Authentication**: Supabase Auth with role-based access control
-- **Data Protection**: Row Level Security policies and audit logging
-- **File Security**: Virus scanning and secure document storage
-- **GDPR Compliance**: Cookie consent, data export/deletion workflows
-- **API Security**: Rate limiting, CORS configuration, and security headers
+### Supabase (Database & Authentication)
+- `NEXT_PUBLIC_SUPABASE_URL` - Your Supabase project URL
+- `NEXT_PUBLIC_SUPABASE_ANON_KEY` - Public anonymous key
+- `SUPABASE_SERVICE_ROLE_KEY` - Service role key (server-side only)
+
+### Stripe (Payment Processing)
+- `STRIPE_SECRET_KEY` - Stripe secret key
+- `STRIPE_WEBHOOK_SECRET` - Stripe webhook signing secret
+- `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY` - Stripe publishable key
+
+### Resend (Email Service)
+- `RESEND_API_KEY` - Resend API key for sending emails
+
+### Application Settings
+- `NEXT_PUBLIC_APP_URL` - Your application URL (production URL or localhost)
+- `NEXT_PUBLIC_GA_MEASUREMENT_ID` - Google Analytics ID (optional)
+
+## 🔐 Security Notes
+
+- **Never commit `.env.local`** to version control (already in .gitignore)
+- Keep all API keys and secrets secure
+- Service role key should only be used server-side, never expose to client
+- Use environment variables for all sensitive configuration
+
+## 🌐 Deployment
+
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed deployment instructions to:
+- Vercel (recommended)
+- Netlify
+- Other hosting platforms
+
+## 🔧 Maintenance & Updates
+
+See [MAINTENANCE.md](./MAINTENANCE.md) for instructions on:
+- Updating content and translations
+- Managing school listings
+- Changing images and assets
+- Handling contact form submissions
+- Managing bookings and payments
+
+## 🐛 Troubleshooting
+
+If you encounter issues, check [TROUBLESHOOTING.md](./TROUBLESHOOTING.md) for common problems and solutions.
 
 ## 📞 Support
 
-- **Documentation Issues**: Check individual guide files for detailed information
-- **Technical Support**: Refer to troubleshooting sections in SETUP.md
-- **Design Review Help**: See Design Review workflow documentation
+For technical support:
+1. Check the documentation files listed above
+2. Review [TROUBLESHOOTING.md](./TROUBLESHOOTING.md)
+3. Contact the development team
+
+## 📄 License
+
+Private - All rights reserved by On & Off Study Abroad Consultancy
 
 ---
 
-**Start Here**: 👉 **[README-CONSULTANCY-PLATFORM.md](./README-CONSULTANCY-PLATFORM.md)** for complete platform overview
+**Next Steps**:
+1. Read [SETUP.md](./SETUP.md) for installation instructions
+2. Read [DEPLOYMENT.md](./DEPLOYMENT.md) for deployment guide
+3. Read [MAINTENANCE.md](./MAINTENANCE.md) for content management
